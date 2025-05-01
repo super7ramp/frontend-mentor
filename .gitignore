@@ -3,4 +3,4 @@
 *.iml
 
 # Figma stuff
-**/.fig
+**/*.fig
