@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Blog preview card</title>
+
+    <style>
+
+        * {
+            --yellow: hsl(47, 88%, 63%);
+            --gray-950: hsl(0, 0%, 7%);
+            --gray-500: hsl(0, 0%, 42%);
+
+            --preview-max-width-px: 384;
+            --preview-max-width: 384px;
+            --preview-min-width-px: 327;
+            --preview-min-width: 327px;
+
+            --preview-max-over-min: calc(var(--preview-max-width-px) / var(--preview-min-width-px));
+        }
+
+        @font-face {
+            font-family: "Figtree";
+            src: url("assets/fonts/Figtree-VariableFont_wght.ttf")
+        }
+
+        body {
+            background-color: var(--yellow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .blog-preview {
+            background-color: white;
+            border-radius: 24px;
+            padding: 24px;
+            box-sizing: border-box;
+            max-width: var(--preview-max-width);
+            min-width: var(--preview-min-width);
+
+            border-style: solid;
+            border-width: 1px;
+            border-color: var(--gray-950);
+
+            box-shadow: 8px 8px var(--gray-950);
+        }
+
+        .blog-preview > * + * {
+            margin-top: 24px;
+        }
+
+        .blog-preview > img {
+            display: block;
+            height: 200px;
+            max-width: 100%;
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+        .category {
+            background-color: var(--yellow);
+            border-radius: 4px;
+            display: inline-block;
+            padding: 4px 12px;
+
+            font-family: "Figtree", sans-serif;
+            font-weight: bold;
+            /* font size is between 12px and 14px */
+            --scale-adjustment: calc(var(--preview-max-over-min) / (14 / 12));
+            font-size: calc(clamp(var(--preview-min-width) * var(--scale-adjustment), 100vw, var(--preview-max-width)) * 14 / var(--preview-max-width-px));
+            line-height: 150%;
+            color: var(--gray-950);
+        }
+
+        .date {
+            font-family: "Figtree", sans-serif;
+            /* font size is between 12px and 14px */
+            --scale-adjustment: calc(var(--preview-max-over-min) / (14 / 12));
+            font-size: calc(clamp(var(--preview-min-width) * var(--scale-adjustment), 100vw, var(--preview-max-width)) * 14 / var(--preview-max-width-px));
+            line-height: 150%;
+            color: var(--gray-950);
+        }
+
+        h1 {
+            font-family: "Figtree", sans-serif;
+            font-weight: bolder;
+            /* font size is between 20px and 24px */
+            --scale-adjustment: calc(var(--preview-max-over-min) / (24 / 20));
+            font-size: calc(clamp(var(--preview-min-width) * var(--scale-adjustment), 100vw, var(--preview-max-width)) * 24 / var(--preview-max-width-px));
+            line-height: 150%;
+            letter-spacing: 0;
+            color: var(--gray-950);
+        }
+
+        h1:hover {
+            color: var(--yellow);
+        }
+
+        .content > * + * {
+            margin-top: 12px;
+        }
+
+        .summary {
+            font-family: "Figtree", sans-serif;
+            /* font size is between 14px and 16px when width is between 279px and 384px */
+            --scale-adjustment: calc(var(--preview-max-over-min) / (16 / 14));
+            font-size: calc(clamp(var(--preview-min-width) * var(--scale-adjustment), 100vw, var(--preview-max-width)) * 16 / var(--preview-max-width-px));
+            line-height: 150%;
+            letter-spacing: 0;
+            color: var(--gray-500);
+        }
+
+        .author {
+            font-family: "Figtree", sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 150%;
+            color: var(--gray-950);
+        }
+
+        .author img {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="blog-preview">
+    <img src="assets/images/illustration-article.svg" alt="illustration">
+    <div class="content">
+        <div class="category">Learning</div>
+        <div class="date">Published 21 Dec 2023</div>
+        <h1>HTML & CSS foundations</h1>
+        <p class="summary">
+            These languages are the backbone of every website, defining structure, content, and presentation.
+        </p>
+    </div>
+    <div class="author">
+        <img src="assets/images/image-avatar.webp" alt="avatar">
+        Greg Hooper
+    </div>
+</div>
+</body>
+</html>
