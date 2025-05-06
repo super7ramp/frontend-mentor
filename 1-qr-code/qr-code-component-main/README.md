@@ -26,7 +26,7 @@ Frontend Mentor challenges help you improve your coding skills by building reali
 ### Links
 
 - Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/1-qr-code)
-- Live Site URL: [TODO]()
+- Live Site URL: [GitHub Pages](https://super7ramp.github.io/frontend-mentor/1-qr-code/qr-code-component-main/)
 
 ## My process
 
@@ -38,7 +38,8 @@ Frontend Mentor challenges help you improve your coding skills by building reali
 ### What I learned
 
 - Use [`hsl()`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl)
-- Sizing, notably [`box-sizing: border-box;`](https://stackoverflow.com/questions/4767010/why-does-css-padding-increase-size-of-element)
+- Sizing, notably [
+  `box-sizing: border-box;`](https://stackoverflow.com/questions/4767010/why-does-css-padding-increase-size-of-element)
 - Get fonts from [Google Fonts](https://fonts.google.com/specimen/Outfit)
 - Get attention to details of Figma designs
 
