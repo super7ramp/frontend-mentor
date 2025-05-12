@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Social links profile</title>
+
+    <style>
+
+        @font-face {
+            font-family: "Inter";
+            src: url("assets/fonts/Inter-VariableFont_slnt,wght.ttf") format("woff2-variations");
+            font-weight: normal bold;
+            font-style: normal;
+        }
+
+        :root {
+            --grey-900: #141414;
+            --grey-800: #1F1F1F;
+            --grey-700: #333333;
+            --green: #C4F82A;
+
+            --background-color: var(--grey-900);
+            --background-color-light: var(--grey-800);
+            --background-color-lighter: var(--grey-700);
+            --foreground-color: white;
+            --emphasis-color: var(--green);
+
+            --avatar-size: 88px;
+            --padding-desktop: 40px;
+            --padding-mobile: 24px;
+            --card-gap: 24px;
+            --card-radius: 12px;
+            --card-max-width: 384px;
+            --card-min-width: 327px;
+            --links-gap: 16px;
+            --link-height: 45px;
+            --link-radius: 8px;
+
+            --text-preset-1-font-family: "Inter", sans-serif;
+            --text-preset-1-font-size: 24px;
+            --text-preset-1-line-height: 150%;
+            --text-preset-1-letter-spacing: 0;
+
+            --text-preset-2-font-family: "Inter", sans-serif;
+            --text-preset-2-font-size: 14px;
+            --text-preset-2-line-height: 150%;
+            --text-preset-2-letter-spacing: 0;
+        }
+
+        @media (width >= 500px) {
+            :root {
+                --padding: var(--padding-desktop)
+            }
+        }
+
+        @media (width < 500px) {
+            :root {
+                --padding: var(--padding-mobile)
+            }
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--foreground-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        main {
+            min-width: var(--card-min-width);
+            max-width: var(--card-max-width);
+            width: 100%;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--card-gap);
+
+            background-color: var(--background-color-light);
+            border-radius: var(--card-radius);
+
+            box-sizing: border-box;
+            padding: var(--padding);
+        }
+
+        .avatar {
+            border-radius: 50%;
+            width: var(--avatar-size);
+            height: var(--avatar-size);
+        }
+
+        .name {
+            font-family: var(--text-preset-1-font-family);
+            font-size: var(--text-preset-1-font-size);
+            letter-spacing: var(--text-preset-1-letter-spacing);
+            line-height: var(--text-preset-1-line-height);
+        }
+
+        .location {
+            font-family: var(--text-preset-2-font-family);
+            font-size: var(--text-preset-2-font-size);
+            font-weight: bold;
+            letter-spacing: var(--text-preset-2-letter-spacing);
+            line-height: var(--text-preset-2-line-height);
+
+            color: var(--emphasis-color);
+
+            margin-top: 4px;
+        }
+
+        .description {
+            font-family: var(--text-preset-2-font-family);
+            font-size: var(--text-preset-2-font-size);
+            letter-spacing: var(--text-preset-2-letter-spacing);
+            line-height: var(--text-preset-2-line-height);
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            gap: var(--links-gap);
+            align-content: center;
+        }
+
+        .links li {
+            display: block;
+            background-color: var(--background-color-lighter);
+            height: var(--link-height);
+            line-height: var(--link-height);
+            text-align: center;
+            border-radius: var(--link-radius);
+
+            font-family: var(--text-preset-2-font-family);
+            font-weight: bold;
+            font-size: var(--text-preset-2-font-size);
+            letter-spacing: var(--text-preset-2-letter-spacing);
+
+            transition-property: background-color, color;
+            transition-duration: 600ms;
+        }
+
+        .links li:hover {
+            background-color: var(--emphasis-color);
+            color: var(--background-color-lighter);
+        }
+
+
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="card">
+        <img class="avatar" src="assets/images/avatar-jessica.jpeg" alt="Jessica Randall photograph">
+        <div class="name-and-location">
+            <div class="name">Jessica Randall</div>
+            <div class="location">London, United Kingdom</div>
+        </div>
+        <div class="description">"Front-end developer and avid reader."</div>
+        <ul class="links">
+            <li>GitHub</li>
+            <li>Frontend Mentor</li>
+            <li>LinkedIn</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+        </ul>
+    </div>
+</main>
+
+</body>
+</html>
