@@ -35,7 +35,7 @@ Users should be able to:
 
 - Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/5-product-preview-card-component)
 - Live Site
-  URL: [GitHub Pages](https://super7ramp.github.io/frontend-mentor/5-product-preview-card-component/product-preview-card-main/)
+  URL: [GitHub Pages](https://super7ramp.github.io/frontend-mentor/5-product-preview-card-component/product-preview-card-component-main/)
 
 ## My process
 
