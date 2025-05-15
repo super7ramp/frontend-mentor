@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Product preview card component</title>
+    <style>
+
+        :root {
+            --spacing-100: 8px;
+            --spacing-200: 16px;
+            --spacing-300: 24px;
+            --spacing-400: 32px;
+
+            --cream: #f2eae2;
+            --green-500: #3d8168;
+            --green-700: #1a4032;
+            --grey: #6c7289;
+        }
+
+        .text-preset-1 {
+            font-family: "Fraunces", serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-variation-settings: "SOFT" 0, "WONK" 0;
+
+            font-size: 32px;
+            line-height: 100%;
+            letter-spacing: 0;
+        }
+
+        .text-preset-2 {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-style: normal;
+
+            font-size: 14px;
+            line-height: 110%;
+            letter-spacing: 0;
+        }
+
+        .text-preset-3 {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: normal;
+            font-style: normal;
+
+            font-size: 14px;
+            line-height: 160%;
+            letter-spacing: 0;
+        }
+
+        .text-preset-4 {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: normal;
+            font-style: normal;
+
+            font-size: 12px;
+            line-height: 120%;
+            letter-spacing: 5px;
+        }
+
+        .text-preset-5 {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: normal;
+            font-style: normal;
+
+            font-size: 13px;
+            line-height: 120%;
+            letter-spacing: 0;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--cream);
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            max-width: 350px;
+            background-color: white;
+            border-radius: var(--spacing-100);
+        }
+
+        @media (min-width: 600px) {
+            .product-card {
+                flex-direction: row;
+                max-width: 600px;
+            }
+        }
+
+        .product-card > img {
+            max-width: 100%;
+            height: auto;
+            border-top-left-radius: var(--spacing-100);
+            border-top-right-radius: var(--spacing-100);
+        }
+
+        @media (min-width: 600px) {
+            .product-card > img {
+                content: url("images/image-product-desktop.jpg");
+                max-width: 300px;
+                border-bottom-left-radius: var(--spacing-100);
+                border-top-right-radius: 0;
+            }
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-400);
+            gap: var(--spacing-300);
+        }
+
+        .product-presentation {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-300);
+        }
+
+        .product-presentation * {
+            margin: 0;
+        }
+
+        .product-category {
+            color: var(--grey);
+            text-transform: uppercase;
+        }
+
+        .product-description {
+            color: var(--grey);
+        }
+
+        .prices {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-200);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--grey);
+        }
+
+        .new-price {
+            color: var(--green-500);
+        }
+
+        .add-to-cart-button {
+            height: 50px;
+            border: none;
+            border-radius: var(--spacing-100);
+            background-color: var(--green-500);
+            color: white;
+        }
+
+        .add-to-cart-button img {
+            width: var(--spacing-200);
+            height: var(--spacing-200);
+            vertical-align: text-top;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: var(--green-700);
+        }
+
+    </style>
+</head>
+<body>
+<main>
+    <article class="product-card">
+        <img src="images/image-product-mobile.jpg" alt="Perfume bottle"/>
+        <div class="product-info">
+            <section class="product-presentation">
+                <p class="product-category text-preset-4">Perfume</p>
+                <h1 class="text-preset-1">Gabrielle Essence Eau De Parfum</h1>
+                <p class="product-description text-preset-3">
+                    A floral, solar and voluptuous interpretation composed by Olivier Polge,
+                    Perfumer-Creator for the House of CHANEL.
+                </p>
+            </section>
+            <div class="prices">
+                <div class="new-price text-preset-1">$149.99</div>
+                <div class="old-price text-preset-5">$169.99</div>
+            </div>
+            <button class="add-to-cart-button text-preset-2">
+                <img src="images/icon-cart.svg" alt="cart icon">
+                Add to Cart
+            </button>
+        </div>
+    </article>
+</main>
+</body>
+</html>
