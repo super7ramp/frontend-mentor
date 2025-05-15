@@ -102,7 +102,6 @@
             .product-card {
                 flex-direction: row;
                 max-width: 600px;
-                gap: var(--spacing-400);
             }
         }
 
@@ -127,6 +126,12 @@
             flex-direction: column;
             padding: var(--spacing-400);
             gap: var(--spacing-300);
+        }
+
+        @media (min-width: 600px) {
+            .product-info {
+                gap: var(--spacing-400);
+            }
         }
 
         .product-presentation {
