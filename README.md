@@ -7,3 +7,4 @@ My solutions to [Frontend Mentor](https://www.frontendmentor.io/) challenges:
 3. [Social links profile](https://super7ramp.github.io/frontend-mentor/3-social-links-profile/social-links-profile-main/)
 4. [Recipe page](https://super7ramp.github.io/frontend-mentor/4-recipe-page/recipe-page-main/)
 5. [Product preview card](https://super7ramp.github.io/frontend-mentor/5-product-preview-card-component/product-preview-card-component-main/)
+6. [Four card feature section](https://super7ramp.github.io/frontend-mentor/6-four-card-feature-section/four-card-feature-section-master/)
