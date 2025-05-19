@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Four card feature section</title>
+    <style>
+
+        :root {
+            --spacing-100: 8px;
+            --spacing-200: 16px;
+            --spacing-400: 32px;
+            --cyan: #44D3D2;
+            --red: #EA5454;
+            --orange: #FCAE4A;
+            --blue: #549EF2;
+            --gray-400: #6A7178;
+            --gray-500: #4D4F62;
+            --shadow-color: rgba(131, 166, 210, 0.5);
+            background-color: #FAFAFA;
+        }
+
+        .text-preset-1 {
+            font-family: Poppins, sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 140%;
+            letter-spacing: 0.25px;
+        }
+
+        .text-preset-2 {
+            font-family: Poppins, sans-serif;
+            font-size: 36px;
+            font-weight: 200;
+            line-height: 140%;
+            letter-spacing: 0.25px;
+        }
+
+        .text-preset-3 {
+            font-family: Poppins, sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 135%;
+            letter-spacing: 0;
+        }
+
+        .text-preset-4 {
+            font-family: Poppins, sans-serif;
+            font-size: 15px;
+            font-weight: normal;
+            line-height: 140%;
+            letter-spacing: 0;
+        }
+
+        .text-preset-5 {
+            font-family: Poppins, sans-serif;
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 160%;
+            letter-spacing: 0;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .intro {
+            max-width: 540px;
+            color: var(--gray-500);
+            text-align: center;
+        }
+
+        .intro p {
+            margin-top: var(--spacing-200);
+        }
+
+        .tools {
+            display: grid;
+            gap: var(--spacing-400);
+            margin-top: 60px;
+        }
+
+        .tools section {
+            width: 314px;
+            height: 250px;
+            padding: var(--spacing-400);
+            box-sizing: border-box;
+            background-color: white;
+            border-radius: var(--spacing-100);
+            box-shadow: var(--shadow-color) 0 15px 30px -11px;
+            border-top-style: solid;
+            border-top-width: var(--spacing-100);
+        }
+
+        .tools section:first-child {
+            border-top-color: var(--cyan);
+        }
+
+        .tools section:nth-child(2) {
+            border-top-color: var(--red);
+        }
+
+        .tools section:nth-child(3) {
+            border-top-color: var(--orange);
+        }
+
+        .tools section:nth-child(4) {
+            border-top-color: var(--blue);
+        }
+
+        @media (700px <= width < 1150px) {
+            .tools {
+                grid-template-rows: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
+                margin-top: 74px;
+            }
+
+            .tools section:first-child, .tools section:last-child {
+                grid-column-start: 2;
+                grid-column-end: 5;
+            }
+
+            .tools section:nth-child(2) {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+
+            .tools section:nth-child(3) {
+                grid-column-start: 3;
+                grid-column-end: 5;
+            }
+        }
+
+        @media (1150px <= width) {
+            .tools {
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+                margin-top: 74px;
+            }
+
+            .tools section {
+                width: 350px;
+            }
+
+            .tools section:first-child, .tools section:last-child {
+                grid-row-start: 2;
+                grid-row-end: 5;
+            }
+
+            .tools section:nth-child(2) {
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+
+            .tools section:nth-child(3) {
+                grid-row-start: 3;
+                grid-row-end: 5;
+            }
+        }
+
+        .tools section h1 {
+            color: var(--gray-500);
+        }
+
+        .tools section p {
+            margin-top: 6px;
+            color: var(--gray-400);
+        }
+
+        .tools section img {
+            margin-top: var(--spacing-400);
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+<main>
+    <article>
+        <section class="intro">
+            <h1 class="text-preset-2">Reliable, efficient delivery</h1>
+            <div class="text-preset-1">Powered by Technology</div>
+            <p class="text-preset-4">
+                Our Artificial Intelligence powered tools use millions of project data points
+                to ensure that your project is successful
+            </p>
+        </section>
+
+        <div class="tools">
+            <section>
+                <h1 class="text-preset-3">Supervisor</h1>
+                <p class="text-preset-5">Monitors activity to identify project roadblocks</p>
+                <img src="images/icon-supervisor.svg" alt="Supervisor icon">
+            </section>
+
+            <section>
+                <h1 class="text-preset-3">Team Builder</h1>
+                <p class="text-preset-5">Scans our talent network to create the optimal team for your project</p>
+                <img src="images/icon-team-builder.svg" alt="Team Builder icon">
+            </section>
+
+            <section>
+                <h1 class="text-preset-3">Karma</h1>
+                <p class="text-preset-5">Regularly evaluates our talent to ensure quality</p>
+                <img src="images/icon-karma.svg" alt="Karma icon">
+            </section>
+
+            <section>
+                <h1 class="text-preset-3">Calculator</h1>
+                <p class="text-preset-5">Uses data from past projects to provide better delivery estimates</p>
+                <img src="images/icon-calculator.svg" alt="Calculator icon">
+            </section>
+        </div>
+    </article>
+</main>
+</body>
+</html>
