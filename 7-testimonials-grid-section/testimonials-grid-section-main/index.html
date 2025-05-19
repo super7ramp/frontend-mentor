@@ -13,6 +13,7 @@
     <style>
 
         :root {
+            --spacing-50: 4px;
             --spacing-100: 8px;
             --spacing-200: 16px;
             --spacing-300: 24px;
@@ -86,14 +87,14 @@
             max-width: 1114px;
         }
         
-        @media (700px <= width < 1000px) {
+        @media (700px <= width < 1100px) {
             main {
                 grid-template-rows: repeat(4, 1fr);
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (1000px <= width) {
+        @media (1100px <= width) {
             main {
                 grid-template-rows: 0.51fr 0.49fr;
                 grid-template-columns: repeat(4, 1fr);
@@ -112,6 +113,10 @@
             box-shadow: var(--grey-500) 40px 50px 60px -47px;
         }
 
+        .author-diploma {
+            margin-top: var(--spacing-50);
+        }
+
         .testimonial:nth-child(5n+1) {
             background-color: var(--purple);
             color: var(--white);
@@ -121,7 +126,7 @@
             .testimonial:nth-child(5n+1) {
                 background-image: url(images/bg-pattern-quotation.svg);
                 background-repeat: no-repeat;
-                background-position-x: 62%;
+                background-position-x: 90%;
 
                 grid-column-start: 1;
                 grid-column-end: 3;
@@ -145,7 +150,7 @@
             color: var(--white);
         }
 
-        @media (700px <= width < 1000px) {
+        @media (700px <= width < 1100px) {
             .testimonial:nth-child(5n+2) {
                 grid-column-start: 1;
                 grid-column-end: 2;
@@ -153,7 +158,7 @@
             }
         }
 
-        @media (1000px <= width) {
+        @media (1100px <= width) {
             .testimonial:nth-child(5n+2) {
                 grid-column-start: 3;
                 grid-column-end: 4;
@@ -161,7 +166,7 @@
             }
         }
 
-        .testimonial:nth-child(5n+2) header .text-preset-4,
+        .testimonial:nth-child(5n+2) header .author-diploma,
         .testimonial:nth-child(5n+2) blockquote {
             color: var(--grey-100);
         }
@@ -171,7 +176,7 @@
             color: var(--grey-500);
         }
 
-        @media (700px <= width < 1000px) {
+        @media (700px <= width < 1100px) {
             .testimonial:nth-child(5n+3) {
                 grid-column-start: 2;
                 grid-column-end: 3;
@@ -179,7 +184,7 @@
             }
         }
 
-        @media (1000px <= width) {
+        @media (1100px <= width) {
             .testimonial:nth-child(5n+3) {
                 grid-column-start: 1;
                 grid-column-end: 2;
@@ -188,7 +193,7 @@
             }
         }
 
-        .testimonial:nth-child(5n+3) header .text-preset-4,
+        .testimonial:nth-child(5n+3) header .author-diploma,
         .testimonial:nth-child(5n+3) blockquote {
             color: var(--grey-400);
         }
@@ -198,7 +203,7 @@
             color: var(--grey-200);
         }
 
-        @media (700px <= width < 1000px) {
+        @media (700px <= width < 1100px) {
             .testimonial:nth-child(5n+4) {
                 grid-column-start: 1;
                 grid-column-end: 3;
@@ -206,7 +211,7 @@
             }
         }
 
-        @media (1000px <= width) {
+        @media (1100px <= width) {
             .testimonial:nth-child(5n+4) {
                 grid-column-start: 2;
                 grid-column-end: 4;
@@ -215,7 +220,7 @@
             }
         }
 
-        .testimonial:nth-child(5n+4) header .text-preset-4,
+        .testimonial:nth-child(5n+4) header .author-diploma,
         .testimonial:nth-child(5n+4) blockquote {
             color: var(--grey-100);
         }
@@ -231,7 +236,7 @@
             color: var(--grey-500);
         }
 
-        @media (700px <= width < 1000px) {
+        @media (700px <= width < 1100px) {
             .testimonial:nth-child(5n) {
                 grid-column-start: 1;
                 grid-column-end: 3;
@@ -239,7 +244,7 @@
             }
         }
 
-        @media (1000px <= width) {
+        @media (1100px <= width) {
             .testimonial:nth-child(5n) {
                 grid-column-start: 4;
                 grid-column-end: 5;
@@ -249,14 +254,14 @@
             }
         }
 
-        .testimonial:nth-child(5n) header .text-preset-4,
+        .testimonial:nth-child(5n) header .author-diploma,
         .testimonial:nth-child(5n) blockquote {
             color: var(--grey-400);
         }
 
         .testimonial header {
             display: flex;
-            gap: 17px;
+            gap: var(--spacing-200);
             align-items: center;
         }
 
@@ -275,7 +280,7 @@
             <img src="images/image-daniel.jpg" alt="Daniel Clifford" class="avatar">
             <div>
                 <p class="text-preset-2">Daniel Clifford</p>
-                <p class="text-preset-4">Verified Graduate</p>
+                <p class="text-preset-4 author-diploma">Verified Graduate</p>
             </div>
         </header>
         <h1 class="text-preset-1">
@@ -298,7 +303,7 @@
             <img src="images/image-jonathan.jpg" alt="Jonathan Walters" class="avatar">
             <div>
                 <p class="text-preset-2">Jonathan Walters</p>
-                <p class="text-preset-4">Verified Graduate</p>
+                <p class="text-preset-4 author-diploma">Verified Graduate</p>
             </div>
         </header>
         <h1 class="text-preset-1">The team was very supportive and kept me motivated</h1>
@@ -315,7 +320,7 @@
             <img src="images/image-jeanette.jpg" alt="Jeanette Harmon" class="avatar">
             <div>
                 <p class="text-preset-2">Jeanette Harmon</p>
-                <p class="text-preset-4">Verified Graduate</p>
+                <p class="text-preset-4 author-diploma">Verified Graduate</p>
             </div>
         </header>
         <h1 class="text-preset-1">An overall wonderful and rewarding experience</h1>
@@ -332,7 +337,7 @@
             <img src="images/image-patrick.jpg" alt="Patrick Abrams" class="avatar">
             <div>
                 <p class="text-preset-2">Patrick Abrams</p>
-                <p class="text-preset-4">Verified Graduate</p>
+                <p class="text-preset-4 author-diploma">Verified Graduate</p>
             </div>
         </header>
         <h1 class="text-preset-1">
@@ -354,7 +359,7 @@
             <img src="images/image-kira.jpg" alt="Kira Whittle" class="avatar">
             <div>
                 <p class="text-preset-2">Kira Whittle</p>
-                <p class="text-preset-4">Verified Graduate</p>
+                <p class="text-preset-4 author-diploma">Verified Graduate</p>
             </div>
         </header>
         <h1 class="text-preset-1">
