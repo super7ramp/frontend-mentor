@@ -19,7 +19,7 @@ body {
 
 body > * {
     min-width: 369px;
-    max-width: min(100vw, 500px);
+    max-width: min(100vw, 768px);
 }
 
 main {
@@ -34,8 +34,20 @@ main {
     padding: var(--spacing-400);
 }
 
+@media (700px <= width) {
+    .zero {
+        gap: var(--spacing-900);
+    }
+}
+
 .zero img {
     width: 433px;
+}
+
+@media (700px <= width) {
+    .zero img {
+        width: 820px;
+    }
 }
 
 .text-container {
@@ -44,6 +56,11 @@ main {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-300);
+    max-width: 504px;
+}
+
+.zero .text-container {
+    max-width: 448px;
 }
 
 .text-container h1 {
@@ -102,6 +119,13 @@ button {
     gap: var(--spacing-200);
 }
 
+@media (700px <= width) {
+    .users {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+    }
+}
+
 .users img {
     width: 100%;
     border-radius: var(--spacing-100);
@@ -143,6 +167,12 @@ footer {
     background-position-y: calc(80px + (56px / 2));
     background-size: cover;
     padding-bottom: var(--spacing-400);
+}
+
+@media (700px <= width) {
+    footer {
+        background-image: url("assets/tablet/image-footer.jpg"), linear-gradient(var(--cyan-600));
+    }
 }
 
 footer .text-container {
