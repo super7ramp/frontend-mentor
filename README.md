@@ -9,3 +9,4 @@ My solutions to [Frontend Mentor](https://www.frontendmentor.io/) challenges:
 5. [Product preview card](https://super7ramp.github.io/frontend-mentor/5-product-preview-card-component/product-preview-card-component-main/)
 6. [Four card feature section](https://super7ramp.github.io/frontend-mentor/6-four-card-feature-section/four-card-feature-section-master/)
 7. [Testimonials grid section](https://super7ramp.github.io/frontend-mentor/7-testimonials-grid-section/testimonials-grid-section-main/)
+8. [Meet landing page](https://super7ramp.github.io/frontend-mentor/8-meet-landing-page/meet-landing-page/)
