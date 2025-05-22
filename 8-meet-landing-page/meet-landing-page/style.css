@@ -53,11 +53,13 @@ main {
 .zero::before {
     content: url("assets/tablet/image-hero.png");
     transform: scale(0.53);
+    margin: -72px 0;
 }
 
 @media (700px <= width < 1000px) {
     .zero::before {
         transform: none;
+        margin: 0;
     }
 }
 
@@ -71,6 +73,7 @@ main {
     .zero::before {
         content: url("assets/desktop/image-hero-left.png");
         transform: translateX(-82px);
+        margin: 0;
     }
 
     .zero::after {
