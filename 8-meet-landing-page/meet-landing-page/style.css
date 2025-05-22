@@ -1,6 +1,6 @@
 @import "presets.css";
 
-body, h1, p, footer, div {
+body, h1, p, footer, div, section {
     margin: 0;
     box-sizing: border-box;
 }
@@ -236,9 +236,43 @@ footer {
 
 footer .text-container {
     max-width: 375px;
+    padding-top: calc(var(--spacing-800) - (56px / 2));
 }
 
 footer .text-container h1,
 footer .text-container p {
     color: white;
+}
+
+@media (700px <= width < 1000px) {
+    footer {
+        padding-bottom: 0;
+    }
+
+    footer .text-container {
+        padding: calc(var(--spacing-800) - (56px / 2)) 0 var(--spacing-800) 0;
+    }
+}
+
+@media (1000px <= width) {
+    footer {
+        padding-bottom: 0;
+    }
+
+    footer .text-container {
+        display: grid;
+        grid-template-columns: 1.2fr 0.95fr 0.69fr;
+        max-width: 1120px;
+        text-align: left;
+        gap: var(--spacing-400);
+        padding: calc(var(--spacing-1400) - (56px / 2)) 0 var(--spacing-1400) 0;
+    }
+
+    footer .text-container h1 {
+        flex-grow: 1.2;
+    }
+
+    footer .text-container p {
+        flex-grow: 0.95;
+    }
 }
