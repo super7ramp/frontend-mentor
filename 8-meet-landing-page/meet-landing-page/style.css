@@ -9,6 +9,12 @@ header {
     padding-top: 48px;
 }
 
+@media (1000px <= width) {
+    header {
+        padding-top: var(--spacing-1000);
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
