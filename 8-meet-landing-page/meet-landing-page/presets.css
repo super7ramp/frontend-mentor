@@ -31,9 +31,15 @@
     letter-spacing: 0;
 }
 
-@media (700px <= width) {
+@media (700px <= width < 1000px) {
     .text-preset-1 {
         font-size: 48px;
+    }
+}
+
+@media (1000px <= width) {
+    .text-preset-1 {
+        font-size: 64px;
     }
 }
 
@@ -45,6 +51,12 @@
     font-size: 32px;
     line-height: 110%;
     letter-spacing: 0;
+}
+
+@media (700px <= width < 1000px) {
+    .text-preset-2 {
+        font-size: 36px;
+    }
 }
 
 @media (1000px <= width) {
@@ -61,6 +73,18 @@
     font-size: 12px;
     line-height: 110%;
     letter-spacing: 4px;
+}
+
+@media (700px <= width < 1000px) {
+    .text-preset-3 {
+        font-size: 14px;
+    }
+}
+
+@media (1000px <= width) {
+    .text-preset-3 {
+        font-size: 16px;
+    }
 }
 
 .text-preset-4 {
