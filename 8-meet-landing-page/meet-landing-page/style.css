@@ -78,13 +78,19 @@ main {
 
     .zero::before {
         content: url("assets/desktop/image-hero-left.png");
-        transform: translateX(-82px);
+        transform: translate(-82px, -23px);
         margin: 0;
+        align-self: flex-start;
+    }
+
+    .zero .text-container {
+        align-self: center;
     }
 
     .zero::after {
         content: url("assets/desktop/image-hero-right.png");
-        transform: translate(82px, 57px);
+        transform: translateX(82px);
+        align-self: flex-end;
     }
 }
 
@@ -118,7 +124,7 @@ main {
 }
 
 button {
-    padding: 16px 40px;
+    padding: var(--spacing-200) var(--spacing-500);
     border-radius: 29px;
     border-style: none;
     background-color: var(--purple-600);
@@ -272,13 +278,5 @@ footer .text-container p {
         text-align: left;
         gap: var(--spacing-400);
         padding: calc(var(--spacing-1400) - (56px / 2)) 0 var(--spacing-1400) 0;
-    }
-
-    footer .text-container h1 {
-        flex-grow: 1.2;
-    }
-
-    footer .text-container p {
-        flex-grow: 0.95;
     }
 }

@@ -63,8 +63,31 @@ body {
 Like this:
 
 ```css
+.zero {
+    display: flex;
+    flex-direction: column;
+}
+
 .zero::before {
     content: url("assets/tablet/image-hero.png");
+}
+```
+
+Or for desktop view:
+
+```css
+@media (1000px <= width) {
+    .zero {
+        flex-direction: row;
+    }
+
+    .zero::before {
+        content: url("assets/desktop/image-hero-left.png");
+    }
+
+    .zero::after {
+        content: url("assets/desktop/image-hero-right.png");
+    }
 }
 ```
 
@@ -72,7 +95,7 @@ An issue that arises with mobile screen is that the image cannot be resized with
 replaced (see this post
 on [Stack Overflow](https://stackoverflow.com/questions/14978807/can-you-apply-a-width-to-a-before-after-pseudo-element-contenturlimage)).
 
-A solution is to set tje image as `background-image` of the pseudo-element:
+A solution is to set the image as `background-image` of the pseudo-element:
 
 ```css
 .zero::before {
@@ -91,23 +114,6 @@ The solution I found is to set the image as `content` and resize the image using
 .zero::before {
     content: url("assets/tablet/image-hero.png");
     transform: scale(0.53);
-}
-```
-
-For desktop view, resizing is not required but `transform` is useful to position left and right images as specified in
-the design.
-
-```css
-@media (1000px <= width) {
-    .zero::before {
-        content: url("assets/desktop/image-hero-left.png");
-        transform: translateX(-82px);
-    }
-
-    .zero::after {
-        content: url("assets/desktop/image-hero-right.png");
-        transform: translate(82px, 57px);
-    }
 }
 ```
 
