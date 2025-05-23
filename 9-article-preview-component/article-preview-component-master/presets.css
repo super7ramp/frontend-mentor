@@ -1,0 +1,58 @@
+:root {
+    --13px: 0.8125rem;
+    --20px: 1.25rem;
+
+    --spacing-200: 16px;
+    --spacing-300: 24px;
+    --spacing-400: 32px;
+    --spacing-800: 64px;
+
+    --gray-200: hsl(210, 46%, 95%);
+    --gray-400: hsl(212, 23%, 69%);
+    --gray-500: hsl(214, 17%, 51%);
+    --gray-900: hsl(217, 19%, 35%);
+}
+
+.text-preset-1 {
+    --font-size: var(--20px);
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: var(--font-size);
+    letter-spacing: calc(0.0025 * var(--font-size));
+    line-height: 130%;
+}
+
+.text-preset-2-medium {
+    --font-size: var(--13px);
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: var(--font-size);
+    letter-spacing: calc(0.0012 * var(--font-size));
+    line-height: 140%;
+}
+
+.text-preset-2-bold {
+    --font-size: var(--13px);
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: var(--font-size);
+    letter-spacing: calc(0.0012 * var(--font-size));
+    line-height: 140%;
+}
+
+.text-preset-3 {
+    --font-size: var(--13px);
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--font-size);
+    letter-spacing: calc(0.25 * var(--font-size));
+    line-height: 140%;
+}

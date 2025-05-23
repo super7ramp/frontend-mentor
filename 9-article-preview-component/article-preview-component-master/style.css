@@ -1,0 +1,142 @@
+@import "./presets.css";
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--gray-200);
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-400);
+    padding-bottom: var(--spacing-200);
+    background-color: white;
+    max-width: 327px;
+    border-radius: 10px;
+    overflow: clip;
+}
+
+.drawers {
+    max-height: 200px;
+    width: 100%;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
+    padding: 0 var(--spacing-400);
+
+    background-color: white;
+}
+
+article h1 {
+    color: var(--gray-900);
+}
+
+article p {
+    color: var(--gray-500);
+}
+
+article footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-300);
+}
+
+article footer .show-share-options {
+    color: red;
+}
+
+.profile-and-date {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200)
+}
+
+.name-and-date {
+    display: grid;
+}
+
+.author {
+    color: var(--gray-900);
+}
+
+.name-and-date time {
+    color: var(--gray-400);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.share-button {
+    background-color: var(--gray-200);
+    border-radius: 50%;
+    border-width: 0;
+    margin: 0;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+}
+
+.share-modal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+    margin-top: -76px;
+    padding: 0 var(--spacing-400);
+    gap: var(--spacing-300);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    z-index: 1;
+    background-color: var(--gray-900);
+}
+
+*.hidden {
+    display: none;
+}
+
+.share-modal h1 {
+    text-transform: uppercase;
+    color: var(--gray-400);
+}
+
+.share-modal ul {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+}
+
+.share-modal li::marker {
+    content: ""
+}
+
+.share-modal li {
+    width: 20px;
+    height: 20px;
+    vertical-align: center;
+}
+
+.share-modal .share-button {
+    background-color: var(--gray-500);
+}
+
+.share-modal .share-button svg path {
+    fill: white;
+}
