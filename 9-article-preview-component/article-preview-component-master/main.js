@@ -3,6 +3,6 @@ const shareModal = document.querySelector('.share-modal');
 
 shareButtons.forEach(button => {
     button.addEventListener('click', () =>
-        shareModal.classList.toggle('hidden')
+        shareModal.classList.toggle('share-modal--hidden')
     )
 })

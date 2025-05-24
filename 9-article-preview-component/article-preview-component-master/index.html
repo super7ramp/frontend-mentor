@@ -14,23 +14,23 @@
 <body>
 <main>
     <div class="container">
-        <img class="drawers" src="images/drawers.jpg" alt="Drawers">
-        <article>
-            <h1 class="text-preset-1">
+        <img class="container__image" src="images/drawers.jpg" alt="Drawers">
+        <article class="article-preview">
+            <h1 class="article-preview__title text-preset-1">
                 Shift the overall look and feel by adding these wonderful
                 touches to furniture in your home
             </h1>
-            <p class="text-preset-2-medium">
+            <p class="article-preview__abstract text-preset-2-medium">
                 Ever been in a room and felt like something was missing? Perhaps
                 it felt slightly bare and uninviting. I’ve got some simple tips
                 to help you make any room feel complete.
             </p>
-            <footer>
-                <div class="profile-and-date">
-                    <img class="avatar" src="images/avatar-michelle.jpg" alt="Michelle avatar">
-                    <div class="name-and-date">
-                        <p class="author text-preset-2-bold">Michelle Appleton</p>
-                        <time class="text-preset-2-medium" datetime="2020-06-28">28 Jun 2020</time>
+            <footer class="article-preview__footer">
+                <div class="avatar-author-date">
+                    <img class="avatar-author-date__avatar" src="images/avatar-michelle.jpg" alt="Michelle avatar">
+                    <div class="author-date">
+                        <p class="author-date__author text-preset-2-bold">Michelle Appleton</p>
+                        <time class="author-date__date text-preset-2-medium" datetime="2020-06-28">28 Jun 2020</time>
                     </div>
                 </div>
                 <button class="share-button" type="button">
@@ -39,14 +39,14 @@
             </footer>
         </article>
     </div>
-    <nav class="share-modal hidden">
-        <h1 class="text-preset-3">Share</h1>
-        <ul>
-            <li><a><img src="images/icon-facebook.svg" alt="Facebook"></a></li>
-            <li><a><img src="images/icon-twitter.svg" alt="Twitter"></a></li>
-            <li><a><img src="images/icon-pinterest.svg" alt="Pinterest"></a></li>
+    <nav class="share-modal share-modal--hidden">
+        <h1 class="share-modal__title text-preset-3">Share</h1>
+        <ul class="share-modal__links">
+            <li class="share-modal__link"><a><img src="images/icon-facebook.svg" alt="Facebook"></a></li>
+            <li class="share-modal__link"><a><img src="images/icon-twitter.svg" alt="Twitter"></a></li>
+            <li class="share-modal__link"><a><img src="images/icon-pinterest.svg" alt="Pinterest"></a></li>
         </ul>
-        <button class="share-button" type="button">
+        <button class="share-button share-button--dark" type="button">
             <img src="images/icon-share-dark.svg" alt="Share icon">
         </button>
     </nav>

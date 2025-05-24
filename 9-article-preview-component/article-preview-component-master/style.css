@@ -26,12 +26,12 @@ body {
     overflow: clip;
 }
 
-.drawers {
+.container__image {
     max-height: 200px;
     width: 100%;
 }
 
-article {
+.article-preview {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-300);
@@ -40,47 +40,43 @@ article {
     background-color: white;
 }
 
-article h1 {
+.article-preview__title {
     color: var(--gray-900);
 }
 
-article p {
+.article-preview__abstract {
     color: var(--gray-500);
 }
 
-article footer {
+.article-preview__footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: var(--spacing-300);
 }
 
-article footer .show-share-options {
-    color: red;
-}
-
-.profile-and-date {
+.avatar-author-date {
     display: flex;
     align-items: center;
     gap: var(--spacing-200)
 }
 
-.name-and-date {
-    display: grid;
-}
-
-.author {
-    color: var(--gray-900);
-}
-
-.name-and-date time {
-    color: var(--gray-400);
-}
-
-.avatar {
+.avatar-author-date__avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+.author-date {
+    display: grid;
+}
+
+.author-date__author {
+    color: var(--gray-900);
+}
+
+.author-date__date {
+    color: var(--gray-400);
 }
 
 .share-button {
@@ -91,6 +87,10 @@ article footer .show-share-options {
     padding: 0;
     width: 32px;
     height: 32px;
+}
+
+.share-button--dark {
+    background-color: var(--gray-500);
 }
 
 .share-modal {
@@ -108,35 +108,27 @@ article footer .show-share-options {
     background-color: var(--gray-900);
 }
 
-*.hidden {
+.share-modal--hidden {
     display: none;
 }
 
-.share-modal h1 {
+.share-modal__title {
     text-transform: uppercase;
     color: var(--gray-400);
 }
 
-.share-modal ul {
+.share-modal__links {
     display: flex;
     align-items: center;
     gap: var(--spacing-200);
 }
 
-.share-modal li::marker {
+.share-modal__link::marker {
     content: ""
 }
 
-.share-modal li {
+.share-modal__link {
     width: 20px;
     height: 20px;
     vertical-align: center;
-}
-
-.share-modal .share-button {
-    background-color: var(--gray-500);
-}
-
-.share-modal .share-button svg path {
-    fill: white;
 }
