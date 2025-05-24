@@ -18,6 +18,7 @@
     --730px: 45.625rem;
 
     --share-button-size: var(--32px);
+    --box-shadow-color: rgba(201, 213, 225, 0.5034);
 }
 
 *, *::before, *::after {
@@ -43,6 +44,7 @@ body {
     max-width: var(--327px);
     border-radius: 10px;
     overflow: clip;
+    box-shadow: 0 40px 40px var(--box-shadow-color);
 }
 
 @media (min-width: 43.75rem /* 700px */) {
@@ -193,7 +195,7 @@ body {
         left: calc(100% - var(--modal-width) / 2 - var(--spacing-500) /* right padding */ - var(--share-button-size) / 2);
         border-radius: 10px;
         max-width: var(--modal-width);
-        box-shadow: 0 10px 10px rgba(201, 213, 225, 0.503415);
+        box-shadow: 0 10px 10px var(--box-shadow-color);
     }
 
     .share-modal::after {
