@@ -72,8 +72,9 @@ body {
 
 @media (min-width: 43.75rem /* 700px */) {
     .container__image {
-        min-height: var(--346px);
+        min-height: 100%;
         max-width: var(--229px);
+        object-fit: cover;
     }
 }
 
