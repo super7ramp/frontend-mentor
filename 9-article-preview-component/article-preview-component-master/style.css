@@ -8,13 +8,14 @@
     --76px: 4.75rem;
     --200px: 12.5rem;
     --229px: 14.3125rem;
+    --248px: 15.5rem;
     --346px: 21.625rem;
     --608px: 38rem;
     --730px: 45.625rem;
 
     --share-button-size: var(--32px);
-    --modal-height: 3.4375rem /* 55px */;
-    --modal-width: 15.5rem /* 248px */;
+    --modal-height: var(--55px);
+    --modal-width: var(--248px);
 }
 
 *, *::before, *::after {
@@ -164,7 +165,6 @@ body {
 
 @media (min-width: 43.75rem /* 700px */) {
     .share-modal {
-        --modal-height: var(--55px);
         bottom: calc(var(--modal-height) + 5.625rem /* 90px */);
         left: calc(100% - var(--modal-width) / 2 - var(--spacing-500) /* right padding */ - var(--share-button-size) / 2);
         border-radius: 10px;
