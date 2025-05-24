@@ -8,6 +8,8 @@
     --76px: 4.75rem;
     --200px: 12.5rem;
     --229px: 14.3125rem;
+    --280px: 17.5rem;
+    --327px: 20.4375rem;
     --248px: 15.5rem;
     --300px: 18.75rem;
     --346px: 21.625rem;
@@ -37,7 +39,7 @@ body {
     gap: var(--spacing-400);
     padding-bottom: var(--spacing-200);
     background-color: white;
-    max-width: 20.435rem /* 327px */;
+    max-width: var(--327px);
     border-radius: 10px;
     overflow: clip;
 }
@@ -54,6 +56,7 @@ body {
 @media (min-width: 62.5rem /* 1000px */) {
     .container {
         max-width: var(--730px);
+        max-height: var(--280px);
         gap: var(--spacing-500);
     }
 }
@@ -100,6 +103,12 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-top: var(--spacing-300);
+}
+
+@media (min-width: 62.5rem /* 1000px */) {
+    .article-preview__footer {
+        padding-top: 0;
+    }
 }
 
 .avatar-author-date {
