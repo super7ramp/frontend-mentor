@@ -9,6 +9,7 @@
     --200px: 12.5rem;
     --229px: 14.3125rem;
     --248px: 15.5rem;
+    --300px: 18.75rem;
     --346px: 21.625rem;
     --608px: 38rem;
     --730px: 45.625rem;
@@ -77,6 +78,7 @@ body {
     gap: var(--spacing-300);
     padding: 0 var(--spacing-400);
     background-color: white;
+    min-width: var(--300px);
 }
 
 @media (min-width: 43.75rem /* 700px */) {
@@ -142,14 +144,19 @@ body {
     content: url("./images/icon-share-dark.svg");
 }
 
+.modal-container {
+    position: relative;
+}
+
 .share-modal {
     --modal-height: var(--76px);
 
-    position: relative;
     height: var(--modal-height);
-    bottom: var(--modal-height);
-    z-index: 1;
+    width: 100%;
 
+    position: absolute;
+    top: calc(-1 * var(--modal-height));
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -166,7 +173,7 @@ body {
         --modal-height: var(--55px);
         --modal-width: var(--248px);
 
-        bottom: calc(var(--modal-height) + 5.625rem /* 90px */);
+        top: calc(-1 * var(--modal-height) - 5.625rem /* 90px */);
         left: calc(100% - var(--modal-width) / 2 - var(--spacing-500) /* right padding */ - var(--share-button-size) / 2);
         border-radius: 10px;
         max-width: var(--modal-width);
@@ -190,7 +197,7 @@ body {
 
 @media (min-width: 62.5rem /* 1000px */) {
     .share-modal {
-        bottom: calc(var(--modal-height) + 6.875rem /* 110 px */);
+        top: calc(-1 * var(--modal-height) - 6.875rem /* 110 px */);
     }
 }
 
