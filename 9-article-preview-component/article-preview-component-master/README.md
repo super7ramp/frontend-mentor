@@ -98,8 +98,8 @@ It looks like it does ease reading the CSS by flattening classes and avoiding in
 
 But it also adds many classes to the HTML.
 
-[`@scope`](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope) might be a better solution in the future, but it
-looks like it is not fully supported by browsers yet.
+[`@scope`](https://blog.logrocket.com/css-scope-replace-bem/) might be a better solution in the future, but it looks
+like it is not fully supported by browsers yet.
 
 #### Adding event listener to show the modal
 
@@ -162,7 +162,6 @@ Used an `::after` pseudo-element to create the arrow:
 - [BEM 101](https://css-tricks.com/bem-101/) - An introduction to BEM methodology.
 - [This StackOverflow answer to the popover arrow problem](https://stackoverflow.com/a/32386763) - Not the accepted
   answer, but the one I could understand.
-
 
 ## Author
 

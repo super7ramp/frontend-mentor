@@ -14,8 +14,6 @@
     --730px: 45.625rem;
 
     --share-button-size: var(--32px);
-    --modal-height: var(--55px);
-    --modal-width: var(--248px);
 }
 
 *, *::before, *::after {
@@ -165,6 +163,9 @@ body {
 
 @media (min-width: 43.75rem /* 700px */) {
     .share-modal {
+        --modal-height: var(--55px);
+        --modal-width: var(--248px);
+
         bottom: calc(var(--modal-height) + 5.625rem /* 90px */);
         left: calc(100% - var(--modal-width) / 2 - var(--spacing-500) /* right padding */ - var(--share-button-size) / 2);
         border-radius: 10px;
