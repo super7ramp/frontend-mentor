@@ -1,0 +1,60 @@
+:root {
+    --spacing-100: 8px;
+    --spacing-200: 16px;
+    --spacing-300: 24px;
+    --spacing-400: 32px;
+    --spacing-500: 40px;
+    --spacing-600: 48px;
+
+    --12px: 0.75rem;
+    --16px: 1rem;
+    --56px: 3.5rem;
+
+    --blue-800: hsl(234deg, 29%, 20%);
+    --red: hsl(4deg, 100%, 67%);
+    --red-100: hsl(2deg, 100%, 95%)
+}
+
+.text-preset-1 {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: var(--56px);
+    line-height: 100%;
+    letter-spacing: 0;
+}
+
+.text-preset-2 {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: var(--16px);
+    line-height: 150%;
+    letter-spacing: 0;
+}
+
+.text-preset-2--bold {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: var(--16px);
+    line-height: 150%;
+    letter-spacing: 0;
+}
+
+.text-preset-3 {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: var(--12px);
+    line-height: 150%;
+    letter-spacing: 0;
+}
