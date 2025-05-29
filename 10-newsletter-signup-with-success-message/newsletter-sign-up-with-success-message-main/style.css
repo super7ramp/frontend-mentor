@@ -121,11 +121,11 @@ body {
     border: 1px solid var(--grey);
     border-radius: var(--spacing-100);
     color: var(--blue-800);
+    outline: none;
 }
 
 .signup-form__input:focus {
     border-color: var(--blue-800);
-    outline: none;
 }
 
 .signup-form__input:user-invalid {
