@@ -13,6 +13,7 @@
 
     --blue-700: hsl(235deg, 18%, 26%);
     --blue-800: hsl(234deg, 29%, 20%);
+    --grey: hsl(0deg, 0%, 58%);
     --red: hsl(4deg, 100%, 67%);
     --red-100: hsl(2deg, 100%, 95%)
 }
