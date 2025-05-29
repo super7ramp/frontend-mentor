@@ -36,8 +36,17 @@ body {
 @media (min-width: 600px) {
     .form-container {
         max-width: none;
-        padding: 40px;
+        padding: var(--spacing-500);
         border-radius: 36px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .form-container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-800);
+        padding: var(--spacing-400);
+        max-width: 904px;
     }
 }
 
@@ -55,10 +64,25 @@ body {
     }
 }
 
+@media (min-width: 1000px) {
+    .form-container__img {
+        content: url("assets/images/illustration-sign-up-desktop.svg");
+        max-height: none;
+        /* on desktop, the image is on the right side (after text) */
+        order: 1;
+    }
+}
+
 .signup-form {
     display: grid;
     gap: var(--spacing-500);
     padding: 0 var(--spacing-300);
+}
+
+@media (min-width: 600px) {
+    .signup-form {
+        padding: 0;
+    }
 }
 
 .signup-form__text {
