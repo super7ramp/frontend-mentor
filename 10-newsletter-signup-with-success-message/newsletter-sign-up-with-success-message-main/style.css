@@ -7,9 +7,13 @@
 }
 
 :root {
-    --375px: 23.4375em;
-    --380px: 23.75em;
-    --400px: 25em;
+    --40px: 2.5rem;
+    --284px: 17.75rem;
+    --358px: 22.375rem;
+    --380px: 23.75rem;
+    --400px: 25rem;
+    --504px: 31.5rem;
+    --904px: 56.5rem;
 }
 
 body {
@@ -26,14 +30,14 @@ body {
     max-width: var(--400px);
     display: grid;
     align-items: center;
-    gap: 40px;
+    gap: var(--40px);
 
     background-color: white;
     color: var(--blue-800);
     box-shadow: 0 15px 60px hsl(0, 0%, 0%, 25%);
 }
 
-@media (min-width: 600px) {
+@media (min-width: /* 600px */ 37.5rem) {
     .form-container {
         max-width: none;
         padding: var(--spacing-500);
@@ -41,30 +45,30 @@ body {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: /* 1000px */ 62.5rem) {
     .form-container {
         grid-template-columns: 1fr 1fr;
         gap: var(--spacing-800);
         padding: var(--spacing-400);
-        max-width: 904px;
+        max-width: var(--904px);
     }
 }
 
 .form-container__img {
     width: 100%;
-    max-height: 284px;
+    max-height: var(--284px);
     object-fit: cover;
     border-radius: 0 0 8px 8px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: /* 600px */ 37.5rem) {
     .form-container__img {
-        max-height: 358px;
+        max-height: var(--358px);
         border-radius: 16px;
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: /* 1000px */ 62.5rem) {
     .form-container__img {
         content: url("assets/images/illustration-sign-up-desktop.svg");
         max-height: none;
@@ -79,7 +83,7 @@ body {
     padding: 0 var(--spacing-300);
 }
 
-@media (min-width: 600px) {
+@media (min-width: /* 600px */ 37.5rem) {
     .signup-form {
         padding: 0;
     }
@@ -177,10 +181,10 @@ body {
     color: var(--blue-800);
 }
 
-@media (min-width: 600px) {
+@media (min-width: /* 600px */ 37.5rem) {
     .success-dialog[open] {
         min-height: 0;
-        max-width: 504px;
+        max-width: var(--504px);
         padding: var(--spacing-800);
         border-radius: 36px;
     }
