@@ -5,11 +5,13 @@
     --spacing-400: 32px;
     --spacing-500: 40px;
     --spacing-600: 48px;
+    --spacing-800: 64px;
 
     --12px: 0.75rem;
     --16px: 1rem;
     --56px: 3.5rem;
 
+    --blue-700: hsl(235deg, 18%, 26%);
     --blue-800: hsl(234deg, 29%, 20%);
     --red: hsl(4deg, 100%, 67%);
     --red-100: hsl(2deg, 100%, 95%)

@@ -40,18 +40,16 @@
             </div>
         </form>
     </div>
-    <div class="modal-container">
-        <div class="success-modal">
-            <div class="success-modal__message">
-                <h1 class="text-preset-1">Thanks for subscribing!</h1>
-                <p class="text-preset-2">
-                    A confirmation email has been sent to <span class="success-modal__email"></span>.
-                    Please open it and click the button inside to confirm your subscription.
-                </p>
-            </div>
-            <button class="success-modal__dismiss-button text-preset-2--bold button">Dismiss message</button>
-        </div>
-    </div>
+    <dialog class="success-dialog">
+        <h1 class="text-preset-1">Thanks for subscribing!</h1>
+        <p class="text-preset-2">
+            A confirmation email has been sent to <span class="success-dialog__email"></span>.
+            Please open it and click the button inside to confirm your subscription.
+        </p>
+        <button class="success-dialog__close-button text-preset-2--bold button" autofocus>
+            Dismiss message
+        </button>
+    </dialog>
 </main>
 </body>
 </html>

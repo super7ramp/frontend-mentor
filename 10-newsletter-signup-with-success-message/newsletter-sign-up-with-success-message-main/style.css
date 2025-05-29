@@ -27,6 +27,18 @@ body {
     display: grid;
     align-items: center;
     gap: 40px;
+
+    background-color: white;
+    color: var(--blue-800);
+    box-shadow: 0 15px 60px hsl(0, 0%, 0%, 25%);
+}
+
+@media (min-width: 600px) {
+    .form-container {
+        max-width: none;
+        padding: 40px;
+        border-radius: 36px;
+    }
 }
 
 .form-container__img {
@@ -34,6 +46,13 @@ body {
     max-height: 284px;
     object-fit: cover;
     border-radius: 0 0 8px 8px;
+}
+
+@media (min-width: 600px) {
+    .form-container__img {
+        max-height: 358px;
+        border-radius: 16px;
+    }
 }
 
 .signup-form {
@@ -109,34 +128,41 @@ body {
     background: linear-gradient(to right, hsl(15deg, 100%, 61%), hsl(346deg, 100%, 66%));
 }
 
-.success-modal {
-    display: none;
-}
-
-.success-modal--visible {
+.success-dialog[open] {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
-    top: 0;
     min-height: 100vh;
     max-width: var(--400px);
-    padding: var(--spacing-300);
+    padding: 16% var(--spacing-300) var(--spacing-300) var(--spacing-300);
+    gap: var(--spacing-400);
+    margin: auto; /* this is how dialog is centered implicitly before CSS reset, let's re-add it. */
+    border: none;
 
     background-color: white;
+    color: var(--blue-800);
 }
 
-.success-modal__message {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-400);
-    padding-top: 16%;
+@media (min-width: 600px) {
+    .success-dialog[open] {
+        min-height: 0;
+        max-width: 504px;
+        padding: var(--spacing-800);
+        border-radius: 36px;
+    }
 }
 
-.success-modal__message::before {
+.success-dialog::backdrop {
+    background-color: var(--blue-700);
+}
+
+.success-dialog::before {
     content: url("assets/images/icon-success.svg");
 }
 
-.success-modal__email {
+.success-dialog__email {
     font-weight: bold;
+}
+
+.success-dialog__close-button {
+    margin-top: auto;
 }

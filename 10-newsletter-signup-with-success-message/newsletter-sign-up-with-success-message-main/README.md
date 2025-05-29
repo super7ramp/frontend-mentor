@@ -69,6 +69,9 @@ Use third-party library or framework for form validation.
 
 - [Form validation on MDN](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation) -
   For the email validation.
+- [`linear-gradient()` on MDN](https://developer.mozilla.org/fr/docs/Web/CSS/gradient/linear-gradient) - For the button
+  gradient.
+- [`dialog` on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog)
 
 ## Author
 

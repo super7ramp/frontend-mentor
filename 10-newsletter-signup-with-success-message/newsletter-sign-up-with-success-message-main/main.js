@@ -9,21 +9,21 @@ form.addEventListener("input", e => {
     formErrorEmail.innerHTML = ""
 })
 
-const successModal = document.querySelector(".success-modal")
-const successEmail = successModal.querySelector(".success-modal__email")
+const successDialog = document.querySelector(".success-dialog")
+const successDialogEmail = successDialog.querySelector(".success-dialog__email")
 form.addEventListener("submit", e => {
     e.preventDefault()
     if (!formInputEmail.validity.valid) {
         formErrorEmail.innerHTML = "Valid email required"
         return
     }
-    successEmail.textContent = formInputEmail.value
-    successModal.classList.add("success-modal--visible")
+    successDialogEmail.textContent = formInputEmail.value
+    successDialog.showModal()
 })
 
-const dismissButton = document.querySelector(".success-modal__dismiss-button")
+const dismissButton = document.querySelector(".success-dialog__close-button")
 dismissButton.addEventListener("click", () => {
-        successEmail.textContent = ""
-        successModal.classList.remove("success-modal--visible")
+        successDialogEmail.textContent = ""
+        successDialog.close()
     }
 )
