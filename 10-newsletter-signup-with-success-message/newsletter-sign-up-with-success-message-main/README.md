@@ -40,7 +40,7 @@ Users should be able to:
 
 - Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/10-newsletter-signup-with-success-message)
 - Live Site
-  URL: [GitHub Pages](https://super7ramp.github.io/frontend-mentor/10-newsletter-signup-with-success-message/newsletter-signup-with-success-message-main)
+  URL: [GitHub Pages](https://super7ramp.github.io/frontend-mentor/10-newsletter-signup-with-success-message/newsletter-sign-up-with-success-message-main/)
 
 ## My process
 
