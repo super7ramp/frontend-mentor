@@ -91,7 +91,7 @@ body {
 
 .signup-form__text {
     display: grid;
-    gap: 24px;
+    gap: var(--spacing-300);
 }
 
 .signup-form__list {
