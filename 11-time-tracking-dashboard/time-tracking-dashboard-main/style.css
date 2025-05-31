@@ -1,0 +1,162 @@
+@import "presets.css";
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --card-corner-radius: 15px;
+    --card-border-width: 38px;
+    --almost-black: hsl(0deg, 0%, 12%);
+}
+
+body {
+    padding: 0 10px;
+    background-color: black;
+    color: var(--purple-500);
+}
+
+.report {
+    display: grid;
+    gap: var(--spacing-300);
+}
+
+.report__header {
+    background-color: var(--navy-900);
+    border-radius: var(--card-corner-radius);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-300);
+    padding: var(--spacing-400);
+    border-radius: var(--card-corner-radius);
+    background-color: var(--purple-600);
+}
+
+.report__title {
+    color: white;
+}
+
+.report__title::before {
+    content: "Report for";
+    color: var(--navy-200);
+    margin-bottom: var(--spacing-100);
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.view-selector {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: var(--spacing-300) 0;
+}
+
+.view-selector--active {
+    color: white;
+}
+
+.report-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+    background-color: var(--navy-900);
+    border-top: var(--card-border-width) solid;
+    border-radius: var(--card-corner-radius);
+    padding: var(--spacing-300);
+}
+
+.report-section::before {
+    --section-icon: none;
+    /*content: var(--section-icon);*/
+    content: none;
+    position: relative;
+    top: -49px;
+    bottom: 0;
+    left: calc(75%);
+    /* FIXME clipping for the different icons */
+    clip-path: inset(-56px 0 34px 0);
+}
+
+.report-section--work {
+    border-color: var(--orange-300);
+}
+
+.report-section--work::before {
+    --section-icon: url("images/icon-work.svg");
+}
+
+.report-section--play {
+    border-color: var(--blue-300);
+}
+
+.report-section--play::before {
+    --section-icon: url("images/icon-play.svg");
+}
+
+.report-section--study {
+    border-color: var(--pink-400);
+}
+
+.report-section--study::before {
+    --section-icon: url("images/icon-study.svg");
+}
+
+.report-section--exercise {
+    border-color: var(--green-400);
+}
+
+.report-section--exercise::before {
+    --section-icon: url("images/icon-exercise.svg");
+}
+
+.report-section--social {
+    border-color: var(--purple-700);
+}
+
+.report-section--social::before {
+    --section-icon: url("images/icon-social.svg");
+}
+
+.report-section--self-care {
+    border-color: var(--yellow-300);
+}
+
+.report-section--self-care::before {
+    --section-icon: url("images/icon-self-care.svg");
+}
+
+.report-section__header {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    border-radius: var(--card-border-width);
+}
+
+.report-section__header::after {
+    content: url("images/icon-ellipsis.svg")
+}
+
+.report-section__durations {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.report-section__durations--daily,
+.report-section__durations--monthly {
+    display: none;
+}
+
+.current-duration {
+    color: white;
+}
