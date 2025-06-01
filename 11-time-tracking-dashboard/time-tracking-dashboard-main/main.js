@@ -22,3 +22,19 @@ const monthlySections = document.querySelectorAll(".report-section__durations--m
 addSelectorListener(dailySelector, dailySections, [weeklySelector, monthlySelector], [weeklySections, monthlySections])
 addSelectorListener(weeklySelector, weeklySections, [dailySelector, monthlySelector], [dailySections, monthlySections])
 addSelectorListener(monthlySelector, monthlySections, [dailySelector, weeklySelector], [dailySections, weeklySections])
+
+fetch("./data.json")
+    .then(response => response.json())
+    .then(data => {
+        for (const {title, timeframes} of data) {
+            const sectionName = title.toLowerCase().replace(" ", "-")
+            const section = document.querySelector(`.report-section--${sectionName}`)
+            for (const timeframeName in timeframes) {
+                const durationsClass = `.report-section__durations--${timeframeName}`
+                const durations = section.querySelector(durationsClass)
+                const {previous, current} = timeframes[timeframeName]
+                durations.querySelector(".current-duration").textContent = current + "hrs"
+                durations.querySelector(".previous-duration").textContent = previous + "hrs"
+            }
+        }
+    })
