@@ -1,77 +1,70 @@
 :root {
-    --blue-300: hsl(195deg, 74%, 62%);
-    --green-400: hsl(145deg, 58%, 55%);
-    --navy-200: hsl(236deg, 100%, 87%);
-    --navy-900: hsl(235deg, 46%, 20%);
-    --orange-300: hsl(15deg, 100%, 70%);
-    --pink-400: hsl(348deg, 100%, 68%);
-    --purple-500: hsl(235deg, 45%, 61%);
-    --purple-600: hsl(246deg, 80%, 60%);
-    --purple-700: hsl(264deg, 64%, 52%);
-    --yellow-300: hsl(43deg, 84%, 65%);
-
-    --8px: 0.5rem;
-    --15px: 0.9375rem;
-    --16px: 1rem;
-    --18px: 1.125rem;
-    --21px: 1.3125rem;
-    --24px: 1.5rem;
-    --28px: 1.75rem;
-    --32px: 2rem;
-    --38px: 2.375rem;
-
-    --spacing-100: var(--8px);
-    --spacing-200: var(--16px);
-    --spacing-300: var(--24px);
-    --spacing-400: var(--32px);
+  --blue-300: hsl(195, 74%, 62%);
+  --green-400: hsl(145, 58%, 55%);
+  --navy-200: hsl(236, 100%, 87%);
+  --navy-900: hsl(235, 46%, 20%);
+  --orange-300: hsl(15, 100%, 70%);
+  --pink-400: hsl(348, 100%, 68%);
+  --purple-500: hsl(235, 45%, 61%);
+  --purple-600: hsl(246, 80%, 60%);
+  --purple-700: hsl(264, 64%, 52%);
+  --yellow-300: hsl(43, 84%, 65%);
+  --8px: 0.5rem;
+  --15px: 0.9375rem;
+  --16px: 1rem;
+  --18px: 1.125rem;
+  --21px: 1.3125rem;
+  --24px: 1.5rem;
+  --28px: 1.75rem;
+  --32px: 2rem;
+  --38px: 2.375rem;
+  --spacing-100: var(--8px);
+  --spacing-200: var(--16px);
+  --spacing-300: var(--24px);
+  --spacing-400: var(--32px);
 }
-
 .text-preset-3 {
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    font-size: var(--32px);
-    line-height: var(--38px);
-    letter-spacing: 0;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: var(--32px);
+  line-height: var(--38px);
+  letter-spacing: 0;
 }
-
 .text-preset-4 {
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    font-size: var(--24px);
-    line-height: var(--28px);
-    letter-spacing: 0;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: var(--24px);
+  line-height: var(--28px);
+  letter-spacing: 0;
 }
-
 .text-preset-5 {
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: var(--18px);
-    line-height: var(--21px);
-    letter-spacing: 0;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--18px);
+  line-height: var(--21px);
+  letter-spacing: 0;
 }
-
 .text-preset-5--medium {
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    font-size: var(--18px);
-    line-height: var(--21px);
-    letter-spacing: 0;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: var(--18px);
+  line-height: var(--21px);
+  letter-spacing: 0;
 }
-
 .text-preset-6 {
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: var(--15px);
-    line-height: var(--18px);
-    letter-spacing: 0;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--15px);
+  line-height: var(--18px);
+  letter-spacing: 0;
 }
