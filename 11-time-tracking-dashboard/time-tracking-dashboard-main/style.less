@@ -80,12 +80,17 @@ body {
 
 .report__title {
     color: white;
+    .text-preset-6();
 }
 
 .report__title::before {
     content: "Report for";
     color: var(--navy-200);
     margin-bottom: var(--spacing-100);
+}
+
+.profile__name {
+    .text-preset-4();
 }
 
 .avatar {
@@ -119,6 +124,7 @@ body {
 .selectors__item {
     color: var(--purple-500);
     text-decoration: none;
+    .text-preset-5();
 }
 
 .selectors__item--active {
@@ -219,8 +225,13 @@ body {
     content: url("images/icon-ellipsis.svg")
 }
 
+.report-section__title {
+    .text-preset-5--medium();
+}
+
 .report-section__durations {
     display: none;
+    .text-preset-6();
 }
 
 .report-section__durations--selected {
@@ -240,4 +251,5 @@ body {
 
 .current-duration {
     color: white;
+    .text-preset-3();
 }
