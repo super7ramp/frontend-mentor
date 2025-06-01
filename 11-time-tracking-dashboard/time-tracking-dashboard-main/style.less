@@ -12,16 +12,12 @@
     --card-border-width-desktop: 45px;
     --almost-black: hsl(0deg, 0%, 12%);
     --21px: 1.3125rem;
-}
 
-@media (min-width: 600px) {
-    :root {
+    @media (min-width: 600px) {
         --card-border-width: 33px;
     }
-}
 
-@media (min-width: 1000px) {
-    :root {
+    @media (min-width: 1000px) {
         --card-border-width: 45px;
     }
 }
@@ -30,7 +26,10 @@ body {
     padding: 0 10px;
     background-color: black;
     color: var(--purple-500);
-    max-width: 1116px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .report {
@@ -43,23 +42,22 @@ body {
         "."
         "."
         "."
-        "."
-}
+        ".";
 
-@media (min-width: 600px) {
-    .report {
+    @media (min-width: 600px) {
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
             "head head head"
             ". . ."
             ". . .";
     }
-}
 
-@media (min-width: 1000px) {
-    .report {
+    @media (min-width: 1000px) {
+        grid-template-columns: repeat(4, 1fr);
         grid-template-areas:
             "head . . ."
-            "head . . ."
+            "head . . .";
+        max-width: 1116px;
     }
 }
 
@@ -67,6 +65,8 @@ body {
     grid-area: head;
     background-color: var(--navy-900);
     border-radius: var(--card-corner-radius);
+    display: flex;
+    flex-direction: column;
 }
 
 .profile {
@@ -76,6 +76,12 @@ body {
     padding: var(--spacing-400);
     border-radius: var(--card-corner-radius);
     background-color: var(--purple-600);
+
+    @media (min-width: 1000px) {
+        flex-direction: column;
+        align-items: flex-start;
+        flex-grow: 1;
+    }
 }
 
 .report__title {
@@ -91,6 +97,9 @@ body {
 
 .profile__name {
     .text-preset-4();
+    @media (min-width: 1000px) {
+        .text-preset-2();
+    }
 }
 
 .avatar {
@@ -111,10 +120,8 @@ body {
     justify-content: space-evenly;
     list-style-type: none;
     padding: var(--spacing-300) 0;
-}
 
-@media (min-width: 1000px) {
-    .selectors {
+    @media (min-width: 1000px) {
         flex-direction: column;
         gap: var(--21px);
         padding: var(--spacing-400);
@@ -139,16 +146,12 @@ body {
     border-top: var(--card-border-width) solid;
     border-radius: var(--card-corner-radius);
     padding: var(--spacing-300);
-}
 
-@media (min-width: 600px) {
-    .report-section {
+    @media (min-width: 600px) {
         gap: var(--spacing-200);
     }
-}
 
-@media (min-width: 1000px) {
-    .report-section {
+    @media (min-width: 1000px) {
         gap: var(--spacing-300);
         padding: var(--spacing-400);
     }
@@ -239,17 +242,18 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: var(--spacing-100);
-}
 
-@media (min-width: 600px) {
-    .report-section__durations--selected {
+    @media (min-width: 600px) {
         flex-direction: column;
         align-items: flex-start;
     }
-
 }
 
 .current-duration {
     color: white;
     .text-preset-3();
+
+    @media (min-width: 600px) {
+        .text-preset-1();
+    }
 }

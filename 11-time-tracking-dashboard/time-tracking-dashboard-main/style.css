@@ -18,10 +18,32 @@
   --28px: 1.75rem;
   --32px: 2rem;
   --38px: 2.375rem;
+  --40px: 2.5rem;
+  --47px: 2.9375rem;
+  --56px: 3.5rem;
+  --66px: 4.125rem;
   --spacing-100: var(--8px);
   --spacing-200: var(--16px);
   --spacing-300: var(--24px);
   --spacing-400: var(--32px);
+}
+.text-preset-1 {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: var(--56px);
+  line-height: var(--66px);
+  letter-spacing: 0;
+}
+.text-preset-2 {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: var(--40px);
+  line-height: var(--47px);
+  letter-spacing: 0;
 }
 .text-preset-3 {
   font-family: "Rubik", sans-serif;
@@ -96,7 +118,10 @@ body {
   padding: 0 10px;
   background-color: black;
   color: var(--purple-500);
-  max-width: 1116px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .report {
   display: grid;
@@ -105,18 +130,23 @@ body {
 }
 @media (min-width: 600px) {
   .report {
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "head head head" ". . ." ". . .";
   }
 }
 @media (min-width: 1000px) {
   .report {
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas: "head . . ." "head . . .";
+    max-width: 1116px;
   }
 }
 .report__header {
   grid-area: head;
   background-color: var(--navy-900);
   border-radius: var(--card-corner-radius);
+  display: flex;
+  flex-direction: column;
 }
 .profile {
   display: flex;
@@ -125,6 +155,13 @@ body {
   padding: var(--spacing-400);
   border-radius: var(--card-corner-radius);
   background-color: var(--purple-600);
+}
+@media (min-width: 1000px) {
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+  }
 }
 .report__title {
   color: white;
@@ -149,6 +186,17 @@ body {
   font-size: var(--24px);
   line-height: var(--28px);
   letter-spacing: 0;
+}
+@media (min-width: 1000px) {
+  .profile__name {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: var(--40px);
+    line-height: var(--47px);
+    letter-spacing: 0;
+  }
 }
 .avatar {
   width: 64px;
@@ -304,4 +352,15 @@ body {
   font-size: var(--32px);
   line-height: var(--38px);
   letter-spacing: 0;
+}
+@media (min-width: 600px) {
+  .current-duration {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: var(--56px);
+    line-height: var(--66px);
+    letter-spacing: 0;
+  }
 }

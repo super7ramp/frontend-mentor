@@ -22,19 +22,19 @@ function formatReportSectionContent({title, timeframes}) {
         <div class="report-section__durations report-section__durations--daily">
             <time class="current-duration">${timeframes["daily"].current}hrs</time>
             <div>
-                Previous - <time class="previous-duration">${timeframes["daily"].previous}hrs</time>
+                Yesterday - <time class="previous-duration">${timeframes["daily"].previous}hrs</time>
             </div>
         </div>
         <div class="report-section__durations report-section__durations--weekly report-section__durations--selected">
             <time class="current-duration">${timeframes["weekly"].current}hrs</time>
             <div>
-                Previous - <time class="previous-duration">${timeframes["weekly"].previous}hrs</time>
+                Last Week - <time class="previous-duration">${timeframes["weekly"].previous}hrs</time>
             </div>
         </div>
         <div class="report-section__durations report-section__durations--monthly">
             <time class="current-duration">${timeframes["monthly"].current}hrs</time>
             <div>
-                Previous - <time class="previous-duration">${timeframes["monthly"].previous}hrs</time>
+                Last Month - <time class="previous-duration">${timeframes["monthly"].previous}hrs</time>
             </div>
         </div>
         `
