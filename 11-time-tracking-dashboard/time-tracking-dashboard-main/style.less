@@ -139,13 +139,16 @@ body {
 }
 
 .report-section {
+    border-radius: var(--card-corner-radius);
+}
+
+.report-section__inner {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-100);
-    background-color: var(--navy-900);
-    border-top: var(--card-border-width) solid;
     border-radius: var(--card-corner-radius);
+    gap: var(--spacing-100);
     padding: var(--spacing-300);
+    background-color: var(--navy-900);
 
     @media (min-width: 600px) {
         gap: var(--spacing-200);
@@ -158,19 +161,17 @@ body {
 }
 
 .report-section::before {
+    display: block;
     --section-icon: none;
-    /*content: var(--section-icon);*/
-    content: none;
+    content: var(--section-icon);
+    height: var(--card-border-width);
+    overflow: hidden;
     position: relative;
-    top: -49px;
-    bottom: 0;
-    left: calc(75%);
-    /* FIXME clipping for the different icons */
-    clip-path: inset(-56px 0 34px 0);
+    left: 60%;
 }
 
 .report-section--work {
-    border-color: var(--orange-300);
+    background-color: var(--orange-300);
 }
 
 .report-section--work::before {
@@ -178,7 +179,7 @@ body {
 }
 
 .report-section--play {
-    border-color: var(--blue-300);
+    background-color: var(--blue-300);
 }
 
 .report-section--play::before {
@@ -186,7 +187,7 @@ body {
 }
 
 .report-section--study {
-    border-color: var(--pink-400);
+    background-color: var(--pink-400);
 }
 
 .report-section--study::before {
@@ -194,7 +195,7 @@ body {
 }
 
 .report-section--exercise {
-    border-color: var(--green-400);
+    background-color: var(--green-400);
 }
 
 .report-section--exercise::before {
@@ -202,7 +203,7 @@ body {
 }
 
 .report-section--social {
-    border-color: var(--purple-700);
+    background-color: var(--purple-700);
 }
 
 .report-section--social::before {
@@ -210,7 +211,7 @@ body {
 }
 
 .report-section--self-care {
-    border-color: var(--yellow-300);
+    background-color: var(--yellow-300);
 }
 
 .report-section--self-care::before {
