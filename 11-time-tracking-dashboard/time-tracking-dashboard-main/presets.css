@@ -12,6 +12,7 @@
 
     --8px: 0.5rem;
     --15px: 0.9375rem;
+    --16px: 1rem;
     --18px: 1.125rem;
     --21px: 1.3125rem;
     --24px: 1.5rem;
@@ -20,6 +21,7 @@
     --38px: 2.375rem;
 
     --spacing-100: var(--8px);
+    --spacing-200: var(--16px);
     --spacing-300: var(--24px);
     --spacing-400: var(--32px);
 }

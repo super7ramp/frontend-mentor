@@ -9,21 +9,62 @@
 :root {
     --card-corner-radius: 15px;
     --card-border-width: 38px;
+    --card-border-width-desktop: 45px;
     --almost-black: hsl(0deg, 0%, 12%);
+    --21px: 1.3125rem;
+}
+
+@media (min-width: 600px) {
+    :root {
+        --card-border-width: 33px;
+    }
+}
+
+@media (min-width: 1000px) {
+    :root {
+        --card-border-width: 45px;
+    }
 }
 
 body {
     padding: 0 10px;
     background-color: black;
     color: var(--purple-500);
+    max-width: 1116px;
 }
 
 .report {
     display: grid;
     gap: var(--spacing-300);
+    grid-template-areas:
+        "head"
+        "."
+        "."
+        "."
+        "."
+        "."
+        "."
+}
+
+@media (min-width: 600px) {
+    .report {
+        grid-template-areas:
+            "head head head"
+            ". . ."
+            ". . .";
+    }
+}
+
+@media (min-width: 1000px) {
+    .report {
+        grid-template-areas:
+            "head . . ."
+            "head . . ."
+    }
 }
 
 .report__header {
+    grid-area: head;
     background-color: var(--navy-900);
     border-radius: var(--card-corner-radius);
 }
@@ -54,11 +95,25 @@ body {
     border-radius: 50%;
 }
 
+@media (min-width: 1000px) {
+    .avatar {
+        box-shadow: 0 4px 4px 0 hsl(0, 0%, 0%, 25%);
+    }
+}
+
 .selectors {
     display: flex;
     justify-content: space-evenly;
     list-style-type: none;
     padding: var(--spacing-300) 0;
+}
+
+@media (min-width: 1000px) {
+    .selectors {
+        flex-direction: column;
+        gap: var(--21px);
+        padding: var(--spacing-400);
+    }
 }
 
 .selectors__item {
@@ -78,6 +133,19 @@ body {
     border-top: var(--card-border-width) solid;
     border-radius: var(--card-corner-radius);
     padding: var(--spacing-300);
+}
+
+@media (min-width: 600px) {
+    .report-section {
+        gap: var(--spacing-200);
+    }
+}
+
+@media (min-width: 1000px) {
+    .report-section {
+        gap: var(--spacing-300);
+        padding: var(--spacing-400);
+    }
 }
 
 .report-section::before {
@@ -159,6 +227,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-100);
+}
+
+@media (min-width: 600px) {
+    .report-section__durations--selected {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
 }
 
 .current-duration {
