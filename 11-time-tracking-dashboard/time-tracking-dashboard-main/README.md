@@ -30,14 +30,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-TODO
+![](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/11-time-tracking-dashboard)
+- Live Site
+  URL: [GitHub Pages](https://super7ramp.github.io/frontend-mentor/11-time-tracking-dashboard/time-tracking-dashboard-main/)
 
 ## My process
 
@@ -86,7 +85,7 @@ mv styles.less styles.css
 npx less styles.less styles.css
 ```
 
-#### `grid-template-areas`
+#### How to use `grid-template-areas`
 
 Used `grid-template-areas` to name positions in the grid for the first time:
 
@@ -125,7 +124,7 @@ Used `grid-template-areas` to name positions in the grid for the first time:
 }
 ```
 
-#### Using `overflow-clip-margin`
+#### How to use `overflow-clip-margin`
 
 So that section icon is clipped by the section border. I'm not very satisfied with this solution, but it works:
 

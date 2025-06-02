@@ -12,3 +12,4 @@ My solutions to [Frontend Mentor](https://www.frontendmentor.io/) challenges:
 8. [Meet landing page](https://super7ramp.github.io/frontend-mentor/8-meet-landing-page/meet-landing-page/)
 9. [Article preview component](https://super7ramp.github.io/frontend-mentor/9-article-preview-component/article-preview-component-master/)
 10. [Newsletter sign-up form with success message](https://super7ramp.github.io/frontend-mentor/10-newsletter-signup-with-success-message/newsletter-sign-up-with-success-message-main/)
+11. [Time tracking dashboard](https://super7ramp.github.io/frontend-mentor/11-time-tracking-dashboard/time-tracking-dashboard-main/)
