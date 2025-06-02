@@ -125,6 +125,33 @@ Used `grid-template-areas` to name positions in the grid for the first time:
 }
 ```
 
+#### Using `overflow-clip-margin`
+
+So that section icon is clipped by the section border. I'm not very satisfied with this solution, but it works:
+
+```less
+.report-section {
+    border-radius: var(--card-corner-radius);
+    overflow: hidden; /* Clip outside section border */
+}
+
+.report-section::before {
+    display: block;
+    --section-icon: none;
+    content: var(--section-icon);
+    height: var(--card-border-width);
+
+    /* Move the icon up by given offset */
+    position: relative;
+    left: 70%;
+    top: calc(var(--card-icon-offset) * -1);
+
+    /* Clip at the section::before border */
+    overflow: clip;
+    overflow-clip-margin: var(--card-icon-offset);
+}
+```
+
 ### Continued development
 
 Reimplement in React.

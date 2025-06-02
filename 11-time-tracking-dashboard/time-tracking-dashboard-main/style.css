@@ -98,11 +98,11 @@
   padding: 0;
 }
 :root {
+  --21px: 1.3125rem;
+  --card-icon-offset: 10px;
   --card-corner-radius: 15px;
   --card-border-width: 38px;
-  --card-border-width-desktop: 45px;
   --almost-black: hsl(0, 0%, 12%);
-  --21px: 1.3125rem;
 }
 @media (min-width: 600px) {
   :root {
@@ -238,34 +238,28 @@ body {
 }
 .report-section {
   border-radius: var(--card-corner-radius);
-}
-.report-section__inner {
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--card-corner-radius);
-  gap: var(--spacing-100);
-  padding: var(--spacing-300);
-  background-color: var(--navy-900);
-}
-@media (min-width: 600px) {
-  .report-section__inner {
-    gap: var(--spacing-200);
-  }
-}
-@media (min-width: 1000px) {
-  .report-section__inner {
-    gap: var(--spacing-300);
-    padding: var(--spacing-400);
-  }
+  overflow: hidden;
 }
 .report-section::before {
   display: block;
   --section-icon: none;
   content: var(--section-icon);
   height: var(--card-border-width);
-  overflow: hidden;
   position: relative;
-  left: 60%;
+  left: 70%;
+  top: calc(var(--card-icon-offset) * -1);
+  overflow: clip;
+  overflow-clip-margin: var(--card-icon-offset);
+}
+@media (min-width: 600px) {
+  .report-section::before {
+    left: 50%;
+  }
+}
+@media (min-width: 1000px) {
+  .report-section::before {
+    left: 60%;
+  }
 }
 .report-section--work {
   background-color: var(--orange-300);
@@ -302,6 +296,25 @@ body {
 }
 .report-section--self-care::before {
   --section-icon: url("images/icon-self-care.svg");
+}
+.report-section__inner {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--card-corner-radius);
+  gap: var(--spacing-100);
+  padding: var(--spacing-300);
+  background-color: var(--navy-900);
+}
+@media (min-width: 600px) {
+  .report-section__inner {
+    gap: var(--spacing-200);
+  }
+}
+@media (min-width: 1000px) {
+  .report-section__inner {
+    gap: var(--spacing-300);
+    padding: var(--spacing-400);
+  }
 }
 .report-section__header {
   display: flex;
