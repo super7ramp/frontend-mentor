@@ -22,7 +22,6 @@
     }
 
     --almost-black: hsl(0deg, 0%, 12%);
-
 }
 
 body {
@@ -90,12 +89,12 @@ body {
 .report__title {
     color: white;
     .text-preset-6();
-}
 
-.report__title::before {
-    content: "Report for";
-    color: var(--navy-200);
-    margin-bottom: var(--spacing-100);
+    &::before {
+        content: "Report for";
+        color: var(--navy-200);
+        margin-bottom: var(--spacing-100);
+    }
 }
 
 .profile__name {
@@ -110,10 +109,8 @@ body {
     height: 64px;
     border: 3px solid white;
     border-radius: 50%;
-}
 
-@media (min-width: 1000px) {
-    .avatar {
+    @media (min-width: 1000px) {
         box-shadow: 0 4px 4px 0 hsl(0, 0%, 0%, 25%);
     }
 }
@@ -170,50 +167,50 @@ body {
 
 .report-section--work {
     background-color: var(--orange-300);
-}
 
-.report-section--work::before {
-    --section-icon: url("images/icon-work.svg");
+    &::before {
+        --section-icon: url("images/icon-work.svg");
+    }
 }
 
 .report-section--play {
     background-color: var(--blue-300);
-}
 
-.report-section--play::before {
-    --section-icon: url("images/icon-play.svg");
+    &::before {
+        --section-icon: url("images/icon-play.svg");
+    }
 }
 
 .report-section--study {
     background-color: var(--pink-400);
-}
 
-.report-section--study::before {
-    --section-icon: url("images/icon-study.svg");
+    &::before {
+        --section-icon: url("images/icon-study.svg");
+    }
 }
 
 .report-section--exercise {
     background-color: var(--green-400);
-}
 
-.report-section--exercise::before {
-    --section-icon: url("images/icon-exercise.svg");
+    &::before {
+        --section-icon: url("images/icon-exercise.svg");
+    }
 }
 
 .report-section--social {
     background-color: var(--purple-700);
-}
 
-.report-section--social::before {
-    --section-icon: url("images/icon-social.svg");
+    &::before {
+        --section-icon: url("images/icon-social.svg");
+    }
 }
 
 .report-section--self-care {
     background-color: var(--yellow-300);
-}
 
-.report-section--self-care::before {
-    --section-icon: url("images/icon-self-care.svg");
+    &::before {
+        --section-icon: url("images/icon-self-care.svg");
+    }
 }
 
 .report-section__inner {
@@ -239,10 +236,10 @@ body {
     justify-content: space-between;
     color: white;
     border-radius: var(--card-border-width);
-}
 
-.report-section__header::after {
-    content: url("images/icon-ellipsis.svg")
+    &::after {
+        content: url("images/icon-ellipsis.svg")
+    }
 }
 
 .report-section__title {
