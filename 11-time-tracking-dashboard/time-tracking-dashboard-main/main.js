@@ -5,12 +5,18 @@ fetch("./data.json")
 
 function populateReport(data) {
     const report = document.querySelector(".report")
-    for (const {title, timeframes} of data) {
-        const sectionElement = document.createElement("section")
-        sectionElement.classList.add("report-section", `report-section--${title.toLowerCase().replace(" ", "-")}`)
-        sectionElement.innerHTML = formatReportSectionContent({title, timeframes})
-        report.appendChild(sectionElement)
+    for (const datum of data) {
+        const section = newSectionElementFromData(datum)
+        report.appendChild(section)
     }
+}
+
+/* Creates a new section element based on the provided data */
+function newSectionElementFromData({title, timeframes}) {
+    const sectionElement = document.createElement("section")
+    sectionElement.classList.add("report-section", `report-section--${title.toLowerCase().replace(" ", "-")}`)
+    sectionElement.innerHTML = formatReportSectionContent({title, timeframes})
+    return sectionElement
 }
 
 /* Formats the report section content based on the provided title and timeframes */
@@ -44,28 +50,22 @@ function formatReportSectionContent({title, timeframes}) {
 
 /* Adds event listeners to the selectors to toggle the active state and selected durations */
 function addSelectorListeners() {
-    const dailySelector = document.querySelector(".selectors__item--daily")
-    const dailySections = document.querySelectorAll(".report-section__durations--daily")
-    const weeklySelector = document.querySelector(".selectors__item--weekly")
-    const weeklySections = document.querySelectorAll(".report-section__durations--weekly")
-    const monthlySelector = document.querySelector(".selectors__item--monthly")
-    const monthlySections = document.querySelectorAll(".report-section__durations--monthly")
-
-    addSelectorListener(dailySelector, dailySections, [weeklySelector, monthlySelector], [weeklySections, monthlySections])
-    addSelectorListener(weeklySelector, weeklySections, [dailySelector, monthlySelector], [dailySections, monthlySections])
-    addSelectorListener(monthlySelector, monthlySections, [dailySelector, weeklySelector], [dailySections, weeklySections])
+    for (const timeframe of ["daily", "weekly", "monthly"]) {
+        addListenerForTimeframe(timeframe)
+    }
 }
 
-/* Adds a click event listener to the selector to toggle the active state and selected durations */
-function addSelectorListener(selector, sections, otherSelectors, otherSelectorsSections) {
-    selector.addEventListener("click", e => {
+/* Adds an event listener to the selector for the specified timeframe */
+function addListenerForTimeframe(timeframe) {
+    const selector = document.querySelector(`.selectors__item--${timeframe}`)
+    const otherSelectors = document.querySelectorAll(`.selectors__item:not(.selectors__item--${timeframe})`)
+    const sections = document.querySelectorAll(`.report-section__durations--${timeframe}`)
+    const otherSections = document.querySelectorAll(`.report-section__durations:not(.report-section__durations--${timeframe})`)
+
+    selector.addEventListener("click", (e) => {
         e.preventDefault()
         otherSelectors.forEach(otherSelector => otherSelector.classList.remove("selectors__item--active"))
-        otherSelectorsSections.forEach(otherSelectorSections =>
-            otherSelectorSections.forEach(otherSelectorSection =>
-                otherSelectorSection.classList.remove("report-section__durations--selected")
-            )
-        )
+        otherSections.forEach(otherSection => otherSection.classList.remove("report-section__durations--selected"))
         selector.classList.add("selectors__item--active")
         sections.forEach(section => section.classList.add("report-section__durations--selected"))
     })
