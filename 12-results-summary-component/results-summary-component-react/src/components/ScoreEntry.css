@@ -1,0 +1,36 @@
+.score-entry {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: var(--16px);
+}
+
+.score-entry--reaction {
+    background-color: var(--red-50);
+    color: var(--red-400);
+}
+
+.score-entry--memory {
+    background-color: var(--yellow-50);
+    color: var(--yellow-400);
+}
+
+.score-entry--verbal {
+    background-color: var(--green-50);
+    color: var(--green-500);
+}
+
+.score-entry--visual {
+    background-color: var(--blue-50);
+    color: var(--blue-800);
+}
+
+.score-entry__category {
+    display: flex;
+    gap: var(--16px);
+}
+
+.score-entry__score::after {
+    margin-left: var(--8px);
+    content: "/ 100";
+}

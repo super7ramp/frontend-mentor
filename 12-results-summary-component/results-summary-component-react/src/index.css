@@ -1,0 +1,83 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --8px: 0.5rem;
+    --16px: 1rem;
+    --18px: 1.125rem;
+    --24px: 1.5rem;
+    --56px: 3.5rem;
+    --72px: 4.5rem;
+    --140px: 8.75rem;
+    --320px: 20rem;
+
+    --blue-50: hsl(234deg, 71%, 97%);
+    --blue-800: hsl(234deg, 85%, 45%);
+    --green-50: hsl(162deg, 63%, 97%);
+    --green-500: hsl(166deg, 100%, 37%);
+    --navy-200: hsl(241deg, 100%, 89%);
+    --navy-950: hsl(224deg, 30%, 27%);
+    --red-50: hsl(0deg, 100%, 98%);
+    --red-400: hsl(0deg, 100%, 67%);
+    --yellow-50: hsl(38deg, 100%, 98%);
+    --yellow-400: hsl(39deg, 100%, 56%);
+
+    --gradient-1: linear-gradient(hsl(256deg, 71%, 46%), hsl(241deg, 72%, 46%, 0%));
+    --gradient-2: linear-gradient(hsl(252deg, 100%, 67%), hsl(241deg, 81%, 54%));
+}
+
+@font-face {
+    font-family: "Hanken Grotesk";
+    src: local("Hanken Grotesk"), url("assets/fonts/HankenGrotesk-VariableFont_wght.ttf");
+}
+
+.text-preset-1 {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 800; /* extra bold */
+    font-size: var(--72px);
+    line-height: 100%;
+    letter-spacing: 0;
+}
+
+.text-preset-4 {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 700; /* bold */
+    font-size: var(--24px);
+    line-height: 130%;
+    letter-spacing: 0;
+}
+
+.text-preset-5--medium {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 500; /* medium */
+    font-size: var(--18px);
+    line-height: 130%;
+    letter-spacing: 0;
+}
+
+.text-preset-5--bold {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 700; /* bold */
+    font-size: var(--18px);
+    line-height: 130%;
+    letter-spacing: 0;
+}
+
+.text-preset-6--medium {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 500; /* medium */
+    font-size: var(--16px);
+    line-height: 130%;
+    letter-spacing: 0;
+}
+
+.text-preset-6--bold {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 700; /* bold */
+    font-size: var(--16px);
+    line-height: 130%;
+    letter-spacing: 0;
+}

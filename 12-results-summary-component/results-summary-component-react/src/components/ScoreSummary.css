@@ -1,0 +1,12 @@
+.score-summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--24px);
+    padding: 0 30px;
+}
+
+.score-summary__entries {
+    display: flex;
+    flex-direction: column;
+    gap: var(--16px);
+}

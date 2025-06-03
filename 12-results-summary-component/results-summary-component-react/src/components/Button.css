@@ -1,0 +1,7 @@
+.btn {
+    background-color: var(--navy-950);
+    color: white;
+    height: var(--56px);
+    border-radius: calc(var(--56px) / 2);
+    border: none;
+}
