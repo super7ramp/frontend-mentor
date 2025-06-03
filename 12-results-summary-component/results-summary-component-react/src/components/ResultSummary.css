@@ -1,0 +1,15 @@
+.result-summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--24px);
+    min-width: var(--320px);
+    max-width: var(--736px);
+    background-color: white;
+}
+
+@media (min-width: 635px) {
+    .result-summary {
+        flex-direction: row;
+        border-radius: 32px;
+    }
+}

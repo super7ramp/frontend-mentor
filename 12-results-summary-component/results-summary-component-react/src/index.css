@@ -9,10 +9,13 @@
     --16px: 1rem;
     --18px: 1.125rem;
     --24px: 1.5rem;
+    --32px: 2rem;
     --56px: 3.5rem;
     --72px: 4.5rem;
     --140px: 8.75rem;
+    --200px: 12.5rem;
     --320px: 20rem;
+    --736px: 46rem;
 
     --blue-50: hsl(234deg, 71%, 97%);
     --blue-800: hsl(234deg, 85%, 45%);
