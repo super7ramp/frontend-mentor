@@ -12,6 +12,7 @@
 @media (min-width: 650px) {
     .result-summary {
         flex-direction: row;
+        align-items: center;
         border-radius: 32px;
         min-height: auto;
     }
