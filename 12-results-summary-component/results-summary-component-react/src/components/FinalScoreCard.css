@@ -43,12 +43,12 @@
     }
 }
 
-.final-score-card__score {
+.final-score-card__average {
     color: white;
 }
 
 @media (min-width: 650px) {
-    .final-score-card__score {
+    .final-score-card__average {
         /* text-preset-1 */
         font-size: var(--72px);
     }

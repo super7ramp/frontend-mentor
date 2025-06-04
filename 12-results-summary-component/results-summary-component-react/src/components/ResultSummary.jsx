@@ -5,7 +5,7 @@ import "./ResultSummary.css"
 
 function ResultSummary({entries}) {
     return <div className="result-summary">
-        <FinalScoreCard result="76"/>
+        <FinalScoreCard average={average(entries)}/>
         <ScoreList>
             {
                 entries.map((entry) =>
@@ -18,6 +18,10 @@ function ResultSummary({entries}) {
             }
         </ScoreList>
     </div>
+}
+
+function average(entries) {
+    return Math.round(entries.reduce((total, entry) => total + entry.score, 0) / entries.length)
 }
 
 function Icon(url, category) {

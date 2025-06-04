@@ -1,10 +1,10 @@
 import "./FinalScoreCard.css"
 
-function FinalScoreCard({result}) {
+function FinalScoreCard({average}) {
     return <div className="final-score-card">
         <p className="text-preset-5--bold final-score-card__header">Your Result</p>
         <div className="final-score-card__result">
-            <p className="text-preset-2 final-score-card__score">{result}</p>
+            <p className="text-preset-2 final-score-card__average">{average}</p>
             <p className="text-preset-6--bold final-score-card__percent">of 100</p>
         </div>
         <div className="final-score-card__appraisal">
