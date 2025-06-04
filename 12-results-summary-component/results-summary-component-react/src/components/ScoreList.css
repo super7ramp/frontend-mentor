@@ -9,6 +9,7 @@
 @media (min-width: 650px) {
     .score-list {
         padding: 30px;
+        gap: var(--32px);
     }
 
     .score-list__header {
