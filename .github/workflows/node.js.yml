@@ -38,6 +38,7 @@ jobs:
         with:
           node-version: lts/*
           cache: 'npm'
+          cache-dependency-path: 12-results-summary-component/results-summary-component-react
       - name: Install dependencies
         run: npm ci
       - name: Build
