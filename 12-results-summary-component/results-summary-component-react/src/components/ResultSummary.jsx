@@ -25,7 +25,7 @@ function average(entries) {
 }
 
 function Icon(url, category) {
-    const patchedUrl = url.replace("./assets/images/", "/")
+    const patchedUrl = url.replace("./assets/images/", "./")
     return <img src={patchedUrl} alt={`${category} icon`}/>
 }
 
