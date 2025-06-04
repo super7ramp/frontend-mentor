@@ -35,8 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/12-results-summary-component)
-- Live Site
-  URL: [GitHub Pages](https://super7ramp.github.io/frontend-mentor/12-results-summary-component/results-summary-component-react/)
+- Live Site URL: [Netlify](https://cheerful-snickerdoodle-633290.netlify.app/)
 
 ## My process
 
