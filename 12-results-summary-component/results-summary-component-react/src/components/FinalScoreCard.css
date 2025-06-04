@@ -70,6 +70,10 @@
 }
 
 @media (min-width: 650px) {
+    .final-score-card__note {
+        /* text-preset-3 */
+        font-size: var(--32px);
+    }
     .final-score-card__comment {
         /* text-preset-5 */
         font-size: var(--18px);
