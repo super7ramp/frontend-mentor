@@ -32,7 +32,23 @@
     gap: var(--16px);
 }
 
+@media (min-width: 650px) {
+    .score-entry__category {
+        /* text-preset-5 */
+        font-size: var(--18px);
+    }
+}
+
 .score-entry__score::after {
     margin-left: var(--8px);
     content: "/ 100";
+    color: var(--navy-950);
+    opacity: 50%;
+}
+
+@media (min-width: 650px) {
+    .score-entry__score {
+        /* text-preset-5 */
+        font-size: var(--18px);
+    }
 }

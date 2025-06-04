@@ -45,6 +45,14 @@
     letter-spacing: 0;
 }
 
+.text-preset-2 {
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 800; /* extra bold */
+    font-size: var(--56px);
+    line-height: 100%;
+    letter-spacing: 0;
+}
+
 .text-preset-4 {
     font-family: "Hanken Grotesk", sans-serif;
     font-weight: 700; /* bold */

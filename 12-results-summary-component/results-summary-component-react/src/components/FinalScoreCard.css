@@ -10,14 +10,18 @@
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
     gap: var(--24px);
-    box-shadow: 0 30px 60px 0 hsl(224deg, 82%, 58%, 15%);
 }
 
-@media (min-width: 635px) {
+@media (min-width: 650px) {
     .final-score-card {
         gap: var(--32px);
         border-radius: 32px;
         width: 100%;
+    }
+
+    .final-score-card__header {
+        /* text-preset-4 */
+        font-size: var(--24px);
     }
 }
 
@@ -30,22 +34,44 @@
     border-radius: 50%;
     height: var(--score-circle-size);
     width: var(--score-circle-size);
-    color: white;
     background: var(--gradient-1);
 }
 
-@media (min-width: 635px) {
+@media (min-width: 650px) {
     .final-score-card__result {
         --score-circle-size: var(--200px);
     }
 }
 
-.final-score-card__result:last-child {
-    color: var(--navy-200);
+.final-score-card__score {
+    color: white;
 }
 
-.final-score-card__comment {
+@media (min-width: 650px) {
+    .final-score-card__score {
+        /* text-preset-1 */
+        font-size: var(--72px);
+    }
+
+    .final-score-card__percent {
+        /* text-preset-5 */
+        font-size: var(--18px);
+    }
+}
+
+.final-score-card__appraisal {
     display: flex;
     flex-direction: column;
     gap: var(--8px);
+}
+
+.final-score-card__note {
+    color: white;
+}
+
+@media (min-width: 650px) {
+    .final-score-card__comment {
+        /* text-preset-5 */
+        font-size: var(--18px);
+    }
 }

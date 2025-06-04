@@ -3,7 +3,7 @@ import Button from "./Button.jsx";
 
 function ScoreList({children}) {
     return <section className="score-list">
-        <h1 className="text-preset-5--bold">Summary</h1>
+        <h1 className="text-preset-5--bold score-list__header">Summary</h1>
         <div className="score-list__entries">
             {children}
         </div>

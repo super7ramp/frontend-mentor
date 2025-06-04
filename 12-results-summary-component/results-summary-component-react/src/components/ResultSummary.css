@@ -4,12 +4,15 @@
     gap: var(--24px);
     min-width: var(--320px);
     max-width: var(--736px);
+    min-height: 100vh;
     background-color: white;
+    box-shadow: 0 30px 60px 0 hsl(224deg, 82%, 58%, 15%);
 }
 
-@media (min-width: 635px) {
+@media (min-width: 650px) {
     .result-summary {
         flex-direction: row;
         border-radius: 32px;
+        min-height: auto;
     }
 }
