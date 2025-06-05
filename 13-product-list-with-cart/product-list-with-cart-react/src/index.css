@@ -1,0 +1,77 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --4px: 0.25rem;
+    --8px: 0.5rem;
+    --12px: 0.75rem;
+    --14px: 0.875rem;
+    --16px: 1rem;
+    --24px: 1.5rem;
+    --32px: 2rem;
+    --44px: 2.75rem;
+
+    --spacing-50: var(--4px);
+    --spacing-100: var(--8px);
+    --spacing-150: var(--12px);
+    --spacing-200: var(--16px);
+    --spacing-300: var(--24px);
+    --spacing-400: var(--32px);
+
+    --red: hsl(14deg, 86%, 42%);
+    --rose-50: hsl(20deg, 50%, 98%);
+    --rose-400: hsl(7deg, 20%, 60%);
+    --rose-500: hsl(12deg, 20%, 44%);
+    --rose-900: hsl(14deg, 65%, 9%);
+
+    --button-height: var(--44px);
+}
+
+@font-face {
+    font-family: "Red Hat Text";
+    src: local("Red Hat Text"), url("assets/fonts/RedHatText-VariableFont_wght.ttf");
+}
+
+.text-preset-1 {
+    --40px: 2.5rem;
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 700; /* bold */
+    font-size: var(--40px);
+    line-height: 120%;
+    letter-spacing: 0;
+}
+
+.text-preset-2 {
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 700; /* bold */
+    font-size: var(--24px);
+    line-height: 125%;
+    letter-spacing: 0;
+}
+
+.text-preset-3 {
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 600; /* semi-bold */
+    font-size: var(--16px);
+    line-height: 150%;
+    letter-spacing: 0;
+}
+
+.text-preset-4 {
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 400; /* regular */
+    font-size: var(--14px);
+    line-height: 150%;
+    letter-spacing: 0;
+}
+
+.text-preset-4--bold {
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 600; /* semi-bold */
+    font-size: var(--14px);
+    line-height: 150%;
+    letter-spacing: 0;
+}

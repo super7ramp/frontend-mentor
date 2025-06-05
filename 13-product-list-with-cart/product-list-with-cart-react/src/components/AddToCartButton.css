@@ -1,0 +1,19 @@
+.button--add-to-cart {
+    display: flex;
+    gap: var(--spacing-100);
+    align-items: center;
+    justify-content: center;
+    height: var(--button-height);
+    width: 160px;
+
+    padding: var(--spacing-150);
+    background-color: white;
+    color: var(--rose-900);
+    border: 1px solid var(--rose-400);
+    border-radius: calc(var(--button-height) / 2);
+}
+
+.button--add-to-cart:hover {
+    color: var(--red);
+    border-color: var(--red);
+}

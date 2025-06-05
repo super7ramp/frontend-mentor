@@ -1,0 +1,14 @@
+.desserts {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
+}
+
+.desserts__title {
+    color: var(--rose-900);
+}
+
+.desserts__list {
+    display: grid;
+    gap: var(--spacing-300);
+}
