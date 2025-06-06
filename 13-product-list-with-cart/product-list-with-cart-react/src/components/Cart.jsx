@@ -24,9 +24,7 @@ function EmptyCart() {
 }
 
 function NonEmptyCart({items, onDeleteItem}) {
-    const totalPrice = items
-        .reduce((total, item) => total + (item.quantity * item.price), 0)
-        .toFixed(2);
+    const totalPrice = items.reduce((total, item) => total + (item.quantity * item.price), 0)
 
     return <>
         <ItemList items={items} onDeleteItem={onDeleteItem}/>
@@ -52,10 +50,10 @@ function Item({item, onDeleteItem}) {
                         {item.quantity}x
                     </p>
                     <p className={`text-preset-4 ${style.price}`}>
-                        @ ${item.price}
+                        @ ${item.price.toFixed(2)}
                     </p>
                     <p className={`text-preset-4--bold ${style.total}`}>
-                        ${item.quantity * item.price}
+                        ${(item.quantity * item.price).toFixed(2)}
                     </p>
                 </div>
             </div>
@@ -67,7 +65,7 @@ function Item({item, onDeleteItem}) {
 function OrderTotal({totalPrice}) {
     return <div className={style.orderTotal}>
         <p className="text-preset-4">Order total</p>
-        <p className="text-preset-2">${totalPrice}</p>
+        <p className="text-preset-2">${totalPrice.toFixed(2)}</p>
     </div>;
 }
 
