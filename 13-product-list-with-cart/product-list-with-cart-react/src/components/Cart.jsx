@@ -7,8 +7,8 @@ function Cart({items}) {
     return (
         <section className={style.container}>
             <h1 className={`${style.header} text-preset-2`}>Your Cart ({items.length})</h1>
-            {items.length > 0 && <NonEmptyCart items={items}/>}
             {items.length === 0 && <EmptyCart/>}
+            {items.length > 0 && <NonEmptyCart items={items}/>}
         </section>
     );
 }
@@ -19,7 +19,7 @@ function EmptyCart() {
             <img src={emptyCart} alt="Empty cart" className={style.placeholder}/>
             <p className="text-preset-4--bold">Your added items will appear here</p>
         </div>
-    );
+    )
 }
 
 function NonEmptyCart({items}) {
@@ -65,7 +65,6 @@ function OrderTotal() {
         <p className="text-preset-2">$</p>
     </div>;
 }
-
 
 function CarbonNeutralBanner() {
     return <div className={style.carbonNeutralBanner}>

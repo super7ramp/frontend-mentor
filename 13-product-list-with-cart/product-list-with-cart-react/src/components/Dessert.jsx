@@ -4,7 +4,7 @@ import AddToCartButton from "./AddToCartButton.jsx";
 function Dessert({category, name, price, image}) {
     return <article>
         <header className={style.imgAndButtonContainer}>
-            <img className={style.img} src={image} alt={name}/>
+            <img className={style.img} src={`/src/${image.mobile}`} alt={name}/>
             <AddToCartButton className={style.btn}/>
         </header>
         <div className={style.detailsContainer}>
