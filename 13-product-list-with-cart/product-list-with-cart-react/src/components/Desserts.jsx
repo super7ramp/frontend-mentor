@@ -1,9 +1,9 @@
-import "./Desserts.css"
+import style from "./Desserts.module.css"
 
 function Desserts({children}) {
-    return <section className="desserts">
-        <h1 className="desserts__title text-preset-1">Desserts</h1>
-        <div className="desserts__list">
+    return <section className={style.container}>
+        <h1 className={`${style.title} text-preset-1`}>Desserts</h1>
+        <div className={style.list}>
             {children}
         </div>
     </section>

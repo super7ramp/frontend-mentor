@@ -1,4 +1,4 @@
-.cart-container {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,11 +8,11 @@
     gap: var(--spacing-200);
 }
 
-.cart__header {
+.header {
     color: var(--red);
 }
 
-.cart--empty {
+.cartEmpty {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +21,7 @@
     color: var(--rose-500);
 }
 
-.cart-placeholder {
+.placeholder {
     height: 128px;
     width: 128px;
 }

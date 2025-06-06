@@ -1,4 +1,4 @@
-.button--add-to-cart {
+.btn {
     display: flex;
     gap: var(--spacing-100);
     align-items: center;
@@ -13,7 +13,7 @@
     border-radius: calc(var(--button-height) / 2);
 }
 
-.button--add-to-cart:hover {
+.btn:hover {
     color: var(--red);
     border-color: var(--red);
 }
