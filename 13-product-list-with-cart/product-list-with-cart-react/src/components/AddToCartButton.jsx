@@ -7,23 +7,26 @@ import {useState} from "react";
 function AddToCartButton({className}) {
     const [count, setCount] = useState(0)
     const [active, setActive] = useState(false)
-    return <>{
-        active
-            ? <ActiveAddToCartButton className={className}
-                                     currentCount={count}
-                                     setCount={setCount}
-                                     setInactive={() => setActive(false)}/>
-            : <InactiveAddToCartButton className={className}
-                                       setActive={() => setActive(true)}/>
-    }</>
+
+    return <>
+        {active && <ActiveAddToCartButton className={className}
+                                          currentCount={count}
+                                          setCount={setCount}
+                                          setInactive={() => setActive(false)}/>}
+
+        {!active && <InactiveAddToCartButton className={className}
+                                             setActive={() => setActive(true)}/>}
+    </>
 }
 
 function InactiveAddToCartButton({className, setActive}) {
-    return <button className={`${className} ${style.btn} ${style.btnInactive} text-preset-4--bold`}
-                   onClick={setActive}>
-        <img src={addToCartImg} alt="Add to cart icon"/>
-        Add to cart
-    </button>
+    return (
+        <button className={`${className} ${style.btn} ${style.btnInactive} text-preset-4--bold`}
+                onClick={setActive}>
+            <img src={addToCartImg} alt="Add to cart icon"/>
+            Add to cart
+        </button>
+    )
 }
 
 function ActiveAddToCartButton({className, currentCount, setCount, setInactive}) {
@@ -36,11 +39,13 @@ function ActiveAddToCartButton({className, currentCount, setCount, setInactive})
         return 0
     })
 
-    return <button className={`${className} ${style.btn} ${style.btnActive} text-preset-4--bold`}>
-        <img src={decrementImg} alt="Decrement" onClick={decrement}/>
-        {currentCount}
-        <img src={incrementImg} alt="Increment" onClick={increment}/>
-    </button>
+    return (
+        <button className={`${className} ${style.btn} ${style.btnActive} text-preset-4--bold`}>
+            <img src={decrementImg} alt="Decrement" onClick={decrement}/>
+            {currentCount}
+            <img src={incrementImg} alt="Increment" onClick={increment}/>
+        </button>
+    )
 }
 
 export default AddToCartButton

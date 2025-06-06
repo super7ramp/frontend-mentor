@@ -25,3 +25,79 @@
     height: 128px;
     width: 128px;
 }
+
+.list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.item:not(:first-child) {
+    padding-top: 16px;
+    border-top: 1px solid var(--rose-100);
+}
+
+.nameAndPriceContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+}
+
+.priceContainer {
+    display: flex;
+    gap: var(--spacing-100);
+}
+
+.quantity {
+    color: var(--red);
+}
+
+.price,
+.total {
+    color: var(--rose-500);
+}
+
+.orderTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: var(--rose-900);
+}
+
+.carbonNeutralBanner {
+    background-color: var(--rose-50);
+    border-radius: 8px;
+    width: 100%;
+    padding: var(--spacing-200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-100);
+    color: var(--rose-900);
+}
+
+.confirmOrderButton {
+    --53px: 3.3125rem;
+    --height: var(--53px);
+    height: var(--height);
+    background-color: var(--red);
+    color: white;
+    padding: var(--spacing-100) var(--spacing-200);
+    border: none;
+    border-radius: calc(var(--height) / 2);
+    width: 100%;
+}
+
+.confirmOrderButton:hover {
+    background-color: color-mix(in hsl, var(--red), black 25%);
+}

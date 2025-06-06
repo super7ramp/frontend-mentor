@@ -2,6 +2,7 @@ import './App.css'
 import Desserts from "./components/Desserts.jsx";
 import Dessert from "./components/Dessert.jsx";
 import Cart from "./components/Cart.jsx";
+import desserts from "./data/data.json";
 
 function App() {
 
@@ -71,7 +72,7 @@ function App() {
                     image="/src/assets/images/image-panna-cotta-mobile.jpg"
                 />
             </Desserts>
-            <Cart/>
+            <Cart items={desserts}/>
         </main>
     )
 }

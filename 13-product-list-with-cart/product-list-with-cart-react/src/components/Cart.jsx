@@ -1,11 +1,14 @@
 import style from "./Cart.module.css"
 import emptyCart from "../assets/images/illustration-empty-cart.svg"
+import removeItemImg from "../assets/images/icon-remove-item.svg"
+import carbonNeutralImg from "../assets/images/icon-carbon-neutral.svg";
 
 function Cart({items}) {
     return (
         <section className={style.container}>
-            <h1 className={`${style.header} text-preset-2`}>Your Cart (0)</h1>
-            <EmptyCart/>
+            <h1 className={`${style.header} text-preset-2`}>Your Cart ({items.length})</h1>
+            {items.length > 0 && <NonEmptyCart items={items}/>}
+            {items.length === 0 && <EmptyCart/>}
         </section>
     );
 }
@@ -16,6 +19,68 @@ function EmptyCart() {
             <img src={emptyCart} alt="Empty cart" className={style.placeholder}/>
             <p className="text-preset-4--bold">Your added items will appear here</p>
         </div>
+    );
+}
+
+function NonEmptyCart({items}) {
+    return <>
+        <ItemList items={items}/>
+        <OrderTotal/>
+        <CarbonNeutralBanner/>
+        <ConfirmOrderButton/>
+    </>
+}
+
+function ItemList({items}) {
+    return <ul className={style.list}>
+        {items.map(item => <Item item={item}/>)}
+    </ul>;
+}
+
+function Item({item}) {
+    return (
+        <li key={item.name} className={style.item}>
+            <div className={style.nameAndPriceContainer}>
+                <p className="text-preset-4--bold">{item.name}</p>
+                <div className={style.priceContainer}>
+                    <p className={`text-preset-4--bold ${style.quantity}`}>
+                        {item.quantity}x
+                    </p>
+                    <p className={`text-preset-4 ${style.price}`}>
+                        @ ${item.price}
+                    </p>
+                    <p className={`text-preset-4--bold ${style.total}`}>
+                        ${item.quantity * item.price}
+                    </p>
+                </div>
+            </div>
+            <img src={removeItemImg} alt="Remove item"/>
+        </li>
+    )
+}
+
+function OrderTotal() {
+    return <div className={style.orderTotal}>
+        <p className="text-preset-4">Order total</p>
+        <p className="text-preset-2">$</p>
+    </div>;
+}
+
+
+function CarbonNeutralBanner() {
+    return <div className={style.carbonNeutralBanner}>
+        <img src={carbonNeutralImg} alt="Carbon neutral icon"/>
+        <p className="text-preset-4">
+            This is a <span className="text-preset-4--bold">carbon-neutral</span> delivery
+        </p>
+    </div>;
+}
+
+function ConfirmOrderButton() {
+    return (
+        <button className={`${style.confirmOrderButton} text-preset-4--bold`}>
+            Confirm order
+        </button>
     );
 }
 
