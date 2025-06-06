@@ -4,14 +4,19 @@ import incrementImg from "../assets/images/icon-increment-quantity.svg"
 import decrementImg from "../assets/images/icon-decrement-quantity.svg"
 import {useState} from "react";
 
-function AddToCartButton({className}) {
-    const [count, setCount] = useState(0)
+function AddToCartButton({className, onQuantityUpdated}) {
+    const [quantity, setQuantity] = useState(0)
     const [active, setActive] = useState(false)
+
+    const setQuantityAndNotify = (newQuantity) => {
+        setQuantity(newQuantity)
+        onQuantityUpdated(newQuantity)
+    }
 
     return <>
         {active && <ActiveAddToCartButton className={className}
-                                          currentCount={count}
-                                          setCount={setCount}
+                                          currentQuantity={quantity}
+                                          setQuantity={setQuantityAndNotify}
                                           setInactive={() => setActive(false)}/>}
 
         {!active && <InactiveAddToCartButton className={className}
@@ -29,20 +34,20 @@ function InactiveAddToCartButton({className, setActive}) {
     )
 }
 
-function ActiveAddToCartButton({className, currentCount, setCount, setInactive}) {
-    const increment = () => setCount((count) => count + 1)
-    const decrement = () => setCount((count) => {
-        if (count > 0) {
-            return count - 1
+function ActiveAddToCartButton({className, currentQuantity, setQuantity, setInactive}) {
+    const increment = () => setQuantity(currentQuantity + 1)
+    const decrement = () => {
+        if (currentQuantity > 0) {
+            setQuantity(currentQuantity - 1)
+            return
         }
         setInactive()
-        return 0
-    })
+    }
 
     return (
         <button className={`${className} ${style.btn} ${style.btnActive} text-preset-4--bold`}>
             <img src={decrementImg} alt="Decrement" onClick={decrement}/>
-            {currentCount}
+            {currentQuantity}
             <img src={incrementImg} alt="Increment" onClick={increment}/>
         </button>
     )

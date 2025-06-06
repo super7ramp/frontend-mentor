@@ -4,11 +4,12 @@ import removeItemImg from "../assets/images/icon-remove-item.svg"
 import carbonNeutralImg from "../assets/images/icon-carbon-neutral.svg";
 
 function Cart({items}) {
+    const itemCount = items.reduce((count, item) => count + item.quantity, 0);
     return (
         <section className={style.container}>
-            <h1 className={`${style.header} text-preset-2`}>Your Cart ({items.length})</h1>
+            <h1 className={`${style.header} text-preset-2`}>Your Cart ({itemCount})</h1>
             {items.length === 0 && <EmptyCart/>}
-            {items.length > 0 && <NonEmptyCart items={items}/>}
+            {<NonEmptyCart items={items}/>}
         </section>
     );
 }
@@ -23,9 +24,13 @@ function EmptyCart() {
 }
 
 function NonEmptyCart({items}) {
+    const totalPrice = items
+        .reduce((total, item) => total + (item.quantity * item.price), 0)
+        .toFixed(2);
+
     return <>
         <ItemList items={items}/>
-        <OrderTotal/>
+        <OrderTotal totalPrice={totalPrice}/>
         <CarbonNeutralBanner/>
         <ConfirmOrderButton/>
     </>
@@ -59,10 +64,10 @@ function Item({item}) {
     )
 }
 
-function OrderTotal() {
+function OrderTotal({totalPrice}) {
     return <div className={style.orderTotal}>
         <p className="text-preset-4">Order total</p>
-        <p className="text-preset-2">$</p>
+        <p className="text-preset-2">${totalPrice}</p>
     </div>;
 }
 
