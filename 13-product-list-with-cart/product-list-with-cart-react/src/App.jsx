@@ -10,28 +10,37 @@ function App() {
 
     const updateCart = ({name, price, quantity}) => {
         console.log("Updating cart with item:", {name, price, quantity});
+        if (quantity > 0) {
+            putItem({name, price, quantity})
+        } else {
+            deleteItem(name)
+        }
+    }
+
+    const putItem = ({name, price, quantity}) => {
         const itemIndex = cartItems.findIndex(item => item.name === name)
         if (itemIndex < 0) {
-            if (quantity > 0) {
-                const updatedItems = [...cartItems, {name, price, quantity}]
-                setCartItems(updatedItems)
-                console.log("Item added to cart:", {name, price, quantity});
-                console.log("Current cart items:", updatedItems);
-            }
+            const updatedItems = [...cartItems, {name, price, quantity}]
+            setCartItems(updatedItems)
+            console.log("Item added to cart:", {name, price, quantity});
+            console.log("Current cart items:", updatedItems);
         } else {
-            if (quantity === 0) {
-                const updatedItems = [...cartItems]
-                updatedItems.splice(itemIndex, 1)
-                setCartItems(updatedItems)
-                console.log("Item removed from cart:", {name, price, quantity});
-                console.log("Current cart items:", updatedItems);
-            } else {
-                const updatedItems = [...cartItems]
-                updatedItems[itemIndex].quantity = quantity
-                setCartItems(updatedItems)
-                console.log("Item quantity updated in cart:", {name, price, quantity});
-                console.log("Current cart items:", updatedItems);
-            }
+            const updatedItems = [...cartItems]
+            updatedItems[itemIndex].quantity = quantity
+            setCartItems(updatedItems)
+            console.log("Item quantity updated in cart:", {name, price, quantity});
+            console.log("Current cart items:", updatedItems);
+        }
+    }
+
+    const deleteItem = (itemName) => {
+        const itemIndex = cartItems.findIndex(item => item.name === itemName)
+        if (itemIndex >= 0) {
+            const updatedItems = [...cartItems]
+            updatedItems.splice(itemIndex, 1)
+            setCartItems(updatedItems)
+            console.log("Item removed from cart:", itemName);
+            console.log("Current cart items:", updatedItems);
         }
     }
 
@@ -44,11 +53,13 @@ function App() {
                         name={dessert.name}
                         price={dessert.price}
                         image={dessert.image}
-                        updateCart={updateCart}
+                        onQuantityUpdated={(newQuantity) =>
+                            updateCart({...dessert, quantity: newQuantity})}
+                        initialQuantity={cartItems.find(item => item.name === dessert.name)?.quantity ?? 0}
                     />
                 )}
             </Desserts>
-            <Cart items={cartItems}/>
+            <Cart items={cartItems} onDeleteItem={deleteItem}/>
         </main>
     )
 }

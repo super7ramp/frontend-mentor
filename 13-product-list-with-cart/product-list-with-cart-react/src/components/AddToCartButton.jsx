@@ -4,13 +4,19 @@ import incrementImg from "../assets/images/icon-increment-quantity.svg"
 import decrementImg from "../assets/images/icon-decrement-quantity.svg"
 import {useState} from "react";
 
-function AddToCartButton({className, onQuantityUpdated}) {
-    const [quantity, setQuantity] = useState(0)
-    const [active, setActive] = useState(false)
+function AddToCartButton({className, onQuantityUpdated, initialQuantity}) {
+    const [quantity, setQuantity] = useState(initialQuantity)
+    const [active, setActive] = useState(initialQuantity > 0)
 
     const setQuantityAndNotify = (newQuantity) => {
         setQuantity(newQuantity)
         onQuantityUpdated(newQuantity)
+    }
+
+    // Reset states if initial quantity prop has changed
+    if (initialQuantity !== quantity) {
+        setQuantity(initialQuantity)
+        setActive(initialQuantity > 0)
     }
 
     return <>

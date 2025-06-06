@@ -3,13 +3,13 @@ import emptyCart from "../assets/images/illustration-empty-cart.svg"
 import removeItemImg from "../assets/images/icon-remove-item.svg"
 import carbonNeutralImg from "../assets/images/icon-carbon-neutral.svg";
 
-function Cart({items}) {
+function Cart({items, onDeleteItem}) {
     const itemCount = items.reduce((count, item) => count + item.quantity, 0);
     return (
         <section className={style.container}>
             <h1 className={`${style.header} text-preset-2`}>Your Cart ({itemCount})</h1>
             {items.length === 0 && <EmptyCart/>}
-            {<NonEmptyCart items={items}/>}
+            {<NonEmptyCart items={items} onDeleteItem={onDeleteItem}/>}
         </section>
     );
 }
@@ -23,26 +23,26 @@ function EmptyCart() {
     )
 }
 
-function NonEmptyCart({items}) {
+function NonEmptyCart({items, onDeleteItem}) {
     const totalPrice = items
         .reduce((total, item) => total + (item.quantity * item.price), 0)
         .toFixed(2);
 
     return <>
-        <ItemList items={items}/>
+        <ItemList items={items} onDeleteItem={onDeleteItem}/>
         <OrderTotal totalPrice={totalPrice}/>
         <CarbonNeutralBanner/>
         <ConfirmOrderButton/>
     </>
 }
 
-function ItemList({items}) {
+function ItemList({items, onDeleteItem}) {
     return <ul className={style.list}>
-        {items.map(item => <Item item={item}/>)}
+        {items.map(item => <Item item={item} onDeleteItem={() => onDeleteItem(item.name)}/>)}
     </ul>;
 }
 
-function Item({item}) {
+function Item({item, onDeleteItem}) {
     return (
         <li key={item.name} className={style.item}>
             <div className={style.nameAndPriceContainer}>
@@ -59,7 +59,7 @@ function Item({item}) {
                     </p>
                 </div>
             </div>
-            <img src={removeItemImg} alt="Remove item"/>
+            <img src={removeItemImg} alt="Remove item" onClick={onDeleteItem}/>
         </li>
     )
 }

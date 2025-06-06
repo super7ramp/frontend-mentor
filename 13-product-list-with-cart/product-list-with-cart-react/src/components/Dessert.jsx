@@ -1,16 +1,14 @@
 import style from "./Dessert.module.css"
 import AddToCartButton from "./AddToCartButton.jsx";
 
-function Dessert({category, name, price, image, updateCart}) {
-
-    const onQuantityUpdated = (quantity) => {
-        updateCart({name, price, quantity})
-    }
-
+function Dessert({category, name, price, image, onQuantityUpdated, initialQuantity}) {
     return <article>
         <header className={style.imgAndButtonContainer}>
             <img className={style.img} src={`/src/${image.mobile}`} alt={name}/>
-            <AddToCartButton className={style.btn} onQuantityUpdated={onQuantityUpdated}/>
+            <AddToCartButton className={style.btn}
+                             onQuantityUpdated={onQuantityUpdated}
+                             initialQuantity={initialQuantity}
+            />
         </header>
         <div className={style.detailsContainer}>
             <p className={`${style.category} text-preset-4`}>{category}</p>
