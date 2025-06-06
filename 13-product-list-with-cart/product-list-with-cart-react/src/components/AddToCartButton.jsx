@@ -16,7 +16,6 @@ function AddToCartButton({className, onQuantityUpdated, initialQuantity}) {
     // Reset states if initial quantity prop has changed
     if (initialQuantity !== quantity) {
         setQuantity(initialQuantity)
-        setActive(initialQuantity > 0)
     }
 
     return <>
@@ -52,10 +51,49 @@ function ActiveAddToCartButton({className, currentQuantity, setQuantity, setInac
 
     return (
         <button className={`${className} ${style.btn} ${style.btnActive} text-preset-4--bold`}>
-            <img src={decrementImg} alt="Decrement" onClick={decrement}/>
-            {currentQuantity}
-            <img src={incrementImg} alt="Increment" onClick={increment}/>
+            <SpinnerDown onClick={decrement}/>
+            <QuantityInput value={currentQuantity} onInput={setQuantity}/>
+            <SpinnerUp onClick={increment}/>
         </button>
+    )
+}
+
+function QuantityInput({value, onInput}) {
+    return (
+        <input className={style.inputQuantity}
+               type="number"
+               min="0"
+               value={`${value}`
+                   /* Remove any leading zeros entered by the user  */
+                   .replace(/^0+(?=\d)/, '')
+               }
+               onInput={(e) => {
+                   if (e.target.validity.valid) {
+                       onInput(parseInt(e.target.value))
+                   } else {
+                       onInput(0)
+                   }
+               }}
+        />
+    )
+}
+
+function SpinnerDown({onClick}) {
+    return <Spinner img={decrementImg} onClick={onClick}/>
+}
+
+function SpinnerUp({onClick}) {
+    return <Spinner img={incrementImg} onClick={onClick}/>
+}
+
+function Spinner({img, onClick}) {
+    return (
+        <input className={style.spinner}
+               type="image"
+               src={img}
+               alt="Spinner icon"
+               onClick={onClick}
+        />
     )
 }
 

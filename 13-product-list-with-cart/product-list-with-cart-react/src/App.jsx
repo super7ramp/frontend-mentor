@@ -49,6 +49,7 @@ function App() {
             <Desserts>
                 {desserts.map(dessert =>
                     <Dessert
+                        key={dessert.name}
                         category={dessert.category}
                         name={dessert.name}
                         price={dessert.price}

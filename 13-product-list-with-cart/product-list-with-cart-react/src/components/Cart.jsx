@@ -8,8 +8,9 @@ function Cart({items, onDeleteItem}) {
     return (
         <section className={style.container}>
             <h1 className={`${style.header} text-preset-2`}>Your Cart ({itemCount})</h1>
-            {items.length === 0 && <EmptyCart/>}
-            {<NonEmptyCart items={items} onDeleteItem={onDeleteItem}/>}
+            {items.length === 0
+                ? <EmptyCart/>
+                : <NonEmptyCart items={items} onDeleteItem={onDeleteItem}/>}
         </section>
     );
 }
@@ -36,13 +37,13 @@ function NonEmptyCart({items, onDeleteItem}) {
 
 function ItemList({items, onDeleteItem}) {
     return <ul className={style.list}>
-        {items.map(item => <Item item={item} onDeleteItem={() => onDeleteItem(item.name)}/>)}
+        {items.map(item => <Item key={item.name} item={item} onDeleteItem={() => onDeleteItem(item.name)}/>)}
     </ul>;
 }
 
 function Item({item, onDeleteItem}) {
     return (
-        <li key={item.name} className={style.item}>
+        <li className={style.item}>
             <div className={style.nameAndPriceContainer}>
                 <p className="text-preset-4--bold">{item.name}</p>
                 <div className={style.priceContainer}>
