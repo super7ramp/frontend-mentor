@@ -13,7 +13,22 @@
     border-radius: calc(var(--button-height) / 2);
 }
 
-.btn:hover {
+.btnInactive:hover {
     color: var(--red);
     border-color: var(--red);
+}
+
+.btnActive {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: white;
+    justify-content: space-between;
+}
+
+.btnActive img {
+    height: 16px;
+    width: 16px;
+    border: solid 1px white;
+    border-radius: 50%;
+    padding: 2px;
 }
