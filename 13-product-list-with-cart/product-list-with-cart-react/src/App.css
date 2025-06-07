@@ -17,7 +17,7 @@
         --1216px: 76rem;
         flex-direction: row;
         max-width: var(--1216px);
-        padding: 88px;
+        padding: 88px 40px;
     }
 }
 
@@ -26,4 +26,5 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: var(--rose-50);
+    min-height: 100vh;
 }
