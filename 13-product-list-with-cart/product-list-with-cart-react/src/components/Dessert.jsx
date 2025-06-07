@@ -1,6 +1,7 @@
 import style from "./Dessert.module.css"
 import AddToCartButton from "./AddToCartButton.jsx";
 import {useState} from "react";
+import {patchUrl} from "../utils/urls.js";
 
 /**
  * Dessert component represents a single dessert item with its details and an "Add to Cart" button.
@@ -40,9 +41,9 @@ function DessertPicture({image, name, selected}) {
     const styleImg = selected ? `${style.img} ${style.imgSelected}` : style.img;
     return (
         <picture>
-            <source srcSet={`/src/${image.tablet}`} media="(40.625rem <= width < 64rem)"/>
-            <source srcSet={`/src/${image.desktop}`} media="(64rem <= width)"/>
-            <img className={styleImg} src={`/src/${image.mobile}`} alt={name}/>
+            <source srcSet={patchUrl(image.tablet)} media="(40.625rem <= width < 64rem)"/>
+            <source srcSet={patchUrl(image.desktop)} media="(64rem <= width)"/>
+            <img className={styleImg} src={patchUrl(image.mobile)} alt={name}/>
         </picture>
     )
 }

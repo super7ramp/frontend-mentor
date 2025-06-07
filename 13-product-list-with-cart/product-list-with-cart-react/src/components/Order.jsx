@@ -1,5 +1,6 @@
 import style from "./Order.module.css";
 import removeItemImg from "../assets/images/icon-remove-item.svg"
+import {patchUrl} from "../utils/urls.js";
 
 /**
  * Order component displays a list of items with their details.
@@ -62,7 +63,7 @@ function Item({item, onDeleteItem, showThumbnail}) {
 }
 
 function Thumbnail({item}) {
-    return <img className={style.thumbnail} src={`/src/${item.image.thumbnail}`} alt={item.name}/>
+    return <img className={style.thumbnail} src={patchUrl(item.image.thumbnail)} alt={item.name}/>
 }
 
 function ItemTotalVarying({item}) {
