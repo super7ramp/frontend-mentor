@@ -6,6 +6,20 @@
     min-width: var(--300px);
 }
 
+@media (min-width: 40.625rem /* 650px */) {
+    .app {
+        padding: 40px;
+    }
+}
+
+@media (min-width: 64rem /* 1024px */) {
+    .app {
+        --1216px: 76rem;
+        flex-direction: row;
+        max-width: var(--1216px);
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;

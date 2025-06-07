@@ -8,6 +8,13 @@
     gap: var(--spacing-300);
 }
 
+@media (min-width: 64rem /* 1024px */) {
+    .container {
+        --384px: 24rem;
+        min-width: var(--384px);
+    }
+}
+
 .header {
     color: var(--red);
 }
