@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/13-product-list-with-cart)
+- Live Site URL: [Netlify](https://jolly-lollipop-5f3fce.netlify.app/)
 
 ## My process
 
