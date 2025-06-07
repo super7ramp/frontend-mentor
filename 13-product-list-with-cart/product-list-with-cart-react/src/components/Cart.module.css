@@ -11,6 +11,7 @@
     .container {
         --384px: 24rem;
         min-width: var(--384px);
+        height: 100%;
     }
 }
 
