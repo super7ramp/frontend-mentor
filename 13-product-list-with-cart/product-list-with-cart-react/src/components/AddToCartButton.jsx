@@ -44,7 +44,8 @@ function AddToCartButton({className, initialQuantity, onQuantityUpdated, selecte
 function InactiveAddToCartButton({className, setSelected}) {
     return (
         <button className={`${className} ${style.btn} ${style.btnInactive} text-preset-4--bold`}
-                onClick={setSelected}>
+                onClick={setSelected}
+                type="button">
             <img src={addToCartImg} alt="Add to cart icon"/>
             Add to cart
         </button>
