@@ -25,7 +25,10 @@ function AddToCartButton({className, onQuantityUpdated, initialQuantity}) {
                                           setInactive={() => setActive(false)}/>}
 
         {!active && <InactiveAddToCartButton className={className}
-                                             setActive={() => setActive(true)}/>}
+                                             setActive={() => {
+                                                 setQuantityAndNotify(1)
+                                                 setActive(true)
+                                             }}/>}
     </>
 }
 
