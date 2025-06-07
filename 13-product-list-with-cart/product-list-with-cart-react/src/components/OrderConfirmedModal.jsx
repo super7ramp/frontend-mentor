@@ -8,7 +8,7 @@ function OrderConfirmedModal({items, ref, onStartNewOrder}) {
         <dialog className={style.dialog} ref={ref}>
             <ConfirmationHeader/>
             <ConfirmedOrder>
-                <Order items={items}/>
+                <Order items={items} showThumbnail={true}/>
             </ConfirmedOrder>
             <StartNewOrderButton onClick={onStartNewOrder}/>
         </dialog>

@@ -10,19 +10,19 @@ function App() {
     const [cartItems, setCartItems] = useState([])
     const modalRef = useRef(null);
 
-    const updateCart = ({name, price, quantity}) => {
+    const updateCart = ({name, price, quantity, image}) => {
         console.log("Updating cart with item:", {name, price, quantity});
         if (quantity > 0) {
-            putItem({name, price, quantity})
+            putItem({name, price, quantity, image})
         } else {
             deleteItem(name)
         }
     }
 
-    const putItem = ({name, price, quantity}) => {
+    const putItem = ({name, price, quantity, image}) => {
         const itemIndex = cartItems.findIndex(item => item.name === name)
         if (itemIndex < 0) {
-            const updatedItems = [...cartItems, {name, price, quantity}]
+            const updatedItems = [...cartItems, {name, price, quantity, image}]
             setCartItems(updatedItems)
             console.log("Item added to cart:", {name, price, quantity});
             console.log("Current cart items:", updatedItems);

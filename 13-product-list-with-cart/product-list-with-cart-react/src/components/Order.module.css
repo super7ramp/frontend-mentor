@@ -25,6 +25,18 @@
     border-top: 1px solid var(--rose-100);
 }
 
+.thumbnailNameAndPriceContainer {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-200);
+}
+
+.thumbnail {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+
 .nameAndPriceContainer {
     display: flex;
     flex-direction: column;
