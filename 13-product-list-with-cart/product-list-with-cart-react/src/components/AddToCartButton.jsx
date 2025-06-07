@@ -1,7 +1,5 @@
 import style from "./AddToCartButton.module.css"
 import addToCartImg from "../assets/images/icon-add-to-cart.svg"
-import incrementImg from "../assets/images/icon-increment-quantity.svg"
-import decrementImg from "../assets/images/icon-decrement-quantity.svg"
 import {useState} from "react";
 
 /**
@@ -93,18 +91,17 @@ function QuantityInput({value, onInput}) {
 }
 
 function SpinnerDown({onClick}) {
-    return <Spinner img={decrementImg} onClick={onClick}/>
+    return <Spinner className={style.spinnerDown} onClick={onClick}/>
 }
 
 function SpinnerUp({onClick}) {
-    return <Spinner img={incrementImg} onClick={onClick}/>
+    return <Spinner className={style.spinnerUp} onClick={onClick}/>
 }
 
-function Spinner({img, onClick}) {
+function Spinner({className, onClick}) {
     return (
-        <input className={style.spinner}
+        <input className={style.spinner + " " + className}
                type="image"
-               src={img}
                alt="Spinner icon"
                onClick={onClick}
         />

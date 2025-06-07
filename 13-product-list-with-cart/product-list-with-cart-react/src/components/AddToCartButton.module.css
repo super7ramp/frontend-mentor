@@ -33,6 +33,26 @@
     padding: 2.5px;
 }
 
+.spinner:hover {
+    background-color: white;
+}
+
+.spinnerDown {
+    content: url("../assets/images/icon-decrement-quantity.svg");
+}
+
+.spinnerDown:hover {
+    content: url("../assets/images/icon-decrement-quantity-hover.svg");
+}
+
+.spinnerUp {
+    content: url("../assets/images/icon-increment-quantity.svg");
+}
+
+.spinnerUp:hover {
+    content: url("../assets/images/icon-increment-quantity-hover.svg");
+}
+
 .inputQuantity {
     appearance: textfield;
     background-color: var(--red);
