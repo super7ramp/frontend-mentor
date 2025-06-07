@@ -3,6 +3,15 @@ import style from "./OrderConfirmedModal.module.css";
 import Order from "./Order.jsx";
 import PrimaryButton from "./PrimaryButton.jsx";
 
+/**
+ * OrderConfirmedModal component displays a modal with the order confirmation details.
+ *
+ * @param items the items in the order
+ * @param ref a reference to the dialog element, used to control its visibility
+ * @param onStartNewOrder function to call when the "Start new order" button is clicked
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function OrderConfirmedModal({items, ref, onStartNewOrder}) {
     return (
         <dialog className={style.dialog} ref={ref}>

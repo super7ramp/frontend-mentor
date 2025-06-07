@@ -8,7 +8,7 @@ import OrderConfirmedModal from "./components/OrderConfirmedModal.jsx";
 
 function App() {
     const [cartItems, setCartItems] = useState([])
-    const modalRef = useRef(null);
+    const modalRef = useRef(null)
 
     const updateCart = ({name, price, quantity, image}) => {
         console.log("Updating cart with item:", {name, price, quantity});

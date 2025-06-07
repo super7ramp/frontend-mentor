@@ -4,6 +4,16 @@ import carbonNeutralImg from "../assets/images/icon-carbon-neutral.svg";
 import Order from "./Order.jsx";
 import PrimaryButton from "./PrimaryButton.jsx";
 
+/**
+ * Cart component displays the user's shopping cart, including items added to the cart,
+ * the total item count, and options to delete items or confirm the order.
+ *
+ * @param items the items in the cart, each with properties like name, price, and quantity
+ * @param onDeleteItem function called when an item is deleted from the cart
+ * @param onConfirmOrder function called when the user confirms the order
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Cart({items, onDeleteItem, onConfirmOrder}) {
     const itemCount = items.reduce((count, item) => count + item.quantity, 0);
     return (

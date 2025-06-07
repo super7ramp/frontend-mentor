@@ -2,6 +2,19 @@ import style from "./Dessert.module.css"
 import AddToCartButton from "./AddToCartButton.jsx";
 import {useState} from "react";
 
+/**
+ * Dessert component represents a single dessert item with its details and an "Add to Cart" button.
+ *
+ * @param category the category of the dessert (e.g., "Ice Cream", "Cake")
+ * @param name the name of the dessert (e.g., "Chocolate Cake")
+ * @param price the price of the dessert (e.g., 4.99)
+ * @param image the image object containing paths for mobile, tablet, and desktop views
+ * @param initialQuantity the initial quantity of the dessert in the cart (default is 0)
+ * @param onQuantityUpdated function to call when the quantity is updated; it receives the new quantity as an argument
+ * @param initialState the initial selected state of the dessert; if true, the "Add to Cart" button is active
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Dessert({category, name, price, image, initialQuantity, onQuantityUpdated, initialState}) {
     const [selected, setSelected] = useState(initialState)
 

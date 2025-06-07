@@ -4,6 +4,17 @@ import incrementImg from "../assets/images/icon-increment-quantity.svg"
 import decrementImg from "../assets/images/icon-decrement-quantity.svg"
 import {useState} from "react";
 
+/**
+ * AddToCartButton component displays a button to add items to the cart.
+ *
+ * @param className a custom class name to apply to the button
+ * @param initialQuantity the initial quantity of the item to add to the cart
+ * @param onQuantityUpdated function called when the quantity is updated; it receives the new quantity as an argument
+ * @param selectedState a boolean indicating whether the item is currently selected (active state)
+ * @param onSelectedStateChange function called when the selected state changes; it receives the new state as an argument
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function AddToCartButton({className, initialQuantity, onQuantityUpdated, selectedState, onSelectedStateChange}) {
     const [quantity, setQuantity] = useState(initialQuantity)
 
