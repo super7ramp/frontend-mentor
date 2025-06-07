@@ -61,6 +61,22 @@
     color: var(--rose-900);
 }
 
+.removeItemInput {
+    --size: 20px;
+    width: var(--size);
+    height: var(--size);
+    border: solid 1.5px var(--rose-400);
+    border-radius: 50%;
+    padding: 2px;
+    /* Filter to turn svg color into rose-400 */
+    filter: brightness(0) saturate(100%) invert(57%) sepia(7%) saturate(1006%) hue-rotate(318deg) brightness(98%) contrast(96%);
+}
+
+.removeItemInput:hover {
+    /* Filter to turn svg color into rose-900 */
+    filter: brightness(0) saturate(100%) invert(10%) sepia(33%) saturate(801%) hue-rotate(332deg) brightness(94%) contrast(106%);
+}
+
 .separator {
     height: 1px;
     width: 100%;

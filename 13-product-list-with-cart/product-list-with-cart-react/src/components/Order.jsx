@@ -82,7 +82,11 @@ function ItemTotal({item, className}) {
 }
 
 function RemoveItemInput({onDeleteItem}) {
-    return <input type="image" src={removeItemImg} alt="Remove item" onClick={onDeleteItem}/>
+    return <input type="image"
+                  src={removeItemImg}
+                  alt="Remove item"
+                  className={style.removeItemInput}
+                  onClick={onDeleteItem}/>
 }
 
 function OrderTotal({totalPrice}) {
