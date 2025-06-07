@@ -42,7 +42,7 @@ function Item({item, onDeleteItem}) {
                 </div>
             </div>
             {onDeleteItem
-                ? <img src={removeItemImg} alt="Remove item" onClick={onDeleteItem}/>
+                ? <input type="image" src={removeItemImg} alt="Remove item" onClick={onDeleteItem}/>
                 : <ItemTotalFixed item={item}/>}
         </li>
     )
