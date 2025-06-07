@@ -1,13 +1,24 @@
 .dialog[open] {
+    --dialog-border-radius: 16px;
     min-width: max(var(--300px), 100%);
     border: none;
-    border-radius: 16px;
+    border-top-left-radius: var(--dialog-border-radius);
+    border-top-right-radius: var(--dialog-border-radius);
     padding: 40px 24px 24px 24px;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-400);
     margin-top: auto;
-    margin-bottom: 0;
+}
+
+@media (min-width: 40.625rem /* 650px */) {
+    .dialog[open] {
+        --688px: 42rem;
+        margin: auto;
+        max-width: var(--688px);
+        min-width: var(--688px);
+        border-radius: var(--dialog-border-radius);
+    }
 }
 
 .confirmationTitle {
