@@ -9,6 +9,7 @@
     flex-direction: column;
     gap: var(--spacing-400);
     margin-top: auto;
+    animation: open 400ms forwards;
 }
 
 @media (min-width: 40.625rem /* 650px */) {
@@ -18,6 +19,15 @@
         max-width: var(--688px);
         min-width: var(--688px);
         border-radius: var(--dialog-border-radius);
+    }
+}
+
+@keyframes open {
+    from {
+        translate: 0 100%;
+    }
+    to {
+        translate: 0 0;
     }
 }
 
