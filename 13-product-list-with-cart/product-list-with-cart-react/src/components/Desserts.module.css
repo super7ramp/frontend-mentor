@@ -4,6 +4,12 @@
     gap: var(--spacing-400);
 }
 
+@media (min-width: 650px) {
+    .container {
+        padding: 40px;
+    }
+}
+
 .title {
     color: var(--rose-900);
 }
@@ -11,4 +17,10 @@
 .list {
     display: grid;
     gap: var(--spacing-300);
+}
+
+@media (min-width: 650px) {
+    .list {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

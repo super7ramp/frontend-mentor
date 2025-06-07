@@ -4,9 +4,8 @@ import incrementImg from "../assets/images/icon-increment-quantity.svg"
 import decrementImg from "../assets/images/icon-decrement-quantity.svg"
 import {useState} from "react";
 
-function AddToCartButton({className, onQuantityUpdated, initialQuantity}) {
+function AddToCartButton({className, initialQuantity, onQuantityUpdated, selectedState, onSelectedStateChange}) {
     const [quantity, setQuantity] = useState(initialQuantity)
-    const [active, setActive] = useState(initialQuantity > 0)
 
     const setQuantityAndNotify = (newQuantity) => {
         setQuantity(newQuantity)
@@ -16,26 +15,27 @@ function AddToCartButton({className, onQuantityUpdated, initialQuantity}) {
     // Reset states if initial quantity prop has changed
     if (initialQuantity !== quantity) {
         setQuantity(initialQuantity)
+        onSelectedStateChange(initialQuantity > 0)
     }
 
     return <>
-        {active && <ActiveAddToCartButton className={className}
-                                          currentQuantity={quantity}
-                                          setQuantity={setQuantityAndNotify}
-                                          setInactive={() => setActive(false)}/>}
+        {selectedState && <ActiveAddToCartButton className={className}
+                                                 currentQuantity={quantity}
+                                                 setQuantity={setQuantityAndNotify}
+                                                 setInactive={() => onSelectedStateChange(false)}/>}
 
-        {!active && <InactiveAddToCartButton className={className}
-                                             setActive={() => {
-                                                 setQuantityAndNotify(1)
-                                                 setActive(true)
-                                             }}/>}
+        {!selectedState && <InactiveAddToCartButton className={className}
+                                                    setSelected={() => {
+                                                        setQuantityAndNotify(1)
+                                                        onSelectedStateChange(true)
+                                                    }}/>}
     </>
 }
 
-function InactiveAddToCartButton({className, setActive}) {
+function InactiveAddToCartButton({className, setSelected}) {
     return (
         <button className={`${className} ${style.btn} ${style.btnInactive} text-preset-4--bold`}
-                onClick={setActive}>
+                onClick={setSelected}>
             <img src={addToCartImg} alt="Add to cart icon"/>
             Add to cart
         </button>

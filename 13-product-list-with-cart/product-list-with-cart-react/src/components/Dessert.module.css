@@ -10,6 +10,10 @@
     border-radius: 8px;
 }
 
+.imgSelected {
+    border: 2px solid var(--red);
+}
+
 .btn {
     position: relative;
     top: calc(var(--button-height) / -2);
