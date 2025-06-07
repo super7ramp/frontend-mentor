@@ -1,0 +1,14 @@
+.primaryButton {
+    --53px: 3.3125rem;
+    --height: var(--53px);
+    width: 100%;
+    min-height: var(--height);
+    background-color: var(--red);
+    color: white;
+    border-radius: calc(var(--height) / 2);
+    border: none;
+}
+
+.primaryButton:hover {
+    background-color: color-mix(in hsl, var(--red), black 25%);
+}

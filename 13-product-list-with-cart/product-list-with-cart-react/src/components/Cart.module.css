@@ -5,7 +5,7 @@
     background-color: white;
     border-radius: 12px;
     padding: var(--spacing-300);
-    gap: var(--spacing-200);
+    gap: var(--spacing-300);
 }
 
 .header {
@@ -24,54 +24,6 @@
 .placeholder {
     height: 128px;
     width: 128px;
-}
-
-.list {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-200);
-    width: 100%;
-}
-
-.item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.item:not(:first-child) {
-    padding-top: 16px;
-    border-top: 1px solid var(--rose-100);
-}
-
-.nameAndPriceContainer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-100);
-}
-
-.priceContainer {
-    display: flex;
-    gap: var(--spacing-100);
-}
-
-.quantity {
-    color: var(--red);
-}
-
-.price,
-.total {
-    color: var(--rose-500);
-}
-
-.orderTotal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    color: var(--rose-900);
 }
 
 .carbonNeutralBanner {

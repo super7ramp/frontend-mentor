@@ -1,0 +1,24 @@
+.dialog[open] {
+    min-width: 100%;
+    border: none;
+    padding: 40px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
+}
+
+.confirmationTitle {
+    color: var(--rose-900);
+    margin-top: var(--spacing-300);
+}
+
+.confirmationSubtitle {
+    color: var(--rose-500);
+    margin-top: var(--spacing-100);
+}
+
+.confirmedOrder {
+    background-color: var(--rose-50);
+    border-radius: 8px;
+    padding: 24px;
+}

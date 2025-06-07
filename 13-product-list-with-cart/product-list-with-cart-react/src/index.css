@@ -61,6 +61,14 @@
     letter-spacing: 0;
 }
 
+.text-preset-3--regular {
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 400; /* regular */
+    font-size: var(--16px);
+    line-height: 150%;
+    letter-spacing: 0;
+}
+
 .text-preset-4 {
     font-family: "Red Hat Text", sans-serif;
     font-weight: 400; /* regular */

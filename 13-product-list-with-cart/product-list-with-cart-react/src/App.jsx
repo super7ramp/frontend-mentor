@@ -3,10 +3,12 @@ import Desserts from "./components/Desserts.jsx";
 import Dessert from "./components/Dessert.jsx";
 import Cart from "./components/Cart.jsx";
 import desserts from "./data/data.json";
-import {useState} from "react";
+import {useRef, useState} from "react";
+import OrderConfirmedModal from "./components/OrderConfirmedModal.jsx";
 
 function App() {
     const [cartItems, setCartItems] = useState([])
+    const modalRef = useRef(null);
 
     const updateCart = ({name, price, quantity}) => {
         console.log("Updating cart with item:", {name, price, quantity});
@@ -44,6 +46,20 @@ function App() {
         }
     }
 
+    const itemQuantity = (itemName) => {
+        const item = cartItems.find(item => item.name === itemName);
+        return item ? item.quantity : 0;
+    }
+
+    const showModal = () => {
+        modalRef.current?.showModal()
+    }
+
+    const resetCartAndCloseModal = () => {
+        setCartItems([]);
+        modalRef.current?.close()
+    }
+
     return (
         <main className="app">
             <Desserts>
@@ -54,13 +70,22 @@ function App() {
                         name={dessert.name}
                         price={dessert.price}
                         image={dessert.image}
-                        onQuantityUpdated={(newQuantity) =>
-                            updateCart({...dessert, quantity: newQuantity})}
-                        initialQuantity={cartItems.find(item => item.name === dessert.name)?.quantity ?? 0}
+                        onQuantityUpdated={(newQuantity) => {
+                            const updatedItem = {...dessert, quantity: newQuantity}
+                            updateCart(updatedItem)
+                        }}
+                        initialQuantity={itemQuantity(dessert.name)}
                     />
                 )}
             </Desserts>
-            <Cart items={cartItems} onDeleteItem={deleteItem}/>
+
+            <Cart items={cartItems}
+                  onDeleteItem={deleteItem}
+                  onConfirmOrder={showModal}/>
+
+            <OrderConfirmedModal items={cartItems}
+                                 ref={modalRef}
+                                 onStartNewOrder={resetCartAndCloseModal}/>
         </main>
     )
 }
