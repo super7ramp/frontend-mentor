@@ -11,7 +11,7 @@
 }
 
 .imgSelected {
-    border: 2px solid var(--red);
+    outline: 2px solid var(--red);
 }
 
 .btn {
