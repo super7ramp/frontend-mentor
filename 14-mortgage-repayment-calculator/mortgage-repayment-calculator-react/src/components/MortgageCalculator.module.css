@@ -1,0 +1,136 @@
+:root {
+    --48px: 3rem;
+    --field-height: 48px;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: var(--spacing-300);
+    gap: var(--spacing-300);
+}
+
+.resetFormButton {
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    color: var(--slate-700);
+}
+
+.resetFormButton:hover {
+    text-decoration: underline;
+}
+
+.numberField label {
+    color: var(--slate-700);
+}
+
+.numberFieldPrefixInputSuffix {
+    display: flex;
+    align-items: center;
+    height: var(--field-height);
+}
+
+.numberFieldPrefixInputSuffix > input {
+    appearance: textfield;
+    border: solid 1px var(--slate-500);
+    border-radius: 4px;
+    width: 100%;
+    vertical-align: bottom;
+    display: inline;
+    height: 100%;
+    padding: var(--spacing-200);
+}
+
+.numberFieldPrefixInputSuffix > input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.numberFieldPrefixInputSuffix > input:first-child {
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.numberFieldPrefixInputSuffix > input:last-child {
+    border-left: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.numberFieldUnit {
+    color: var(--slate-700);
+    background-color: var(--slate-100);
+    border: solid 1px var(--slate-500);
+    border-radius: 4px;
+    padding: 0 var(--spacing-200);
+    line-height: calc(var(--field-height) - 2px /* border width, top and bottom */);
+}
+
+.numberFieldUnit:first-child {
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.numberFieldUnit:last-child {
+    border-left: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+}
+
+.radioGroup > label {
+    color: var(--slate-700);
+}
+
+.radioField {
+    border: solid 1px var(--slate-500);
+    border-radius: 4px;
+    width: 100%;
+    height: var(--field-height);
+
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+    padding: 0 var(--spacing-200);
+}
+
+.submitButton {
+    --button-height: var(--56px);
+    height: var(--button-height);
+    border: none;
+    border-radius: calc(var(--button-height) / 2);
+    background-color: var(--lime);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-200);
+}
+
+.resultPlaceholder {
+    padding: var(--spacing-300);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-200);
+
+    text-align: center;
+
+    background-color: var(--slate-900);
+}
+
+.resultPlaceholder h2 {
+    color: white;
+}
+
+.resultPlaceholder p {
+    color: var(--slate-300);
+}
