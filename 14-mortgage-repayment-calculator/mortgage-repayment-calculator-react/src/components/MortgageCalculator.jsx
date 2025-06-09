@@ -1,19 +1,30 @@
 import style from "./MortgageCalculator.module.css"
 import iconCalculator from "../assets/images/icon-calculator.svg"
 import illustrationEmpty from "../assets/images/illustration-empty.svg"
+import {useState} from "react";
 
 function MortgageCalculator() {
+
+    const [result, setResult] = useState(null)
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+        // TODO validation
+        console.log("Form submitted")
+        setResult({"monthly": 1_797.74, "total": 539_322.94})
+    }
+
     return (
         <div>
-            <MortgageCalculatorForm/>
-            <MortgageRepaymentResult/>
+            <MortgageCalculatorForm onSubmit={onSubmit}/>
+            <MortgageRepaymentResult result={result}/>
         </div>
     )
 }
 
-function MortgageCalculatorForm() {
+function MortgageCalculatorForm({onSubmit}) {
     return (
-        <form className={style.form}>
+        <form className={style.form} onSubmit={onSubmit}>
             <h1 className="text-preset-2">Mortgage Calculator</h1>
             <input type="reset" value="Clear All" className={`text-preset-4 ${style.resetFormButton}`}/>
             <NumberField label="Mortgage Amount" prefix="£" min="0"/>
@@ -35,7 +46,7 @@ function NumberField({label, prefix, suffix, min, max}) {
             <div className={style.numberFieldPrefixInputSuffix}>
                 {prefix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{prefix}</p>}
                 <input type="number"
-                       required="true"
+                       required={true}
                        min={min || Number.MIN_VALUE}
                        max={max || Number.MAX_VALUE}
                        step="any"
@@ -74,16 +85,52 @@ function SubmitButton() {
     )
 }
 
-function MortgageRepaymentResult() {
+function MortgageRepaymentResult({result}) {
     return (
-        <div className={style.resultPlaceholder}>
+        <>
+            {result
+                ? <MortgageRepaymentResultFilled result={result}/>
+                : <MortgageRepaymentResultPlaceholder/>}
+        </>
+    )
+}
+
+function MortgageRepaymentResultFilled({result}) {
+    const {monthly, total} = result
+    return (
+        <section className={style.result + " " + style.resultFilled}>
+            <header className={style.resultFilledHeader}>
+                <h2 className="text-preset-2">Your Result</h2>
+                <p className="text-preset-4">
+                    Your results are shown below based on the information you provided. To adjust the results, edit the
+                    form and click “calculate repayments” again.
+                </p>
+            </header>
+            <div className={style.resultFilledTable}>
+                <div className={style.resultEntry}>
+                    <p className="text-preset-4">Your monthly repayments</p>
+                    <p className={`text-preset-1 ${style.resultMonthly}`}>£{`${monthly}`}</p>
+                </div>
+                <hr className={style.resultSeparator}/>
+                <div className={style.resultEntry}>
+                    <p className="text-preset-4">Total you'll repay over the term</p>
+                    <p className={`text-preset-2 ${style.resultTotal}`}>£{`${total}`}</p>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+function MortgageRepaymentResultPlaceholder() {
+    return (
+        <section className={style.result + " " + style.resultPlaceholder}>
             <img src={illustrationEmpty} alt="Illustration empty"/>
             <h2 className="text-preset-2">Results shown here</h2>
             <p className="text-preset-4">
                 Complete the form and click “calculate repayments” to see what
                 your monthly repayments would be.
             </p>
-        </div>
+        </section>
     )
 }
 
