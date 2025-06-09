@@ -65,12 +65,12 @@
     border: none;
     background-color: transparent;
     text-align: left;
+    text-decoration: underline;
     color: var(--slate-700);
 }
 
 .resetFormButton:hover {
     color: var(--slate-900);
-    text-decoration: underline;
 }
 
 .formFields {
