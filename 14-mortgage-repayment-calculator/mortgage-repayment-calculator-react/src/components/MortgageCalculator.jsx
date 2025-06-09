@@ -63,22 +63,19 @@ function MortgageCalculatorForm({onSubmit}) {
             <h1 className="text-preset-2">Mortgage Calculator</h1>
             <input type="reset" value="Clear All" className={`text-preset-4 ${style.resetFormButton}`}/>
 
-            <NumberField key={`amount-${resets}"`}
-                         label="Mortgage Amount"
+            <NumberField label="Mortgage Amount"
                          value={formData.amount}
                          setValue={setAmount}
                          prefix="£"
                          min="0"/>
 
-            <NumberField key={`term-${resets}"`}
-                         label="Mortgage Term"
+            <NumberField label="Mortgage Term"
                          value={formData.term}
                          setValue={setTerm}
                          suffix="years"
                          min="1"/>
 
-            <NumberField key={`rate-${resets}"`}
-                         label="Interest Rate"
+            <NumberField label="Interest Rate"
                          value={formData.rate}
                          setValue={setRate}
                          suffix="%"
@@ -106,12 +103,10 @@ function MortgageCalculatorForm({onSubmit}) {
 }
 
 function RadioGroup({label, children}) {
-    const [error, setError] = useState(null)
     return (
         <div className={style.radioGroup}>
             <label className="text-preset-4">{label}</label>
             {children}
-            {error && <p className={`text-preset-5 ${style.error}`}>{error}</p>}
         </div>
     )
 }

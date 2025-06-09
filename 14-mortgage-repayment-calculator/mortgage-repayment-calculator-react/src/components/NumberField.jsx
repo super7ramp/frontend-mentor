@@ -1,4 +1,3 @@
-import {useState} from "react";
 import style from "./NumberField.module.css";
 
 /**
@@ -14,15 +13,7 @@ import style from "./NumberField.module.css";
  * @constructor
  */
 function NumberField({label, value, setValue, prefix, suffix, min, max}) {
-    const [error, setError] = useState(null)
-    const onInput = (event) => {
-        if (event.target.validity.valid) {
-            setError(null)
-        } else {
-            setError(event.target.validationMessage)
-        }
-        setValue(event.target.value)
-    }
+    const onInput = (event) => setValue(event.target.value)
     return (
         <div className={style.numberField}>
             <label htmlFor={label} className="text-preset-4">{label}</label>
@@ -39,7 +30,6 @@ function NumberField({label, value, setValue, prefix, suffix, min, max}) {
                        onInput={onInput}/>
                 {suffix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{suffix}</p>}
             </div>
-            {error && <p className={`text-preset-5 ${style.error}`}>{error}</p>}
         </div>
     )
 }

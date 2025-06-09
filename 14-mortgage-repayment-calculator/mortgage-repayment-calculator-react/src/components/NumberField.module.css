@@ -2,6 +2,17 @@
     color: var(--slate-700);
 }
 
+.numberField:has(input:user-invalid)::after {
+    content: "This field is required";
+    /* text preset-5 */
+    color: var(--red);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 500; /* medium */
+    font-size: var(--14px);
+    line-height: 150%;
+    letter-spacing: 0;
+}
+
 .numberFieldPrefixInputSuffix {
     display: flex;
     align-items: center;
@@ -66,8 +77,4 @@
 .numberFieldUnit:first-child {
     border-bottom-left-radius: var(--field-border-radius);
     border-top-left-radius: var(--field-border-radius);
-}
-
-.error {
-    color: var(--red);
 }
