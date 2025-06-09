@@ -1,0 +1,22 @@
+.radioField {
+    border: solid 1px var(--slate-500);
+    border-radius: 4px;
+    width: 100%;
+    height: var(--field-height);
+
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+    padding: 0 var(--spacing-200);
+
+    color: var(--slate-900);
+}
+
+.radioField:hover {
+    border-color: var(--lime);
+}
+
+.radioField:has(input:checked) {
+    border-color: var(--lime);
+    background-color: var(--lime-muted);
+}

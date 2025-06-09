@@ -2,6 +2,8 @@ import style from "./MortgageCalculator.module.css"
 import iconCalculator from "../assets/images/icon-calculator.svg"
 import illustrationEmpty from "../assets/images/illustration-empty.svg"
 import {useState} from "react";
+import NumberField from "./NumberField.jsx";
+import RadioField from "./RadioField.jsx";
 
 function MortgageCalculator() {
 
@@ -103,37 +105,6 @@ function MortgageCalculatorForm({onSubmit}) {
     )
 }
 
-function NumberField({label, value, setValue, prefix, suffix, min, max}) {
-    const [error, setError] = useState(null)
-    const onInput = (event) => {
-        if (event.target.validity.valid) {
-            setError(null)
-        } else {
-            setError(event.target.validationMessage)
-        }
-        setValue(event.target.value)
-    }
-    return (
-        <div className={style.numberField}>
-            <label htmlFor={label} className="text-preset-4">{label}</label>
-            <div className={style.numberFieldPrefixInputSuffix}>
-                {prefix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{prefix}</p>}
-                <input type="number"
-                       required={true}
-                       min={min || Number.MIN_VALUE}
-                       max={max || Number.MAX_VALUE}
-                       step="any"
-                       id={label}
-                       value={value}
-                       className="text-preset-3"
-                       onInput={onInput}/>
-                {suffix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{suffix}</p>}
-            </div>
-            {error && <p className={`text-preset-5 ${style.error}`}>{error}</p>}
-        </div>
-    )
-}
-
 function RadioGroup({label, children}) {
     const [error, setError] = useState(null)
     return (
@@ -141,26 +112,6 @@ function RadioGroup({label, children}) {
             <label className="text-preset-4">{label}</label>
             {children}
             {error && <p className={`text-preset-5 ${style.error}`}>{error}</p>}
-        </div>
-    )
-}
-
-function RadioField({label, groupName, checked, setChecked}) {
-    const change = (event) => {
-        if (!event.target.validity.valid) {
-            console.log("Invalid radio input:", event.target.validationMessage);
-        }
-        setChecked()
-    }
-    return (
-        <div className={style.radioField}>
-            <input type="radio"
-                   id={label}
-                   name={groupName}
-                   required={true}
-                   checked={checked}
-                   onChange={change}/>
-            <label htmlFor={label} className="text-preset-3">{label}</label>
         </div>
     )
 }
