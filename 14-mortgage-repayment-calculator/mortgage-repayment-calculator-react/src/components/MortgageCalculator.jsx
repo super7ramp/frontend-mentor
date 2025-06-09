@@ -9,8 +9,6 @@ function MortgageCalculator() {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        // TODO validation
-        console.log("Form submitted")
         setResult({"monthly": 1_797.74, "total": 539_322.94})
     }
 
@@ -28,7 +26,7 @@ function MortgageCalculatorForm({onSubmit}) {
             <h1 className="text-preset-2">Mortgage Calculator</h1>
             <input type="reset" value="Clear All" className={`text-preset-4 ${style.resetFormButton}`}/>
             <NumberField label="Mortgage Amount" prefix="£" min="0"/>
-            <NumberField label="Mortgage Term" suffix="years" min="0"/>
+            <NumberField label="Mortgage Term" suffix="years" min="1"/>
             <NumberField label="Interest Rate" suffix="%" min="0" max="100"/>
             <RadioGroup label="Mortgage Type">
                 <RadioField label="Repayment"/>
@@ -40,6 +38,14 @@ function MortgageCalculatorForm({onSubmit}) {
 }
 
 function NumberField({label, prefix, suffix, min, max}) {
+    const [error, setError] = useState(null)
+    const onInput = (event) => {
+        if (event.target.validity.valid) {
+            setError(null)
+        } else {
+            setError(event.target.validationMessage)
+        }
+    }
     return (
         <div className={style.numberField}>
             <label htmlFor={label} className="text-preset-4">{label}</label>
@@ -51,9 +57,11 @@ function NumberField({label, prefix, suffix, min, max}) {
                        max={max || Number.MAX_VALUE}
                        step="any"
                        id={label}
-                       className="text-preset-3"/>
+                       className="text-preset-3"
+                       onInput={onInput}/>
                 {suffix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{suffix}</p>}
             </div>
+            {error && <p className={`text-preset-5 ${style.error}`}>{error}</p>}
         </div>
     )
 }

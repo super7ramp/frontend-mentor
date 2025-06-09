@@ -25,6 +25,10 @@
     text-decoration: underline;
 }
 
+.error {
+    color: var(--red);
+}
+
 .numberField label {
     color: var(--slate-700);
 }
@@ -115,6 +119,8 @@
     align-items: center;
     gap: var(--spacing-200);
     padding: 0 var(--spacing-200);
+
+    color: var(--slate-900);
 }
 
 .radioField:hover {
