@@ -10,12 +10,6 @@ import style from "./RadioField.module.css";
  * @constructor
  */
 function RadioField({label, groupName, checked, setChecked}) {
-    const change = (event) => {
-        if (!event.target.validity.valid) {
-            console.log("Invalid radio input:", event.target.validationMessage);
-        }
-        setChecked()
-    }
     const id = label.replace(/\s+/g, '-').toLowerCase();
     return (
         <div className={style.radioField}>
@@ -24,7 +18,7 @@ function RadioField({label, groupName, checked, setChecked}) {
                    name={groupName}
                    required={true}
                    checked={checked}
-                   onChange={change}/>
+                   onChange={setChecked}/>
             <label htmlFor={id} className="text-preset-3">{label}</label>
         </div>
     )
