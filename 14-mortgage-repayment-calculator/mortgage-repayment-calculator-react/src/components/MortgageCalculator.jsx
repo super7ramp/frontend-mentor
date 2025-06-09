@@ -16,9 +16,9 @@ function MortgageCalculatorForm() {
         <form className={style.form}>
             <h1 className="text-preset-2">Mortgage Calculator</h1>
             <input type="reset" value="Clear All" className={`text-preset-4 ${style.resetFormButton}`}/>
-            <NumberField label="Mortgage Amount" prefix="£"/>
-            <NumberField label="Mortgage Term" suffix="years"/>
-            <NumberField label="Interest Rate" suffix="%"/>
+            <NumberField label="Mortgage Amount" prefix="£" min="0"/>
+            <NumberField label="Mortgage Term" suffix="years" min="0"/>
+            <NumberField label="Interest Rate" suffix="%" min="0" max="100"/>
             <RadioGroup label="Mortgage Type">
                 <RadioField label="Repayment"/>
                 <RadioField label="Interest Only"/>
@@ -28,13 +28,19 @@ function MortgageCalculatorForm() {
     )
 }
 
-function NumberField({label, prefix, suffix}) {
+function NumberField({label, prefix, suffix, min, max}) {
     return (
         <div className={style.numberField}>
             <label htmlFor={label} className="text-preset-4">{label}</label>
             <div className={style.numberFieldPrefixInputSuffix}>
                 {prefix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{prefix}</p>}
-                <input type="number" id={label} className="text-preset-3"/>
+                <input type="number"
+                       required="true"
+                       min={min || Number.MIN_VALUE}
+                       max={max || Number.MAX_VALUE}
+                       step="any"
+                       id={label}
+                       className="text-preset-3"/>
                 {suffix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{suffix}</p>}
             </div>
         </div>
