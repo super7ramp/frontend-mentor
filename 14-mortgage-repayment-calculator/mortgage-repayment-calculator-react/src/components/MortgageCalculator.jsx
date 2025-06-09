@@ -176,12 +176,16 @@ function MortgageRepaymentResultFilled({result}) {
             <div className={style.resultFilledTable}>
                 <div className={style.resultEntry}>
                     <p className="text-preset-4">Your monthly repayments</p>
-                    <p className={`text-preset-1 ${style.resultMonthly}`}>£{`${monthly.toLocaleString()}`}</p>
+                    <p className={`text-preset-1 ${style.resultMonthly}`}>
+                        £{`${monthly.toFixed(2).toLocaleString()}`}
+                    </p>
                 </div>
                 <hr className={style.resultSeparator}/>
                 <div className={style.resultEntry}>
                     <p className="text-preset-4">Total you'll repay over the term</p>
-                    <p className={`text-preset-2 ${style.resultTotal}`}>£{`${total.toLocaleString()}`}</p>
+                    <p className={`text-preset-2 ${style.resultTotal}`}>
+                        £{`${total.toFixed(2).toLocaleString()}`}
+                    </p>
                 </div>
             </div>
         </section>
