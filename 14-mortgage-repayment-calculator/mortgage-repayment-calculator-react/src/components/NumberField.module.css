@@ -1,3 +1,9 @@
+.numberField {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-150);
+}
+
 .numberField label {
     color: var(--slate-700);
 }

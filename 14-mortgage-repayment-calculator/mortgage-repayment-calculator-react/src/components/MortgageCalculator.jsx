@@ -15,7 +15,7 @@ function MortgageCalculator() {
     }
 
     return (
-        <div>
+        <div className={style.calculator}>
             <MortgageCalculatorForm onSubmit={onSubmit}/>
             <MortgageRepaymentResult result={result}/>
         </div>
@@ -56,45 +56,54 @@ function MortgageCalculatorForm({onSubmit}) {
     }
 
     return (
-        <form className={style.form}
+        <form className={style.formContainer}
               onSubmit={submit}
               onReset={reset}>
 
-            <h1 className="text-preset-2">Mortgage Calculator</h1>
-            <input type="reset" value="Clear All" className={`text-preset-4 ${style.resetFormButton}`}/>
+            <header className={style.formHeader}>
+                <h1 className="text-preset-2">Mortgage Calculator</h1>
+                <input type="reset" value="Clear All" className={`text-preset-4 ${style.resetFormButton}`}/>
+            </header>
 
-            <NumberField label="Mortgage Amount"
-                         value={formData.amount}
-                         setValue={setAmount}
-                         prefix="£"
-                         min="0"/>
+            <div className={style.formFields}>
 
-            <NumberField label="Mortgage Term"
-                         value={formData.term}
-                         setValue={setTerm}
-                         suffix="years"
-                         min="1"/>
+                <NumberField className={style.formFieldsAmount}
+                             label="Mortgage Amount"
+                             value={formData.amount}
+                             setValue={setAmount}
+                             prefix="£"
+                             min="0"/>
 
-            <NumberField label="Interest Rate"
-                         value={formData.rate}
-                         setValue={setRate}
-                         suffix="%"
-                         min="0"
-                         max="100"/>
+                <NumberField className={style.formFieldsTerm}
+                             label="Mortgage Term"
+                             value={formData.term}
+                             setValue={setTerm}
+                             suffix="years"
+                             min="1"/>
 
-            <RadioGroup label="Mortgage Type">
+                <NumberField className={style.formFieldsRate}
+                             label="Interest Rate"
+                             value={formData.rate}
+                             setValue={setRate}
+                             suffix="%"
+                             min="0"
+                             max="100"/>
 
-                <RadioField label="Repayment"
-                            groupName="type"
-                            checked={formData.type === "repayment"}
-                            setChecked={setTypeRepayment}/>
+                <RadioGroup className={style.formFieldsType} label="Mortgage Type">
 
-                <RadioField label="Interest Only"
-                            groupName="type"
-                            checked={formData.type === "interest-only"}
-                            setChecked={setTypeInterestOnly}/>
+                    <RadioField label="Repayment"
+                                groupName="type"
+                                checked={formData.type === "repayment"}
+                                setChecked={setTypeRepayment}/>
 
-            </RadioGroup>
+                    <RadioField label="Interest Only"
+                                groupName="type"
+                                checked={formData.type === "interest-only"}
+                                setChecked={setTypeInterestOnly}/>
+
+                </RadioGroup>
+
+            </div>
 
             <SubmitButton/>
 
@@ -102,9 +111,9 @@ function MortgageCalculatorForm({onSubmit}) {
     )
 }
 
-function RadioGroup({label, children}) {
+function RadioGroup({className, label, children}) {
     return (
-        <div className={style.radioGroup}>
+        <div className={className + " " + style.radioGroup}>
             <label className="text-preset-4">{label}</label>
             {children}
         </div>
@@ -144,12 +153,12 @@ function MortgageRepaymentResultFilled({result}) {
             <div className={style.resultFilledTable}>
                 <div className={style.resultEntry}>
                     <p className="text-preset-4">Your monthly repayments</p>
-                    <p className={`text-preset-1 ${style.resultMonthly}`}>£{`${monthly}`}</p>
+                    <p className={`text-preset-1 ${style.resultMonthly}`}>£{`${monthly.toLocaleString()}`}</p>
                 </div>
                 <hr className={style.resultSeparator}/>
                 <div className={style.resultEntry}>
                     <p className="text-preset-4">Total you'll repay over the term</p>
-                    <p className={`text-preset-2 ${style.resultTotal}`}>£{`${total}`}</p>
+                    <p className={`text-preset-2 ${style.resultTotal}`}>£{`${total.toLocaleString()}`}</p>
                 </div>
             </div>
         </section>

@@ -2,6 +2,7 @@ import style from "./NumberField.module.css";
 
 /**
  * NumberField component for inputting numeric values with optional prefix and suffix.
+ * @param className additional CSS class for styling
  * @param label the label for the input field
  * @param value the current value of the input field
  * @param setValue function to update the value of the input field
@@ -12,10 +13,10 @@ import style from "./NumberField.module.css";
  * @returns {JSX.Element}
  * @constructor
  */
-function NumberField({label, value, setValue, prefix, suffix, min, max}) {
+function NumberField({className, label, value, setValue, prefix, suffix, min, max}) {
     const onInput = (event) => setValue(event.target.value)
     return (
-        <div className={style.numberField}>
+        <div className={className + " " + style.numberField}>
             <label htmlFor={label} className="text-preset-4">{label}</label>
             <div className={style.numberFieldPrefixInputSuffix}>
                 {prefix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{prefix}</p>}

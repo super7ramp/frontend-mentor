@@ -6,11 +6,53 @@
     --field-color-invalid: var(--red);
 }
 
-.form {
+.calculator {
+    background-color: white;
+    display: grid;
+
+    --336px: 21rem;
+    --1008px: 63rem;
+    min-width: var(--336px);
+    max-width: var(--1008px);
+}
+
+@media (min-width: 40rem /* 640px */ ) {
+    .calculator {
+        margin: 40px;
+        border-radius: 24px;
+    }
+}
+
+@media (min-width: 64rem /* 1024px */ ) {
+    .calculator {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.formContainer {
     display: grid;
     grid-template-columns: 1fr;
     padding: var(--spacing-300);
     gap: var(--spacing-300);
+}
+
+@media (min-width: 40rem /* 640px */ ) {
+    .formContainer {
+        gap: var(--spacing-500);
+    }
+}
+
+.formHeader {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+}
+
+@media (min-width: 40rem /* 640px */ ) {
+    .formHeader {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
 .resetFormButton {
@@ -23,6 +65,41 @@
 .resetFormButton:hover {
     color: var(--slate-900);
     text-decoration: underline;
+}
+
+.formFields {
+    display: grid;
+    gap: var(--spacing-300);
+    grid-template-areas:
+            "amount"
+            "term"
+            "rate"
+            "type"
+}
+
+@media (min-width: 40rem /* 640px */ ) {
+    .formFields {
+        grid-template-areas:
+            "amount amount"
+            "term rate"
+            "type type"
+    }
+}
+
+.formFieldsAmount {
+    grid-area: amount;
+}
+
+.formFieldsTerm {
+    grid-area: term;
+}
+
+.formFieldsRate {
+    grid-area: rate;
+}
+
+.formFieldsType {
+    grid-area: type;
 }
 
 .radioGroup {
@@ -63,12 +140,35 @@
     background-color: var(--lime-lightened);
 }
 
+@media (min-width: 40rem /* 640px */ ) {
+    .submitButton {
+        --314px: 19.625rem;
+        max-width: var(--314px);
+    }
+}
+
 .result {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: var(--spacing-300);
     background-color: var(--slate-900);
+}
+
+@media (min-width: 40rem /* 640px */ ) {
+    .result {
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+        padding: var(--spacing-500);
+    }
+}
+
+@media (min-width: 64rem /* 1024px */ ) {
+    .result {
+        border-bottom-left-radius: 60px;
+        border-top-right-radius: 24px;
+    }
 }
 
 .result h2 {
@@ -88,6 +188,12 @@
     gap: var(--spacing-300);
 }
 
+@media (min-width: 40rem /* 640px */ ) {
+    .resultFilled {
+        gap: var(--spacing-500);
+    }
+}
+
 .resultFilledHeader {
     display: flex;
     flex-direction: column;
@@ -95,7 +201,7 @@
 }
 
 .resultFilledTable {
-    padding: var(--spacing-300);
+    padding: var(--spacing-300) var(--spacing-200);
     background-color: hsl(0, 0%, 0%, 25%);
     border-radius: 8px;
     border-top: solid 4px var(--lime);
@@ -103,6 +209,13 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-200);
+}
+
+@media (min-width: 40rem /* 640px */ ) {
+    .resultFilledTable {
+        gap: var(--spacing-400);
+        padding: var(--spacing-400);
+    }
 }
 
 .resultEntry {

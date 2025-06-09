@@ -3,7 +3,7 @@ import MortgageCalculator from "./components/MortgageCalculator.jsx";
 
 function App() {
     return (
-        <main>
+        <main className="app">
             <MortgageCalculator/>
         </main>
     )
