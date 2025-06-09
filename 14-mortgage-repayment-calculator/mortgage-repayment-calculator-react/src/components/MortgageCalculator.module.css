@@ -9,6 +9,7 @@
 .calculator {
     background-color: white;
     display: grid;
+    box-shadow: 0 32px 64px 0 hsl(202deg, 55%, 16%, 10%);
 
     --336px: 21rem;
     --1008px: 63rem;
