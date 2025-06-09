@@ -61,7 +61,7 @@ function MortgageCalculatorForm({onSubmit}) {
               onReset={reset}>
 
             <header className={style.formHeader}>
-                <h1 className="text-preset-2">Mortgage Calculator</h1>
+                <h1 className={style.formTitle + " text-preset-2"}>Mortgage Calculator</h1>
                 <input type="reset" value="Clear All" className={`text-preset-4 ${style.resetFormButton}`}/>
             </header>
 

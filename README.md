@@ -15,3 +15,4 @@ My solutions to [Frontend Mentor](https://www.frontendmentor.io/) challenges:
 11. [Time tracking dashboard](https://super7ramp.github.io/frontend-mentor/11-time-tracking-dashboard/time-tracking-dashboard-main/)
 12. [Results summary component](https://cheerful-snickerdoodle-633290.netlify.app/)
 13. [Product list with cart](https://jolly-lollipop-5f3fce.netlify.app/)
+14. [Mortgage repayment calculator](https://curious-beijinho-79f8b2.netlify.app/)

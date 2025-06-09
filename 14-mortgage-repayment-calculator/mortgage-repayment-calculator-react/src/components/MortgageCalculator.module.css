@@ -39,6 +39,7 @@
 @media (min-width: 40rem /* 640px */ ) {
     .formContainer {
         gap: var(--spacing-500);
+        padding: var(--spacing-500)
     }
 }
 
@@ -53,6 +54,10 @@
         flex-direction: row;
         justify-content: space-between;
     }
+}
+
+.formTitle {
+    color: var(--slate-900);
 }
 
 .resetFormButton {
