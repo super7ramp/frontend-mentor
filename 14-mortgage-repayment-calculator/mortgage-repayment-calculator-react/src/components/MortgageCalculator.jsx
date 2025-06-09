@@ -11,7 +11,8 @@ function MortgageCalculator() {
 
     const onSubmit = (data) => {
         console.log("Form submitted with data:", data);
-        setResult({"monthly": 1_797.74, "total": 539_322.94})
+        const result = computeResult({formData: data});
+        setResult(result)
     }
 
     return (
@@ -126,6 +127,29 @@ function SubmitButton() {
             Calculate Repayments
         </button>
     )
+}
+
+function computeResult({formData}) {
+    if (formData.type === "repayment") {
+        const monthlyRate = parseFloat(formData.rate) / 100 / 12;
+        const numberOfPayments = parseFloat(formData.term) * 12;
+
+        const monthlyRepayment = parseFloat(formData.amount) * monthlyRate / (1 - (1 + monthlyRate) ** -numberOfPayments);
+        const totalRepayment = monthlyRepayment * numberOfPayments;
+
+        return {
+            monthly: monthlyRepayment,
+            total: totalRepayment,
+        }
+    }
+
+    const monthlyRepayment = (parseFloat(formData.amount) * (parseFloat(formData.rate) / 100)) / 12;
+    const totalRepayment = monthlyRepayment * parseFloat(formData.term) * 12;
+
+    return {
+        monthly: monthlyRepayment,
+        total: totalRepayment,
+    }
 }
 
 function MortgageRepaymentResult({result}) {
