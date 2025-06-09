@@ -16,15 +16,16 @@ function RadioField({label, groupName, checked, setChecked}) {
         }
         setChecked()
     }
+    const id = label.replace(/\s+/g, '-').toLowerCase();
     return (
         <div className={style.radioField}>
             <input type="radio"
-                   id={label}
+                   id={id}
                    name={groupName}
                    required={true}
                    checked={checked}
                    onChange={change}/>
-            <label htmlFor={label} className="text-preset-3">{label}</label>
+            <label htmlFor={id} className="text-preset-3">{label}</label>
         </div>
     )
 }
