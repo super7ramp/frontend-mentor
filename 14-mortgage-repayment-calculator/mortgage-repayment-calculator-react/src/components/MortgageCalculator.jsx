@@ -62,7 +62,9 @@ function MortgageCalculatorForm({onSubmit}) {
 
             <header className={style.formHeader}>
                 <h1 className={style.formTitle + " text-preset-2"}>Mortgage Calculator</h1>
-                <input type="reset" value="Clear All" className={`text-preset-4 ${style.resetFormButton}`}/>
+                <button type="reset" className={`text-preset-4 ${style.resetFormButton}`}>
+                    Clear All
+                </button>
             </header>
 
             <div className={style.formFields}>

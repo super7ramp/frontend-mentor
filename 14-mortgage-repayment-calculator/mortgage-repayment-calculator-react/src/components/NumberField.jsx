@@ -15,9 +15,10 @@ import style from "./NumberField.module.css";
  */
 function NumberField({className, label, value, setValue, prefix, suffix, min, max}) {
     const onInput = (event) => setValue(event.target.value)
+    const id = label.replace(/\s+/g, '-').toLowerCase();
     return (
         <div className={className + " " + style.numberField}>
-            <label htmlFor={label} className="text-preset-4">{label}</label>
+            <label htmlFor={id} className="text-preset-4">{label}</label>
             <div className={style.numberFieldPrefixInputSuffix}>
                 {prefix && <p className={`text-preset-3 ${style.numberFieldUnit}`}>{prefix}</p>}
                 <input type="number"
@@ -25,7 +26,7 @@ function NumberField({className, label, value, setValue, prefix, suffix, min, ma
                        min={min || Number.MIN_VALUE}
                        max={max || Number.MAX_VALUE}
                        step="any"
-                       id={label}
+                       id={id}
                        value={value}
                        className="text-preset-3"
                        onInput={onInput}/>
