@@ -24,7 +24,6 @@ function MortgageCalculator() {
 
 function MortgageCalculatorForm({onSubmit}) {
 
-    const [resets, setResets] = useState(0)
     const [formData, setFormData] = useState({
         amount: '',
         term: '',
@@ -51,8 +50,6 @@ function MortgageCalculatorForm({onSubmit}) {
             rate: '',
             type: ''
         });
-        // increment resets to trigger re-render of NumberFields (and clear their local error states
-        setResets(resets + 1);
     }
 
     return (
