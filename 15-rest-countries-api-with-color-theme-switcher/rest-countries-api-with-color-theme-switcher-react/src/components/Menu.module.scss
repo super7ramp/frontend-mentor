@@ -1,0 +1,34 @@
+@use "../styles/presets.scss" as *;
+
+menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-400) var(--spacing-200);
+    @include with-box-shadow;
+}
+
+.title {
+    @include text-preset-2;
+}
+
+.buttonToggleMode {
+
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-100);
+
+    @include text-preset-4--semi-bold;
+
+
+}
+
+.buttonToggleMode::before {
+    content: url("../assets/icons/icon-toggle-dark.svg");
+}
+
+.buttonToggleMode::after {
+    content: "Dark Mode";
+}

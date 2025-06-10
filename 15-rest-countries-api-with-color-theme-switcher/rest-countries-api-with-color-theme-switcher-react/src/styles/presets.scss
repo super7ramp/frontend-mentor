@@ -1,0 +1,97 @@
+:root {
+    --blue-900: hsl(209deg, 23%, 22%);
+    --blue-950: hsl(207deg, 26%, 17%);
+    --grey-50: hsl(0deg, 0%, 99%);
+    --grey-250: hsl(0deg, 0%, 77%);
+    --grey-300: hsl(0deg, 0%, 70%);
+    --grey-350: hsl(0deg, 0%, 59%);
+    --grey-400: hsl(0deg, 0%, 50%);
+    --grey-950: hsl(200deg, 15%, 8%);
+
+    --extra-light: 200;
+    --light: 300;
+    --regular: 400;
+    --semi-bold: 600;
+    --extra-bold: 800;
+
+    --8px: 0.5rem;
+    --12px: 0.75rem;
+    --14px: 0.875rem;
+    --16px: 1rem;
+    --18px: 1.125rem;
+    --24px: 1.5rem;
+    --32px: 2rem;
+
+    --spacing-100: var(--8px);
+    --spacing-200: calc(2 * var(--spacing-100));
+    --spacing-300: calc(3 * var(--spacing-100));
+    --spacing-400: calc(4 * var(--spacing-100));
+    --spacing-500: calc(5 * var(--spacing-100));
+    --spacing-600: calc(6 * var(--spacing-100));
+    --spacing-700: calc(7 * var(--spacing-100));
+    --spacing-800: calc(8 * var(--spacing-100));
+    --spacing-900: calc(9 * var(--spacing-100));
+    --spacing-1000: calc(10 * var(--spacing-100));
+}
+
+@font-face {
+    font-family: "Nunito Sans";
+    font-weight: var(--extra-light) var(--extra-bold);
+    src: local("Nunito Sans"), url("../assets/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+}
+
+@mixin text-preset($weight, $size, $line-height) {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $line-height;
+    letter-spacing: 0;
+}
+
+@mixin text-preset-1 {
+    @include text-preset(var(--extra-bold), var(--32px), 137.5%);
+}
+
+@mixin text-preset-2 {
+    @include text-preset(var(--extra-bold), var(--24px), 137.5%);
+}
+
+@mixin text-preset-3 {
+    @include text-preset(var(--extra-bold), var(--18px), 145%);
+}
+
+@mixin text-preset-4--semi-bold {
+    @include text-preset(var(--semi-bold), var(--16px), 200%);
+}
+
+@mixin text-preset-4--light {
+    @include text-preset(var(--light), var(--16px), 200%);
+}
+
+@mixin text-preset-5--regular {
+    @include text-preset(var(--regular), var(--14px), 145%);
+}
+
+@mixin text-preset-5--light {
+    @include text-preset(var(--regular), var(--14px), 225%);
+}
+
+@mixin text-preset-6($weight) {
+    @include text-preset($weight, var(--12px), 135%);
+}
+
+@mixin text-preset-6--semi-bold {
+    @include text-preset-6(var(--semi-bold));
+}
+
+@mixin text-preset-6--regular {
+    @include text-preset-6(var(--regular));
+}
+
+@mixin text-preset-6--light {
+    @include text-preset-6(var(--light));
+}
+
+@mixin with-box-shadow {
+    box-shadow: 0 2px 4px 0 hsl(0, 0, 0, 5.62%);
+}
