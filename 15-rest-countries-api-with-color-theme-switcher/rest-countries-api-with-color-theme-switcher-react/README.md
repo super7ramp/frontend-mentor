@@ -71,6 +71,31 @@ feel free to remove this entire section.**
 
 Previously used Less preprocessor, this time I used Saas (Scss actually).
 
+#### Customizable select elements
+
+I learned that `<select>` elements were notoriously difficult to style. It's improving though with the arrival of
+"customizable select elements". Support is not universal yet, but it does work on Chrome.
+
+```scss
+.dropDownOptions::picker-icon {
+    content: url("../assets/icons/icon-arrow-down.svg");
+}
+
+.dropDownOptions,
+::picker(select) {
+    appearance: base-select;
+}
+
+::picker(select) {
+    border: none;
+    border-radius: 5px;
+    @include with-box-shadow;
+}
+
+.dropDownOptions > option {
+    padding: 4px var(--spacing-300);
+}
+```
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts
@@ -81,13 +106,8 @@ you're still not completely comfortable with or techniques you found useful that
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will
-  use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd
-  recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could
-come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Customizable select elements](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select) -
+  The reference for the new customization possibilities of `<select>` elements.
 
 ## Author
 

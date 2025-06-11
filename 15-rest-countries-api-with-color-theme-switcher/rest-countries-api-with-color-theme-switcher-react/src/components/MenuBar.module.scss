@@ -13,16 +13,12 @@ menu {
 }
 
 .buttonToggleMode {
-
     border: none;
     background-color: transparent;
     display: flex;
     align-items: center;
     gap: var(--spacing-100);
-
     @include text-preset-4--semi-bold;
-
-
 }
 
 .buttonToggleMode::before {

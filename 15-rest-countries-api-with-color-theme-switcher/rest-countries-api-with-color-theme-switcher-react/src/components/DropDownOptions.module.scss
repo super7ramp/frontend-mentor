@@ -1,0 +1,28 @@
+@use "../styles/presets.scss" as *;
+
+.dropDownOptions {
+    border: none;
+    background-color: white;
+    padding: var(--spacing-200) var(--spacing-300);
+    @include with-box-shadow;
+    @include text-preset-5--regular;
+}
+
+.dropDownOptions::picker-icon {
+    content: url("../assets/icons/icon-arrow-down.svg");
+}
+
+.dropDownOptions,
+::picker(select) {
+    appearance: base-select;
+}
+
+::picker(select) {
+    border: none;
+    border-radius: 5px;
+    @include with-box-shadow;
+}
+
+.dropDownOptions > option {
+    padding: 4px var(--spacing-300);
+}

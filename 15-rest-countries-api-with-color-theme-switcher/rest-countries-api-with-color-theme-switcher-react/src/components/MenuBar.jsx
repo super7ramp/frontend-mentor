@@ -1,6 +1,6 @@
-import style from "./Menu.module.scss"
+import style from "./MenuBar.module.scss"
 
-function Menu() {
+function MenuBar() {
     return (
         <menu>
             <p className={style.title}>Where in the world</p>
@@ -9,4 +9,4 @@ function Menu() {
     )
 }
 
-export default Menu
+export default MenuBar

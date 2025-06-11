@@ -4,15 +4,11 @@
     border: none;
     border-radius: 5px;
     background: url("../assets/icons/icon-glass.svg") no-repeat var(--spacing-300);
-    @include with-box-shadow;
-    padding: 0 var(--spacing-700);
+    padding: 0 var(--spacing-400) 0 var(--spacing-700);
     height: var(--spacing-600);
-}
-
-.searchBar::content {
-    padding: 0 var(--spacing-400);
-}
-
-.searchBar::placeholder {
+    min-width: calc($mobile-bp - var(--spacing-400));
+    width: 100%;
+    max-width: calc(10 * var(--spacing-600));
     @include text-preset-5--regular;
+    @include with-box-shadow;
 }

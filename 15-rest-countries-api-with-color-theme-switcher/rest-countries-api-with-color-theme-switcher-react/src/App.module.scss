@@ -1,7 +1,7 @@
 .header {
     padding: var(--spacing-200);
-}
-
-.header > * {
-    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: var(--spacing-500) var(--spacing-100);
 }

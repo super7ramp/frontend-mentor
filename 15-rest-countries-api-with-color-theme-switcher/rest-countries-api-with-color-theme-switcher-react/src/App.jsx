@@ -1,13 +1,15 @@
 import style from './App.module.scss'
-import Menu from "./components/Menu.jsx";
+import MenuBar from "./components/MenuBar.jsx";
 import SearchBar from "./components/SearchBar.jsx";
+import DropDownOptions from "./components/DropDownOptions.jsx";
 
 function App() {
     return (
         <>
-            <Menu/>
+            <MenuBar/>
             <header className={style.header}>
                 <SearchBar/>
+                <DropDownOptions/>
             </header>
             <main>
 
