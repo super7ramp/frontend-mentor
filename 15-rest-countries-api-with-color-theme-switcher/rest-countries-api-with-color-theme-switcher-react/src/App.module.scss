@@ -9,6 +9,7 @@
 .countries {
     padding: var(--spacing-200);
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: var(--spacing-500);
     background-color: var(--grey-50);

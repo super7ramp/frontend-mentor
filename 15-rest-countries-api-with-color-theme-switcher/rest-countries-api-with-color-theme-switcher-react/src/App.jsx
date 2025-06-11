@@ -8,25 +8,34 @@ import CountriesApi from "./api/CountriesApi.js";
 
 function App() {
     const [countries, setCountries] = useState([])
+    const [region, setRegion] = useState("")
+    const [search, setSearch] = useState("")
+    const lowerCaseSearch = search.toLowerCase()
 
     useEffect(() => {
         const countriesApi = new CountriesApi(import.meta.env.VITE_COUNTRIES_API)
         countriesApi
-            .getByName("France")
-            .then(country => {
-                setCountries([country])
-            })
+            .getAll()
+            .then(setCountries)
     }, []);
 
     return (
         <>
             <MenuBar/>
             <header className={style.header}>
-                <SearchBar/>
-                <DropDownOptions/>
+                <SearchBar value={search} onValueChange={setSearch}/>
+                <DropDownOptions selected={region} onSelectionChange={setRegion}/>
             </header>
             <main className={style.countries}>
-                {countries.map(country => <Card key={country.name} country={country}/>)}
+                {
+                    countries
+                        .filter(country => region === "" || region === country.region)
+                        .filter(country => lowerCaseSearch === ""
+                            || country.lowerCaseNameIncludes(lowerCaseSearch)
+                            || country.lowerCaseCapitalsInclude(lowerCaseSearch))
+                        .map(country => <Card key={country.name} country={country}/>)
+                        .slice(0, 8)
+                }
             </main>
         </>
     )

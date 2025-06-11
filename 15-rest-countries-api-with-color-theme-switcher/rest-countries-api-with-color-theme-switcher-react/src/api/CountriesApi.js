@@ -9,34 +9,24 @@ export default class CountriesApi {
     }
 
     async getAll() {
-        return this.#get(`all`)
-    }
-
-    async getByName(name) {
-        return this
-            .#get(`name/${name}`)
-            .then(([data]) => {
-                console.log("Country data:", data);
-                const country = new Country({
-                    name,
-                    capital: data.capital,
-                    population: data.population,
-                    flag: data.flags.svg,
-                    region: data.region,
-                })
-                console.log("Created Country instance:", country)
-                return country
-            })
-    }
-
-    #get(query) {
-        return fetch(`${this.#url}/${query}`)
+        return fetch(`${this.#url}/all?fields=name,capital,population,flags,region`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Error fetching country by name: ${name}`);
                 }
-                console.log("Response", response);
                 return response.json();
             })
+            .then((data) => {
+                    return data.map(country => new Country({
+                                name: country.name.common,
+                                capitals: country.capital,
+                                population: country.population,
+                                flag: country.flags.svg,
+                                region: country.region,
+                            }
+                        )
+                    )
+                }
+            )
     }
 }

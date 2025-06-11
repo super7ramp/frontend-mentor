@@ -8,9 +8,16 @@ function Card({country}) {
             <div className={style.nameAndDetails}>
                 <h2>{country.name}</h2>
                 <div className={style.details}>
-                    <p><span className={style.key}>Population</span>: {country.population}</p>
-                    <p><span className={style.key}>Region</span>: {country.region}</p>
-                    <p><span className={style.key}>Capital</span>: {country.capital}</p>
+                    <p>
+                        <span className={style.key}>Population</span>: {country.population}
+                    </p>
+                    <p>
+                        <span className={style.key}>Region</span>: {country.region}
+                    </p>
+                    <p>
+                        <span className={style.key}>Capital{country.capitals.length > 1 ? "s" : ""}</span>
+                        : {country.capitals.join(", ")}
+                    </p>
                 </div>
             </div>
         </article>
