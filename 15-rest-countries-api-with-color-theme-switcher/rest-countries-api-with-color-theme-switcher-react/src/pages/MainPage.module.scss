@@ -1,0 +1,16 @@
+.header {
+    padding: var(--spacing-200);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: var(--spacing-500) var(--spacing-100);
+}
+
+.countries {
+    padding: var(--spacing-200);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-500);
+    background-color: var(--grey-50);
+}
