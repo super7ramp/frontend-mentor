@@ -2,15 +2,21 @@ import style from './App.module.scss'
 import MenuBar from "./components/MenuBar.jsx";
 import SearchBar from "./components/SearchBar.jsx";
 import DropDownOptions from "./components/DropDownOptions.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Card from "./components/Card.jsx";
-import Country from "./models/Country.js";
+import CountriesApi from "./api/CountriesApi.js";
 
 function App() {
-    const [countries, setCountries] = useState([
-        new Country("France", "Paris", "66666666", "https://flagcdn.com/fr.svg", "Europe"),
-        new Country("Germany", "Berlin", "55555555", "https://flagcdn.com/de.svg", "Europe"),
-    ])
+    const [countries, setCountries] = useState([])
+
+    useEffect(() => {
+        const countriesApi = new CountriesApi(import.meta.env.VITE_COUNTRIES_API)
+        countriesApi
+            .getByName("France")
+            .then(country => {
+                setCountries([country])
+            })
+    }, []);
 
     return (
         <>

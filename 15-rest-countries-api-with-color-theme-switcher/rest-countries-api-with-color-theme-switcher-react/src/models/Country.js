@@ -12,7 +12,7 @@ export default class Country {
      * @param flag the URL of the country's flag image
      * @param region the region where the country is located
      */
-    constructor(name, capital, population, flag, region) {
+    constructor({name, capital, population, flag, region}) {
         this.name = name;
         this.capital = capital;
         this.population = population;
