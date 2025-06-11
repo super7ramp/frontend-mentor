@@ -1,0 +1,35 @@
+@use "../styles/presets.scss" as *;
+
+.card {
+    --224px: 14rem;
+    display: flex;
+    flex-direction: column;
+    max-width: var(--224px);
+    @include with-box-shadow;
+}
+
+.flag {
+    width: 100%;
+}
+
+.nameAndDetails {
+    padding: var(--spacing-300);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+}
+
+.nameAndDetails h2 {
+    @include text-preset-3;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+    @include text-preset(var(--light), var(--14px), 100%);
+}
+
+.key {
+    font-weight: var(--semi-bold);
+}
