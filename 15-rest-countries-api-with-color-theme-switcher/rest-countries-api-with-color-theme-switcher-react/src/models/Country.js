@@ -1,5 +1,5 @@
 /**
- * Represents a country with its details.
+ * Represents a country with basic information.
  */
 export default class Country {
 
@@ -16,13 +16,13 @@ export default class Country {
      * @param region the region where the country is located
      */
     constructor({name, capitals, population, flag, region}) {
-        this.name = name;
-        this.#lowerCaseName = name.toLowerCase();
-        this.capitals = capitals;
-        this.#lowerCaseCapitals = capitals.map(capital => capital.toLowerCase());
-        this.population = population;
-        this.flag = flag;
-        this.region = region;
+        this.name = name
+        this.#lowerCaseName = name.toLowerCase()
+        this.capitals = capitals
+        this.#lowerCaseCapitals = capitals.map(capital => capital.toLowerCase())
+        this.population = population
+        this.flag = flag
+        this.region = region
     }
 
     lowerCaseNameIncludes(otherName) {

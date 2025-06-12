@@ -5,9 +5,9 @@ function Card({country}) {
     return (
         <article className={style.card}>
             <img className={style.flag} src={country.flag} alt={`Flag of ${country.name}`}/>
-            <div className={style.nameAndDetails}>
+            <div className={style.nameAndSummary}>
                 <h2>{country.name}</h2>
-                <div className={style.details}>
+                <div className={style.summary}>
                     <p>
                         <span className={style.key}>Population</span>: {country.population}
                     </p>

@@ -1,0 +1,71 @@
+@use "../styles/presets.scss" as *;
+
+@mixin button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-100);
+    padding: var(--spacing-100) var(--spacing-400);
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    @include with-box-shadow;
+}
+
+.backButton {
+    @include button;
+    @include text-preset-4--light;
+}
+
+.backButton::before {
+    content: url('../assets/icons/icon-arrow-left.svg');
+}
+
+.flag {
+    width: 100%;
+    padding: var(--spacing-200);
+    border-radius: 20px;
+}
+
+.nameAndDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+    padding: var(--spacing-200);
+}
+
+.nameAndDetails h1 {
+    @include text-preset-2;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-400);
+    justify-content: space-between;
+    @include text-preset(var(--light), var(--14px), var(--spacing-400));
+}
+
+.key {
+    font-weight: var(--semi-bold);
+}
+
+.borderCountriesSection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: var(--spacing-200);
+}
+
+.borderCountries {
+    list-style-type: none;
+    display: flex;
+    gap: var(--spacing-200);
+}
+
+.buttonBorderCountry {
+    width: 6rem;
+    height: 1.75rem;
+    @include button;
+    @include text-preset-6--light;
+}

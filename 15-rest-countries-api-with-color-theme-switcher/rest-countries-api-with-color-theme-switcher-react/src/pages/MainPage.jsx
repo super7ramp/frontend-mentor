@@ -5,6 +5,7 @@ import Card from "../components/Card.jsx";
 import style from "./MainPage.module.scss";
 import {useEffect, useState} from "react";
 import CountriesApi from "../api/CountriesApi.js";
+import {Link} from "react-router";
 
 function MainPage() {
     const [countries, setCountries] = useState([])
@@ -15,7 +16,7 @@ function MainPage() {
     useEffect(() => {
         const countriesApi = new CountriesApi(import.meta.env.VITE_COUNTRIES_API)
         countriesApi
-            .getAll()
+            .getAllCountries()
             .then(setCountries)
     }, []);
 
@@ -33,7 +34,10 @@ function MainPage() {
                         .filter(country => lowerCaseSearch === ""
                             || country.lowerCaseNameIncludes(lowerCaseSearch)
                             || country.lowerCaseCapitalsInclude(lowerCaseSearch))
-                        .map(country => <Card key={country.name} country={country}/>)
+                        .map(country =>
+                            <Link className={style.link} to={`/${country.name}`}>
+                                <Card key={country.name} country={country}/>
+                            </Link>)
                         .slice(0, 8)
                 }
             </main>
