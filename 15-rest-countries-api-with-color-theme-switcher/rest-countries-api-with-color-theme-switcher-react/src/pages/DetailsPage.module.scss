@@ -1,5 +1,28 @@
 @use "../styles/presets.scss" as *;
 
+.outerContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-500);
+}
+
+.innerContainer {
+    --570px: 35.625rem;
+    max-width: var(--570px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-800);
+
+    @media (min-width: $tablet-bp) {
+        // Not sure why design says that it should be smaller on tablet than on mobile
+        gap: var(--spacing-700);
+    }
+
+    @media (min-width: $desktop-bp) {
+        max-width: none;
+    }
+}
+
 @mixin button {
     display: flex;
     align-items: center;
@@ -14,20 +37,37 @@
 
 .backButton {
     @include button;
-    @include text-preset-4--light;
+    @include text-preset-5--light;
+    @media (min-width: $tablet-bp) {
+        @include text-preset-4--light;
+    }
 }
 
 .backButton::before {
     content: url('../assets/icons/icon-arrow-left.svg');
 }
 
+.countryDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (min-width: $desktop-bp) {
+        flex-direction: row;
+    }
+}
+
 .flag {
+    --560px: 35rem;
+    max-width: var(--560px);
     width: 100%;
     padding: var(--spacing-200);
     border-radius: 20px;
 }
 
 .nameAndDetails {
+    --598px: 37.375rem;
+    max-width: var(--598px);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-200);
@@ -36,6 +76,9 @@
 
 .nameAndDetails h1 {
     @include text-preset-2;
+    @media (min-width: $tablet-bp) {
+        @include text-preset-1;
+    }
 }
 
 .details {
@@ -44,6 +87,9 @@
     gap: var(--spacing-400);
     justify-content: space-between;
     @include text-preset(var(--light), var(--14px), var(--spacing-400));
+    @media (min-width: $tablet-bp) {
+        @include text-preset(var(--light), var(--16px), var(--spacing-400));
+    }
 }
 
 .key {
@@ -57,15 +103,23 @@
     gap: var(--spacing-200);
 }
 
+.borderCountriesSection h2 {
+    @include text-preset-4--semi-bold;
+}
+
 .borderCountries {
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-200);
 }
 
 .buttonBorderCountry {
-    width: 6rem;
+    min-width: 6rem;
     height: 1.75rem;
     @include button;
     @include text-preset-6--light;
+    @media (min-width: $tablet-bp) {
+        @include text-preset-5--light;
+    }
 }

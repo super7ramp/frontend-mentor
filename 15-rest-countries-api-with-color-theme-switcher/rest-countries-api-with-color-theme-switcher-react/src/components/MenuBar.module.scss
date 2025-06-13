@@ -6,6 +6,14 @@ menu {
     align-items: center;
     padding: var(--spacing-400) var(--spacing-200);
     @include with-box-shadow;
+
+    @media (min-width: $tablet-bp) {
+        padding: var(--spacing-400) var(--spacing-500);
+    }
+
+    @media (min-width: $desktop-bp) {
+        padding: var(--spacing-400) var(--spacing-1000);
+    }
 }
 
 .title {

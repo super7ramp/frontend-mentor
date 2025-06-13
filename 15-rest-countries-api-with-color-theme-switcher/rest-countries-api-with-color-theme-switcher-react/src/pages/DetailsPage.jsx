@@ -17,9 +17,14 @@ function DetailsPage() {
     }, [name]);
 
     return (
-        <Layout toolbar={<Navigation/>}
-                mainContent={<CountryDetails detailedCountry={detailedCountry}/>}
-        />
+        <Layout main={
+            <div className={style.outerContainer}>
+                <div className={style.innerContainer}>
+                    <Navigation/>
+                    <CountryDetails detailedCountry={detailedCountry}/>
+                </div>
+            </div>
+        }/>
     )
 }
 
@@ -36,9 +41,9 @@ function Navigation() {
 function CountryDetails({detailedCountry}) {
     return (
         detailedCountry
-            ? <>
+            ? <article className={style.countryDetails}>
                 <img className={style.flag} src={detailedCountry.flag} alt={detailedCountry.name}/>
-                <section className={style.nameAndDetails}>
+                <div className={style.nameAndDetails}>
                     <h1>{detailedCountry.name}</h1>
                     <div className={style.details}>
                         <div>
@@ -61,8 +66,8 @@ function CountryDetails({detailedCountry}) {
                         </div>
                         <BorderCountries borders={detailedCountry.borders}/>
                     </div>
-                </section>
-            </>
+                </div>
+            </article>
             : <p>Loading...</p>
     )
 }

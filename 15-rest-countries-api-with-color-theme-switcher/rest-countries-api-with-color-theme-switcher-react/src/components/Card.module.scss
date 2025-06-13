@@ -1,15 +1,18 @@
 @use "../styles/presets.scss" as *;
 
 .card {
-    --224px: 14rem;
-    display: flex;
-    flex-direction: column;
-    max-width: var(--224px);
+    --336px: 21rem;
+    --264px: 16.5rem;
+    height: var(--336px);
+    width: var(--264px);
+    background-color: white;
     @include with-box-shadow;
 }
 
 .flag {
+    height: 10rem;
     width: 100%;
+    object-fit: cover;
 }
 
 .nameAndSummary {

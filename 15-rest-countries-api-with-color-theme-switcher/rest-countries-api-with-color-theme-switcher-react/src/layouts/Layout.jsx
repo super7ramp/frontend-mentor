@@ -1,14 +1,13 @@
 import MenuBar from "../components/MenuBar.jsx";
 
-function Layout({toolbar, mainContent}) {
+function Layout({main}) {
     return (
         <>
             <header>
                 <MenuBar/>
             </header>
             <main>
-                {toolbar}
-                {mainContent}
+                {main}
             </main>
         </>
     )

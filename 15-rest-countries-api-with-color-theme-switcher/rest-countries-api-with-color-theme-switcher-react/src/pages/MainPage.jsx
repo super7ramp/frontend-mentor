@@ -21,14 +21,17 @@ function MainPage() {
     }, []);
 
     return (
-        <Layout toolbar={<FilterOptions search={search}
-                                        onSearchChange={setSearch}
-                                        region={region}
-                                        onRegionChange={setRegion}/>}
-                mainContent={<Countries countries={countries}
-                                        region={region}
-                                        search={search}/>}
-        />
+        <Layout main={
+            <>
+                <FilterOptions search={search}
+                               onSearchChange={setSearch}
+                               region={region}
+                               onRegionChange={setRegion}/>
+                <Countries countries={countries}
+                           region={region}
+                           search={search}/>
+            </>
+        }/>
     )
 }
 
@@ -55,7 +58,7 @@ function Countries({countries, region, search}) {
                         <Link className={style.link} key={country.name} to={`/${country.name}`}>
                             <Card country={country}/>
                         </Link>)
-                    .slice(0, 8)
+                    .slice(0, 30)
             }
         </div>
     )
