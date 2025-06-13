@@ -17,6 +17,8 @@ function MainPage() {
         const countriesApi = new CountriesApi(import.meta.env.VITE_COUNTRIES_API)
         countriesApi
             .getAllCountries()
+            .then(countryList =>
+                countryList.toSorted((a, b) => a.name.localeCompare(b.name)))
             .then(setCountries)
     }, []);
 
@@ -58,7 +60,6 @@ function Countries({countries, region, search}) {
                         <Link className={style.link} key={country.name} to={`/${country.name}`}>
                             <Card country={country}/>
                         </Link>)
-                    .slice(0, 30)
             }
         </div>
     )

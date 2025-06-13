@@ -19,7 +19,7 @@ export default class CountriesApi {
 
     /**
      * Fetches all countries from the API.
-     * @returns {Promise<Country>}
+     * @returns {Promise<Country[]>}
      */
     async getAllCountries() {
         return this
