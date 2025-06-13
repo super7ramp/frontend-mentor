@@ -1,17 +1,17 @@
-import MenuBar from "../components/MenuBar.jsx";
+import Layout from "../layouts/Layout.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import DropDownOptions from "../components/DropDownOptions.jsx";
 import Card from "../components/Card.jsx";
-import style from "./MainPage.module.scss";
-import {useEffect, useState} from "react";
 import CountriesApi from "../api/CountriesApi.js";
+import style from "./MainPage.module.scss";
+
+import {useEffect, useState} from "react";
 import {Link} from "react-router";
 
 function MainPage() {
     const [countries, setCountries] = useState([])
     const [region, setRegion] = useState("")
     const [search, setSearch] = useState("")
-    const lowerCaseSearch = search.toLowerCase()
 
     useEffect(() => {
         const countriesApi = new CountriesApi(import.meta.env.VITE_COUNTRIES_API)
@@ -21,28 +21,43 @@ function MainPage() {
     }, []);
 
     return (
-        <>
-            <MenuBar/>
-            <header className={style.header}>
-                <SearchBar value={search} onValueChange={setSearch}/>
-                <DropDownOptions selected={region} onSelectionChange={setRegion}/>
-            </header>
-            <main className={style.countries}>
-                {
-                    countries
-                        .filter(country => region === "" || region === country.region)
-                        .filter(country => lowerCaseSearch === ""
-                            || country.lowerCaseNameIncludes(lowerCaseSearch)
-                            || country.lowerCaseCapitalsInclude(lowerCaseSearch))
-                        .map(country =>
-                            <Link className={style.link} to={`/${country.name}`}>
-                                <Card key={country.name} country={country}/>
-                            </Link>)
-                        .slice(0, 8)
-                }
-            </main>
+        <Layout toolbar={<FilterOptions search={search}
+                                        onSearchChange={setSearch}
+                                        region={region}
+                                        onRegionChange={setRegion}/>}
+                mainContent={<Countries countries={countries}
+                                        region={region}
+                                        search={search}/>}
+        />
+    )
+}
 
-        </>
+function FilterOptions({search, onSearchChange, region, onRegionChange}) {
+    return (
+        <div className={style.filterOptions}>
+            <SearchBar value={search} onValueChange={onSearchChange}/>
+            <DropDownOptions selected={region} onSelectionChange={onRegionChange}/>
+        </div>
+    )
+}
+
+function Countries({countries, region, search}) {
+    const lowerCaseSearch = search.toLowerCase()
+    return (
+        <div className={style.countries}>
+            {
+                countries
+                    .filter(country => region === "" || region === country.region)
+                    .filter(country => lowerCaseSearch === ""
+                        || country.lowerCaseNameIncludes(lowerCaseSearch)
+                        || country.lowerCaseCapitalsInclude(lowerCaseSearch))
+                    .map(country =>
+                        <Link className={style.link} key={country.name} to={`/${country.name}`}>
+                            <Card country={country}/>
+                        </Link>)
+                    .slice(0, 8)
+            }
+        </div>
     )
 }
 
