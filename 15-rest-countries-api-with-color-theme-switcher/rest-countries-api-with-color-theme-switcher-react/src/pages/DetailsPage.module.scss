@@ -44,15 +44,15 @@
     @media (min-width: $tablet-bp) {
         @include text-preset-4--light;
     }
-}
 
-.backButton::before {
-    display: inline-block;
-    line-height: 100%;
-    vertical-align: center;
-    content: url('../assets/icons/icon-arrow-left-light.svg');
-    [data-theme='dark'] & {
-        content: url('../assets/icons/icon-arrow-left-dark.svg');
+    &::before {
+        display: inline-block;
+        line-height: 100%;
+        vertical-align: center;
+        content: url('../assets/icons/icon-arrow-left-light.svg');
+        [data-theme='dark'] & {
+            content: url('../assets/icons/icon-arrow-left-dark.svg');
+        }
     }
 }
 
@@ -81,12 +81,12 @@
     flex-direction: column;
     gap: var(--spacing-200);
     padding: var(--spacing-200);
-}
 
-.nameAndDetails h1 {
-    @include text-preset-2;
-    @media (min-width: $tablet-bp) {
-        @include text-preset-1;
+    h1 {
+        @include text-preset-2;
+        @media (min-width: $tablet-bp) {
+            @include text-preset-1;
+        }
     }
 }
 
@@ -110,10 +110,10 @@
     flex-wrap: wrap;
     width: 100%;
     gap: var(--spacing-200);
-}
 
-.borderCountriesSection h2 {
-    @include text-preset-4--semi-bold;
+    h2 {
+        @include text-preset-4--semi-bold;
+    }
 }
 
 .borderCountries {

@@ -30,21 +30,21 @@ menu {
     gap: var(--spacing-100);
     color: var(--fg-color);
     @include text-preset-4--semi-bold;
-}
 
-.buttonSwitchTheme::before {
-    display: inline-block;
-    line-height: 100%;
-    vertical-align: center;
-    content: url("../assets/icons/icon-switch-to-dark.svg");
-    [data-theme="dark"] & {
-        content: url("../assets/icons/icon-switch-to-light.svg");
+    &::before {
+        display: inline-block;
+        line-height: 100%;
+        vertical-align: center;
+        content: url("../assets/icons/icon-switch-to-dark.svg");
+        [data-theme="dark"] & {
+            content: url("../assets/icons/icon-switch-to-light.svg");
+        }
     }
-}
 
-.buttonSwitchTheme::after {
-    content: "Dark Mode";
-    [data-theme="dark"] & {
-        content: "Light Mode";
+    &::after {
+        content: "Dark Mode";
+        [data-theme="dark"] & {
+            content: "Light Mode";
+        }
     }
 }
