@@ -9,11 +9,11 @@ export default class Country {
     /**
      * Creates an instance of the Country class.
      *
-     * @param name the name of the country
-     * @param capitals the capital cities of the country
-     * @param population the population of the country
-     * @param flag the URL of the country's flag image
-     * @param region the region where the country is located
+     * @param name {string} the name of the country
+     * @param capitals {string[]} the capital cities of the country
+     * @param population {number} the population of the country
+     * @param flag {string} the URL of the country's flag image
+     * @param region {string} the region where the country is located
      */
     constructor({name, capitals, population, flag, region}) {
         this.name = name

@@ -6,16 +6,16 @@ export default class DetailedCountry {
     /**
      * Creates an instance of the Country class.
      *
-     * @param name the name of the country
-     * @param capitals the capital cities of the country
-     * @param population the population of the country
-     * @param flag the URL of the country's flag image
-     * @param region the region where the country is located
-     * @param nativeName the native name of the country
-     * @param topLevelDomain the top-level domain of the country
-     * @param currencies the currencies used in the country
-     * @param languages the languages spoken in the country
-     * @param borderCountries the names of the countries that share a border with this country
+     * @param name {string} the name of the country
+     * @param capitals {string[]} the capital cities of the country
+     * @param population {number} the population of the country
+     * @param flag {string} the URL of the country's flag image
+     * @param region {string} the region where the country is located
+     * @param nativeName {string} the native name of the country
+     * @param topLevelDomain {string} the top-level domain of the country
+     * @param currencies {string[]} the currencies used in the country
+     * @param languages {string[]} the languages spoken in the country
+     * @param borderCountries {string[]} the names of the countries that share a border with this country
      */
     constructor({
                     name,

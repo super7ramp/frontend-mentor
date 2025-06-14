@@ -16,7 +16,7 @@ function Card({country}) {
                 <h2>{country.name}</h2>
                 <div className={style.summary}>
                     <p>
-                        <span className={style.key}>Population</span>: {country.population}
+                        <span className={style.key}>Population</span>: {country.population.toLocaleString("en")}
                     </p>
                     <p>
                         <span className={style.key}>Region</span>: {country.region}

@@ -55,7 +55,7 @@ function Navigation() {
 /**
  * CountryDetails component that displays detailed information about a specific country.
  *
- * @param detailedCountry
+ * @param detailedCountry {DetailedCountry} - The detailed country object
  * @returns {JSX.Element}
  * @constructor
  */
@@ -69,7 +69,7 @@ function CountryDetails({detailedCountry}) {
                     <div className={style.details}>
                         <div>
                             <p><span className={style.key}>Native name:</span> {detailedCountry.nativeName}</p>
-                            <p><span className={style.key}>Population:</span> {detailedCountry.population}</p>
+                            <p><span className={style.key}>Population:</span> {detailedCountry.population.toLocaleString("en")}</p>
                             <p><span className={style.key}>Region:</span> {detailedCountry.region}</p>
                             <p><span className={style.key}>Capital:</span> {detailedCountry.capitals.join(", ")}
                             </p>
