@@ -1,4 +1,5 @@
 import MenuBar from "../components/MenuBar.jsx";
+import style from "./Layout.module.scss";
 import {useEffect, useState} from "react";
 
 /**
@@ -19,7 +20,7 @@ function Layout({main}) {
 
     return (
         <>
-            <header data-theme={theme}>
+            <header className={style.header} data-theme={theme}>
                 <MenuBar onSwitchTheme={switchTheme}/>
             </header>
             <main data-theme={theme}>
