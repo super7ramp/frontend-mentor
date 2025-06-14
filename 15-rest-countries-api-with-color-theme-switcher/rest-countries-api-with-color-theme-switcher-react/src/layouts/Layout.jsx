@@ -23,7 +23,7 @@ function Layout({main}) {
             <header className={style.header} data-theme={theme}>
                 <MenuBar onSwitchTheme={switchTheme}/>
             </header>
-            <main data-theme={theme}>
+            <main className={style.main} data-theme={theme}>
                 {main}
             </main>
         </>
