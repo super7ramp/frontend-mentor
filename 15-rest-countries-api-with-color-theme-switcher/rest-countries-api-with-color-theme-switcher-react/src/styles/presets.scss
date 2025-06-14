@@ -2,6 +2,10 @@
 @forward "colors";
 @forward "spacing";
 
+:root {
+    --border-radius: 5px;
+}
+
 @mixin with-box-shadow {
     box-shadow: 0 2px 4px 0 hsl(0deg, 0%, 0%, 5.62%);
 }

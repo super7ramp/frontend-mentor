@@ -5,6 +5,7 @@
     color: var(--fg-color);
     background-color: var(--bg-color);
     padding: var(--spacing-200) var(--spacing-300);
+    border-radius: var(--border-radius);
     @include with-box-shadow;
     @include text-preset-5--regular;
 
@@ -27,7 +28,7 @@
     margin-top: var(--spacing-100);
     padding: var(--spacing-200) var(--spacing-300);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     @include with-box-shadow;
 
     &:popover-open {

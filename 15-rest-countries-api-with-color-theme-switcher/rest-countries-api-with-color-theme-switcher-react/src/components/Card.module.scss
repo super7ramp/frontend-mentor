@@ -6,6 +6,7 @@
     height: var(--336px);
     width: var(--264px);
     background-color: var(--bg-color);
+    border-radius: var(--border-radius);
     @include with-box-shadow;
 }
 
@@ -13,6 +14,8 @@
     height: 10rem;
     width: 100%;
     object-fit: cover;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
 }
 
 .nameAndSummary {

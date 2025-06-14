@@ -2,7 +2,7 @@
 
 .searchBar {
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     background: url("../assets/icons/icon-glass-light.svg") no-repeat var(--spacing-300);
     color: var(--fg-color);
     background-color: var(--bg-color);
