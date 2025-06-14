@@ -9,7 +9,10 @@
     @include text-preset-5--regular;
 
     &::picker-icon {
-        content: url("../assets/icons/icon-arrow-down.svg");
+        content: url("../assets/icons/icon-arrow-down-light.svg");
+        [data-theme="dark"] & {
+            content: url("../assets/icons/icon-arrow-down-dark.svg");
+        }
     }
 }
 
