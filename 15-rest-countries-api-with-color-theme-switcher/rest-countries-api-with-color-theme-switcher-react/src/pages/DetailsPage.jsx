@@ -42,7 +42,7 @@ function CountryDetails({detailedCountry}) {
     return (
         detailedCountry
             ? <article className={style.countryDetails}>
-                <img className={style.flag} src={detailedCountry.flag} alt={detailedCountry.name}/>
+                <img className={style.flag} loading="lazy" src={detailedCountry.flag} alt={detailedCountry.name}/>
                 <div className={style.nameAndDetails}>
                     <h1>{detailedCountry.name}</h1>
                     <div className={style.details}>

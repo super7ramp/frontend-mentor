@@ -185,6 +185,14 @@ function Layout({main}) {
 }
 ```
 
+#### Lazy loading of images
+
+It's just a matter of adding the `loading="lazy"` attribute to the `<img>` elements:
+
+```jsx
+
+```
+
 ### Continued development
 
 - Try Tanstack Query.
@@ -196,6 +204,8 @@ function Layout({main}) {
 - [Using localStorage with React Hooks](https://blog.logrocket.com/using-localstorage-react-hooks/) - Two birds, one
   stone : how to use `localStorage` with `useState` and `useEffect` and how to abstract this by creating a custom hook
   `useLocalStorage`.
+- [Lazy loading images](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Lazy_loading) - Reference on
+  lazy loading.
 
 ## Author
 

@@ -4,7 +4,7 @@ function Card({country}) {
 
     return (
         <article className={style.card}>
-            <img className={style.flag} src={country.flag} alt={`Flag of ${country.name}`}/>
+            <img className={style.flag} loading="lazy" src={country.flag} alt={`Flag of ${country.name}`}/>
             <div className={style.nameAndSummary}>
                 <h2>{country.name}</h2>
                 <div className={style.summary}>
