@@ -1,0 +1,66 @@
+:root {
+    --extra-light: 200;
+    --light: 300;
+    --regular: 400;
+    --semi-bold: 600;
+    --extra-bold: 800;
+}
+
+@font-face {
+    font-family: "Nunito Sans";
+    font-weight: var(--extra-light) var(--extra-bold);
+    src: local("Nunito Sans"), url("../assets/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+}
+
+@mixin text-preset($weight, $size, $line-height) {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $line-height;
+    letter-spacing: 0;
+}
+
+@mixin text-preset-1 {
+    @include text-preset(var(--extra-bold), var(--32px), 137.5%);
+}
+
+@mixin text-preset-2 {
+    @include text-preset(var(--extra-bold), var(--24px), 137.5%);
+}
+
+@mixin text-preset-3 {
+    @include text-preset(var(--extra-bold), var(--18px), 145%);
+}
+
+@mixin text-preset-4--semi-bold {
+    @include text-preset(var(--semi-bold), var(--16px), 200%);
+}
+
+@mixin text-preset-4--light {
+    @include text-preset(var(--light), var(--16px), 200%);
+}
+
+@mixin text-preset-5--regular {
+    @include text-preset(var(--regular), var(--14px), 145%);
+}
+
+@mixin text-preset-5--light {
+    @include text-preset(var(--regular), var(--14px), 225%);
+}
+
+@mixin text-preset-6($weight) {
+    @include text-preset($weight, var(--12px), 135%);
+}
+
+@mixin text-preset-6--semi-bold {
+    @include text-preset-6(var(--semi-bold));
+}
+
+@mixin text-preset-6--regular {
+    @include text-preset-6(var(--regular));
+}
+
+@mixin text-preset-6--light {
+    @include text-preset-6(var(--light));
+}
+
