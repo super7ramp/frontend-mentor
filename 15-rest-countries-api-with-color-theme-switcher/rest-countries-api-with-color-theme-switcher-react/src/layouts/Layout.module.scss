@@ -1,6 +1,28 @@
+@use "../styles/presets" as *;
+
 .header {
+    /* Shrinking header, see https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/ */
+    --max-padding-height: var(--spacing-400);
+    --min-padding-height: var(--spacing-100);
+    height: calc(1.375 * var(--24px) + (2 * var(--max-padding-height)));;
     position: sticky;
-    top: 0;
+    top: calc((var(--max-padding-height) - var(--min-padding-height)) * -2);
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--bg-color);
+    @include with-box-shadow;
+
+    padding: 0 var(--spacing-200);
+
+    @media (min-width: $tablet-bp) {
+        padding: 0 var(--spacing-500);
+    }
+    @media (min-width: $desktop-bp) {
+        padding: 0 var(--spacing-1000);
+    }
+
 }
 
 .main {

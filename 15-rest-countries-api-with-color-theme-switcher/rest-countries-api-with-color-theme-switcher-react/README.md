@@ -77,8 +77,21 @@ I learned that `<select>` elements were notoriously difficult to style. It's imp
 "customizable select elements". Support is not universal yet, but it does work on Chrome.
 
 ```scss
-.dropDownOptions::picker-icon {
-    content: url("../assets/icons/icon-arrow-down.svg");
+.dropDownOptions {
+    border: none;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+    padding: var(--spacing-200) var(--spacing-300);
+    @include with-box-shadow;
+    @include text-preset-5--regular;
+
+    &::picker-icon {
+        content: url("../assets/icons/icon-arrow-down-light.svg");
+
+        [data-theme="dark"] & {
+            content: url("../assets/icons/icon-arrow-down-dark.svg");
+        }
+    }
 }
 
 .dropDownOptions,
@@ -87,14 +100,21 @@ I learned that `<select>` elements were notoriously difficult to style. It's imp
 }
 
 ::picker(select) {
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+    margin-top: var(--spacing-100);
+    padding: var(--spacing-200) var(--spacing-300);
     border: none;
     border-radius: 5px;
     @include with-box-shadow;
+
+    &:popover-open {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-100);
+    }
 }
 
-.dropDownOptions > option {
-    padding: 4px var(--spacing-300);
-}
 ```
 
 #### Light/dark theme switcher
@@ -164,30 +184,30 @@ import MenuBar from "../components/MenuBar.jsx";
 import {useEffect, useState} from "react";
 
 function Layout({main}) {
-  const [theme, setTheme] = useState(getInitialTheme())
-  useEffect(() => localStorage.setItem("theme", theme), [theme]);
+    const [theme, setTheme] = useState(getInitialTheme())
+    useEffect(() => localStorage.setItem("theme", theme), [theme]);
 
-  const switchTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light"
-    setTheme(newTheme)
-  }
+    const switchTheme = () => {
+        const newTheme = theme === "light" ? "dark" : "light"
+        setTheme(newTheme)
+    }
 
-  return (
-          <>
+    return (
+        <>
             <header data-theme={theme}>
-              <MenuBar onSwitchTheme={switchTheme}/>
+                <MenuBar onSwitchTheme={switchTheme}/>
             </header>
             <main data-theme={theme}>
-              {main}
+                {main}
             </main>
-          </>
-  )
+        </>
+    )
 }
 
 function getInitialTheme() {
-  return localStorage.getItem("theme")
-          || (window.matchMedia("(prefers-color-scheme: dark)").matches && "dark")
-          || "light";
+    return localStorage.getItem("theme")
+        || (window.matchMedia("(prefers-color-scheme: dark)").matches && "dark")
+        || "light";
 }
 ```
 
@@ -198,6 +218,14 @@ It's just a matter of adding the `loading="lazy"` attribute to the `<img>` eleme
 ```jsx
 <img className={style.flag} loading="lazy" src={country.flag} alt={`Flag of ${country.name}`}/>
 ```
+
+#### Shrinking header on scroll
+
+I wanted to create a shrinking header on scroll but I didn't want to use JavaScript for that. There is a nice CSS
+solution for that in
+a [blog post](https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/). It requires to
+know the height of the header though. Anyway, look at the blog post rather than the code in this project, it is not very
+readable here.
 
 ### Continued development
 
@@ -214,6 +242,8 @@ It's just a matter of adding the `loading="lazy"` attribute to the `<img>` eleme
   `useLocalStorage`.
 - [Lazy loading images](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Lazy_loading) - Reference on
   lazy loading.
+- [How to Create a Shrinking Header on Scroll Without JavaScript](https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/) -
+  A neat trick to create a shrinking header on scroll using only CSS. I used it for the header.
 
 ## Author
 

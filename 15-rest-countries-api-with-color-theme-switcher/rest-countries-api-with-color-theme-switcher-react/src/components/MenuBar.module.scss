@@ -1,20 +1,16 @@
 @use "../styles/presets" as *;
 
 menu {
+    /* Shrinking header, see https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/ */
+    height: calc(1.375 * var(--24px) + (2 * var(--spacing-100)));
+    position: sticky;
+    top: 0;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-400) var(--spacing-200);
     background-color: var(--bg-color);
-    @include with-box-shadow;
-
-    @media (min-width: $tablet-bp) {
-        padding: var(--spacing-400) var(--spacing-500);
-    }
-
-    @media (min-width: $desktop-bp) {
-        padding: var(--spacing-400) var(--spacing-1000);
-    }
+    width: 100%;
 }
 
 .title {
