@@ -4,7 +4,8 @@
     border: none;
     border-radius: 5px;
     background: url("../assets/icons/icon-glass.svg") no-repeat var(--spacing-300);
-    background-color: white;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
     padding: 0 var(--spacing-400) 0 var(--spacing-700);
     height: var(--spacing-600);
     min-width: calc($mobile-bp - var(--spacing-400));

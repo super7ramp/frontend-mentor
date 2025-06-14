@@ -96,6 +96,95 @@ I learned that `<select>` elements were notoriously difficult to style. It's imp
     padding: 4px var(--spacing-300);
 }
 ```
+
+#### Light/dark theme switcher
+
+##### CSS
+
+For the elements:
+
+```css
+[data-theme="light"] {
+    --fg-color: var(--grey-950);
+    --bg-color: white;
+    --bg-color-muted: var(--grey-50);
+}
+
+[data-theme="dark"] {
+    --fg-color: white;
+    --bg-color: var(--blue-900);
+    --bg-color-muted: var(--blue-950);
+}
+```
+
+For the switcher button:
+
+```scss
+.buttonSwitchTheme::before {
+    display: inline-block;
+    line-height: 100%;
+    vertical-align: center;
+    content: url("../assets/icons/icon-switch-to-dark.svg");
+
+    [data-theme="dark"] & {
+        content: url("../assets/icons/icon-switch-to-light.svg");
+    }
+}
+
+.buttonSwitchTheme::after {
+    content: "Dark Mode";
+
+    [data-theme="dark"] & {
+        content: "Light Mode";
+    }
+}
+```
+
+##### React
+
+For the light/dark theme button itself:
+
+```jsx
+import style from "./MenuBar.module.scss"
+
+function MenuBar({onSwitchTheme}) {
+    return (
+        <menu>
+            <p className={style.title}>Where in the world</p>
+            <button className={style.buttonSwitchTheme} type="button" onClick={onSwitchTheme}/>
+        </menu>
+    )
+}
+```
+
+The state is managed in the `Layout` component. It injects the `data-theme` attribute into the `header` and `main`
+
+```jsx
+import MenuBar from "../components/MenuBar.jsx";
+import {useEffect, useState} from "react";
+
+function Layout({main}) {
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
+    useEffect(() => localStorage.setItem("theme", theme), [theme]);
+
+    const switchTheme = () => {
+        const newTheme = theme === "light" ? "dark" : "light"
+        setTheme(newTheme)
+    }
+
+    return (
+        <>
+            <header data-theme={theme}>
+                <MenuBar onSwitchTheme={switchTheme}/>
+            </header>
+            <main data-theme={theme}>
+                {main}
+            </main>
+        </>
+    )
+}
+```
+
 ### Continued development
 
 - Try Tanstack Query.
@@ -104,6 +193,9 @@ I learned that `<select>` elements were notoriously difficult to style. It's imp
 
 - [Customizable select elements](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select) -
   The reference for the new customization possibilities of `<select>` elements.
+- [Using localStorage with React Hooks](https://blog.logrocket.com/using-localstorage-react-hooks/) - Two birds, one
+  stone : how to use `localStorage` with `useState` and `useEffect` and how to abstract this by creating a custom hook
+  `useLocalStorage`.
 
 ## Author
 

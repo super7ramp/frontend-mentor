@@ -38,6 +38,18 @@ $desktop-bp: 90rem /* 1440px */;
     --spacing-1000: calc(10 * var(--spacing-100));
 }
 
+[data-theme="light"] {
+    --fg-color: var(--grey-950);
+    --bg-color: white;
+    --bg-color-muted: var(--grey-50);
+}
+
+[data-theme="dark"] {
+    --fg-color: white;
+    --bg-color: var(--blue-900);
+    --bg-color-muted: var(--blue-950);
+}
+
 @font-face {
     font-family: "Nunito Sans";
     font-weight: var(--extra-light) var(--extra-bold);

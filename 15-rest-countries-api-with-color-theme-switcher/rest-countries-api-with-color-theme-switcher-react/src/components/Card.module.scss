@@ -1,11 +1,11 @@
-@use "../styles/presets.scss" as *;
+@use "../styles/presets" as *;
 
 .card {
     --336px: 21rem;
     --264px: 16.5rem;
     height: var(--336px);
     width: var(--264px);
-    background-color: white;
+    background-color: var(--bg-color);
     @include with-box-shadow;
 }
 

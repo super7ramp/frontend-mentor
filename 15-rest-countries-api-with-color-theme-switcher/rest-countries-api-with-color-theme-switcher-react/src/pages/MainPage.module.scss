@@ -1,4 +1,4 @@
-@use "../styles/presets.scss" as *;
+@use "../styles/presets" as *;
 
 .filterOptions {
     padding: var(--spacing-200);
@@ -6,7 +6,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     gap: var(--spacing-500) var(--spacing-100);
-    background-color: var(--grey-50);
+    background-color: var(--bg-color-muted);
 
     @media (min-width: $tablet-bp) {
         padding: var(--spacing-600) var(--spacing-500);
@@ -23,7 +23,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--spacing-500);
-    background-color: var(--grey-50);
+    background-color: var(--bg-color-muted);
 
     @media (min-width: $tablet-bp) {
         padding: 0 var(--spacing-600);
@@ -37,5 +37,5 @@
 
 .link {
     text-decoration: none;
-    color: var(--grey-950);
+    color: var(--fg-color);
 }

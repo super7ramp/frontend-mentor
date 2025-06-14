@@ -1,10 +1,11 @@
-@use "../styles/presets.scss" as *;
+@use "../styles/presets" as *;
 
 menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-400) var(--spacing-200);
+    background-color: var(--bg-color);
     @include with-box-shadow;
 
     @media (min-width: $tablet-bp) {
@@ -17,22 +18,33 @@ menu {
 }
 
 .title {
+    color: var(--fg-color);
     @include text-preset-2;
 }
 
-.buttonToggleMode {
+.buttonSwitchTheme {
     border: none;
     background-color: transparent;
     display: flex;
     align-items: center;
     gap: var(--spacing-100);
+    color: var(--fg-color);
     @include text-preset-4--semi-bold;
 }
 
-.buttonToggleMode::before {
-    content: url("../assets/icons/icon-toggle-dark.svg");
+.buttonSwitchTheme::before {
+    display: inline-block;
+    line-height: 100%;
+    vertical-align: center;
+    content: url("../assets/icons/icon-switch-to-dark.svg");
+    [data-theme="dark"] & {
+        content: url("../assets/icons/icon-switch-to-light.svg");
+    }
 }
 
-.buttonToggleMode::after {
+.buttonSwitchTheme::after {
     content: "Dark Mode";
+    [data-theme="dark"] & {
+        content: "Light Mode";
+    }
 }

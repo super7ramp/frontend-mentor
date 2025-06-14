@@ -1,8 +1,9 @@
-@use "../styles/presets.scss" as *;
+@use "../styles/presets" as *;
 
 .dropDownOptions {
     border: none;
-    background-color: white;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
     padding: var(--spacing-200) var(--spacing-300);
     @include with-box-shadow;
     @include text-preset-5--regular;
@@ -18,6 +19,8 @@
 }
 
 ::picker(select) {
+    color: var(--fg-color);
+    background-color: var(--bg-color);
     margin-top: var(--spacing-100);
     padding: var(--spacing-200) var(--spacing-300);
     border: none;

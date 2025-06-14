@@ -1,9 +1,11 @@
-@use "../styles/presets.scss" as *;
+@use "../styles/presets" as *;
 
 .outerContainer {
     display: flex;
     justify-content: center;
-    margin-top: var(--spacing-500);
+    padding-top: var(--spacing-500);
+    color: var(--fg-color);
+    background-color: var(--bg-color-muted);
 }
 
 .innerContainer {
@@ -29,7 +31,8 @@
     justify-content: center;
     gap: var(--spacing-100);
     padding: var(--spacing-100) var(--spacing-400);
-    background-color: white;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
     border: none;
     border-radius: 2px;
     @include with-box-shadow;
@@ -44,7 +47,13 @@
 }
 
 .backButton::before {
-    content: url('../assets/icons/icon-arrow-left.svg');
+    display: inline-block;
+    line-height: 100%;
+    vertical-align: center;
+    content: url('../assets/icons/icon-arrow-left-light.svg');
+    [data-theme='dark'] & {
+        content: url('../assets/icons/icon-arrow-left-dark.svg');
+    }
 }
 
 .countryDetails {
