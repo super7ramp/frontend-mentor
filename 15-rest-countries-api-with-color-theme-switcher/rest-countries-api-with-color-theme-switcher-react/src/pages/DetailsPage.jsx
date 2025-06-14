@@ -5,6 +5,14 @@ import CountriesApi from "../api/CountriesApi.js";
 import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router";
 
+/**
+ * Page that displays detailed information about a specific country.
+ *
+ * Name of the country is obtained from the URL parameter "countryName".
+ *
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function DetailsPage() {
     const name = useParams().countryName;
     const [detailedCountry, setDetailedCountry] = useState(null)
@@ -28,6 +36,12 @@ function DetailsPage() {
     )
 }
 
+/**
+ * Navigation component that provides a back button to return to the main page.
+ *
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Navigation() {
     return (
         <nav>
@@ -38,6 +52,13 @@ function Navigation() {
     )
 }
 
+/**
+ * CountryDetails component that displays detailed information about a specific country.
+ *
+ * @param detailedCountry
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function CountryDetails({detailedCountry}) {
     return (
         detailedCountry

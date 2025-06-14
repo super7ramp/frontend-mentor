@@ -1,5 +1,12 @@
 import style from './Card.module.scss'
 
+/**
+ * Card component to display country information.
+ *
+ * @param country {Country} - The country object containing basic information like name, flag, population, region, and capitals.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Card({country}) {
 
     return (

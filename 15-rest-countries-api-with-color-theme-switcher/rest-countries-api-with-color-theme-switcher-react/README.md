@@ -164,24 +164,30 @@ import MenuBar from "../components/MenuBar.jsx";
 import {useEffect, useState} from "react";
 
 function Layout({main}) {
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
-    useEffect(() => localStorage.setItem("theme", theme), [theme]);
+  const [theme, setTheme] = useState(getInitialTheme())
+  useEffect(() => localStorage.setItem("theme", theme), [theme]);
 
-    const switchTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light"
-        setTheme(newTheme)
-    }
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light"
+    setTheme(newTheme)
+  }
 
-    return (
-        <>
+  return (
+          <>
             <header data-theme={theme}>
-                <MenuBar onSwitchTheme={switchTheme}/>
+              <MenuBar onSwitchTheme={switchTheme}/>
             </header>
             <main data-theme={theme}>
-                {main}
+              {main}
             </main>
-        </>
-    )
+          </>
+  )
+}
+
+function getInitialTheme() {
+  return localStorage.getItem("theme")
+          || (window.matchMedia("(prefers-color-scheme: dark)").matches && "dark")
+          || "light";
 }
 ```
 
@@ -190,7 +196,7 @@ function Layout({main}) {
 It's just a matter of adding the `loading="lazy"` attribute to the `<img>` elements:
 
 ```jsx
-
+<img className={style.flag} loading="lazy" src={country.flag} alt={`Flag of ${country.name}`}/>
 ```
 
 ### Continued development
@@ -211,16 +217,9 @@ It's just a matter of adding the `loading="lazy"` attribute to the `<img>` eleme
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Antoine Belvire](https://belv.re)
+- Frontend Mentor - [@super7ramp](https://www.frontendmentor.io/profile/super7ramp)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got
-some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel
-free to delete this section entirely.**
+All reviewers for their feedback ❤️

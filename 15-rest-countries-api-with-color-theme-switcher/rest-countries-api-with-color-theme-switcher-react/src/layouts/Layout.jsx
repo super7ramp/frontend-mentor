@@ -1,6 +1,13 @@
 import MenuBar from "../components/MenuBar.jsx";
 import {useEffect, useState} from "react";
 
+/**
+ * Layout component that wraps the main content of the application.
+ *
+ * @param main {JSX.Element} - The main content to be displayed within the layout.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Layout({main}) {
     const [theme, setTheme] = useState(getInitialTheme())
     useEffect(() => localStorage.setItem("theme", theme), [theme]);
