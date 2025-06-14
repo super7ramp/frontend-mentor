@@ -201,6 +201,8 @@ It's just a matter of adding the `loading="lazy"` attribute to the `<img>` eleme
 
 - [Customizable select elements](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select) -
   The reference for the new customization possibilities of `<select>` elements.
+- [The best light/dark mode theme toggle in JavaScript](https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f) -
+  A very clear explanation of how-to implement a light/dark theme switcher in JavaScript.
 - [Using localStorage with React Hooks](https://blog.logrocket.com/using-localstorage-react-hooks/) - Two birds, one
   stone : how to use `localStorage` with `useState` and `useEffect` and how to abstract this by creating a custom hook
   `useLocalStorage`.
