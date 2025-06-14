@@ -3,7 +3,7 @@
 .searchBar {
     border: none;
     border-radius: 5px;
-    background: url("../assets/icons/icon-glass.svg") no-repeat var(--spacing-300);
+    background: url("../assets/icons/icon-glass-light.svg") no-repeat var(--spacing-300);
     color: var(--fg-color);
     background-color: var(--bg-color);
     padding: 0 var(--spacing-400) 0 var(--spacing-700);
@@ -13,4 +13,15 @@
     max-width: calc(10 * var(--spacing-600));
     @include text-preset-5--regular;
     @include with-box-shadow;
+
+    &::placeholder {
+        color: var(--grey-250);
+        [data-theme="dark"] & {
+            color: white;
+        }
+    }
+
+    [data-theme="dark"] & {
+        background-image: url("../assets/icons/icon-glass-dark.svg");
+    }
 }
