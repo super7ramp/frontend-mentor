@@ -11,7 +11,7 @@ function MenuBar({onSwitchTheme}) {
     return (
         <menu>
             <p className={style.title}>Where in the world</p>
-            <button className={style.buttonSwitchTheme} type="button" onClick={onSwitchTheme}/>
+            <button className={style.buttonSwitchTheme} type="button" onClick={onSwitchTheme} aria-label="Switch color theme"/>
         </menu>
     )
 }

@@ -48,7 +48,6 @@
     &::before {
         display: inline-block;
         line-height: 100%;
-        vertical-align: center;
         content: url('../assets/icons/icon-arrow-left-light.svg');
         [data-theme='dark'] & {
             content: url('../assets/icons/icon-arrow-left-dark.svg');
