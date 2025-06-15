@@ -30,7 +30,6 @@
     &::before {
         display: inline-block;
         line-height: 100%;
-        vertical-align: center;
         content: url("../assets/icons/icon-switch-to-dark.svg");
         [data-theme="dark"] & {
             content: url("../assets/icons/icon-switch-to-light.svg");
