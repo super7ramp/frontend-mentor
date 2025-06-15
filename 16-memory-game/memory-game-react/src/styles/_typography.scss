@@ -1,0 +1,65 @@
+@use "functions" as fn;
+
+$font-family: "Atkinson Hyperlegible";
+$font-weight: bold;
+$line-height: 125%;
+
+@mixin text-preset($size, $letter-spacing) {
+    font-family: $font-family, sans-serif;
+    font-weight: $font-weight;
+    font-size: $size;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+}
+
+@mixin text-preset-1 {
+    @include text-preset(fn.pxToRem(56), 0);
+}
+
+@mixin text-preset-2 {
+    @include text-preset(fn.pxToRem(48), 0);
+}
+
+@mixin text-preset-3 {
+    @include text-preset(fn.pxToRem(44), 0);
+}
+
+@mixin text-preset-4 {
+    @include text-preset(fn.pxToRem(40), 0);
+}
+
+@mixin text-preset-5 {
+    @include text-preset(fn.pxToRem(32), 0);
+}
+
+@mixin text-preset-6 {
+    @include text-preset(fn.pxToRem(26), 0);
+}
+
+@mixin text-preset-7 {
+    @include text-preset(fn.pxToRem(24), 0);
+}
+
+@mixin text-preset-8 {
+    @include text-preset(fn.pxToRem(20), 0);
+}
+
+@mixin text-preset-9 {
+    @include text-preset(fn.pxToRem(18), 0);
+}
+
+@mixin text-preset-10 {
+    @include text-preset(fn.pxToRem(16), 0);
+}
+
+@mixin text-preset-11 {
+    @include text-preset(fn.pxToRem(15), 0);
+}
+
+@mixin text-preset-12 {
+    @include text-preset(fn.pxToRem(14), 0);
+}
+
+@mixin text-preset-13 {
+    @include text-preset(fn.pxToRem(13), fn.pxToRem(5));
+}

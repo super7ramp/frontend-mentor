@@ -1,0 +1,13 @@
+@use "styles/presets";
+
+@font-face {
+    font-family: presets.$font-family;
+    font-weight: presets.$font-weight;
+    src: local(presets.$font-family), url("assets/fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
