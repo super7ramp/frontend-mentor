@@ -1,6 +1,6 @@
 @use "../styles/presets" as *;
 
-menu {
+.menu {
     /* Shrinking header, see https://css-tricks.com/how-to-create-a-shrinking-header-on-scroll-without-javascript/ */
     height: calc(1.375 * var(--24px) + (2 * var(--spacing-100)));
     position: sticky;
