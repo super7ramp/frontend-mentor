@@ -1,9 +1,9 @@
-@use "styles/presets";
+@use "styles/design-system" as ds;
 
 @font-face {
-    font-family: presets.$font-family;
-    font-weight: presets.$font-weight;
-    src: local(presets.$font-family), url("assets/fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");
+    font-family: ds.$font-family;
+    font-weight: ds.$font-weight;
+    src: local(ds.$font-family), url("assets/fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");
 }
 
 *, *::before, *::after {

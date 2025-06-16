@@ -1,0 +1,14 @@
+@use "../styles/design-system" as ds;
+
+.buttonStart {
+    background-color: ds.$orange-400;
+    border: none;
+    color: ds.$grey-50;
+    padding: ds.$spacing-100;
+    @include ds.rounded-corners;
+    @include ds.text-preset-9;
+
+    &:hover {
+        background-color: ds.$orange-300;
+    }
+}

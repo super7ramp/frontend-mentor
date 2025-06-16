@@ -1,0 +1,27 @@
+@use "../styles/design-system" as ds;
+
+.buttonSelection {
+    flex-grow: 1;
+
+    input {
+        display: none;
+
+        &:checked + label {
+            background-color: ds.$blue-800;
+        }
+    }
+
+    label {
+        display: block;
+        text-align: center;
+        background-color: ds.$blue-300;
+        color: ds.$grey-50;
+        padding: ds.$spacing-100 ds.$spacing-400;
+        @include ds.rounded-corners;
+        @include ds.text-preset-10;
+
+        &:hover {
+            background-color: ds.$blue-350;
+        }
+    }
+}

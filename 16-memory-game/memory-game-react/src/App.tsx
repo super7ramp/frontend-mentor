@@ -1,11 +1,8 @@
 import './App.css'
+import PageNewGame from "./pages/PageNewGame.tsx";
 
 function App() {
-    return (
-        <p>
-            Hello World!
-        </p>
-    )
+    return <PageNewGame/>
 }
 
 export default App

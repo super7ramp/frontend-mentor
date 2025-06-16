@@ -1,0 +1,49 @@
+@use "../styles/design-system" as ds;
+
+body {
+    background-color: ds.$blue-950;
+    padding: ds.$spacing-300;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageNewGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: ds.$spacing-600;
+    height: 100%;
+
+    h1 {
+        color: white;
+        @include ds.text-preset-5;
+    }
+
+    form {
+        background-color: ds.$grey-50;
+        border-radius: 20px;
+        padding: ds.$spacing-300;
+        display: flex;
+        flex-direction: column;
+        gap: ds.$spacing-300;
+
+        fieldset {
+            border: none;
+
+            legend {
+                color: ds.$blue-400;
+                @include ds.text-preset-11;
+            }
+
+            .inputs {
+                margin-block-start: ds.$spacing-100;
+                display: flex;
+                justify-content: space-between;
+                gap: ds.$spacing-100;
+            }
+        }
+    }
+}
+
