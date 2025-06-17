@@ -1,0 +1,15 @@
+@use "../styles/design-system" as ds;
+
+.layout {
+    background-color: ds.$grey-50;
+    padding: ds.$spacing-300;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    header {
+        width: 100%;
+    }
+}

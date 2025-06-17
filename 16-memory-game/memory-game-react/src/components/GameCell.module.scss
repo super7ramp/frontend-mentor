@@ -1,0 +1,23 @@
+@use "../styles/design-system" as ds;
+
+.cell {
+    border: none;
+    border-radius: 50%;
+    color: ds.$grey-50;
+    @include ds.text-preset-4;
+}
+
+.cellHidden {
+    background-color: ds.$blue-800;
+    p {
+        opacity: 0;
+    }
+}
+
+.cellFound {
+    background-color: ds.$blue-300;
+}
+
+.cellShown {
+    background-color: ds.$orange-400;
+}

@@ -57,6 +57,10 @@ class GameSettings {
     withGridSize(gridSize: "4x4" | "6x6"): GameSettings {
         return new GameSettings(this.theme, this.players, gridSize);
     }
+
+    gridSizeAsNumber(): number {
+        return this.gridSize === "4x4" ? 4 : 6
+    }
 }
 
 export default GameSettings

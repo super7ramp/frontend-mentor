@@ -1,0 +1,26 @@
+@use "../styles/design-system" as ds;
+
+.menuBar {
+    display: flex;
+    justify-content: space-between;
+    background-color: ds.$grey-50;
+
+    h1 {
+        color: ds.$blue-950;
+        @include ds.text-preset-7;
+    }
+}
+
+.buttons {
+    button {
+        background-color: ds.$orange-400;
+        color: ds.$grey-50;
+        padding: ds.$spacing-100 ds.$spacing-300;
+        @include ds.text-preset-10;
+        @include ds.rounded-button;
+
+        &:hover {
+            background-color: ds.$orange-300;
+        }
+    }
+}

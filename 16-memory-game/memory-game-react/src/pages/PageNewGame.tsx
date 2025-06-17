@@ -1,6 +1,6 @@
 import style from "./PageNewGame.module.scss"
 import ButtonSelection from "../components/ButtonSelection.tsx";
-import GameSettings from "../models/GameSettings.tsx";
+import GameSettings from "../models/GameSettings.ts";
 import {type ReactNode, useState} from "react";
 import ButtonStart from "../components/ButtonStart.tsx";
 

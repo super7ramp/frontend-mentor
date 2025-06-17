@@ -3,10 +3,14 @@
 @forward "spacing";
 @forward "typography";
 
+@use "spacing" as sp;
+
 $mobile-bp: 23rem /* 368px */;
 $tablet-bp: 48rem /* 768px */;
 $desktop-bp: 90rem /* 1440px */;
 
-@mixin rounded-corners {
+@mixin rounded-button {
+    border: none;
     border-radius: 1.5rem / 50%;
+    padding: sp.$spacing-100 sp.$spacing-400;
 }
