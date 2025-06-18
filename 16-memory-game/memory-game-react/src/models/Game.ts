@@ -175,9 +175,9 @@ class GameFinished extends Game {
 function newGame(settings: GameSettings, scheduleTimeout: () => void): Game {
     const gridSize = settings.gridSizeAsNumber()
     const values = new Array(gridSize * gridSize)
-    for (let n = 0; n < values.length; n = n + 2) {
-        values[n] = n + 1;
-        values[n + 1] = n + 1;
+    for (let n = 0; (2 * n + 1) < values.length; n++) {
+        values[2 * n] = n + 1;
+        values[2 * n + 1] = n + 1;
     }
     const cells = new Array(gridSize)
     for (let y = 0; y < gridSize; y++) {
