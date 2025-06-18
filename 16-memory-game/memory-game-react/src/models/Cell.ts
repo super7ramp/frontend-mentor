@@ -1,3 +1,5 @@
+import type {Icon} from "./Icon.ts";
+
 /**
  * The model for a single cell in the memory game. Instances are immutable.
  */
@@ -6,12 +8,12 @@ class Cell {
     readonly x: number
     /** The y coordinate of the cell in the grid */
     readonly y: number
-    /** The value of the cell, either a number or a URL for an icon */
-    readonly value: Number | URL
+    /** The value of the cell, either a number or a string representing an icon */
+    readonly value: number | Icon
     /** The state of the cell, can be "hidden", "shown" or "found" */
     readonly state: "hidden" | "shown" | "found"
 
-    constructor(x: number, y: number, value: Number | URL, state: "hidden" | "shown" | "found") {
+    constructor(x: number, y: number, value: number | Icon, state: "hidden" | "shown" | "found") {
         this.x = x
         this.y = y
         this.value = value
@@ -23,9 +25,9 @@ class Cell {
      *
      * @param x the x coordinate of the cell in the grid
      * @param y the y coordinate of the cell in the grid
-     * @param value the value of the cell, either a number or a URL for an icon
+     * @param value the value of the cell, either a number or a string representing an icon
      */
-    static newHidden(x: number, y: number, value: Number | URL) {
+    static newHidden(x: number, y: number, value: number | Icon) {
         return new Cell(x, y, value, "hidden")
     }
 
@@ -63,16 +65,6 @@ class Cell {
             throw Error("Trying to mark a cell not shown as found")
         }
         return new Cell(this.x, this.y, this.value, "found");
-    }
-
-    /**
-     * Returns the value of the cell as a number.
-     *
-     * @returns the value of the cell as a number
-     * @throws Error if the value is not a number
-     */
-    numberValue() {
-        return this.value as number
     }
 
 }

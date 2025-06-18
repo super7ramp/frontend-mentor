@@ -5,19 +5,28 @@
     border-radius: 50%;
     color: ds.$grey-50;
     @include ds.text-preset-4;
-}
 
-.cellHidden {
-    background-color: ds.$blue-800;
-    p {
-        opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img {
+        height: 50%;
     }
-}
 
-.cellFound {
-    background-color: ds.$blue-300;
-}
+    &.hidden {
+        background-color: ds.$blue-800;
+        p, img {
+            opacity: 0;
+        }
+    }
 
-.cellShown {
-    background-color: ds.$orange-400;
+    &.found {
+        background-color: ds.$blue-300;
+    }
+
+    &.shown {
+        background-color: ds.$orange-400;
+    }
+
 }

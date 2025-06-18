@@ -1,5 +1,6 @@
 import type GameSettings from "./GameSettings.ts";
 import Cell from "./Cell.ts";
+import {Icons} from "./Icon.ts";
 
 /**
  * Base class for the game state machine.
@@ -174,11 +175,17 @@ class GameFinished extends Game {
  */
 function newGame(settings: GameSettings, scheduleTimeout: () => void): Game {
     const gridSize = settings.gridSizeAsNumber()
+    const valueGenerator = settings.theme === "Numbers"
+        ? (n: number) => n + 1
+        : (n: number) => Icons[n % Icons.length];
+
     const values = new Array(gridSize * gridSize)
     for (let n = 0; (2 * n + 1) < values.length; n++) {
-        values[2 * n] = n + 1;
-        values[2 * n + 1] = n + 1;
+        const value = valueGenerator(n);
+        values[2 * n] = value;
+        values[2 * n + 1] = value;
     }
+
     const cells = new Array(gridSize)
     for (let y = 0; y < gridSize; y++) {
         cells[y] = new Array(gridSize)
