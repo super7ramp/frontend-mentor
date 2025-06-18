@@ -31,6 +31,13 @@ abstract class Game {
     }
 
     /**
+     * Checks if the game is finished, meaning all cells have been found.
+     */
+    isFinished(): boolean {
+        return this instanceof GameFinished
+    }
+
+    /**
      * Called after a timeout.
      *
      * @returns the next game state
