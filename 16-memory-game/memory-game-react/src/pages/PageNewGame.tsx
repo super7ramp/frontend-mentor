@@ -1,19 +1,21 @@
 import style from "./PageNewGame.module.scss"
 import ButtonSelection from "../components/ButtonSelection.tsx";
-import GameSettings from "../models/GameSettings.ts";
-import {type ReactNode, useState} from "react";
 import ButtonStart from "../components/ButtonStart.tsx";
+import GameSettings from "../models/GameSettings.ts";
+
+import {type ReactNode} from "react";
+import {useNavigate} from "react-router";
 
 /**
  * PageNewGame component allows users to set up a new game by selecting the theme, number of players, and grid size.
  * @constructor
  */
-function PageNewGame() {
-    const [gameSettings, setGameSettings] = useState(GameSettings.defaults());
+function PageNewGame({gameSettings, setGameSettings}: {gameSettings: GameSettings, setGameSettings: (gs: GameSettings) => void}) {
+    const navigate = useNavigate();
 
     const startGame = (e: any) => {
-        console.log("Starting game with settings:", gameSettings);
-        e.preventDefault();
+        e.preventDefault()
+        navigate("/play")
     }
 
     return (

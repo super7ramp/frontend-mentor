@@ -1,13 +1,14 @@
-import GameSettings from "../models/GameSettings.ts";
+import style from "./PageGameRunning.module.scss"
 import {newGame} from "../models/Game.ts";
-
+import GameSettings from "../models/GameSettings.ts";
 import MenuBar from "../components/MenuBar.tsx";
 import GameGrid from "../components/GameGrid.tsx";
-import {useState} from "react";
-import style from "./PageGameRunning.module.scss"
 
-function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
-    const [game, setGame] = useState(
+import {useState} from "react";
+
+function PageGameRunning({gameSettings}: {gameSettings: GameSettings}) {
+
+    const [game, setGame] = useState(() =>
         newGame(gameSettings, () => {
             setTimeout(() => {
                 setGame(g => g.onTimeout())
