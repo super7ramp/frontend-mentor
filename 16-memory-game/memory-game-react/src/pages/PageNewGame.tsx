@@ -1,6 +1,5 @@
 import style from "./PageNewGame.module.scss"
 import ButtonSelection from "../components/ButtonSelection.tsx";
-import ButtonStart from "../components/ButtonStart.tsx";
 import GameSettings from "../models/GameSettings.ts";
 
 import {type ReactNode} from "react";
@@ -10,7 +9,10 @@ import {useNavigate} from "react-router";
  * PageNewGame component allows users to set up a new game by selecting the theme, number of players, and grid size.
  * @constructor
  */
-function PageNewGame({gameSettings, setGameSettings}: {gameSettings: GameSettings, setGameSettings: (gs: GameSettings) => void}) {
+function PageNewGame({gameSettings, setGameSettings}: {
+    gameSettings: GameSettings,
+    setGameSettings: (gs: GameSettings) => void
+}) {
     const navigate = useNavigate();
 
     const startGame = (e: any) => {
@@ -28,7 +30,7 @@ function PageNewGame({gameSettings, setGameSettings}: {gameSettings: GameSetting
                     <SelectTheme gameSettings={gameSettings} setGameSettings={setGameSettings}/>
                     <SelectPlayers gameSettings={gameSettings} setGameSettings={setGameSettings}/>
                     <SelectGrid gameSettings={gameSettings} setGameSettings={setGameSettings}/>
-                    <ButtonStart/>
+                    <button className="button--primary" type="submit">Start game</button>
                 </form>
             </main>
         </div>

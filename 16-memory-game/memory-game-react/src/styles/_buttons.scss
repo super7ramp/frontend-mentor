@@ -1,0 +1,40 @@
+@use "colors" as *;
+@use "spacing" as *;
+@use "typography" as *;
+
+@mixin button--rounded {
+    border: none;
+    border-radius: 1.5rem / 50%;
+    padding: $spacing-100 $spacing-400;
+}
+
+@mixin button--primary {
+    background-color: $orange-400;
+    color: $grey-50;
+    @include button--rounded;
+    @include text-preset-9;
+
+    &:hover {
+        background-color: $orange-300;
+    }
+}
+
+.button--primary {
+    @include button--primary;
+}
+
+@mixin button--secondary {
+    background-color: $blue-100;
+    color: $blue-800;
+    @include button--rounded;
+    @include text-preset-9;
+
+    &:hover {
+        background-color: $blue-350;
+        color: $grey-50;
+    }
+}
+
+.button--secondary {
+    @include button--secondary;
+}

@@ -18,10 +18,16 @@ function useTimer() {
         }
     }
 
+    const resetTimer = () => {
+        stopTimer();
+        setTimeInSeconds(0);
+    }
+
     return {
         timeInSeconds,
         startTimer,
-        stopTimer
+        stopTimer,
+        resetTimer
     }
 }
 

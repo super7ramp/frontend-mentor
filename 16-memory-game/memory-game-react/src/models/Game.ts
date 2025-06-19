@@ -46,6 +46,18 @@ abstract class Game {
     }
 
     /**
+     * Restarts the game, resetting the state to the initial state.
+     */
+    restart(): Game {
+        for (let y = 0; y < this.cells.length; y++) {
+            for (let x = 0; x < this.cells[y].length; x++) {
+                this.cells[y][x] = Cell.newHidden(x, y, this.cells[y][x].value)
+            }
+        }
+        return new GameReady(this.settings, this.cells, this.scheduleTimeout)
+    }
+
+    /**
      * Called after a timeout.
      *
      * @returns the next game state

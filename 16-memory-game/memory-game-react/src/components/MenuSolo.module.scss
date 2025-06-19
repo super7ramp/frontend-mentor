@@ -5,9 +5,9 @@
     gap: ds.$spacing-300;
     justify-content: space-between;
 
-    section {
+    .stat {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         flex-grow: 1;
@@ -15,7 +15,7 @@
         padding: ds.$spacing-200;
         background-color: ds.$blue-100;
 
-        h2 {
+        .key {
             color: ds.$blue-400;
             @include ds.text-preset-11;
         }

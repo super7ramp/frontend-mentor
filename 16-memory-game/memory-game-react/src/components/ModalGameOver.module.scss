@@ -1,0 +1,66 @@
+@use "../styles/design-system" as ds;
+
+dialog[open] {
+    margin: auto; /* this is how dialog is centered implicitly before CSS reset, let's re-add it. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    background-color: ds.$grey-100;
+    gap: ds.$spacing-300;
+    padding: ds.$spacing-300;
+
+    .congrats {
+        text-align: center;
+
+        h2 {
+            color: ds.$blue-950;
+            @include ds.text-preset-7;
+        }
+
+        p {
+            color: ds.$blue-400;
+            @include ds.text-preset-12;
+        }
+    }
+
+    .stats {
+        display: flex;
+        flex-direction: column;
+        gap: ds.$spacing-100;
+        width: 100%;
+
+        .stat {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            border-radius: 5px;
+            padding: ds.$spacing-200;
+            background-color: ds.$blue-100;
+
+            .key {
+                color: ds.$blue-400;
+                @include ds.text-preset-12;
+            }
+
+            .value {
+                color: ds.$blue-800;
+                @include ds.text-preset-8;
+            }
+        }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: ds.$spacing-200;
+        width: 100%;
+    }
+
+    &::backdrop {
+        background-color: hsl(0, 0%, 0%, 0.5);
+    }
+}

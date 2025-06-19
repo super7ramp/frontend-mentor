@@ -16,7 +16,7 @@
         text-align: center;
         background-color: ds.$blue-300;
         color: ds.$grey-50;
-        @include ds.rounded-button;
+        @include ds.button--rounded;
         @include ds.text-preset-10;
 
         &:hover {

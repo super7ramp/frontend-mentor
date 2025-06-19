@@ -17,7 +17,7 @@
         color: ds.$grey-50;
         padding: ds.$spacing-100 ds.$spacing-300;
         @include ds.text-preset-10;
-        @include ds.rounded-button;
+        @include ds.button--rounded;
 
         &:hover {
             background-color: ds.$orange-300;

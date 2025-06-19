@@ -4,14 +4,14 @@ function MenuSolo({timeInSeconds, moves}: {timeInSeconds: number, moves: number}
     const formattedTime = formatTime(timeInSeconds)
     return (
         <div className={style.menuSolo}>
-            <section>
-                <h2>Time</h2>
+            <div className={style.stat}>
+                <p className={style.key}>Time</p>
                 <time className={style.value}>{formattedTime}</time>
-            </section>
-            <section>
-                <h2>Moves</h2>
+            </div>
+            <div className={style.stat}>
+                <p className={style.key}>Moves</p>
                 <p className={style.value}>{moves}</p>
-            </section>
+            </div>
         </div>
     )
 }
