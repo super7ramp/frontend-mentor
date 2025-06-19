@@ -31,10 +31,18 @@ abstract class Game {
     }
 
     /**
-     * Checks if the game is finished, meaning all cells have been found.
+     * Checks if the game is finished or about to be, meaning no cell is hidden.
      */
     isFinished(): boolean {
-        return this instanceof GameFinished
+        for (let y = 0; y < this.cells.length; y++) {
+            for (let x = 0; x < this.cells[y].length; x++) {
+                const cell = this.cells[y][x]
+                if (cell.state === "hidden") {
+                    return false
+                }
+            }
+        }
+        return true
     }
 
     /**
@@ -140,16 +148,12 @@ class GameUserPickedSecond extends Game {
 
         this.cells[this.firstCell.y][this.firstCell.x] = this.firstCell.found()
         this.cells[this.secondCell.y][this.secondCell.x] = this.secondCell.found()
-        for (let y = 0; y < this.cells.length; y++) {
-            for (let x = 0; x < this.cells[y].length; x++) {
-                const cell = this.cells[y][x]
-                if (cell.state !== "found") {
-                    return new GameReady(this.settings, this.cells, this.scheduleTimeout)
-                }
-            }
+
+        if (this.isFinished()) {
+            return new GameFinished(this.settings, this.cells, this.scheduleTimeout)
         }
 
-        return new GameFinished(this.settings, this.cells, this.scheduleTimeout)
+        return new GameReady(this.settings, this.cells, this.scheduleTimeout)
     }
 }
 

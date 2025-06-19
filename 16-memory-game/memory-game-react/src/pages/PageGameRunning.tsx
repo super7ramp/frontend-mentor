@@ -24,6 +24,7 @@ function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
         if (updatedGame.isFinished()) {
             console.log("Game finished")
             stopTimer()
+            setGame(updatedGame)
             return
         }
         if (moves === 0) {
