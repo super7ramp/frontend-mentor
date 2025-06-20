@@ -9,6 +9,19 @@
         color: ds.$blue-950;
         @include ds.text-preset-7;
     }
+
+    dialog[open] {
+        display: flex;
+        gap: ds.$spacing-200;
+
+        &::backdrop {
+            background-color: hsl(0, 0%, 0%, 0.5);
+        }
+
+        button {
+            width: 100%;
+        }
+    }
 }
 
 .buttons {

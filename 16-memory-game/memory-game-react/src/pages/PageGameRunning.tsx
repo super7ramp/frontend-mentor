@@ -57,7 +57,7 @@ function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
     return (
         <div className={style.layout}>
             <header>
-                <MenuBar/>
+                <MenuBar onClickOnRestart={restartGame}/>
             </header>
             <main>
                 <GameGrid game={game} onGameUpdated={handleUserMove}/>
