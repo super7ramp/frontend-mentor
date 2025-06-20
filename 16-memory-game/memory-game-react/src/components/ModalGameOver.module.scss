@@ -30,27 +30,6 @@ dialog[open] {
         flex-direction: column;
         gap: ds.$spacing-100;
         width: 100%;
-
-        .stat {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            flex-grow: 1;
-            border-radius: 5px;
-            padding: ds.$spacing-200;
-            background-color: ds.$blue-100;
-
-            .key {
-                color: ds.$blue-400;
-                @include ds.text-preset-12;
-            }
-
-            .value {
-                color: ds.$blue-800;
-                @include ds.text-preset-8;
-            }
-        }
     }
 
     .buttons {

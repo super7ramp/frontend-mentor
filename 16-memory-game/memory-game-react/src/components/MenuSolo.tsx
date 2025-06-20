@@ -1,25 +1,13 @@
 import style from './MenuSolo.module.scss'
+import {StatCount, StatTime} from "./Stat.tsx";
 
-function MenuSolo({timeInSeconds, moves}: {timeInSeconds: number, moves: number}) {
-    const formattedTime = formatTime(timeInSeconds)
+function MenuSolo({timeInSeconds, moves}: { timeInSeconds: number, moves: number }) {
     return (
         <div className={style.menuSolo}>
-            <div className={style.stat}>
-                <p className={style.key}>Time</p>
-                <time className={style.value}>{formattedTime}</time>
-            </div>
-            <div className={style.stat}>
-                <p className={style.key}>Moves</p>
-                <p className={style.value}>{moves}</p>
-            </div>
+            <StatTime label="Time" timeInSeconds={timeInSeconds}/>
+            <StatCount label="Moves" count={moves}/>
         </div>
     )
-}
-
-function formatTime(timeInSeconds: number): string {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const secs = timeInSeconds % 60;
-    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
 export default MenuSolo

@@ -4,25 +4,4 @@
     display: flex;
     gap: ds.$spacing-300;
     justify-content: space-between;
-
-    .stat {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        flex-grow: 1;
-        border-radius: 5px;
-        padding: ds.$spacing-200;
-        background-color: ds.$blue-100;
-
-        .key {
-            color: ds.$blue-400;
-            @include ds.text-preset-11;
-        }
-
-        .value {
-            color: ds.$blue-800;
-            @include ds.text-preset-7;
-        }
-    }
 }
