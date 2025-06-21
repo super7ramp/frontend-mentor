@@ -1,4 +1,7 @@
 import style from "./MenuBar.module.scss"
+import ButtonPrimary from "./ButtonPrimary.tsx";
+import ButtonSecondary from "./ButtonSecondary.tsx";
+
 import {useRef} from "react";
 import {useNavigate} from "react-router";
 
@@ -8,7 +11,7 @@ import {useNavigate} from "react-router";
  * @param onClickOnRestart action to perform when user clicks on the menu's "Restart game" button
  * @constructor
  */
-function MenuBar({onClickOnRestart}: {onClickOnRestart: () => void}) {
+function MenuBar({onClickOnRestart}: { onClickOnRestart: () => void }) {
     const modalRef = useRef<HTMLDialogElement>(null)
     const navigate = useNavigate()
 
@@ -21,7 +24,7 @@ function MenuBar({onClickOnRestart}: {onClickOnRestart: () => void}) {
         modalRef.current?.close()
     }
 
-    const goToPageNewGame  = () => {
+    const goToPageNewGame = () => {
         navigate("/")
     }
 
@@ -36,9 +39,9 @@ function MenuBar({onClickOnRestart}: {onClickOnRestart: () => void}) {
                 <button onClick={showModal}>Menu</button>
             </div>
             <dialog ref={modalRef}>
-                <button className="button--primary" onClick={restart} type="reset">Restart</button>
-                <button className="button--secondary" onClick={goToPageNewGame} type="button">New Game</button>
-                <button className="button--secondary" onClick={resumeGame} type="button">Resume Game</button>
+                <ButtonPrimary onClick={restart} type="reset">Restart</ButtonPrimary>
+                <ButtonSecondary onClick={goToPageNewGame} type="button">New Game</ButtonSecondary>
+                <ButtonSecondary onClick={resumeGame} type="button">Resume Game</ButtonSecondary>
             </dialog>
         </div>
     )

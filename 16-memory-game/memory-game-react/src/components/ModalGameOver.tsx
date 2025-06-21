@@ -1,5 +1,7 @@
 import style from "./ModalGameOver.module.scss"
 import {StatCount, StatTime} from "./Stat.tsx";
+import ButtonPrimary from "./ButtonPrimary.tsx";
+import ButtonSecondary from "./ButtonSecondary.tsx";
 
 function ModalGameOver({ref, timeElapsedInSeconds, movesTaken, onClickOnRestart, onClickOnSetupNewGame}: {
     ref: any,
@@ -19,8 +21,8 @@ function ModalGameOver({ref, timeElapsedInSeconds, movesTaken, onClickOnRestart,
                 <StatCount label="Moves taken" count={movesTaken}/>
             </div>
             <div className={style.buttons}>
-                <button className="button--primary" onClick={onClickOnRestart} type="submit">Restart</button>
-                <button className="button--secondary" onClick={onClickOnSetupNewGame}>Setup New Game</button>
+                <ButtonPrimary onClick={onClickOnRestart} type="submit" children="Restart"/>
+                <ButtonSecondary onClick={onClickOnSetupNewGame}>Setup New Game</ButtonSecondary>
             </div>
         </dialog>
     )

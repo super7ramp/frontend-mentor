@@ -1,0 +1,13 @@
+@use "../styles/design-system" as ds;
+
+.buttonSecondary {
+    background-color: ds.$blue-100;
+    color: ds.$blue-800;
+    @include ds.button--rounded;
+    @include ds.text-preset-9;
+
+    &:hover {
+        background-color: ds.$blue-350;
+        color: ds.$grey-50;
+    }
+}

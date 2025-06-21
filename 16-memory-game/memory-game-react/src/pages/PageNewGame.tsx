@@ -1,4 +1,5 @@
 import style from "./PageNewGame.module.scss"
+import ButtonPrimary from "../components/ButtonPrimary.tsx";
 import ButtonSelection from "../components/ButtonSelection.tsx";
 import GameSettings from "../models/GameSettings.ts";
 
@@ -30,7 +31,7 @@ function PageNewGame({gameSettings, setGameSettings}: {
                     <SelectTheme gameSettings={gameSettings} setGameSettings={setGameSettings}/>
                     <SelectPlayers gameSettings={gameSettings} setGameSettings={setGameSettings}/>
                     <SelectGrid gameSettings={gameSettings} setGameSettings={setGameSettings}/>
-                    <button className="button--primary" type="submit">Start game</button>
+                    <ButtonPrimary type="submit">Start game</ButtonPrimary>
                 </form>
             </main>
         </div>
