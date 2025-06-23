@@ -1,6 +1,7 @@
-import type GameSettings from "./GameSettings.ts";
+import GameSettings from "./GameSettings.ts";
 import Cell from "./Cell.ts";
 import {Icons} from "./Icon.ts";
+import Turn from "./Turn.ts";
 
 /**
  * Base class for the game state machine.
@@ -13,11 +14,15 @@ abstract class Game {
     /** The grid of cells, where each cell is either hidden, shown, or found. */
     readonly cells: Cell[][]
 
+    /** Information about the current turn. */
+    readonly turn: Turn
+
     protected scheduleTimeout: () => void
 
-    protected constructor(settings: GameSettings, cells: Cell[][], scheduleTimeout: () => void) {
+    protected constructor(settings: GameSettings, cells: Cell[][], turn: Turn, scheduleTimeout: () => void) {
         this.settings = settings
         this.cells = cells
+        this.turn = turn
         this.scheduleTimeout = scheduleTimeout
     }
 
@@ -47,6 +52,8 @@ abstract class Game {
 
     /**
      * Restarts the game, resetting the state to the initial state.
+     *
+     * @returns a new game instance with the initial state
      */
     restart(): Game {
         for (let y = 0; y < this.cells.length; y++) {
@@ -54,13 +61,18 @@ abstract class Game {
                 this.cells[y][x] = Cell.newHidden(x, y, this.cells[y][x].value)
             }
         }
-        return new GameReady(this.settings, this.cells, this.scheduleTimeout)
+        const initialTurn = Turn.initial(this.settings.players)
+        return new GameReady(this.settings, this.cells, initialTurn, this.scheduleTimeout)
+    }
+
+    whoseTurn(): 1 | 2 | 3 | 4 {
+        return this.turn.whose()
     }
 
     /**
      * Called after a timeout.
      *
-     * @returns the next game state
+     * @returns the next game state, or this instance if there is no state change
      */
     abstract onTimeout(): Game;
 
@@ -68,7 +80,7 @@ abstract class Game {
      * Called when the user clicks on a cell.
      *
      * @param cell the cell that was clicked
-     * @returns the next game state
+     * @returns the next game state, or this instance if there is no state change
      */
     abstract onUserClick(cell: Cell): Game;
 
@@ -81,8 +93,9 @@ class GameReady extends Game {
 
     constructor(settings: GameSettings,
                 cells: Cell[][],
+                turn: Turn,
                 scheduleTimeout: () => void) {
-        super(settings, cells, scheduleTimeout)
+        super(settings, cells, turn, scheduleTimeout)
     }
 
     onUserClick(cell: Cell): Game {
@@ -91,7 +104,7 @@ class GameReady extends Game {
         }
         const updatedCell = cell.show()
         this.cells[cell.y][cell.x] = updatedCell
-        return new GameUserPickedFirst(this.settings, this.cells, this.scheduleTimeout, updatedCell)
+        return new GameUserPickedFirst(this.settings, this.cells, this.turn, this.scheduleTimeout, updatedCell)
     }
 
     onTimeout(): Game {
@@ -107,9 +120,10 @@ class GameUserPickedFirst extends Game {
 
     constructor(settings: GameSettings,
                 cells: Cell[][],
+                turn: Turn,
                 setTimeout: () => void,
                 firstCell: Cell) {
-        super(settings, cells, setTimeout)
+        super(settings, cells, turn, setTimeout)
         this.firstCell = firstCell
     }
 
@@ -119,7 +133,7 @@ class GameUserPickedFirst extends Game {
         }
         const updatedCell = cell.show()
         this.cells[cell.y][cell.x] = updatedCell
-        const newState = new GameUserPickedSecond(this.settings, this.cells, this.scheduleTimeout, this.firstCell, updatedCell)
+        const newState = new GameUserPickedSecond(this.settings, this.cells, this.turn, this.scheduleTimeout, this.firstCell, updatedCell)
         this.scheduleTimeout()
         return newState
     }
@@ -138,10 +152,11 @@ class GameUserPickedSecond extends Game {
 
     constructor(settings: GameSettings,
                 cells: Cell[][],
+                turn: Turn,
                 scheduleTimeout: () => void,
                 firstCell: Cell,
                 secondCell: Cell) {
-        super(settings, cells, scheduleTimeout)
+        super(settings, cells, turn, scheduleTimeout)
         this.firstCell = firstCell
         this.secondCell = secondCell
     }
@@ -155,17 +170,18 @@ class GameUserPickedSecond extends Game {
         if (this.firstCell.value != this.secondCell.value) {
             this.cells[this.firstCell.y][this.firstCell.x] = this.firstCell.hide()
             this.cells[this.secondCell.y][this.secondCell.x] = this.secondCell.hide()
-            return new GameReady(this.settings, this.cells, this.scheduleTimeout)
+            const nextTurn = this.turn.played()
+            return new GameReady(this.settings, this.cells, nextTurn, this.scheduleTimeout)
         }
 
         this.cells[this.firstCell.y][this.firstCell.x] = this.firstCell.found()
         this.cells[this.secondCell.y][this.secondCell.x] = this.secondCell.found()
 
         if (this.isFinished()) {
-            return new GameFinished(this.settings, this.cells, this.scheduleTimeout)
+            return new GameFinished(this.settings, this.cells, this.turn, this.scheduleTimeout)
         }
 
-        return new GameReady(this.settings, this.cells, this.scheduleTimeout)
+        return new GameReady(this.settings, this.cells, this.turn, this.scheduleTimeout)
     }
 }
 
@@ -176,8 +192,9 @@ class GameFinished extends Game {
 
     constructor(settings: GameSettings,
                 cells: Cell[][],
+                turn: Turn,
                 scheduleTimeout: () => void) {
-        super(settings, cells, scheduleTimeout)
+        super(settings, cells, turn, scheduleTimeout)
     }
 
     onUserClick(_cell: Cell): Game {
@@ -218,7 +235,9 @@ function newGame(settings: GameSettings, scheduleTimeout: () => void): Game {
             values.splice(randomPos, 1)
         }
     }
-    return new GameReady(settings, cells, scheduleTimeout)
+
+    const initialTurn = Turn.initial(settings.players)
+    return new GameReady(settings, cells, initialTurn, scheduleTimeout)
 }
 
 

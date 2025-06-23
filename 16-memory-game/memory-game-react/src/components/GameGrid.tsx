@@ -7,7 +7,9 @@ function GameGrid({game, onGameUpdated}: { game: Game, onGameUpdated: (_: Game) 
 
     const onCellClicked = (cell: Cell) => {
         const updatedGame = game.onUserClick(cell)
-        onGameUpdated(updatedGame)
+        if (game !== updatedGame) {
+            onGameUpdated(updatedGame)
+        }
     }
 
     return (

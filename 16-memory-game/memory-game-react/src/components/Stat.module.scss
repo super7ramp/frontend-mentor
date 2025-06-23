@@ -10,6 +10,10 @@
     padding: ds.$spacing-200;
     background-color: ds.$blue-100;
 
+    &__column {
+        flex-direction: column;
+    }
+
     .key {
         color: ds.$blue-400;
         @include ds.text-preset-12;

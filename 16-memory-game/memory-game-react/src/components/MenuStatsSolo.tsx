@@ -1,7 +1,7 @@
-import style from './MenuSolo.module.scss'
+import style from './MenuStatsSolo.module.scss'
 import {StatCount, StatTime} from "./Stat.tsx";
 
-function MenuSolo({timeInSeconds, moves}: { timeInSeconds: number, moves: number }) {
+function MenuStatsSolo({timeInSeconds, moves}: { timeInSeconds: number, moves: number }) {
     return (
         <div className={style.menuSolo}>
             <StatTime label="Time" timeInSeconds={timeInSeconds}/>
@@ -10,4 +10,4 @@ function MenuSolo({timeInSeconds, moves}: { timeInSeconds: number, moves: number
     )
 }
 
-export default MenuSolo
+export default MenuStatsSolo

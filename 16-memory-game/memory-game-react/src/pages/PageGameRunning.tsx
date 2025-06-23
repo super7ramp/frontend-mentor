@@ -3,16 +3,14 @@ import Game, {newGame} from "../models/Game.ts";
 import GameSettings from "../models/GameSettings.ts";
 import GameGrid from "../components/GameGrid.tsx";
 import MenuBar from "../components/MenuBar.tsx";
-import MenuSolo from "../components/MenuSolo.tsx";
-import ModalGameOver from "../components/ModalGameOver.tsx";
-import useTimer from "../hooks/useTimer.ts";
+import MenuStats from "../components/MenuStats.tsx";
+import ModalGameOverSolo from "../components/ModalGameOverSolo.tsx";
+import usePlayerStats from "../hooks/usePlayerStats.ts";
 
 import {useRef, useState} from "react";
 import {useNavigate} from "react-router";
 
 function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
-
-    const {timeInSeconds, startTimer, stopTimer, resetTimer} = useTimer()
     const [game, setGame] = useState(() =>
         newGame(gameSettings, () => {
             setTimeout(() => {
@@ -20,23 +18,20 @@ function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
             }, 500)
         })
     )
-    const [moves, setMoves] = useState(0)
+    const stats = usePlayerStats(gameSettings.players)
     const gameOverModalRef = useRef<HTMLDialogElement>(null)
     const navigate = useNavigate()
 
     const handleUserMove = (updatedGame: Game) => {
         if (updatedGame.isFinished()) {
             console.log("Game finished")
-            stopTimer()
             setGame(updatedGame)
+            stats.recordGameFinished()
             showModal()
             return
         }
-        if (moves === 0) {
-            startTimer()
-        }
         setGame(updatedGame)
-        setMoves(moves + 1)
+        stats.recordPlayerMove(updatedGame.whoseTurn())
     }
 
     const showModal = () => {
@@ -45,8 +40,7 @@ function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
 
     const restartGame = () => {
         setGame(game.restart())
-        setMoves(0)
-        resetTimer()
+        stats.reset()
         gameOverModalRef.current?.close()
     }
 
@@ -63,13 +57,13 @@ function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
                 <GameGrid game={game} onGameUpdated={handleUserMove}/>
             </main>
             <footer>
-                <MenuSolo timeInSeconds={timeInSeconds} moves={moves}/>
+                <MenuStats playerStats={stats.all}/>
             </footer>
-            <ModalGameOver ref={gameOverModalRef}
-                           timeElapsedInSeconds={timeInSeconds}
-                           movesTaken={moves}
-                           onClickOnRestart={restartGame}
-                           onClickOnSetupNewGame={goToPageNewGame}/>
+            <ModalGameOverSolo ref={gameOverModalRef}
+                               timeElapsedInSeconds={stats.all[0].timeInSeconds}
+                               movesTaken={stats.all[0].moves}
+                               onClickOnRestart={restartGame}
+                               onClickOnSetupNewGame={goToPageNewGame}/>
         </div>
     )
 }

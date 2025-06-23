@@ -1,9 +1,9 @@
-import style from "./ModalGameOver.module.scss"
+import style from "./ModalGameOverSolo.module.scss"
 import {StatCount, StatTime} from "./Stat.tsx";
 import ButtonPrimary from "./ButtonPrimary.tsx";
 import ButtonSecondary from "./ButtonSecondary.tsx";
 
-function ModalGameOver({ref, timeElapsedInSeconds, movesTaken, onClickOnRestart, onClickOnSetupNewGame}: {
+function ModalGameOverSolo({ref, timeElapsedInSeconds, movesTaken, onClickOnRestart, onClickOnSetupNewGame}: {
     ref: any,
     timeElapsedInSeconds: number,
     movesTaken: number
@@ -28,4 +28,4 @@ function ModalGameOver({ref, timeElapsedInSeconds, movesTaken, onClickOnRestart,
     )
 }
 
-export default ModalGameOver
+export default ModalGameOverSolo

@@ -1,0 +1,12 @@
+@use "../styles/design-system" as ds;
+
+.menuMultiplayer {
+    display: flex;
+    gap: ds.$spacing-300;
+    width: 100%;
+    justify-content: space-between;
+
+    .playerCard {
+        flex-grow: 1;
+    }
+}
