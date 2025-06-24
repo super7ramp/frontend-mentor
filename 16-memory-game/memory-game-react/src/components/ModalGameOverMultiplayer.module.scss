@@ -34,6 +34,7 @@ dialog[open] {
         flex-direction: column;
         gap: ds.$spacing-100;
         width: 100%;
+        list-style-type: none;
     }
 
     .buttons {

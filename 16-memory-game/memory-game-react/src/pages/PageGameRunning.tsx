@@ -1,37 +1,26 @@
 import style from "./PageGameRunning.module.scss"
-import Game, {newGame} from "../models/Game.ts";
+import Game from "../models/Game.ts";
 import GameSettings from "../models/GameSettings.ts";
 import GameGrid from "../components/GameGrid.tsx";
 import MenuBar from "../components/MenuBar.tsx";
 import MenuStats from "../components/MenuStats.tsx";
-import ModalGameOverSolo from "../components/ModalGameOverSolo.tsx";
-import usePlayerStats from "../hooks/usePlayerStats.ts";
+import ModalGameOver from "../components/ModalGameOver.tsx";
+import useGame from "../hooks/useGame.ts";
 
-import {useRef, useState} from "react";
+import {useRef} from "react";
 import {useNavigate} from "react-router";
 
 function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
-    const [game, setGame] = useState(() =>
-        newGame(gameSettings, () => {
-            setTimeout(() => {
-                setGame(g => g.onTimeout())
-            }, 500)
-        })
-    )
-    const stats = usePlayerStats(gameSettings.players)
+    const {game, setGame, playerStats} = useGame(gameSettings)
     const gameOverModalRef = useRef<HTMLDialogElement>(null)
     const navigate = useNavigate()
 
     const handleUserMove = (updatedGame: Game) => {
+        setGame(updatedGame)
         if (updatedGame.isFinished()) {
             console.log("Game finished")
-            setGame(updatedGame)
-            stats.recordGameFinished()
             showModal()
-            return
         }
-        setGame(updatedGame)
-        stats.recordPlayerMove(updatedGame.whoseTurn())
     }
 
     const showModal = () => {
@@ -40,7 +29,6 @@ function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
 
     const restartGame = () => {
         setGame(game.restart())
-        stats.reset()
         gameOverModalRef.current?.close()
     }
 
@@ -57,13 +45,12 @@ function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
                 <GameGrid game={game} onGameUpdated={handleUserMove}/>
             </main>
             <footer>
-                <MenuStats playerStats={stats.all}/>
+                <MenuStats playerStats={playerStats}/>
             </footer>
-            <ModalGameOverSolo ref={gameOverModalRef}
-                               timeElapsedInSeconds={stats.all[0].timeInSeconds}
-                               movesTaken={stats.all[0].moves}
-                               onClickOnRestart={restartGame}
-                               onClickOnSetupNewGame={goToPageNewGame}/>
+            <ModalGameOver ref={gameOverModalRef}
+                           playerStats={playerStats}
+                           onClickOnRestart={restartGame}
+                           onClickOnSetupNewGame={goToPageNewGame}/>
         </div>
     )
 }

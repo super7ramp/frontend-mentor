@@ -11,6 +11,8 @@ type PlayerStat = {
 
 /**
  * {@link PlayerStats} is a collection of {@link PlayerStat} objects, representing the statistics of all players.
+ *
+ * Class is immutable, all methods return a new instance with the updated statistics.
  */
 class PlayerStats {
     readonly all: PlayerStat[]
@@ -45,6 +47,19 @@ class PlayerStats {
             return {
                 ...this.all[id - 1],
                 moves: this.all[id - 1].moves + 1,
+            }
+        })
+        return new PlayerStats(updatedPlayerStats)
+    }
+
+    recordPlayerFoundAPair(id: number) {
+        const updatedPlayerStats = this.all.map(stat => {
+            if (stat.id !== id) {
+                return stat
+            }
+            return {
+                ...this.all[id - 1],
+                pairs: this.all[id - 1].pairs + 1,
             }
         })
         return new PlayerStats(updatedPlayerStats)

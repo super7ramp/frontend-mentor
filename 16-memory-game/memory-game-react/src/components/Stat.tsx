@@ -1,9 +1,14 @@
 import style from "./Stat.module.scss";
 import type {ReactNode} from "react";
 
-function StatCount({label, count, direction = "row"}: { label: string, count: number, direction?: "row" | "column" }) {
+function StatCount({label, count, unit, direction = "row"}: {
+    label: string,
+    count: number,
+    unit?: string,
+    direction?: "row" | "column"
+}) {
     return <StatGeneric keyElement={<p className={style.key}>{label}</p>}
-                        valueElement={<p className={style.value}>{count}</p>}
+                        valueElement={<p className={style.value}>{count}{unit && ` ${unit}`}</p>}
                         direction={direction}/>
 }
 

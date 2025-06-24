@@ -1,5 +1,7 @@
 /**
  * Settings for the memory game.
+ *
+ * Class is immutable, all methods return a new instance with the updated settings.
  */
 class GameSettings {
     readonly theme: "Icons" | "Numbers";

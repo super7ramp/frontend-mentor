@@ -9,13 +9,16 @@ function useClock(onTick: () => void) {
 
     const start = () => {
         if (!clockId) {
+            console.log("Starting clock")
             const id = setInterval(onTick, 1000)
+            console.log("started clock", id)
             setClockId(id)
         }
     }
 
     const stop = () => {
         if (clockId) {
+            console.log("Stopping clock", clockId)
             clearInterval(clockId)
             setClockId(null)
         }

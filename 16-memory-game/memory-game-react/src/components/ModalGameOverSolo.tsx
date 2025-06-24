@@ -18,7 +18,7 @@ function ModalGameOverSolo({ref, timeElapsedInSeconds, movesTaken, onClickOnRest
             </div>
             <div className={style.stats}>
                 <StatTime label="Time Elapsed" timeInSeconds={timeElapsedInSeconds}/>
-                <StatCount label="Moves taken" count={movesTaken}/>
+                <StatCount label="Moves taken" count={movesTaken} unit="Moves"/>
             </div>
             <div className={style.buttons}>
                 <ButtonPrimary onClick={onClickOnRestart} type="submit" children="Restart"/>

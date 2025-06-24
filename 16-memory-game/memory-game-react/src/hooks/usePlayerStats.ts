@@ -10,11 +10,17 @@ function usePlayerStats(playerCount: number) {
     })
 
     const recordPlayerMove = (id: number) => {
-        if (playerStats.get(id).moves === 0) {
-            clock.start()
-        }
-        const updatedPlayerStats = playerStats.recordPlayerMove(id)
-        setPlayerStats(updatedPlayerStats)
+        setPlayerStats(stats => {
+            if (stats.get(id).moves === 0) {
+                console.log("Starting clock for player", stats.all)
+                clock.start()
+            }
+            return stats.recordPlayerMove(id)
+        })
+    }
+
+    const recordPlayerFoundAPair = (id: number) => {
+        setPlayerStats(stats => stats.recordPlayerFoundAPair(id))
     }
 
     const recordGameFinished = () => {
@@ -23,11 +29,16 @@ function usePlayerStats(playerCount: number) {
 
     const reset = () => {
         clock.stop()
-        const updatedPlayerStats = playerStats.reset()
-        setPlayerStats(updatedPlayerStats)
+        setPlayerStats(stats => stats.reset())
     }
 
-    return {all: playerStats.all, recordPlayerMove, recordGameFinished, reset}
+    return {
+        all: playerStats.all,
+        recordPlayerMove,
+        recordPlayerFoundAPair,
+        recordGameFinished,
+        reset
+    }
 }
 
 export default usePlayerStats

@@ -1,3 +1,6 @@
+/**
+ * Manages the current turn in a multiplayer game.
+ */
 class Turn {
     readonly #playerCount: 1 | 2 | 3 | 4
     readonly #currentPlayer: number
