@@ -41,10 +41,11 @@ function ModalGameOverMultiplayer({ref, playerStats, onClickOnSetupNewGame}: {
 
 function PlayerRank({player, isWinner}: { player: PlayerStat, isWinner: boolean }) {
     return (
-        <li className={isWinner ? style.winner : ""}>
-            <StatCount label={`Player ${player.id}`}
+        <li>
+            <StatCount label={`Player ${player.id}${isWinner ? " (Winner!)" : ""}`}
                        count={player.pairs}
-                       unit="Pairs"/>
+                       unit="Pairs"
+                       variant={isWinner ? "best" : undefined}/>
         </li>
     )
 }

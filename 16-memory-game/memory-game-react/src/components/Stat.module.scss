@@ -14,13 +14,31 @@
         flex-direction: column;
     }
 
+    &--best {
+        background-color: ds.$blue-950;
+    }
+
+    &--current {
+        background-color: ds.$orange-400;
+    }
+
     &__key {
         color: ds.$blue-400;
         @include ds.text-preset-12;
+
+        &--best,
+        &--current {
+            color: ds.$grey-50;
+        }
     }
 
     &__value {
         color: ds.$blue-800;
         @include ds.text-preset-8;
+
+        &--best,
+        &--current {
+            color: ds.$grey-50
+        }
     }
 }

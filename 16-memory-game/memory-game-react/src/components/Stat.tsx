@@ -1,26 +1,46 @@
 import style from "./Stat.module.scss";
 import type {ReactNode} from "react";
 
-function StatCount({label, count, unit, direction = "row"}: {
+function StatCount({label, count, unit, direction = "row", variant}: {
     label: string,
     count: number,
     unit?: string,
-    direction?: "row" | "column"
+    direction?: "row" | "column",
+    variant?: "current" | "best" | undefined
 }) {
-    return <StatGeneric keyElement={<p className={style.stat__key}>{label}</p>}
-                        valueElement={<p className={style.stat__value}>{count}{unit && ` ${unit}`}</p>}
-                        direction={direction}/>
+    return (
+        <StatGeneric
+            keyElement={
+                <p className={styleOf("stat__key", variant)}>{label}</p>
+            }
+            valueElement={
+                <p className={styleOf("stat__value", variant)}>{count}{unit && ` ${unit}`}</p>
+            }
+            direction={direction}
+            variant={variant}
+        />
+    )
 }
 
-function StatTime({label, timeInSeconds, direction = "row"}: {
+function StatTime({label, timeInSeconds, direction = "row", variant}: {
     label: string,
     timeInSeconds: number,
-    direction?: "row" | "column"
+    direction?: "row" | "column",
+    variant?: "current" | "best" | undefined
 }) {
     const formattedTime = formatTime(timeInSeconds)
-    return <StatGeneric keyElement={<p className={style.stat__key}>{label}</p>}
-                        valueElement={<time className={style.stat__value}>{formattedTime}</time>}
-                        direction={direction}/>
+    return (
+        <StatGeneric
+            keyElement={
+                <p className={styleOf("stat__key", variant)}>{label}</p>
+            }
+            valueElement={
+                <time className={styleOf("stat__value", variant)}>{formattedTime}</time>
+            }
+            direction={direction}
+            variant={variant}
+        />
+    )
 }
 
 function formatTime(timeInSeconds: number): string {
@@ -29,17 +49,26 @@ function formatTime(timeInSeconds: number): string {
     return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
-function StatGeneric({keyElement, valueElement, direction = "row"}: {
+function StatGeneric({keyElement, valueElement, direction = "row", variant}: {
     keyElement: ReactNode,
     valueElement: ReactNode,
-    direction?: "row" | "column"
+    direction?: "row" | "column",
+    variant?: "current" | "best" | undefined
 }) {
     return (
-        <div className={`${style.stat} ${direction === "column" && style["stat--column"]}`}>
+        <div className={styleOf("stat", variant) + (direction === "column" ? ` ${style["stat--column"]}` : "")}>
             {keyElement}
             {valueElement}
         </div>
     )
+}
+
+function styleOf(baseClass: string, highlight: "current" | "best" | undefined): string {
+    let styles = style[`${baseClass}`]
+    if (highlight) {
+        styles += ` ${style[`${baseClass}--${highlight}`]}`
+    }
+    return styles
 }
 
 export {StatCount, StatTime}
