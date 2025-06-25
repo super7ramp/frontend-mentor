@@ -12,7 +12,6 @@ function usePlayerStats(playerCount: number) {
     const recordPlayerMove = (id: number) => {
         setPlayerStats(stats => {
             if (stats.get(id).moves === 0) {
-                console.log("Starting clock for player", stats.all)
                 clock.start()
             }
             return stats.recordPlayerMove(id)

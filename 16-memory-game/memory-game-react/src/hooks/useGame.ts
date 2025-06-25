@@ -23,6 +23,11 @@ function useGame(gameSettings: GameSettings) {
             stats.recordPlayerFoundAPair(id)
         },
 
+        recordGameFinished: () => {
+            console.log("Recording game finished")
+            stats.recordGameFinished()
+        },
+
         resetStats: () => {
             stats.reset()
         }

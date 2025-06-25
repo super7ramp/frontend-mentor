@@ -45,10 +45,11 @@ class PlayerStats {
                 return stat
             }
             return {
-                ...this.all[id - 1],
-                moves: this.all[id - 1].moves + 1,
+                ...stat,
+                moves: stat.moves + 1,
             }
         })
+        console.log("Updated player stats after move:", updatedPlayerStats)
         return new PlayerStats(updatedPlayerStats)
     }
 
@@ -58,10 +59,11 @@ class PlayerStats {
                 return stat
             }
             return {
-                ...this.all[id - 1],
-                pairs: this.all[id - 1].pairs + 1,
+                ...stat,
+                pairs: stat.pairs + 1,
             }
         })
+        console.log("Updated player stats after found a pair:", updatedPlayerStats)
         return new PlayerStats(updatedPlayerStats)
     }
 
@@ -75,6 +77,7 @@ class PlayerStats {
                 timeInSeconds: stat.timeInSeconds + 1,
             }
         })
+        console.log("Updated player stats on clock tick:", updatedStats)
         return new PlayerStats(updatedStats)
     }
 
@@ -87,6 +90,7 @@ class PlayerStats {
                 timeInSeconds: 0,
             }
         })
+        console.log("Reset player stats:", updatedStats)
         return new PlayerStats(updatedStats)
     }
 }

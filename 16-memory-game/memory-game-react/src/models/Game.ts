@@ -204,6 +204,7 @@ class GameFinished extends Game {
                 turn: Turn,
                 actions: GameActions) {
         super(settings, cells, turn, actions)
+        this.actions.recordGameFinished()
     }
 
     onUserClick(_cell: Cell): Game {

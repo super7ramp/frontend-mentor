@@ -9,7 +9,7 @@ function ModalGameOverMultiplayer({ref, playerStats, onClickOnSetupNewGame}: {
     onClickOnSetupNewGame: () => void
 }) {
 
-    const ranking = playerStats.sort(byPairs)
+    const ranking = playerStats.toSorted(byPairs)
     const isWinner = (player: PlayerStat) => player.pairs === ranking[0].pairs;
     const winners = ranking.filter(isWinner)
 
@@ -23,7 +23,11 @@ function ModalGameOverMultiplayer({ref, playerStats, onClickOnSetupNewGame}: {
 
             <ul className={style.stats}>
                 {
-                    ranking.map(player => <PlayerRank player={player} isWinner={isWinner(player)}/>)
+                    ranking.map(player =>
+                        <PlayerRank key={player.id}
+                                    player={player}
+                                    isWinner={isWinner(player)}/>
+                    )
                 }
             </ul>
 
@@ -35,9 +39,9 @@ function ModalGameOverMultiplayer({ref, playerStats, onClickOnSetupNewGame}: {
     )
 }
 
-function PlayerRank({player, isWinner}: {player: PlayerStat, isWinner: boolean}) {
+function PlayerRank({player, isWinner}: { player: PlayerStat, isWinner: boolean }) {
     return (
-        <li className={isWinner ? style.winner : ""} key={player.id}>
+        <li className={isWinner ? style.winner : ""}>
             <StatCount label={`Player ${player.id}`}
                        count={player.pairs}
                        unit="Pairs"/>
