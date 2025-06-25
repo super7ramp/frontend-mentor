@@ -45,7 +45,7 @@ function PlayerRank({player, isWinner}: { player: PlayerStat, isWinner: boolean 
             <StatCount label={`Player ${player.id}${isWinner ? " (Winner!)" : ""}`}
                        count={player.pairs}
                        unit="Pairs"
-                       variant={isWinner ? "best" : undefined}/>
+                       variant={isWinner ? "best" : "default"}/>
         </li>
     )
 }

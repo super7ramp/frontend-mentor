@@ -179,6 +179,7 @@ class GameUserPickedSecond extends Game {
             this.cells[this.firstCell.y][this.firstCell.x] = this.firstCell.hide()
             this.cells[this.secondCell.y][this.secondCell.x] = this.secondCell.hide()
             const nextTurn = this.turn.played()
+            this.actions.recordTurnFinished(this.turn.whose(), nextTurn.whose())
             return new GameReady(this.settings, this.cells, nextTurn, this.actions)
         }
 

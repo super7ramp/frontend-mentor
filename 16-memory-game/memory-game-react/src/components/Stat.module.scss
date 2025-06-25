@@ -1,13 +1,15 @@
 @use "../styles/design-system" as ds;
 
 .stat {
+    --padding: #{ds.$spacing-200};
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
     border-radius: 5px;
-    padding: ds.$spacing-200;
+    padding: var(--padding);
     background-color: ds.$blue-100;
 
     &--column {
@@ -20,6 +22,29 @@
 
     &--current {
         background-color: ds.$orange-400;
+
+        .arrowContainer {
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+            &::before {
+                --arrow-height: 0.5rem;
+
+                /* The arrow is positioned at the top of the modal, in the middle */
+                content: "";
+                position: absolute;
+                width: calc(2 * var(--arrow-height));
+                height: var(--arrow-height);
+                top: calc((var(--arrow-height) + var(--padding)) * -1);
+
+                /* This is here the magic happens: Bottom border gets "merged" with left and right transparent borders,
+                 * creating the triangle. */
+                border-bottom: var(--arrow-height) solid ds.$orange-400;
+                border-left: var(--arrow-height) solid transparent;
+                border-right: var(--arrow-height) solid transparent;
+            }
+        }
     }
 
     &__key {

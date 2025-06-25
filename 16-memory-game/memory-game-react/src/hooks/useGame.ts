@@ -23,6 +23,11 @@ function useGame(gameSettings: GameSettings) {
             stats.recordPlayerFoundAPair(id)
         },
 
+        recordTurnFinished: (playerId: number, nextPlayerId: number) => {
+            console.log("Recording turn finished for player", playerId, "next player", nextPlayerId)
+            stats.recordTurnFinished(playerId, nextPlayerId)
+        },
+
         recordGameFinished: () => {
             console.log("Recording game finished")
             stats.recordGameFinished()

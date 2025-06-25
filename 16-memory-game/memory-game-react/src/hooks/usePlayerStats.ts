@@ -22,6 +22,10 @@ function usePlayerStats(playerCount: number) {
         setPlayerStats(stats => stats.recordPlayerFoundAPair(id))
     }
 
+    const recordTurnFinished = (playerId: number, nextPlayerId: number) => {
+        setPlayerStats(stats => stats.recordTurnFinished(playerId, nextPlayerId))
+    }
+
     const recordGameFinished = () => {
         clock.stop()
     }
@@ -35,6 +39,7 @@ function usePlayerStats(playerCount: number) {
         all: playerStats.all,
         recordPlayerMove,
         recordPlayerFoundAPair,
+        recordTurnFinished,
         recordGameFinished,
         reset
     }

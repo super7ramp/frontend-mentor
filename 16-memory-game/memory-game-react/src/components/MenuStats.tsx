@@ -16,7 +16,7 @@ function MenuStats({playerStats}: { playerStats: PlayerStat[] }) {
             {
                 solo
                     ? <MenuStatsSolo timeInSeconds={playerStats[0].timeInSeconds} moves={playerStats[0].moves}/>
-                    : <MenuStatsMultiplayer players={playerStats.map(stat => ({id: stat.id, pairs: stat.pairs}))}/>
+                    : <MenuStatsMultiplayer playerStats={playerStats}/>
             }
         </>
     )

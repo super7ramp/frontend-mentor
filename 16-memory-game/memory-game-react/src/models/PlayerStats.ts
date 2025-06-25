@@ -67,6 +67,26 @@ class PlayerStats {
         return new PlayerStats(updatedPlayerStats)
     }
 
+    recordTurnFinished(playerId: number, nextPlayerId: number) {
+        const updatedStats = this.all.map(stat => {
+            if (stat.id === playerId) {
+                return {
+                    ...stat,
+                    isCurrent: false,
+                }
+            }
+            if (stat.id === nextPlayerId) {
+                return {
+                    ...stat,
+                    isCurrent: true,
+                }
+            }
+            return stat
+        })
+        console.log("Updated player stats after turn finished:", updatedStats)
+        return new PlayerStats(updatedStats)
+    }
+
     onClockTick() {
         const updatedStats = this.all.map(stat => {
             if (!stat.isCurrent) {

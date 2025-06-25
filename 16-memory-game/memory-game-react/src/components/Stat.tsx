@@ -1,12 +1,12 @@
 import style from "./Stat.module.scss";
 import type {ReactNode} from "react";
 
-function StatCount({label, count, unit, direction = "row", variant}: {
+function StatCount({label, count, unit, direction = "row", variant = "default"}: {
     label: string,
     count: number,
     unit?: string,
     direction?: "row" | "column",
-    variant?: "current" | "best" | undefined
+    variant?: "current" | "best" | "default"
 }) {
     return (
         <StatGeneric
@@ -22,11 +22,11 @@ function StatCount({label, count, unit, direction = "row", variant}: {
     )
 }
 
-function StatTime({label, timeInSeconds, direction = "row", variant}: {
+function StatTime({label, timeInSeconds, direction = "row", variant = "default"}: {
     label: string,
     timeInSeconds: number,
     direction?: "row" | "column",
-    variant?: "current" | "best" | undefined
+    variant?: "current" | "best" | "default"
 }) {
     const formattedTime = formatTime(timeInSeconds)
     return (
@@ -49,23 +49,24 @@ function formatTime(timeInSeconds: number): string {
     return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
-function StatGeneric({keyElement, valueElement, direction = "row", variant}: {
+function StatGeneric({keyElement, valueElement, direction = "row", variant = "default"}: {
     keyElement: ReactNode,
     valueElement: ReactNode,
     direction?: "row" | "column",
-    variant?: "current" | "best" | undefined
+    variant?: "current" | "best" | "default"
 }) {
     return (
         <div className={styleOf("stat", variant) + (direction === "column" ? ` ${style["stat--column"]}` : "")}>
+            <div className={style.arrowContainer}/>
             {keyElement}
             {valueElement}
         </div>
     )
 }
 
-function styleOf(baseClass: string, highlight: "current" | "best" | undefined): string {
+function styleOf(baseClass: string, highlight: "current" | "best" | "default"): string {
     let styles = style[`${baseClass}`]
-    if (highlight) {
+    if (highlight != "default") {
         styles += ` ${style[`${baseClass}--${highlight}`]}`
     }
     return styles
