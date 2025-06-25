@@ -7,8 +7,8 @@ function StatCount({label, count, unit, direction = "row"}: {
     unit?: string,
     direction?: "row" | "column"
 }) {
-    return <StatGeneric keyElement={<p className={style.key}>{label}</p>}
-                        valueElement={<p className={style.value}>{count}{unit && ` ${unit}`}</p>}
+    return <StatGeneric keyElement={<p className={style.stat__key}>{label}</p>}
+                        valueElement={<p className={style.stat__value}>{count}{unit && ` ${unit}`}</p>}
                         direction={direction}/>
 }
 
@@ -18,8 +18,8 @@ function StatTime({label, timeInSeconds, direction = "row"}: {
     direction?: "row" | "column"
 }) {
     const formattedTime = formatTime(timeInSeconds)
-    return <StatGeneric keyElement={<p className={style.key}>{label}</p>}
-                        valueElement={<time className={style.value}>{formattedTime}</time>}
+    return <StatGeneric keyElement={<p className={style.stat__key}>{label}</p>}
+                        valueElement={<time className={style.stat__value}>{formattedTime}</time>}
                         direction={direction}/>
 }
 
@@ -35,7 +35,7 @@ function StatGeneric({keyElement, valueElement, direction = "row"}: {
     direction?: "row" | "column"
 }) {
     return (
-        <div className={`${style.stat} ${direction === "column" && style.stat__column}`}>
+        <div className={`${style.stat} ${direction === "column" && style["stat--column"]}`}>
             {keyElement}
             {valueElement}
         </div>
