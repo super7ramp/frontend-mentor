@@ -35,14 +35,20 @@ function MenuBar({onClickOnRestart}: { onClickOnRestart: () => void }) {
     return (
         <div className={style.menuBar}>
             <h1>memory</h1>
-            <div className={style.buttons}>
-                <button onClick={showModal}>Menu</button>
+            <div className={style["container--mobile"]}>
+                <ButtonPrimary onClick={showModal} type="button">Menu</ButtonPrimary>
+                <dialog ref={modalRef}>
+                    <ButtonPrimary onClick={restart} type="reset">Restart</ButtonPrimary>
+                    <ButtonSecondary onClick={goToPageNewGame} type="button">New Game</ButtonSecondary>
+                    <ButtonSecondary onClick={resumeGame} type="button">Resume Game</ButtonSecondary>
+                </dialog>
             </div>
-            <dialog ref={modalRef}>
-                <ButtonPrimary onClick={restart} type="reset">Restart</ButtonPrimary>
-                <ButtonSecondary onClick={goToPageNewGame} type="button">New Game</ButtonSecondary>
-                <ButtonSecondary onClick={resumeGame} type="button">Resume Game</ButtonSecondary>
-            </dialog>
+            <div className={style["container--tablet"]}>
+                <div className={style.buttons}>
+                    <ButtonPrimary onClick={restart} type="reset">Restart</ButtonPrimary>
+                    <ButtonSecondary onClick={goToPageNewGame} type="button">New Game</ButtonSecondary>
+                </div>
+            </div>
         </div>
     )
 }

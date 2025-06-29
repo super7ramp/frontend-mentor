@@ -10,30 +10,37 @@
         @include ds.text-preset-7;
     }
 
-    dialog[open] {
-        display: flex;
-        gap: ds.$spacing-200;
+    .container--mobile {
+        display: block;
 
-        &::backdrop {
-            background-color: hsl(0, 0%, 0%, 0.5);
+        dialog[open] {
+            display: flex;
+            gap: ds.$spacing-200;
+
+            &::backdrop {
+                background-color: hsl(0, 0%, 0%, 0.5);
+            }
+
+            button {
+                width: 100%;
+            }
         }
 
-        button {
-            width: 100%;
+        @media (min-width: ds.$tablet-bp) {
+            display: none;
         }
     }
-}
 
-.buttons {
-    button {
-        background-color: ds.$orange-400;
-        color: ds.$grey-50;
-        padding: ds.$spacing-100 ds.$spacing-300;
-        @include ds.text-preset-10;
-        @include ds.button--rounded;
+    .container--tablet {
+        display: none;
 
-        &:hover {
-            background-color: ds.$orange-300;
+        .buttons {
+            display: flex;
+            gap: ds.$spacing-200;
+        }
+
+        @media (min-width: ds.$tablet-bp) {
+            display: block;
         }
     }
 }
