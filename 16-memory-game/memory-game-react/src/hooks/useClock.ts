@@ -1,4 +1,4 @@
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 
 /**
  * Custom hook to manage a clock that ticks every second.
@@ -23,6 +23,9 @@ function useClock(onTick: () => void) {
             ref.current = 0
         }
     }
+
+    // Ensure the clock is stopped when the component unmounts
+    useEffect(() => stop, []);
 
     return {
         start,
