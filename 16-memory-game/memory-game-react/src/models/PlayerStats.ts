@@ -69,16 +69,16 @@ class PlayerStats {
 
     recordTurnFinished(playerId: number, nextPlayerId: number) {
         const updatedStats = this.all.map(stat => {
-            if (stat.id === playerId) {
-                return {
-                    ...stat,
-                    isCurrent: false,
-                }
-            }
             if (stat.id === nextPlayerId) {
                 return {
                     ...stat,
                     isCurrent: true,
+                }
+            }
+            if (stat.id === playerId) {
+                return {
+                    ...stat,
+                    isCurrent: false,
                 }
             }
             return stat
