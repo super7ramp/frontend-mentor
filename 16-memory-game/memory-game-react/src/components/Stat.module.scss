@@ -11,6 +11,11 @@
     border-radius: 5px;
     padding: var(--padding);
     background-color: ds.$blue-100;
+    column-gap: 3rem;
+
+    .arrowContainer {
+        display: none;
+    }
 
     &--column {
         flex-direction: column;
