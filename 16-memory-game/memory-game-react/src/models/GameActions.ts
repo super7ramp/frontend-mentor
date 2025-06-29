@@ -1,3 +1,6 @@
+/**
+ * Actions that can be performed by the game state machine.
+ */
 export interface GameActions {
     scheduleTimeout: () => void;
     recordPlayerMove: (id: number) => void;

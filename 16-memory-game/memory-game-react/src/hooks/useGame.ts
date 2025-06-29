@@ -1,16 +1,31 @@
 import GameSettings from "../models/GameSettings.ts";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Game, {newGame} from "../models/Game.ts";
-import usePlayerStats from "./usePlayerStats.ts";
+import usePlayerStats, {type PlayerStatsHelper} from "./usePlayerStats.ts";
 
 function useGame(gameSettings: GameSettings) {
     const stats = usePlayerStats(gameSettings.players)
-    const [game, setGame] = useState<Game>(() => newGame(gameSettings, {
+    const [timeoutScheduled, setTimeoutScheduled] = useState(false)
+    const [game, setGame] = useState<Game>(() => newGame(gameSettings, newGameActions(setTimeoutScheduled, stats)))
 
+    useEffect(() => {
+        if (!timeoutScheduled) {
+            return
+        }
+        const timerId = setTimeout(() => setGame(game.onTimeout()), 500)
+        return () => {
+            clearTimeout(timerId)
+            setTimeoutScheduled(false)
+        }
+    }, [timeoutScheduled, game]);
+
+    return {game, setGame, playerStats: stats.all}
+}
+
+function newGameActions(setTimeoutScheduled: (value: (((prevState: boolean) => boolean) | boolean)) => void, stats: PlayerStatsHelper) {
+    return {
         scheduleTimeout: () => {
-            setTimeout(() => {
-                setGame(g => g.onTimeout())
-            }, 500)
+            setTimeoutScheduled(true)
         },
 
         recordPlayerMove: (id: number) => {
@@ -36,9 +51,8 @@ function useGame(gameSettings: GameSettings) {
         resetStats: () => {
             stats.reset()
         }
-
-    }))
-    return {game, setGame, playerStats: stats.all}
+    }
 }
+
 
 export default useGame

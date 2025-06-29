@@ -46,3 +46,4 @@ function usePlayerStats(playerCount: number) {
 }
 
 export default usePlayerStats
+export type PlayerStatsHelper = ReturnType<typeof usePlayerStats>

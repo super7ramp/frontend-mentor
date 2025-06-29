@@ -97,7 +97,6 @@ class PlayerStats {
                 timeInSeconds: stat.timeInSeconds + 1,
             }
         })
-        console.log("Updated player stats on clock tick:", updatedStats)
         return new PlayerStats(updatedStats)
     }
 
