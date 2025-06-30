@@ -13,12 +13,20 @@
     background-color: ds.$blue-100;
     column-gap: 3rem;
 
+    @media (min-width: ds.$tablet-bp) {
+        border-radius: 10px;
+    }
+
     .arrowContainer {
         display: none;
     }
 
     &--column {
         flex-direction: column;
+
+        @media (min-width: ds.$tablet-bp) {
+            align-items: flex-start;
+        }
     }
 
     &--best {
@@ -32,6 +40,7 @@
             position: relative;
             display: flex;
             justify-content: center;
+            align-self: center;
 
             &::before {
                 --arrow-height: 0.5rem;

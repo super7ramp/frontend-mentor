@@ -14,12 +14,20 @@ function MenuStatsMultiplayer({playerStats}: { playerStats: PlayerStat[] }) {
 
 function PlayerCard({id, pairs, isCurrent}: { id: number, pairs: number, isCurrent: boolean }) {
     return (
-        <div className={style.playerCard}>
-            <StatCount label={`P${id}`}
-                       count={pairs}
-                       direction="column"
-                       variant={isCurrent ? "current" : undefined}/>
-        </div>
+        <>
+            <div className={style.playerCard}>
+                <StatCount label={`P${id}`}
+                           count={pairs}
+                           direction="column"
+                           variant={isCurrent ? "current" : undefined}/>
+            </div>
+            <div className={style["playerCard--tablet"]}>
+                <StatCount label={`Player ${id}`}
+                           count={pairs}
+                           direction="column"
+                           variant={isCurrent ? "current" : undefined}/>
+            </div>
+        </>
     )
 }
 

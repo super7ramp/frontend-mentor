@@ -6,7 +6,26 @@
     width: 100%;
     justify-content: space-between;
 
+    @media (min-width: ds.$tablet-bp) {
+        gap: ds.$spacing-100;
+    }
+
+    @media (min-width: ds.$desktop-bp) {
+        gap: ds.$spacing-400;
+    }
+
     .playerCard {
         flex-grow: 1;
+        @media (min-width: ds.$tablet-bp) {
+            display: none;
+        }
+    }
+
+    .playerCard--tablet {
+        flex-grow: 1;
+        display: none;
+        @media (min-width: ds.$tablet-bp) {
+            display: block;
+        }
     }
 }
