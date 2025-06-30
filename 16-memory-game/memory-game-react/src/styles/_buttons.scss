@@ -4,6 +4,7 @@
 
 @mixin button--rounded {
     border: none;
-    border-radius: 1.5rem / 50%;
+    /* Capsule-shaped button by applying a very large border-radius (https://stackoverflow.com/a/18795153) */
+    border-radius: 42rem;
     padding: $spacing-100 $spacing-400;
 }
