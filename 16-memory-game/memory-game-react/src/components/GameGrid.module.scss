@@ -6,6 +6,10 @@
     width: 100%;
     height: 100%;
 
+    @media (min-width: ds.$tablet-bp) {
+        gap: ds.$spacing-200;
+    }
+
     &[data-grid-size="4x4"] {
         grid-template: repeat(4, 10ch) / repeat(4, 10ch);
     }

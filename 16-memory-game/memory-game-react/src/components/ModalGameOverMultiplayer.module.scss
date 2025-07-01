@@ -39,7 +39,8 @@ dialog[open] {
 
     .buttons {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: ds.$spacing-200;
         width: 100%;
     }
