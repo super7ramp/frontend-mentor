@@ -65,6 +65,14 @@
         color: ds.$blue-400;
         @include ds.text-preset-12;
 
+        &--big {
+            @include ds.text-preset-11;
+
+            @media (min-width: ds.$tablet-bp) {
+                @include ds.text-preset-9;
+            }
+        }
+
         &--best,
         &--current {
             color: ds.$grey-50;
@@ -74,6 +82,14 @@
     &__value {
         color: ds.$blue-800;
         @include ds.text-preset-8;
+
+        &--big {
+            @include ds.text-preset-7;
+
+            @media (min-width: ds.$tablet-bp) {
+                @include ds.text-preset-5;
+            }
+        }
 
         &--best,
         &--current {

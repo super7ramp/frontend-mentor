@@ -4,8 +4,8 @@ import {StatCount, StatTime} from "./Stat.tsx";
 function MenuStatsSolo({timeInSeconds, moves}: { timeInSeconds: number, moves: number }) {
     return (
         <div className={style.menuSolo}>
-            <StatTime label="Time" timeInSeconds={timeInSeconds}/>
-            <StatCount label="Moves" count={moves}/>
+            <StatTime label="Time" timeInSeconds={timeInSeconds} big/>
+            <StatCount label="Moves" count={moves} big/>
         </div>
     )
 }
