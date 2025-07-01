@@ -1,20 +1,15 @@
 @use "../styles/design-system" as ds;
 
-body {
-    background-color: ds.$blue-950;
-    padding: ds.$spacing-300;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .pageNewGame {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: ds.$spacing-600;
     height: 100%;
+
+    @media (min-width: ds.$tablet-bp) {
+        gap: ds.$spacing-1000;
+    }
 
     h1 {
         color: white;
@@ -23,11 +18,15 @@ body {
 
     form {
         background-color: ds.$grey-50;
-        border-radius: 20px;
+        border-radius: 10px;
         padding: ds.$spacing-300;
         display: flex;
         flex-direction: column;
         gap: ds.$spacing-300;
+
+        @media (min-width: ds.$tablet-bp) {
+            border-radius: 20px;
+        }
 
         fieldset {
             border: none;

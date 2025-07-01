@@ -1,4 +1,3 @@
-import './App.css'
 import GameSettings from "./models/GameSettings.ts";
 import PageGameRunning from "./pages/PageGameRunning.tsx";
 import PageNewGame from "./pages/PageNewGame.tsx";

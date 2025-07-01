@@ -11,3 +11,16 @@
     padding: 0;
     margin: 0;
 }
+
+body {
+    display: flex;
+    background-color: ds.$blue-950;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#root {
+    min-width: fit-content;
+    width: 100%;
+}
