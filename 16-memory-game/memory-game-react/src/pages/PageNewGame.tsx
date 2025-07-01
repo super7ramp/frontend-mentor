@@ -31,7 +31,7 @@ function PageNewGame({gameSettings, setGameSettings}: {
                     <SelectTheme gameSettings={gameSettings} setGameSettings={setGameSettings}/>
                     <SelectPlayers gameSettings={gameSettings} setGameSettings={setGameSettings}/>
                     <SelectGrid gameSettings={gameSettings} setGameSettings={setGameSettings}/>
-                    <ButtonPrimary type="submit">Start game</ButtonPrimary>
+                    <ButtonPrimary type="submit">Start Game</ButtonPrimary>
                 </form>
             </main>
         </div>

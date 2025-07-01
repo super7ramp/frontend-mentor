@@ -14,6 +14,10 @@
     h1 {
         color: white;
         @include ds.text-preset-5;
+
+        @media (min-width: ds.$tablet-bp) {
+            @include ds.text-preset-4;
+        }
     }
 
     form {
@@ -26,6 +30,8 @@
 
         @media (min-width: ds.$tablet-bp) {
             border-radius: 20px;
+            gap: ds.$spacing-400;
+            padding: ds.$spacing-600;
         }
 
         fieldset {
@@ -34,6 +40,10 @@
             legend {
                 color: ds.$blue-400;
                 @include ds.text-preset-11;
+
+                @media (min-width: ds.$tablet-bp) {
+                    @include ds.text-preset-8;
+                }
             }
 
             .inputs {
@@ -41,6 +51,11 @@
                 display: flex;
                 justify-content: space-between;
                 gap: ds.$spacing-100;
+
+                @media (min-width: ds.$tablet-bp) {
+                    margin-block-start: ds.$spacing-200;
+                    gap: ds.$spacing-300;
+                }
             }
         }
     }

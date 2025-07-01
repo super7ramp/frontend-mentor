@@ -6,6 +6,10 @@
     @include ds.button--rounded;
     @include ds.text-preset-9;
 
+    @media (min-width: ds.$tablet-bp) {
+        @include ds.text-preset-5;
+    }
+
     &:hover {
         background-color: ds.$orange-300;
     }
