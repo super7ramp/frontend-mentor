@@ -3,11 +3,16 @@
 .menuBar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: ds.$grey-50;
 
     h1 {
         color: ds.$blue-950;
         @include ds.text-preset-7;
+
+        @media (min-width: ds.$tablet-bp) {
+            @include ds.text-preset-4;
+        }
     }
 
     .container--mobile {

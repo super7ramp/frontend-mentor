@@ -4,10 +4,17 @@
     background-color: ds.$orange-400;
     color: ds.$grey-50;
     @include ds.button--rounded;
-    @include ds.text-preset-9;
+    @include ds.text-preset-10;
 
     @media (min-width: ds.$tablet-bp) {
-        @include ds.text-preset-5;
+        @include ds.text-preset-8;
+    }
+
+    &--big {
+        @include ds.text-preset-9;
+        @media (min-width: ds.$tablet-bp) {
+            @include ds.text-preset-5;
+        }
     }
 
     &:hover {
