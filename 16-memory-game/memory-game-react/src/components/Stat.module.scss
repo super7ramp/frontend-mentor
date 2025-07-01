@@ -65,11 +65,13 @@
         color: ds.$blue-400;
         @include ds.text-preset-12;
 
-        &--big {
-            @include ds.text-preset-11;
+        @media (min-width: ds.$tablet-bp) {
+            @include ds.text-preset-9;
+        }
 
-            @media (min-width: ds.$tablet-bp) {
-                @include ds.text-preset-9;
+        &--big {
+            @media (width < ds.$tablet-bp) {
+                @include ds.text-preset-11;
             }
         }
 
@@ -83,11 +85,13 @@
         color: ds.$blue-800;
         @include ds.text-preset-8;
 
-        &--big {
-            @include ds.text-preset-7;
+        @media (min-width: ds.$tablet-bp) {
+            @include ds.text-preset-5;
+        }
 
-            @media (min-width: ds.$tablet-bp) {
-                @include ds.text-preset-5;
+        &--big {
+            @media (width < ds.$tablet-bp) {
+                @include ds.text-preset-7;
             }
         }
 
