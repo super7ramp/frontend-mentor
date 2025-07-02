@@ -24,7 +24,23 @@
     .playerCard--tablet {
         flex-grow: 1;
         display: none;
-        @media (min-width: ds.$tablet-bp) {
+        @media (ds.$tablet-bp <= width < ds.$desktop-bp) {
+            display: block;
+        }
+    }
+
+    .playerCard--desktop {
+        flex-grow: 1;
+        display: none;
+
+        .currentTurnLabel {
+            text-transform: uppercase;
+            text-align: center;
+            padding-top: ds.$spacing-300;
+            @include ds.text-preset-13;
+        }
+
+        @media (min-width: ds.$desktop-bp) {
             display: block;
         }
     }

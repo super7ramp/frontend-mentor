@@ -4,14 +4,10 @@
     --padding: #{ds.$spacing-200};
 
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    flex-grow: 1;
+    flex-direction: column;
     border-radius: 5px;
     padding: var(--padding);
     background-color: ds.$blue-100;
-    column-gap: 3rem;
 
     @media (min-width: ds.$tablet-bp) {
         border-radius: 10px;
@@ -21,11 +17,22 @@
         display: none;
     }
 
-    &--column {
-        flex-direction: column;
+    .innerContainer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 3rem;
+    }
 
-        @media (min-width: ds.$tablet-bp) {
-            align-items: flex-start;
+    &--column {
+        .innerContainer {
+            flex-direction: column;
+
+            @media (min-width: ds.$tablet-bp) {
+                align-items: flex-start;
+            }
         }
     }
 

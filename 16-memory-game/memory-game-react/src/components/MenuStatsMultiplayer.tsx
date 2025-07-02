@@ -27,6 +27,13 @@ function PlayerCard({id, pairs, isCurrent}: { id: number, pairs: number, isCurre
                            direction="column"
                            variant={isCurrent ? "current" : undefined}/>
             </div>
+            <div className={style["playerCard--desktop"]}>
+                <StatCount label={`Player ${id}`}
+                           count={pairs}
+                           direction="row"
+                           variant={isCurrent ? "current" : undefined}/>
+                {isCurrent && <p className={style.currentTurnLabel}>Current turn</p>}
+            </div>
         </>
     )
 }

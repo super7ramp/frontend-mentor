@@ -60,8 +60,10 @@ function StatGeneric({keyElement, valueElement, direction = "row", variant = "de
     return (
         <div className={styleOf("stat", variant) + (direction === "column" ? ` ${style["stat--column"]}` : "")}>
             <div className={style.arrowContainer}/>
-            {keyElement}
-            {valueElement}
+            <div className={style.innerContainer}>
+                {keyElement}
+                {valueElement}
+            </div>
         </div>
     )
 }
