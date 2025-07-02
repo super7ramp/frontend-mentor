@@ -41,6 +41,7 @@ dialog[open] {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
         gap: ds.$spacing-200;
         width: 100%;
     }

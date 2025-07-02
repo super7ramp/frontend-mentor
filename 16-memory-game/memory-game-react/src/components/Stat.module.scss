@@ -8,6 +8,7 @@
     border-radius: 5px;
     padding: var(--padding);
     background-color: ds.$blue-100;
+    width: 100%;
 
     @media (min-width: ds.$tablet-bp) {
         border-radius: 10px;
@@ -20,7 +21,6 @@
     .innerContainer {
         display: flex;
         flex-wrap: wrap;
-        flex-grow: 1;
         align-items: center;
         justify-content: space-between;
         column-gap: 3rem;

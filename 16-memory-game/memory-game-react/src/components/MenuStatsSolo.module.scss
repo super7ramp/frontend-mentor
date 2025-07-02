@@ -3,7 +3,6 @@
 .menuSolo {
     display: flex;
     gap: ds.$spacing-300;
-    justify-content: space-between;
 
     @media (min-width: ds.$tablet-bp) {
         gap: ds.$spacing-400;
