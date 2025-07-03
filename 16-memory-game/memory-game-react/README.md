@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/tree/main/16-memory-game/memory-game-react)
+- Live Site URL: [Netlify](https://cute-cranachan-d4df80.netlify.app/)
 
 ## My process
 
@@ -164,7 +164,7 @@ Reason would come from the CSS specs:
 ### Useful resources
 
 - [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-- [Vitest documentation](https://vitest.dev/guide/) 
+- [Vitest documentation](https://vitest.dev/guide/)
 
 ## Author
 
