@@ -254,4 +254,5 @@ function newGame(settings: GameSettings, actions: GameActions): Game {
 
 
 export default Game
+export {GameReady, GameUserPickedFirst, GameUserPickedSecond, GameFinished}
 export {newGame}
