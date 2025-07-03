@@ -21,6 +21,7 @@
         dialog[open] {
             display: flex;
             gap: ds.$spacing-200;
+            min-width: fit-content;
 
             &::backdrop {
                 background-color: hsl(0, 0%, 0%, 0.5);

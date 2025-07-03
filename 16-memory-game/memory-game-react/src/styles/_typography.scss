@@ -63,3 +63,11 @@ $line-height: 125%;
 @mixin text-preset-13 {
     @include text-preset(fn.pxToRem(13), fn.pxToRem(5));
 }
+
+@mixin inherit-text-preset {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+}

@@ -3,19 +3,25 @@
 .gameGrid {
     display: grid;
     gap: ds.$spacing-100;
-    width: 100%;
-    height: 100%;
 
     @media (min-width: ds.$tablet-bp) {
         gap: ds.$spacing-200;
     }
 
     &[data-grid-size="4x4"] {
-        grid-template: repeat(4, 10ch) / repeat(4, 10ch);
+        grid-template: repeat(4, 1.5lh) / repeat(4, 1.5lh);
+        @include ds.text-preset-4;
+        @media (min-width: ds.$tablet-bp) {
+            @include ds.text-preset-1;
+        }
     }
 
     &[data-grid-size="6x6"] {
-        grid-template: repeat(6, 10ch) / repeat(6, 10ch);
+        grid-template: repeat(6, 1.5lh) / repeat(6, 1.5lh);
+        @include ds.text-preset-7;
+        @media (min-width: ds.$tablet-bp) {
+            @include ds.text-preset-3;
+        }
     }
 }
 

@@ -4,14 +4,13 @@
     border: none;
     border-radius: 50%;
     color: ds.$grey-50;
-    @include ds.text-preset-4;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include ds.inherit-text-preset;
 
     img {
-        height: 50%;
+        height: 0.8lh;
     }
 
     &.hidden {

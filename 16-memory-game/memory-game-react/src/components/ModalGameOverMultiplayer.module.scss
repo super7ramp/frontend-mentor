@@ -21,11 +21,17 @@ dialog[open] {
         h2 {
             color: ds.$blue-950;
             @include ds.text-preset-7;
+            @media (min-width: ds.$tablet-bp) {
+                @include ds.text-preset-2;
+            }
         }
 
         p {
             color: ds.$blue-400;
             @include ds.text-preset-12;
+            @media (min-width: ds.$tablet-bp) {
+                @include ds.text-preset-9;
+            }
         }
     }
 
