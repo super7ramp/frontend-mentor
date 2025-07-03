@@ -10,6 +10,11 @@ import useGame from "../hooks/useGame.ts";
 import {useRef} from "react";
 import {useNavigate} from "react-router";
 
+/**
+ * {@link PageGameRunning} is the page that displays the game in progress.
+ * @param gameSettings - the game settings to use for the game
+ * @constructor
+ */
 function PageGameRunning({gameSettings}: { gameSettings: GameSettings }) {
     const {game, setGame, playerStats} = useGame(gameSettings)
     const gameOverModalRef = useRef<HTMLDialogElement>(null)

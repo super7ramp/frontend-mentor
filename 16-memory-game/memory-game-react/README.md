@@ -18,8 +18,6 @@ Mentor challenges help you improve your coding skills by building realistic proj
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -34,20 +32,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the
-page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long
-the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free
-option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image
-above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot,
-feel free to remove this entire section.**
+![](screenshot.png)
 
 ### Links
 
@@ -67,6 +52,91 @@ feel free to remove this entire section.**
 
 ### What I learned
 
+#### Implement a state machine for the game logic
+
+Used a state machine to implement the game logic. Implemented in a classic OOP style :
+
+```ts
+abstract class Game {
+
+    // ...
+
+    /**
+     * Called after a timeout.
+     *
+     * @returns the next game state, or this instance if there is no state change
+     */
+    abstract onTimeout(): Game;
+
+    /**
+     * Called when the user clicks on a cell.
+     *
+     * @param cell the cell that was clicked
+     * @returns the next game state, or this instance if there is no state change
+     */
+    abstract onUserClick(cell: Cell): Game;
+
+}
+
+class GameReady extends Game {
+    // ...
+}
+
+class GameUserPickedFirst extends Game {
+    // ...
+}
+
+class GameUserPickedSecond extends Game {
+    // ...
+}
+
+class GameFinished extends Game {
+    // ...
+}
+```
+
+Tested the logic with unit tests, using the [Vitest](https://vitest.dev/) testing framework:
+
+```ts
+describe('GameReady', () => {
+
+    it('initializes', () => {
+        const game = gameReady()
+
+        expect(game.whoseTurn()).toEqual(1)
+        expect(game.isFinished()).toBe(false)
+        expect(game.cells.every(cell => cell.every(cell => cell.state == "hidden"))).toBe(true)
+    })
+
+    it('allows a player to click a cell', () => {
+        const game = gameReady()
+
+        const updatedGame = game.onUserClick(game.cells[0][0])
+
+        expect(updatedGame).not.toBe(game)
+        expect(updatedGame.cells[0][0].state).toBe("shown")
+        expect(mockedActions.recordPlayerMove).toHaveBeenCalledWith(1)
+    })
+})
+```
+
+#### Parameterized tests with Vitest
+
+```ts
+test.for([
+    {playerCount: 1, turns: 2, expectedWhose: 1},
+    {playerCount: 2, turns: 3, expectedWhose: 2},
+    {playerCount: 3, turns: 4, expectedWhose: 2},
+    {playerCount: 4, turns: 42, expectedWhose: 3}
+])('$playerCount P - After $turns turns', ({playerCount, turns, expectedWhose}) => {
+
+    const gameAfterTurns = play(Turn.initial(playerCount as 1 | 2 | 3 | 4), turns)
+    const whose = gameAfterTurns.whose()
+    expect(whose).toBe(expectedWhose)
+
+})
+```
+
 #### Capsule-shaped button for free
 
 Amazing how simply applying a very large border-radius can create a capsule-shaped button:
@@ -85,34 +155,22 @@ Reason would come from the CSS specs:
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts
-you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.
-**
+- Check other ways to create state machines in TypeScript :
+    - Something different than OOP, like a functional approach (?)
+    - Using a library like [XState](https://xstate.js.org/)
+- Improve tests.
+- Improve CSS consistency/readability.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will
-  use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd
-  recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could
-come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+- [Vitest documentation](https://vitest.dev/guide/) 
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Antoine Belvire](https://belv.re)
+- Frontend Mentor - [@super7ramp](https://www.frontendmentor.io/profile/super7ramp)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got
-some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel
-free to delete this section entirely.**
+All reviewers for their feedback ❤️

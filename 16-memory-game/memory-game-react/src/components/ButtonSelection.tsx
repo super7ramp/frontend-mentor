@@ -1,7 +1,7 @@
 import style from "./ButtonSelection.module.scss";
 
 /**
- * ButtonSelection component is a radio input styled as a button.
+ * {@link ButtonSelection} component is a radio input styled as a button.
  *
  * @param name the label of the input
  * @param groupName the name of the radio group to which this input belongs

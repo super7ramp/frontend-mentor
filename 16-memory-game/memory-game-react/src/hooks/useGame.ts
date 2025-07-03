@@ -3,6 +3,10 @@ import {useEffect, useState} from "react";
 import Game, {newGame} from "../models/Game.ts";
 import usePlayerStats, {type PlayerStatsHelper} from "./usePlayerStats.ts";
 
+/**
+ * {@link useGame} is a custom React hook that manages the game state and player statistics.
+ * @param gameSettings - the settings for the game, including player information and grid size
+ */
 function useGame(gameSettings: GameSettings) {
     const stats = usePlayerStats(gameSettings.players)
     const [timeoutScheduled, setTimeoutScheduled] = useState(false)

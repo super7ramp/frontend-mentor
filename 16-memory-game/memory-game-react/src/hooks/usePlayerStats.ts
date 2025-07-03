@@ -3,6 +3,10 @@ import useClock from "./useClock.ts";
 
 import {useState} from "react";
 
+/**
+ * {@link usePlayerStats} is a custom React hook that manages player statistics
+ * @param playerCount - the number of players in the game
+ */
 function usePlayerStats(playerCount: number) {
     const [playerStats, setPlayerStats] = useState<PlayerStats>(() => PlayerStats.initial(playerCount))
     const clock = useClock(() => {

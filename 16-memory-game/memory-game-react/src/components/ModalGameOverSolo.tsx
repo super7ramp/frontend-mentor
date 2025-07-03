@@ -3,6 +3,15 @@ import {StatCount, StatTime} from "./Stat.tsx";
 import ButtonPrimary from "./ButtonPrimary.tsx";
 import ButtonSecondary from "./ButtonSecondary.tsx";
 
+/**
+ * {@link ModalGameOverSolo} is a modal that displays the game over screen for a solo game.
+ * @param ref - a reference to the dialog element
+ * @param timeElapsedInSeconds - the time elapsed in seconds
+ * @param movesTaken - the number of moves taken by the player
+ * @param onClickOnRestart - a callback function to be called when the player clicks on the restart button
+ * @param onClickOnSetupNewGame - a callback function to be called when the player clicks on the setup new game button
+ * @constructor
+ */
 function ModalGameOverSolo({ref, timeElapsedInSeconds, movesTaken, onClickOnRestart, onClickOnSetupNewGame}: {
     ref: any,
     timeElapsedInSeconds: number,

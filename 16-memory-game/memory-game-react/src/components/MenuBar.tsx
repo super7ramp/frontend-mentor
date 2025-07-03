@@ -6,7 +6,7 @@ import {useRef} from "react";
 import {useNavigate} from "react-router";
 
 /**
- * MenuBar is the game menu bar.
+ * {@link MenuBar} is the game menu bar.
  *
  * @param onClickOnRestart action to perform when user clicks on the menu's "Restart game" button
  * @constructor

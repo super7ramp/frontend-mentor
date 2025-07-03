@@ -3,6 +3,13 @@ import type {PlayerStat} from "../models/PlayerStats.ts";
 import ButtonSecondary from "./ButtonSecondary.tsx";
 import {StatCount} from "./Stat.tsx";
 
+/**
+ * {@link ModalGameOverMultiplayer} is a modal that displays the game over screen for a multiplayer game.
+ * @param ref - a reference to the dialog element
+ * @param playerStats - an array of player statistics, each containing the player's id and the number of pairs they found
+ * @param onClickOnSetupNewGame - a callback function to be called when the player clicks on the setup new game button
+ * @constructor
+ */
 function ModalGameOverMultiplayer({ref, playerStats, onClickOnSetupNewGame}: {
     ref: any,
     playerStats: PlayerStat[],

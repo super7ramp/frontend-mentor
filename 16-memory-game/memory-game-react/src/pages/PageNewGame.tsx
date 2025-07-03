@@ -7,7 +7,9 @@ import {type ReactNode} from "react";
 import {useNavigate} from "react-router";
 
 /**
- * PageNewGame component allows users to set up a new game by selecting the theme, number of players, and grid size.
+ * {@link PageNewGame} component allows users to set up a new game by selecting the theme, number of players, and grid size.
+ * @param gameSettings - the current game settings
+ * @param setGameSettings - function to update the game settings
  * @constructor
  */
 function PageNewGame({gameSettings, setGameSettings}: {

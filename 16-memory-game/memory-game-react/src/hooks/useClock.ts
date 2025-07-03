@@ -1,7 +1,7 @@
 import {useEffect, useRef} from "react";
 
 /**
- * Custom hook to manage a clock that ticks every second.
+ * {@link useClock} is a custom hool to manage a clock that ticks every second.
  * @param onTick - Callback function to be called every second when the clock ticks.
  */
 function useClock(onTick: () => void) {

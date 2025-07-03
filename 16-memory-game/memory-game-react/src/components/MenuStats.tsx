@@ -3,7 +3,7 @@ import MenuStatsSolo from "./MenuStatsSolo.tsx";
 import MenuStatsMultiplayer from "./MenuStatsMultiplayer.tsx";
 
 /**
- * MenuStats component displays the statistics of players in a memory game.
+ * {@link MenuStats} component displays the statistics of players in a memory game.
  *
  * In practice, component just forwards to either {@link MenuStatsSolo} or {@link MenuStatsMultiplayer}.
  * @param playerStats - An array of player statistics

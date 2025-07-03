@@ -3,6 +3,12 @@ import style from "./GameGrid.module.scss"
 import Game from "../models/Game.ts";
 import type Cell from "../models/Cell.ts";
 
+/**
+ * {@link GameGrid} is a component that displays the game grid.
+ * @param game - the current game model
+ * @param onGameUpdated - a callback function to be called when the game is updated
+ * @constructor
+ */
 function GameGrid({game, onGameUpdated}: { game: Game, onGameUpdated: (_: Game) => void }) {
 
     const onCellClicked = (cell: Cell) => {
