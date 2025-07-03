@@ -13,7 +13,7 @@ function GameCell({model, onClick}: { model: Cell, onClick: (_: Cell) => void })
                 onClick={() => onClick(model)}>
 
             {typeof model.value === "number" && <p>{model.value}</p>}
-            {typeof model.value === "string" && <img src={`src/assets/icons/icon-${model.value}.svg`} alt={model.value}/>}
+            {typeof model.value === "string" && <img src={`/icon-${model.value}.svg`} alt={model.value}/>}
 
         </button>
     )
