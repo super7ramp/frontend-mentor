@@ -119,7 +119,7 @@ function gameReady() {
     return newGame(GameSettings.defaults(), mockedActions)
 }
 
-function gameUsePickedFirst(): GameUserPickedFirst {
+function gameUsePickedFirst() {
     const initialGame = gameReady()
     const cell = initialGame.cells[0][0]
     const game = initialGame.onUserClick(cell)
@@ -128,19 +128,16 @@ function gameUsePickedFirst(): GameUserPickedFirst {
     return game as GameUserPickedFirst
 }
 
-function gameUsePickedSecondSame(): GameUserPickedSecond {
+function gameUsePickedSecondSame() {
     const initialGame = gameUsePickedFirst()
-    let secondCell = findHiddenCellWithValue(initialGame, initialGame.cells[0][0].value)
-    if (!secondCell) {
-        throw new Error("No second cell found with the same value as the first cell")
-    }
+    const secondCell = findHiddenCellWithValue(initialGame, initialGame.cells[0][0].value)
     const updatedGame = initialGame.onUserClick(secondCell) as GameUserPickedSecond
     expect(mockedActions.recordPlayerMove).toHaveBeenCalledWith(1)
     vi.clearAllMocks()
     return updatedGame
 }
 
-function gameUsePickedSecondDifferent(): GameUserPickedSecond {
+function gameUsePickedSecondDifferent() {
     const initialGame = gameUsePickedFirst()
     const secondCell = findHiddenCellWithValueNot(initialGame, initialGame.cells[0][0].value)
     const updatedGame = initialGame.onUserClick(secondCell) as GameUserPickedSecond
@@ -149,7 +146,7 @@ function gameUsePickedSecondDifferent(): GameUserPickedSecond {
     return updatedGame
 }
 
-function gameUserPickedSecondFinishingGame(): GameUserPickedSecond {
+function gameUserPickedSecondFinishingGame() {
     const initialGame = gameUsePickedSecondSame()
     const firstCell = initialGame.firstCell
     const secondCell = initialGame.secondCell
@@ -164,19 +161,19 @@ function gameFinished(): GameFinished {
     return initialGame.onTimeout()
 }
 
-function findHiddenCell(game: Game): Cell {
+function findHiddenCell(game: Game) {
     return findCell(game, cell => cell.state === "hidden")
 }
 
-function findHiddenCellWithValue(game: Game, value: number | string): Cell {
+function findHiddenCellWithValue(game: Game, value: number | string) {
     return findCell(game, cell => cell.state === "hidden" && cell.value === value)
 }
 
-function findHiddenCellWithValueNot(game: Game, value: number | string): Cell {
+function findHiddenCellWithValueNot(game: Game, value: number | string) {
     return findCell(game, cell => cell.state === "hidden" && cell.value !== value)
 }
 
-function findCell(game: Game, predicate: (cell: Cell) => boolean): Cell {
+function findCell(game: Game, predicate: (cell: Cell) => boolean) {
     for (let y = 0; y < game.cells.length; y++) {
         for (let x = 0; x < game.cells[y].length; x++) {
             const cell = game.cells[y][x]
