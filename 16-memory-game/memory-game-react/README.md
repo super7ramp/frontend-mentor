@@ -153,6 +153,34 @@ Reason would come from the CSS specs:
 > Corner curves must not overlap: When the sum of any two adjacent border radii exceeds the size of the border box, UAs
 > must proportionally reduce the used values of all border radii until none of them overlap
 
+#### Google Translate can break counter updates
+
+Google Translate can break counter updates or even crash a React app. It did break the move counter updates in this app.
+
+The issue is well explained
+in [this blog post](https://martijnhols.nl/blog/everything-about-google-translate-crashing-react).
+
+As a workaround, I wrapped the counter in a `span` element:
+
+```
+diff --git a/16-memory-game/memory-game-react/src/components/Stat.tsx b/16-memory-game/memory-game-react/src/components/Stat.tsx
+index 2e57e0e..17f1f48 100644
+--- a/16-memory-game/memory-game-react/src/components/Stat.tsx
++++ b/16-memory-game/memory-game-react/src/components/Stat.tsx
+@@ -25,7 +25,10 @@ function StatCount({label, count, unit, direction = "row", variant = "default",
+                 <p className={styleOf("stat__key", variant, big)}>{label}</p>
+             }
+             valueElement={
+-                <p className={styleOf("stat__value", variant, big)}>{count}{unit && ` ${unit}`}</p>
++                <p className={styleOf("stat__value", variant, big)}>
++                    <span>{count}</span>
++                    <span>{unit && ` ${unit}`}</span>
++                </p>
+             }
+             direction={direction}
+             variant={variant}
+```
+
 ### Continued development
 
 - Check other ways to create state machines in TypeScript :

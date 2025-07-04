@@ -25,7 +25,10 @@ function StatCount({label, count, unit, direction = "row", variant = "default", 
                 <p className={styleOf("stat__key", variant, big)}>{label}</p>
             }
             valueElement={
-                <p className={styleOf("stat__value", variant, big)}>{count}{unit && ` ${unit}`}</p>
+                <p className={styleOf("stat__value", variant, big)}>
+                    <span>{count}</span>
+                    <span>{unit && ` ${unit}`}</span>
+                </p>
             }
             direction={direction}
             variant={variant}
