@@ -4,3 +4,7 @@
 
 # Figma stuff
 **/*.fig
+
+# clojure stuff
+.clj-kondo/.cache
+.lsp
