@@ -3,8 +3,8 @@
   "scripts": {
     "dev": "shadow-cljs -A :dev watch app & npm run styles-dev",
     "release": "shadow-cljs -A :dev release app && npm run styles-release",
-    "styles-dev": "onchange -o '> public/main.css && lightningcss --bundle public/main.css -o public/main.css' -i src/**/*.css -- cat src/**/*.css",
-    "styles-release": "cat src/**/*.css > public/main.css && lightningcss --minify --bundle public/main.css -o public/main.css"
+    "styles-dev": "shopt -s globstar && onchange -o '> public/main.css && lightningcss --bundle public/main.css -o public/main.css' -i src/**/*.css -- cat src/**/*.css",
+    "styles-release": "shopt -s globstar && cat src/**/*.css > public/main.css && lightningcss --minify --bundle public/main.css -o public/main.css"
   },
   "devDependencies": {
     "lightningcss-cli": "^1.30.1",
