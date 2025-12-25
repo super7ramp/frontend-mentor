@@ -1,0 +1,38 @@
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-bar__logo {
+    height: 40px;
+    width: 40px;
+}
+
+.menu-bar__tabs {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-25);
+    padding: var(--spacing-25);
+
+    border: solid 1px var(--neutral-900);
+    border-radius: var(--radius-full);
+    box-shadow: 1px 2px 0 var(--neutral-900);
+}
+
+.menu-bar__tab-item {
+    border-radius: var(--radius-full);
+    padding: 12px var(--spacing-100);
+}
+
+.menu-bar__tab-item:hover,
+.menu-bar__tab-item:has(input:checked) {
+    outline: solid 1px var(--neutral-900);
+}
+
+.menu-bar__tab-item:has(input:checked) {
+    background-color: var(--yellow-500);
+}
+
+input[type="radio"] {
+    display: none;
+}

@@ -1,0 +1,21 @@
+:root {
+    --blue-400: #92ADEB;
+    --blue-600: #5072C7;
+    --neutral-000: white;
+    --neutral-100: #F7F3F0;
+    --neutral-600: #6D5B4D;
+    --neutral-900: #2E1401;
+    --pink-400: #FC8AE5;
+    --pink-500: #F073A3;
+    --pink-700: #E11966;
+    --teal-400: #47D9C9;
+    --yellow-500: #F8CB46;
+}
+
+* {
+    color: var(--neutral-900);
+}
+
+body {
+    background-color: var(--neutral-100);
+}
