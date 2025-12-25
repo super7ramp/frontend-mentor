@@ -1,0 +1,53 @@
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--neutral-900);
+    border-radius: var(--radius-16);
+    box-shadow: 1px 3px 0 var(--neutral-900);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-200);
+    padding: var(--spacing-250) var(--spacing-200);
+    text-align: center;
+    background-color: var(--pink-400);
+    border-radius: var(--radius-16);
+}
+
+.card--revealed {
+    background-color: var(--blue-400);
+}
+
+.card__category {
+    border: 1px solid var(--neutral-900);
+    border-radius: var(--radius-full);
+    background-color: var(--neutral-0);
+    padding: 6px 12px;
+    box-shadow: 1px 1px 0 var(--neutral-900);
+}
+
+.card-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--spacing-200);
+}
+
+.card-selector button {
+    height: 40px;
+    width: 40px;
+    border-radius: var(--radius-full);
+}
+
+.card-selector__previous {
+    background: url("/assets/images/icon-chevron-left.svg") center no-repeat;
+}
+
+.card-selector__next {
+    background: url("/assets/images/icon-chevron-right.svg") center no-repeat;
+}
