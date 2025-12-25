@@ -1,0 +1,13 @@
+:root {
+    --radius-base: 1px;
+    --radius-0: 0;
+    --radius-4: calc(var(--radius-base) * 4);
+    --radius-6: calc(var(--radius-base) * 6);
+    --radius-8: calc(var(--radius-base) * 8);
+    --radius-10: calc(var(--radius-base) * 10);
+    --radius-12: calc(var(--radius-base) * 12);
+    --radius-16: calc(var(--radius-base) * 16);
+    --radius-20: calc(var(--radius-base) * 20);
+    --radius-24: calc(var(--radius-base) * 24);
+    --radius-full: 999px;
+}
