@@ -1,5 +1,6 @@
 (ns app.components.deck
   (:require [app.components.card :refer [card]]
+            [app.utils :refer [find-first]]
             [uix.core :as uix :refer [defui $ use-effect use-state]]))
 
 (defn- fetch-data []
@@ -39,13 +40,10 @@
        ($ :p "Card " (inc current) " of " total)
        ($ :button.card-selector__next {:on-click select-next}))))
 
-(defn- mastered? [{:keys [knownCount]}]
+(defn- mastered?
+  "Returns `true` iff given card is mastered."
+  [{:keys [knownCount]}]
   (= knownCount 5))
-
-(defn find-first [pred coll]
-  (->> coll
-       (keep-indexed (fn [idx v] (when (pred v) idx)))
-       first))
 
 (defui deck []
   (let [[cards set-cards] (use-state [])
