@@ -16,6 +16,7 @@
     text-align: center;
     background-color: var(--pink-400);
     border-radius: var(--radius-16);
+    width: 100%;
 }
 
 .card--revealed {
@@ -28,6 +29,10 @@
     background-color: var(--neutral-0);
     padding: 6px 12px;
     box-shadow: 1px 1px 0 var(--neutral-900);
+}
+
+.card__heading {
+    opacity: 80%;
 }
 
 .card-selector {

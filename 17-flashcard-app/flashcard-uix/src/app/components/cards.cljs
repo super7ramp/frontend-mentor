@@ -13,12 +13,12 @@
   ($ :button.card {:on-click #(set-revealed true)}
      ($ :p.card__category.text-preset-6 category)
      ($ :p.text-preset-1--mobile question)
-     ($ :p.text-preset-4--medium "Click to reveal answer")))
+     ($ :p.card__heading.text-preset-4--medium "Click to reveal answer")))
 
 (defui card-revealed [{:keys [answer category set-revealed]}]
   ($ :button.card.card--revealed {:on-click #(set-revealed false)}
      ($ :p.card__category.text-preset-6 category)
-     ($ :p.text-preset-4--medium "Answer:")
+     ($ :p.card__heading.text-preset-4--medium "Answer:")
      ($ :p.text-preset-1--mobile answer)))
 
 (defui card [{:keys [revealed] :as card-data}]
@@ -41,7 +41,7 @@
         current (assoc (nth deck current-index {})
                        :revealed current-revealed
                        :set-revealed set-current-revealed)
-        _ (use-effect #(-> (fetch-data) (.then set-deck)))]
+        _ (use-effect #(-> (fetch-data) (.then set-deck)) [])]
     ($ :div.cards
        ($ card current)
        ($ card-selector {:current current-index
