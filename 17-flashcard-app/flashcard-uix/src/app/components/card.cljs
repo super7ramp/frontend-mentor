@@ -18,7 +18,8 @@
         ($ :p.text-preset-1--mobile answer))
      ($ progress-bar {:known-count knownCount})))
 
-(defui card [{:keys [revealed] :as card-data}]
-  (if-not revealed
-    ($ card-recto card-data)
-    ($ card-verso card-data)))
+(defui card [{:keys [card-data revealed set-revealed]}]
+  (let [card-data-and-set-revealed (assoc card-data :set-revealed set-revealed)]
+    (if-not revealed
+      ($ card-recto card-data-and-set-revealed)
+      ($ card-verso card-data-and-set-revealed))))
