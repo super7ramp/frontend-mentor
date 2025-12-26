@@ -4,7 +4,7 @@
             [uix.core :as uix :refer [defui $]]))
 
 (defui layout []
-  ($ :<>
+  ($ :div.layout
      ($ :header (menubar))
      ($ :main (deck))
      ($ :aside "stats")))

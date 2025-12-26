@@ -7,6 +7,7 @@ button {
     justify-content: center;
     gap: var(--spacing-100);
     background-color: var(--neutral-0);
+    font-size: 1rem;
 }
 
 button::before {
