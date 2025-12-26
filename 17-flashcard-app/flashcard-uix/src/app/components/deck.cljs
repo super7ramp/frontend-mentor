@@ -9,12 +9,24 @@
       (.then #(:flashcards %))
       (.catch #(js/console.log %))))
 
-(defui card-interactor [{:keys [card-data set-known-count]}]
+(defui deck-transformer [{:keys [shuffle mastered-hidden set-mastered-hidden]}]
+  ($ :div.deck-transformer
+     ($ :div.deck-filter
+        ($ :select "Categories")
+        ($ :div.deck-filter__hide-mastered
+           ($ :input {:type "checkbox"
+                      :id "hide-mastered"
+                      :value mastered-hidden
+                      :on-click #(set-mastered-hidden (not mastered-hidden))})
+           ($ :label {:for "hide-mastered"} "Hide Mastered")))
+     ($ :button.deck-transformer__shuffle {:on-click shuffle} "Shuffle")))
+
+(defui card-interactor [{:keys [card-data set-known-count] :as props}]
   (let [known-count (:knownCount card-data)
         inc-known-count #(when (< known-count 5) (set-known-count (inc known-count)))
         reset-known-count #(set-known-count 0)]
     ($ :div.card-interactor
-       ($ card card-data)
+       ($ card props)
        ($ :div.card-buttons
           ($ :button.card-buttons__i-know-this {:on-click inc-known-count} "I Know This")
           ($ :button.card-buttons__reset {:on-click reset-known-count} "Reset Progress")))))
@@ -27,18 +39,36 @@
        ($ :p "Card " (inc current) " of " total)
        ($ :button.card-selector__next {:on-click select-next}))))
 
+(defn- mastered? [{:keys [knownCount]}]
+  (= knownCount 5))
+
+(defn find-first [pred coll]
+  (->> coll
+       (keep-indexed (fn [idx v] (when (pred v) idx)))
+       first))
+
 (defui deck []
   (let [[cards set-cards] (use-state [])
-        [current-index set-current-index] (use-state 0)
+        [mastered-hidden set-mastered-hidden] (use-state false)
+        [current-filtered-index set-current-filtered-index] (use-state 0)
         [current-revealed set-current-revealed] (use-state false)
-        current (assoc (nth cards current-index {})
-                       :revealed current-revealed
-                       :set-revealed set-current-revealed)
+        filtered-cards (if-not mastered-hidden
+                         cards
+                         (filter #(not (mastered? %)) cards))
+        current (nth filtered-cards current-filtered-index {})
+        current-index (if-not mastered-hidden
+                        current-filtered-index
+                        (find-first #(= (:id %) (:id current)) cards))
         _ (use-effect #(-> (fetch-data) (.then set-cards)) [])]
     ($ :div.deck
+       ($ deck-transformer {:mastered-hidden mastered-hidden
+                            :set-mastered-hidden set-mastered-hidden
+                            :shuffle #(set-cards (shuffle cards))})
        ($ card-interactor {:card-data current
+                           :revealed current-revealed
+                           :set-revealed set-current-revealed
                            :set-known-count #(set-cards (assoc-in cards [current-index :knownCount] %))})
-       ($ card-selector {:current current-index
-                         :set-current #(do (set-current-index %)
+       ($ card-selector {:current current-filtered-index
+                         :set-current #(do (set-current-filtered-index %)
                                            (set-current-revealed false))
-                         :total (count cards)}))))
+                         :total (count filtered-cards)}))))
