@@ -51,6 +51,7 @@
 (defui deck []
   (let [[cards set-cards] (use-state [])
         [mastered-hidden set-mastered-hidden] (use-state false)
+        ; TODO implement a filter-list
         [current-filtered-index set-current-filtered-index] (use-state 0)
         [current-revealed set-current-revealed] (use-state false)
         filtered-cards (if-not mastered-hidden
@@ -65,7 +66,8 @@
     ($ :div.deck
        ($ deck-transformer {:categories categories
                             :mastered-hidden mastered-hidden
-                            :set-mastered-hidden set-mastered-hidden
+                            :set-mastered-hidden #(do (set-mastered-hidden %)
+                                                      (set-current-filtered-index 0))
                             :shuffle #(set-cards (shuffle cards))})
        ($ card-interactor {:card-data current
                            :revealed current-revealed
