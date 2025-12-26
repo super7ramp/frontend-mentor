@@ -27,14 +27,12 @@
     ($ card-revealed card-data)))
 
 (defui card-selector [{:keys [current set-current total]}]
-  (let [first? (zero? current)
-        last? (= current (dec total))
-        select-previous #(set-current (dec current))
-        select-next #(set-current (inc current))]
+  (let [select-previous #(set-current (mod (dec current) total))
+        select-next #(set-current (mod (inc current) total))]
     ($ :div.card-selector
-       ($ :button.card-selector__previous {:disabled first? :on-click select-previous})
+       ($ :button.card-selector__previous {:on-click select-previous})
        ($ :p "Card " (inc current) " of " total)
-       ($ :button.card-selector__next {:disabled last? :on-click select-next}))))
+       ($ :button.card-selector__next {:on-click select-next}))))
 
 (defui cards []
   (let [[deck set-deck] (use-state [])
