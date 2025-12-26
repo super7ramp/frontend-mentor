@@ -10,10 +10,13 @@
       (.then #(:flashcards %))
       (.catch #(js/console.log %))))
 
-(defui deck-transformer [{:keys [shuffle mastered-hidden set-mastered-hidden]}]
+(defui deck-transformer [{:keys [categories shuffle mastered-hidden set-mastered-hidden]}]
   ($ :div.deck-transformer
      ($ :div.deck-filter
-        ($ :select "Categories")
+        ; TODO create custom select
+        ($ :select {:id "categories" :multiple true :size 1}
+           ($ :option {:value "all"} "All Categories")
+           (->> categories (map #($ :option {:key % :value %} %))))
         ($ :div.deck-filter__hide-mastered
            ($ :input {:type "checkbox"
                       :id "hide-mastered"
@@ -57,9 +60,11 @@
         current-index (if-not mastered-hidden
                         current-filtered-index
                         (find-first #(= (:id %) (:id current)) cards))
+        categories (->> filtered-cards (map :category) (into (sorted-set)))
         _ (use-effect #(-> (fetch-data) (.then set-cards)) [])]
     ($ :div.deck
-       ($ deck-transformer {:mastered-hidden mastered-hidden
+       ($ deck-transformer {:categories categories
+                            :mastered-hidden mastered-hidden
                             :set-mastered-hidden set-mastered-hidden
                             :shuffle #(set-cards (shuffle cards))})
        ($ card-interactor {:card-data current
