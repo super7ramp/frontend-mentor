@@ -6,15 +6,24 @@
     gap: var(--spacing-200);
     padding: var(--spacing-250) var(--spacing-200);
     text-align: center;
-    background-color: var(--pink-400);
     border-radius: var(--radius-16);
     box-shadow: 2px 2px 0 var(--neutral-900);
     width: 100%;
-    height: 300px; /* TODO fix size */
+    /* TODO fix height */
+    height: 300px;
+    background:
+        url("/assets/images/pattern-flashcard-bg.svg"),
+        left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
+        right 5% bottom 90% url("/assets/images/pattern-star-blue.svg") no-repeat,
+        var(--pink-400);
 }
 
 .card--verso {
-    background-color: var(--blue-400);
+    background:
+        url("/assets/images/pattern-flashcard-bg.svg"),
+        left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
+        right 5% bottom 90% url("/assets/images/pattern-star-pink.svg") no-repeat,
+        var(--blue-400);
 }
 
 .card__body {
