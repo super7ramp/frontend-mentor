@@ -1,6 +1,5 @@
 (ns app.components.menubar
-  (:require  [uix.core :as uix :refer [defui $]]
-             [uix.dom]))
+  (:require  [uix.core :as uix :refer [defui $]]))
 
 (defui logo []
   ($ :img.menu-bar__logo {:src "/assets/images/logo-small.svg"
