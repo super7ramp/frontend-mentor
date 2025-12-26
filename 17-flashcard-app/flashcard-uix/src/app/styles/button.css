@@ -12,6 +12,6 @@ button {
 
 button::before {
     content: var(--button-icon);
-    width: 1lh;
-    height: 1lh;
+    width: 1rem;
+    height: 1rem;
 }
