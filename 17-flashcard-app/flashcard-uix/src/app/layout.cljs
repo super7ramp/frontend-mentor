@@ -1,11 +1,10 @@
 (ns app.layout
-  (:require [app.components.cards :refer [cards]]
+  (:require [app.components.deck :refer [deck]]
             [app.components.menubar :refer [menubar]]
-            [uix.core :as uix :refer [defui $]]
-            [uix.dom]))
+            [uix.core :as uix :refer [defui $]]))
 
 (defui layout []
   ($ :<>
      ($ :header (menubar))
-     ($ :main (cards))
+     ($ :main (deck))
      ($ :aside "stats")))
