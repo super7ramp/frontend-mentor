@@ -1,10 +1,12 @@
 (ns app.core
-  (:require  [app.pages.study :refer [study]]
-             [uix.core :as uix :refer [defui $]]
-             [uix.dom]))
+  (:require [app.providers.cards :refer [cards-provider]]
+            [app.pages.study :refer [study]]
+            [uix.core :as uix :refer [defui $]]
+            [uix.dom]))
 
 (defui app []
-  ($ study))
+  ($ cards-provider
+     ($ study)))
 
 (defonce root
   (uix.dom/create-root (js/document.getElementById "root")))
