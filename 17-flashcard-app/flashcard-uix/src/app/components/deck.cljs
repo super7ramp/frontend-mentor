@@ -1,14 +1,8 @@
 (ns app.components.deck
   (:require [app.components.card :refer [card]]
-            [app.utils :refer [find-first]]
-            [uix.core :as uix :refer [defui $ use-effect use-state]]))
-
-(defn- fetch-data []
-  (-> (js/fetch "data/data.json")
-      (.then #(.json %))
-      (.then #(js->clj % :keywordize-keys true))
-      (.then #(:flashcards %))
-      (.catch #(js/console.log %))))
+            [app.hooks.use-cards :refer [use-cards]]
+            [app.utils :refer [find-first mastered?]]
+            [uix.core :refer [defui $ use-state]]))
 
 (defui deck-transformer [{:keys [categories shuffle mastered-hidden set-mastered-hidden]}]
   ($ :div.deck-transformer
@@ -43,13 +37,8 @@
        ($ :p "Card " (inc current) " of " total)
        ($ :button.card-selector__next {:on-click select-next}))))
 
-(defn- mastered?
-  "Returns `true` iff given card is mastered."
-  [{:keys [knownCount]}]
-  (= knownCount 5))
-
 (defui deck []
-  (let [[cards set-cards] (use-state [])
+  (let [[cards set-cards] (use-cards)
         [mastered-hidden set-mastered-hidden] (use-state false)
         ; TODO implement a filter-list
         [current-filtered-index set-current-filtered-index] (use-state 0)
@@ -61,8 +50,7 @@
         current-index (if-not mastered-hidden
                         current-filtered-index
                         (find-first #(= (:id %) (:id current)) cards))
-        categories (->> filtered-cards (map :category) (into (sorted-set)))
-        _ (use-effect #(-> (fetch-data) (.then set-cards)) [])]
+        categories (->> filtered-cards (map :category) (into (sorted-set)))]
     ($ :div.block.deck
        ($ deck-transformer {:categories categories
                             :mastered-hidden mastered-hidden

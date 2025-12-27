@@ -1,5 +1,7 @@
 (ns app.components.stats
-  (:require [clojure.string :as str]
+  (:require [app.hooks.use-cards :refer [use-cards]]
+            [app.utils :refer [in-progress? mastered? not-started?]]
+            [clojure.string :as str]
             [uix.core :refer [defui $]]))
 
 (defn- stat-name
@@ -17,10 +19,11 @@
      ($ :div {:class-name (str "stat__img stat__img--" (stat-name label))})))
 
 (defui stats []
-  ($ :div.block.stats
-     ($ :h1.text-preset-2 "Study Statistics")
-     ($ :div.stat-list
-        ($ stat {:label "Total cards" :value 40})
-        ($ stat {:label "Mastered" :value 11})
-        ($ stat {:label "In Progress" :value 21})
-        ($ stat {:label "Not Started" :value 8}))))
+  (let [[cards] (use-cards)]
+    ($ :div.block.stats
+       ($ :h1.text-preset-2 "Study Statistics")
+       ($ :div.stat-list
+          ($ stat {:label "Total cards" :value (count cards)})
+          ($ stat {:label "Mastered" :value (count (filter mastered? cards))})
+          ($ stat {:label "In Progress" :value (count (filter in-progress? cards))})
+          ($ stat {:label "Not Started" :value (count (filter not-started? cards))})))))
