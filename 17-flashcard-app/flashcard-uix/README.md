@@ -84,40 +84,61 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [ClojureSript](https://clojurescript.org/)
+- [UIx](https://uix-cljs.dev/) (ClojureScript wrapper over [React](https://reactjs.org/))
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### ClojureScript
 
-To see how you can add code snippets, see below:
+TODO
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+#### UIx
+
+TODO
+
+#### Compose backgrounds
+
+TODO
+
+#### Limitations of `data-*` attributes
+
+When implementing progress bar. TODO.
+
+#### Implementing my own select
+
+Because native select is hard to style. TODO.
+
+#### CSS without SCSS is not as nice
+
+I went full CSS because the UIx template didn't setup SCSS and I didn't want to spend more time on tool setup. I took that like an opportunity to try again a "vanilla CSS" approach.
+
+##### Nesting
+
+CSS has now `&` but it is not as nice as in SCSS when using BEM, e.g. one can't write in CSS:
+
+```scss
+my-block {
+    &__my-element {
+        /* something */
+    }
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+
+One has to write:
+
+```scss
+my-block {
+    & my-block__my-element {
+        /* something */
+    }
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+##### Mixins
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+Not available yet in any browser. It's a shame, I really like composing CSS classes using SCSS mixins, instead of multiplying references to utility classes inside the HTML.
 
 ### Continued development
 
@@ -134,14 +155,9 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Antoine Belvire](https://belv.re)
+- Frontend Mentor - [@super7ramp](https://www.frontendmentor.io/profile/super7ramp)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+All reviewers for their feedback ❤️
