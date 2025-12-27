@@ -63,7 +63,7 @@
                         (find-first #(= (:id %) (:id current)) cards))
         categories (->> filtered-cards (map :category) (into (sorted-set)))
         _ (use-effect #(-> (fetch-data) (.then set-cards)) [])]
-    ($ :div.deck
+    ($ :div.block.deck
        ($ deck-transformer {:categories categories
                             :mastered-hidden mastered-hidden
                             :set-mastered-hidden #(do (set-mastered-hidden %)

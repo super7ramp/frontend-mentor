@@ -1,10 +1,10 @@
 (ns app.core
-  (:require  [app.layout :refer [layout]]
+  (:require  [app.pages.study :refer [study]]
              [uix.core :as uix :refer [defui $]]
              [uix.dom]))
 
 (defui app []
-  ($ layout))
+  ($ study))
 
 (defonce root
   (uix.dom/create-root (js/document.getElementById "root")))

@@ -1,0 +1,11 @@
+:root {
+    --border-solid: 1px solid var(--neutral-900);
+}
+
+.block {
+    background-color: var(--neutral-0);
+    border: var(--border-solid);
+    border-radius: var(--radius-16);
+    border-bottom-width: 3px;
+    border-right-width: 3px;
+}
