@@ -38,11 +38,12 @@
 
 .card-buttons {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: var(--spacing-125);
 }
 
 .card-buttons button {
+    flex-grow: 1;
     box-shadow: 2px 2px 0 var(--neutral-900);
 }
 
