@@ -1,0 +1,57 @@
+.stats {
+    padding: var(--spacing-250) var(--spacing-200);
+}
+
+.stat-list {
+    margin-top: var(--spacing-200);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-200);
+}
+
+.stat {
+    height: 7.5rem;
+    flex: 1 1 21.5rem;
+    display: flex;
+    justify-content: space-between;
+    border: var(--border-solid);
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-radius: var(--radius-12);
+}
+
+.stat__label-value {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-250) var(--spacing-200);
+}
+
+.stat__img {
+    flex-basis: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-left: var(--border-solid);
+    border-top-right-radius: var(--radius-12);
+    border-bottom-right-radius: var(--radius-12);
+}
+
+.stat__img--total-cards {
+    background-color: var(--blue-400);
+    background-image: url("/assets/images/icon-stats-total.svg");
+}
+
+.stat__img--mastered {
+    background-color: var(--teal-400);
+    background-image: url("/assets/images/icon-stats-mastered.svg");
+}
+
+.stat__img--in-progress {
+    background-color: var(--pink-500);
+    background-image: url("/assets/images/icon-stats-in-progress.svg");
+}
+
+.stat__img--not-started {
+    background-color: var(--pink-400);
+    background-image: url("/assets/images/icon-stats-not-started.svg");
+}

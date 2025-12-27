@@ -1,14 +1,10 @@
 .deck {
     display: flex;
     flex-direction: column;
-    background-color: var(--neutral-0);
-    border: 1px solid var(--neutral-900);
-    border-radius: var(--radius-16);
-    box-shadow: 1px 3px 0 var(--neutral-900);
 }
 
 .deck > * + * {
-    border-top: solid 1px var(--neutral-900);
+    border-top: var(--border-solid);
 }
 
 .deck-transformer {
@@ -21,7 +17,6 @@
     --button-icon: url("/assets/images/icon-shuffle.svg");
 }
 
-
 .deck-filter {
     display: flex;
     flex-direction: column;
@@ -32,7 +27,6 @@
     display: flex;
     gap: var(--spacing-100);
 }
-
 
 .card-interactor {
     display: flex;

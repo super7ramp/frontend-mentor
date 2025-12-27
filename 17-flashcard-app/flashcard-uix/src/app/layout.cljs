@@ -1,10 +1,8 @@
 (ns app.layout
-  (:require [app.components.deck :refer [deck]]
-            [app.components.menubar :refer [menubar]]
-            [uix.core :as uix :refer [defui $]]))
+  (:require [uix.core :refer [defui $]]))
 
-(defui layout []
+(defui layout [{:keys [header main aside]}]
   ($ :div.layout
-     ($ :header (menubar))
-     ($ :main (deck))
-     ($ :aside "stats")))
+     ($ :header header)
+     ($ :main main)
+     ($ :aside aside)))

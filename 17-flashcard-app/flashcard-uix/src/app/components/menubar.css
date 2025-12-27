@@ -14,7 +14,7 @@
     gap: var(--spacing-25);
     padding: var(--spacing-25);
 
-    border: solid 1px var(--neutral-900);
+    border: var(--border-solid);
     border-radius: var(--radius-full);
     box-shadow: 1px 2px 0 var(--neutral-900);
 

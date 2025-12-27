@@ -7,7 +7,7 @@
 .progress-bar__bar-outside {
    width: 3.75rem;
    background-color: var(--neutral-0);
-   border: 1px solid var(--neutral-900);
+   border: var(--border-solid);
    border-radius: var(--radius-full);
 }
 
