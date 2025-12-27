@@ -44,7 +44,6 @@
 
 .card-buttons button {
     flex-grow: 1;
-    box-shadow: 2px 2px 0 var(--neutral-900);
 }
 
 .card-buttons__i-know-this {
