@@ -14,7 +14,7 @@
 }
 
 .deck-transformer__shuffle {
-    --button-icon: url("/assets/images/icon-shuffle.svg");
+    --icon-before-button: url("/assets/images/icon-shuffle.svg");
 }
 
 .deck-filter {
@@ -47,12 +47,12 @@
 }
 
 .card-buttons__i-know-this {
-    --button-icon: url("/assets/images/icon-circle-check.svg");
+    --icon-before-button: url("/assets/images/icon-circle-check.svg");
     background-color: var(--yellow-500);
 }
 
 .card-buttons__reset {
-    --button-icon: url("/assets/images/icon-reset.svg");
+    --icon-before-button: url("/assets/images/icon-reset.svg");
     background-color: var(--neutral-0);
 }
 

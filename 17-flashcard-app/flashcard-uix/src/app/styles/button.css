@@ -19,7 +19,13 @@ button {
 }
 
 button::before {
-    content: var(--button-icon);
+    content: var(--icon-before-button);
+    width: 1rem;
+    height: 1rem;
+}
+
+button::after {
+    content: var(--icon-after-button);
     width: 1rem;
     height: 1rem;
 }
