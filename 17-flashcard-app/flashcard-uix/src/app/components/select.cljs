@@ -1,13 +1,14 @@
 (ns app.components.select
   (:require [uix.core :refer [$ defui use-state]]))
 
-(defui option [{:keys [value selected on-change]}]
-  ($ :li.select__option
+(defui option [{:keys [value complement selected on-change]}]
+  ($ :li.select__option.text-preset-5
      ($ :input {:type "checkbox"
                 :id value
                 :checked selected
                 :on-change #(on-change value (not selected))})
-     ($ :label {:for value} value)))
+     ($ :label {:for value} 
+        value " " ($ :span.select__option-label-complement complement))))
 
 (defui select-list [{:keys [options on-change]}]
   ($ :div.select__anchor

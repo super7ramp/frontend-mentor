@@ -2,7 +2,9 @@
   (:require [app.components.card :refer [card]]
             [app.components.select :refer [select]]
             [app.hooks.use-cards :refer [use-cards]]
-            [app.utils :refer [find-first mastered?]]
+            [app.hooks.use-filter-list :refer [use-filter-list]]
+            [app.hooks.use-selector :refer [use-selector]]
+            [app.utils :refer [mastered?]]
             [uix.core :refer [defui $ use-state]]))
 
 (defn- select-categories-button-label [options]
@@ -11,12 +13,13 @@
     (cond
       (= selected-count option-count) "All Categories"
       (= 1 selected-count) "One Category"
-      (zero? selected-count) "No Categories"
       :else (str selected-count " Categories"))))
 
 (defui select-categories [{:keys [categories selected-categories set-selected-categories]}]
   (let [options (->> categories
                      (mapv #(hash-map :value %
+                                      ; TODO count by category
+                                      :complement "(1)"
                                       :selected (or (= selected-categories ::all-categories)
                                                     (contains? selected-categories %)))))]
     ($ select {:label (select-categories-button-label options)
@@ -58,49 +61,44 @@
           ($ :button.with-shadow.card-buttons__i-know-this {:on-click inc-known-count} "I Know This")
           ($ :button.with-shadow.card-buttons__reset {:on-click reset-known-count} "Reset Progress")))))
 
-(defui card-selector [{:keys [current set-current total]}]
-  (let [select-previous #(set-current (mod (dec current) total))
-        select-next #(set-current (mod (inc current) total))]
-    ($ :div.card-selector
-       ($ :button.card-selector__previous {:on-click select-previous})
-       ($ :p "Card " (inc current) " of " total)
-       ($ :button.card-selector__next {:on-click select-next}))))
+(defui card-selector [{:keys [current total select-previous select-next]}]
+  ($ :div.card-selector
+     ($ :button.card-selector__previous {:on-click select-previous})
+     ($ :p "Card " (inc current) " of " total)
+     ($ :button.card-selector__next {:on-click select-next})))
 
 (defui deck []
   (let [[cards set-cards] (use-cards)
 
-        [mastered-hidden set-mastered-hidden] (use-state false)
-        [current-filtered-index set-current-filtered-index] (use-state 0)
-        [current-revealed set-current-revealed] (use-state false)
-
-        categories (into (sorted-set) (map :category) cards)
         [selected-categories set-selected-categories] (use-state ::all-categories)
-        filtered-cards (filter #(and (or (not mastered-hidden)
-                                         (not (mastered? %)))
-                                     (or (= selected-categories ::all-categories)
-                                         (contains? selected-categories (:category %))))
-                               cards)
+        [mastered-hidden set-mastered-hidden] (use-state false)
+        [filtered-cards original-index-of] (use-filter-list
+                                            #(and (or (not mastered-hidden)
+                                                      (not (mastered? %)))
+                                                  (or (= selected-categories ::all-categories)
+                                                      (contains? selected-categories (:category %))))
+                                            cards)
 
-        current (nth filtered-cards current-filtered-index {})
-        current-index (find-first #(= (:id %) (:id current)) cards)]
+        {:keys [selected selected-index total select-previous select-next]} (use-selector filtered-cards)
+        [current-revealed set-current-revealed] (use-state false)]
 
     ($ :div.block.deck
 
-       ($ deck-transformer {:categories categories
+       ($ deck-transformer {:categories (into (sorted-set) (map :category) cards)
                             :selected-categories selected-categories
-                            :set-selected-categories #(do (set-selected-categories %)
-                                                          (set-current-filtered-index 0))
+                            :set-selected-categories set-selected-categories
                             :mastered-hidden mastered-hidden
-                            :set-mastered-hidden #(do (set-mastered-hidden %)
-                                                      (set-current-filtered-index 0))
+                            :set-mastered-hidden set-mastered-hidden
                             :shuffle #(set-cards (shuffle cards))})
 
-       ($ card-interactor {:card-data current
+       ($ card-interactor {:card-data selected
                            :revealed current-revealed
                            :set-revealed set-current-revealed
-                           :set-known-count #(set-cards (assoc-in cards [current-index :knownCount] %))})
+                           :set-known-count #(set-cards (assoc-in cards [(original-index-of selected-index) :knownCount] %))})
 
-       ($ card-selector {:current current-filtered-index
-                         :set-current #(do (set-current-filtered-index %)
-                                           (set-current-revealed false))
-                         :total (count filtered-cards)}))))
+       ($ card-selector {:current selected-index
+                         :total total
+                         :select-previous #(do (select-previous)
+                                               (set-current-revealed false))
+                         :select-next #(do (select-next)
+                                           (set-current-revealed false))}))))

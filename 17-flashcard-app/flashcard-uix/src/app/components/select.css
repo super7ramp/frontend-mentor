@@ -25,3 +25,7 @@
 .select__option + .select__option {
     border-top: var(--border-solid);
 }
+
+.select__option-label-complement {
+    color: var(--neutral-600);
+}

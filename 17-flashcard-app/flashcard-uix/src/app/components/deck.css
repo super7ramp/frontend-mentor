@@ -10,6 +10,7 @@
 .deck-transformer {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     padding: var(--spacing-150) var(--spacing-200);
 }
 
