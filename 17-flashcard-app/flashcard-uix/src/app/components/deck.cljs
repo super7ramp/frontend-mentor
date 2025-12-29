@@ -22,7 +22,8 @@
                                       :complement "(1)"
                                       :selected (or (= selected-categories ::all-categories)
                                                     (contains? selected-categories %)))))]
-    ($ select {:label (select-categories-button-label options)
+    ($ select {:id "select-categories"
+               :label (select-categories-button-label options)
                :options options
                :on-change (fn [category selected]
                             (set-selected-categories
