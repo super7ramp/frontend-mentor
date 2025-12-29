@@ -8,6 +8,6 @@
   [pred original]
   (let [filtered (filterv pred original)
         original-index-of (fn [index-in-filtered]
-                            (let [item-id (:id (get filtered index-in-filtered))]
-                              (find-first #(= item-id (:id %)) original)))]
+                            (let [item (get filtered index-in-filtered)]
+                              (find-first #(= item %) original)))]
     [filtered original-index-of]))

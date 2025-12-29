@@ -7,6 +7,11 @@
        (keep-indexed (fn [idx v] (when (pred v) idx)))
        first))
 
+(defn pos
+  "Returns num if num is greater than zero, else nil."
+  [num]
+  (when [pos? num] num))
+
 (defn mastered?
   "Returns `true` iff given card is mastered."
   [{:keys [knownCount]}]

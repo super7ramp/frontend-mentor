@@ -79,7 +79,10 @@
                                                       (contains? selected-categories (:category %))))
                                             cards)
 
-        {:keys [selected selected-index total select-previous select-next]} (use-selector filtered-cards)
+        {:keys [selected-index 
+                select-previous
+                select-next]} (use-selector {:items filtered-cards :key-extractor :id})
+
         [current-revealed set-current-revealed] (use-state false)]
 
     ($ :div.block.deck
@@ -91,13 +94,13 @@
                             :set-mastered-hidden set-mastered-hidden
                             :shuffle #(set-cards (shuffle cards))})
 
-       ($ card-interactor {:card-data selected
+       ($ card-interactor {:card-data (get filtered-cards selected-index)
                            :revealed current-revealed
                            :set-revealed set-current-revealed
                            :set-known-count #(set-cards (assoc-in cards [(original-index-of selected-index) :knownCount] %))})
 
        ($ card-selector {:current selected-index
-                         :total total
+                         :total (count filtered-cards)
                          :select-previous #(do (select-previous)
                                                (set-current-revealed false))
                          :select-next #(do (select-next)
