@@ -11,8 +11,8 @@
 .menu-bar__tabs {
     display: flex;
     align-items: center;
-    gap: var(--spacing-25);
-    padding: var(--spacing-25);
+    gap: var(--spacing-50);
+    padding: var(--spacing-50);
 
     border: var(--border-solid);
     border-radius: var(--radius-full);
