@@ -10,8 +10,7 @@
     border-right-width: 3px;
     border-bottom-width: 3px;
     width: 100%;
-    /* TODO fix height */
-    height: 300px;
+    flex-basis: 20rem;
     background:
         url("/assets/images/pattern-flashcard-bg.svg"),
         left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
