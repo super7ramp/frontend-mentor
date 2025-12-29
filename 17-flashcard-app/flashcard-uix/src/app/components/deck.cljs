@@ -15,13 +15,13 @@
       (= 1 selected-count) "One Category"
       :else (str selected-count " Categories"))))
 
-(defui select-categories [{:keys [categories selected-categories set-selected-categories]}]
-  (let [options (->> categories
-                     (mapv #(hash-map :value %
-                                      ; TODO count by category
-                                      :complement "(1)"
-                                      :selected (or (= selected-categories ::all-categories)
-                                                    (contains? selected-categories %)))))]
+(defui select-categories [{:keys [category-frequencies selected-categories set-selected-categories]}]
+  (let [options (->> category-frequencies
+                     (map (fn [[category freq]]
+                            {:value category
+                             :complement (str "(" freq ")")
+                             :selected (or (= selected-categories ::all-categories)
+                                           (contains? selected-categories category))})))]
     ($ select {:id "select-categories"
                :label (select-categories-button-label options)
                :options options
@@ -29,11 +29,11 @@
                             (set-selected-categories
                              (cond
                                selected (conj selected-categories category)
-                               (= selected-categories ::all-categories) (disj categories category)
+                               (= selected-categories ::all-categories) (disj (set (keys category-frequencies)) category)
                                (> (count selected-categories) 1) (disj selected-categories category)
                                :else ::all-categories)))})))
 
-(defui deck-transformer [{:keys [categories
+(defui deck-transformer [{:keys [category-frequencies
                                  selected-categories
                                  set-selected-categories
                                  shuffle
@@ -41,7 +41,7 @@
                                  set-mastered-hidden]}]
   ($ :div.deck-transformer
      ($ :div.deck-filter
-        ($ select-categories {:categories categories
+        ($ select-categories {:category-frequencies category-frequencies
                               :selected-categories selected-categories
                               :set-selected-categories set-selected-categories})
         ($ :div.deck-filter__hide-mastered
@@ -64,9 +64,9 @@
 
 (defui card-selector [{:keys [current total select-previous select-next]}]
   ($ :div.card-selector
-     ($ :button.card-selector__previous {:on-click select-previous})
+     ($ :button.card-selector__previous {:title "Previous" :on-click select-previous})
      ($ :p "Card " (inc current) " of " total)
-     ($ :button.card-selector__next {:on-click select-next})))
+     ($ :button.card-selector__next {:title "Next" :on-click select-next})))
 
 (defui deck []
   (let [[cards set-cards] (use-cards)
@@ -80,7 +80,7 @@
                                                       (contains? selected-categories (:category %))))
                                             cards)
 
-        {:keys [selected-index 
+        {:keys [selected-index
                 select-previous
                 select-next]} (use-selector {:items filtered-cards :key-extractor :id})
 
@@ -88,7 +88,7 @@
 
     ($ :div.block.deck
 
-       ($ deck-transformer {:categories (into (sorted-set) (map :category) cards)
+       ($ deck-transformer {:category-frequencies (->> cards (map :category) frequencies sort)
                             :selected-categories selected-categories
                             :set-selected-categories set-selected-categories
                             :mastered-hidden mastered-hidden
