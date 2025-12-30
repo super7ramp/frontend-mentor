@@ -9,7 +9,7 @@
     width: 40px;
 }
 
-.menu-bar__tabs {
+.menu-bar__nav {
     display: flex;
     align-items: center;
     gap: var(--spacing-50);
@@ -22,17 +22,18 @@
     background-color: var(--neutral-0);
 }
 
-.menu-bar__tab-item {
+.menu-bar__link {
     border-radius: var(--radius-full);
     padding: 12px var(--spacing-100);
+    text-decoration: none;
 }
 
-.menu-bar__tab-item:hover,
-.menu-bar__tab-item:has(input:checked) {
-    outline: solid 1px var(--neutral-900);
+.menu-bar__link:hover,
+.menu-bar__link--active {
+    outline: var(--border-solid);
 }
 
-.menu-bar__tab-item:has(input:checked) {
+.menu-bar__link--active {
     background-color: var(--yellow-500);
 }
 

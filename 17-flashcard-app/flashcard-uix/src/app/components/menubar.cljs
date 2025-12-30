@@ -1,29 +1,21 @@
 (ns app.components.menubar
-  (:require  [uix.core :as uix :refer [$ defui use-state]]))
+  (:require ["react-router" :as react.router :refer [NavLink]]
+            [uix.core :refer [$ defui]]))
 
 (defui logo []
   ($ :img.menu-bar__logo {:src "/assets/images/logo-small.svg"
                           :alt "Flashcard Logo"}))
 
-(defui tabs [{:keys [mode set-mode]}]
-  ($ :fieldset.menu-bar__tabs
-     ($ :div.menu-bar__tab-item
-        ($ :input {:type "radio"
-                   :name "mode"
-                   :id "study-mode"
-                   :checked (= mode :study)
-                   :on-change #(set-mode :study)})
-        ($ :label.text-preset-4--semi-bold {:for "study-mode" :tabIndex "0"} "Study Mode"))
-     ($ :div.menu-bar__tab-item
-        ($ :input {:type "radio"
-                   :name "mode"
-                   :id "all-cards"
-                   :checked (= mode :edit)
-                   :on-change #(set-mode :edit)})
-        ($ :label.text-preset-4--semi-bold {:for "all-cards" :tabIndex "0"} "All Cards"))))
+(defn- link-classes [props]
+  (let [is-active (get (js->clj props) "isActive")]
+    (str "menu-bar__link text-preset-4--semi-bold" (when is-active " menu-bar__link--active"))))
 
-(defui menubar [{:keys [mode set-mode]}]
-  (do (prn "set-mode menubar" set-mode)
-      ($ :div.menu-bar
-         ($ logo)
-         ($ tabs {:mode mode :set-mode set-mode}))))
+(defui links []
+  ($ :nav.menu-bar__nav
+     ($ NavLink {:to "/" :class-name link-classes} "Study Mode")
+     ($ NavLink {:to "/edit" :class-name link-classes} "All Cards")))
+
+(defui menubar []
+  ($ :div.menu-bar
+     ($ logo)
+     ($ links)))
