@@ -1,6 +1,7 @@
 #create-form {
     padding: var(--spacing-250);
     display: grid;
+    min-width: min-content;
     gap: var(--spacing-200);
 }
 
@@ -38,4 +39,5 @@
 .create-form__submit {
     --icon-before-button: url("/assets/images/icon-circle-plus.svg") / "Submit";
     background-color: var(--yellow-500);
+    justify-self: flex-start;
 }
