@@ -110,6 +110,32 @@ When implementing progress bar. TODO.
 
 Because native select is hard to style. TODO.
 
+#### Customizing checkboxes
+
+Checkboxes are not the easiest things to style but with `appareance: none` and a background image for the tick, it's ok:
+
+```css
+input[type=checkbox] {
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border: var(--border-solid);
+    border-radius: var(--radius-4);
+}
+
+input[type=checkbox]:checked {
+    background-color: var(--yellow-500);
+    background-image: url("data:image/svg+xml,%3Csvg width='9' height='7' viewBox='0 0 9 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.98828 0.0976562C8.08594 0 8.24219 0 8.32031 0.0976562L8.88672 0.644531C8.96484 0.742188 8.96484 0.898438 8.88672 0.976562L3.02734 6.83594C2.92969 6.93359 2.79297 6.93359 2.69531 6.83594L0.078125 4.23828C0 4.14062 0 3.98438 0.078125 3.90625L0.644531 3.33984C0.722656 3.26172 0.878906 3.26172 0.976562 3.33984L2.85156 5.23438L7.98828 0.0976562Z' fill='%232E1401'/%3E%3C/svg%3E%0A");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 62.5%;
+}
+
+input[type=checkbox]:not(:focus):hover {
+    box-shadow: 1px 1px 0 var(--neutral-900);
+}
+```
+
 #### CSS without SCSS is not as nice
 
 I went full CSS because the UIx template didn't setup SCSS and I didn't want to spend more time on tool setup. I took that like an opportunity to try again a "vanilla CSS" approach.
@@ -138,7 +164,7 @@ my-block {
 
 ##### Mixins
 
-Not available yet in any browser. It's a shame, I really like composing CSS classes using SCSS mixins, instead of multiplying references to utility classes inside the HTML.
+Not available yet in any browser. It's a shame, I really like composing CSS classes using SCSS mixins, instead of composing utility classes inside the HTML.
 
 ### Continued development
 
