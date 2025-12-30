@@ -2,15 +2,16 @@
   (:require [app.providers.cards :refer [cards-provider]]
             [app.pages.edit :refer [edit]]
             [app.pages.study :refer [study]]
-            [uix.core :as uix :refer [$ defui use-state]]
+            ["react-router" :refer [BrowserRouter Routes Route]]
+            [uix.core :as uix :refer [$ defui]]
             [uix.dom]))
 
-(defui app [] 
+(defui app []
   ($ cards-provider
-     (let [[mode set-mode] (use-state :study)]
-       (case mode
-         :study ($ study {:set-mode set-mode})
-         :edit ($ edit {:set-mode set-mode})))))
+     ($ BrowserRouter
+        ($ Routes
+           ($ Route {:path "/" :element ($ study)})
+           ($ Route {:path "/edit" :element ($ edit)})))))
 
 (defonce root
   (uix.dom/create-root (js/document.getElementById "root")))

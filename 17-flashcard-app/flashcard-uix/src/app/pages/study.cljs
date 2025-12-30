@@ -3,9 +3,9 @@
             [app.components.menubar :refer [menubar]]
             [app.components.stats :refer [stats]]
             [app.layout :refer [layout]]
-            [uix.core :as uix :refer [defui $]]))
+            [uix.core :refer [$ defui]]))
 
-(defui study [{:keys [set-mode]}]
-  ($ layout {:header ($ menubar {:mode :study :set-mode set-mode})
+(defui study []
+  ($ layout {:header ($ menubar)
              :main ($ deck)
              :aside ($ stats)}))

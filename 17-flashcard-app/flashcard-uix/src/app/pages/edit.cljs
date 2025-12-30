@@ -1,8 +1,8 @@
 (ns app.pages.edit
   (:require [app.components.menubar :refer [menubar]]
             [app.layout :refer [layout]]
-            [uix.core :as uix :refer [defui $]]))
+            [uix.core :refer [$ defui]]))
 
-(defui edit [{:keys [set-mode]}]
-  ($ layout {:header ($ menubar {:mode :edit :set-mode set-mode})
+(defui edit []
+  ($ layout {:header ($ menubar)
              :main ($ :p "all cards here!")}))
