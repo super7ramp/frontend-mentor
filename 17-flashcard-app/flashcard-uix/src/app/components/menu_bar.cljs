@@ -1,4 +1,4 @@
-(ns app.components.menubar
+(ns app.components.menu-bar
   (:require ["react-router" :as react.router :refer [NavLink]]
             [uix.core :refer [$ defui]]))
 
@@ -15,7 +15,7 @@
      ($ NavLink {:to "/" :class-name link-classes} "Study Mode")
      ($ NavLink {:to "/edit" :class-name link-classes} "All Cards")))
 
-(defui menubar []
+(defui menu-bar []
   ($ :div.menu-bar
      ($ logo)
      ($ links)))

@@ -1,5 +1,5 @@
 (ns app.components.card
-  (:require [app.components.progressbar :refer [progress-bar]]
+  (:require [app.components.progress-bar :refer [progress-bar]]
             [uix.core :as uix :refer [defui $]]))
 
 (defui card-recto [{:keys [question category knownCount set-revealed]}]

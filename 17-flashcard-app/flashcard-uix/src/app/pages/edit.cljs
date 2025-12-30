@@ -1,8 +1,8 @@
 (ns app.pages.edit
-  (:require [app.components.menubar :refer [menubar]]
+  (:require [app.components.menu-bar :refer [menu-bar]]
             [app.layout :refer [layout]]
             [uix.core :refer [$ defui]]))
 
 (defui edit []
-  ($ layout {:header ($ menubar)
+  ($ layout {:header ($ menu-bar)
              :main ($ :p "all cards here!")}))
