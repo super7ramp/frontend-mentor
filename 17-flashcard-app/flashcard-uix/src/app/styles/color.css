@@ -16,6 +16,10 @@
     color: var(--neutral-900);
 }
 
+*:focus {
+    outline-color: var(--blue-600);
+}
+
 body {
     background-color: var(--neutral-100);
 }
