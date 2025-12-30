@@ -1,5 +1,5 @@
 (ns app.components.menu-bar
-  (:require ["react-router" :as react.router :refer [NavLink]]
+  (:require ["react-router" :refer [NavLink]]
             [uix.core :refer [$ defui]]))
 
 (defui logo []
