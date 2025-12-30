@@ -1,4 +1,4 @@
-button, input {
+button, input[type=checkbox] {
     outline-offset: 2px;
 }
 
@@ -61,4 +61,29 @@ input[type=checkbox]:checked {
 
 input[type=checkbox]:not(:focus):hover {
     box-shadow: 1px 1px 0 var(--neutral-900);
+}
+
+*::placeholder {
+    color: var(--neutral-600);
+}
+
+input[type=text], textarea {
+    padding: var(--spacing-100);
+    border: var(--border-solid);
+    border-radius: var(--radius-6);
+    outline: none;
+}
+
+input[type=text]:hover, textarea:hover {
+    box-shadow: 2px 2px 0 var(--neutral-900);
+}
+
+input[type=text]:user-invalid, textarea:user-invalid {
+    border-color: var(--pink-700);
+    box-shadow: 2px 2px 0 var(--pink-700);
+}
+
+input[type=text]:focus, textarea:focus {
+    border-color: var(--blue-600);
+    box-shadow: 2px 2px 0 var(--blue-600);
 }

@@ -138,7 +138,7 @@ input[type=checkbox]:not(:focus):hover {
 
 #### CSS without SCSS is not as nice
 
-I went full CSS because the UIx template didn't setup SCSS and I didn't want to spend more time on tool setup. I took that like an opportunity to try again a "vanilla CSS" approach.
+I went full CSS because the UIx template didn't setup SCSS and I didn't want to spend more time on tool setup. I took that like an opportunity to try again a "vanilla CSS" approach and see what can be done with modern CSS.
 
 ##### Nesting
 
@@ -164,7 +164,7 @@ my-block {
 
 ##### Mixins
 
-Not available yet in any browser. It's a shame, I really like composing CSS classes using SCSS mixins, instead of composing utility classes inside the HTML.
+Not available yet in any browser. It's a shame, I really like composing SCSS mixins in CSS classes, instead of composing utility classes inside the HTML.
 
 ### Continued development
 
