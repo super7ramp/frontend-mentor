@@ -1,0 +1,21 @@
+.deck-transformer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--spacing-150) var(--spacing-200);
+}
+
+.deck-transformer__shuffle {
+    --icon-before-button: url("/assets/images/icon-shuffle.svg");
+}
+
+.deck-filter {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-125);
+}
+
+.deck-filter__hide-mastered {
+    display: flex;
+    gap: var(--spacing-100);
+}
