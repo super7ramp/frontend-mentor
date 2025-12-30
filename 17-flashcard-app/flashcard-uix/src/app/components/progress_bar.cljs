@@ -1,4 +1,4 @@
-(ns app.components.progressbar
+(ns app.components.progress-bar
   (:require [uix.core :refer [defui $]]))
 
 (defui progress-bar [{:keys [known-count]}]
