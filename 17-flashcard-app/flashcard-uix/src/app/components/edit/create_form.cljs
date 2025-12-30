@@ -1,4 +1,4 @@
-(ns app.components.create-form
+(ns app.components.edit.create-form
   (:require  [uix.core :refer [$ defui]]))
 
 (defui create-form []

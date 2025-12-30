@@ -1,5 +1,5 @@
-(ns app.components.deck
-  (:require [app.components.card :refer [card]]
+(ns app.components.study.deck
+  (:require [app.components.study.card :refer [card]]
             [app.components.deck-transformer :refer [deck-transformer]]
             [app.hooks.use-deck :refer [use-deck]]
             [app.hooks.use-selector :refer [use-selector]]

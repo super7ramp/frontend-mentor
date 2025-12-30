@@ -1,4 +1,4 @@
-(ns app.components.card
+(ns app.components.study.card
   (:require [app.components.progress-bar :refer [progress-bar]]
             [uix.core :as uix :refer [defui $]]))
 

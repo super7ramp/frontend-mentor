@@ -1,4 +1,4 @@
-(ns app.components.stats
+(ns app.components.study.stats
   (:require [app.hooks.use-cards :refer [use-cards]]
             [app.utils :refer [in-progress? mastered? not-started?]]
             [clojure.string :as str]

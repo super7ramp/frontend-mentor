@@ -1,4 +1,4 @@
-(ns app.components.deck-explorer
+(ns app.components.edit.deck-explorer
   (:require [app.components.deck-transformer :refer [deck-transformer]]
             [app.hooks.use-deck :refer [use-deck]]
             [uix.core :refer [$ defui]]))
