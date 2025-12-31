@@ -4,7 +4,13 @@
             [app.hooks.use-deck :refer [use-deck]]
             [uix.core :refer [$ defui use-state]]))
 
-(defui deck-explorer [{:keys [display-chunk-size] :or {display-chunk-size 7}}]
+(defui deck-explorer
+  "
+   A component allowing to explore the deck of cards.
+
+   Cards may be displayed progressively using the `display-chunk-size` parameter.
+  "
+  [{:keys [display-chunk-size] :or {display-chunk-size 7}}]
   (let [{:keys [cards shuffle category-frequencies filters]} (use-deck)
         [displayed-count set-displayed-count] (use-state display-chunk-size)
         more-to-display (< displayed-count (count cards))]

@@ -19,7 +19,9 @@
         ($ :p.text-preset-1--mobile answer))
      ($ progress-bar {:known-count knownCount})))
 
-(defui card [{:keys [card-data revealed set-revealed]}]
+(defui card
+  "A flashcard ⚡ Two sides: recto contains the question, verso contains the answer."
+  [{:keys [card-data revealed set-revealed]}]
   (let [card-data-and-set-revealed (assoc card-data :set-revealed set-revealed)]
     (if-not revealed
       ($ card-recto card-data-and-set-revealed)

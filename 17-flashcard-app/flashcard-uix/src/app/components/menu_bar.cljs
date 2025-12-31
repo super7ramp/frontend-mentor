@@ -14,7 +14,9 @@
      ($ NavLink {:to "/" :class-name link-classes} "Study Mode")
      ($ NavLink {:to "/edit" :class-name link-classes} "All Cards")))
 
-(defui menu-bar []
+(defui menu-bar
+  "The menu bar."
+  []
   ($ :div.menu-bar
      ($ logo)
      ($ links)))

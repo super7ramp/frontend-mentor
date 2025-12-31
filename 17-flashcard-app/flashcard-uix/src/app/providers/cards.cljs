@@ -10,7 +10,10 @@
 
 (def ^:dynamic *cards* (create-context []))
 
-(defui cards-provider [{:keys [children]}]
+(defui cards-provider
+  "Provides cards retrieved from local storage or remote API, via the `*cards*` context."
+  ; TODO implement local storage
+  [{:keys [children]}]
   (let [[cards set-cards] (use-state [])
         _ (use-effect #(-> (fetch-data) (.then set-cards)) [])]
     ($ *cards* {:value [cards set-cards]}

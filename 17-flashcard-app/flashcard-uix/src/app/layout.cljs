@@ -1,7 +1,9 @@
 (ns app.layout
   (:require [uix.core :refer [defui $]]))
 
-(defui layout [{:keys [header main aside]}]
+(defui layout
+  "A generic layout for the app pages."
+  [{:keys [header main aside]}]
   ($ :div.layout
      ($ :header header)
      ($ :main main)

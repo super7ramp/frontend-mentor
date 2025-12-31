@@ -3,7 +3,9 @@
             [app.components.progress-bar :refer [progress-bar]]
             [uix.core :refer [$ defui]]))
 
-(defui card-summary [{:keys [question answer category knownCount]}]
+(defui card-summary
+  "A card summary inside the deck explorer, with an access to the edit form."
+  [{:keys [question answer category knownCount]}]
   ($ :article.block.card-summary
      ($ :h2.text-preset-3 question)
      ($ :div.text-preset-5

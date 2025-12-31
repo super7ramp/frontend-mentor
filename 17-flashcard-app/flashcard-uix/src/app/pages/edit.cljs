@@ -5,7 +5,9 @@
             [app.layout :refer [layout]]
             [uix.core :refer [$ defui]]))
 
-(defui edit []
+(defui edit
+  "The edit page."
+  []
   ($ layout {:header ($ menu-bar)
              :main ($ create-form)
              :aside ($ deck-explorer)}))
