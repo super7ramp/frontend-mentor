@@ -1,6 +1,6 @@
 (ns app.components.edit.deck-explorer
-  (:require [app.components.edit.card-summary :refer [card-summary]]
-            [app.components.deck-transformer :refer [deck-transformer]]
+  (:require [app.components.deck-transformer :refer [deck-transformer]]
+            [app.components.edit.card-summary :refer [card-summary]]
             [app.hooks.use-deck :refer [use-deck]]
             [uix.core :refer [$ defui use-state]]))
 

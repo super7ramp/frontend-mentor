@@ -21,7 +21,7 @@
                       (set-cards (assoc cards pos updated-card))))
 
      :add-card (fn [new-card]
-                 (let [new-card-with-id (assoc new-card :id (random-uuid))]
+                 (let [new-card-with-id (assoc new-card :id (random-uuid) :knownCount 0)]
                    (set-cards (conj cards new-card-with-id))))
 
      :delete-card (fn [{:keys [id]}]
