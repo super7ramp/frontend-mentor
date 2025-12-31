@@ -45,23 +45,23 @@ Users should be able to:
 
 #### Filtering & Organization
 
-- Filter flashcards by selecting one or multiple categories
-- See the number of cards in each category within the filter dropdown
-- Hide mastered cards to focus on cards that still need practice
-- Shuffle flashcards to randomize the study order
+- [x] Filter flashcards by selecting one or multiple categories
+- [x] See the number of cards in each category within the filter dropdown
+- [x] Hide mastered cards to focus on cards that still need practice
+- [x] Shuffle flashcards to randomize the study order
 
 #### Statistics & Progress
 
-- View study statistics showing total cards, mastered, in progress, and not started counts
+- [x] View study statistics showing total cards, mastered, in progress, and not started counts
 
 #### UI & Navigation
 
-- Toggle between Study Mode and All Cards views
-- Load more flashcards when viewing the full card list with more than 12 cards
-- See a toast message when a card is created, updated, or deleted
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
-- Navigate the entire app using only their keyboard
+- [x] Toggle between Study Mode and All Cards views
+- [x] Load more flashcards when viewing the full card list with more than 12 cards
+- [x] See a toast message when a card is created, updated, or deleted
+- [ ] View the optimal layout for the interface depending on their device's screen size
+- [ ] See hover and focus states for all interactive elements on the page
+- [ ] Navigate the entire app using only their keyboard
 
 ### Screenshot
 
