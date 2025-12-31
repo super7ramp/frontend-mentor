@@ -1,5 +1,16 @@
+.deck-explorer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
+}
+
 .deck-explorer__card-summaries {
     list-style-type: none;
     display: grid;
     gap: var(--spacing-250);
+}
+
+.deck-explorer__load-more {
+    margin-top: var(--spacing-200);
+    align-self: center;
 }
