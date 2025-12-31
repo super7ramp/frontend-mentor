@@ -26,22 +26,22 @@ Users should be able to:
 
 #### Flashcard Management
 
-- Create new flashcards with a question, answer, and category
-- Edit existing flashcards to update their details
-- Delete flashcards they no longer need
-- See form validation messages when trying to submit a card without all fields completed
-- View all their flashcards in a grid layout
-- See flashcard details including question, answer, category, and mastery progress
+- [x] Create new flashcards with a question, answer, and category
+- [ ] Edit existing flashcards to update their details
+- [ ] Delete flashcards they no longer need
+- [x] See form validation messages when trying to submit a card without all fields completed
+- [x] View all their flashcards in a grid layout
+- [x] See flashcard details including question, answer, category, and mastery progress
 
 #### Study Mode
 
-- Study flashcards one at a time in Study Mode
-- Click on a flashcard to reveal the answer
-- Mark a flashcard as known by clicking "I Know This" to track mastery progress
-- Navigate between flashcards using Previous and Next buttons
-- See which card they're currently viewing (e.g., "Card 1 of 40")
-- Track mastery progress for each card on a scale of 0 to 5
-- Reset progress on a flashcard to start learning it again
+- [x] Study flashcards one at a time in Study Mode
+- [x] Click on a flashcard to reveal the answer
+- [x] Mark a flashcard as known by clicking "I Know This" to track mastery progress
+- [x] Navigate between flashcards using Previous and Next buttons
+- [x] See which card they're currently viewing (e.g., "Card 1 of 40")
+- [x] Track mastery progress for each card on a scale of 0 to 5
+- [x] Reset progress on a flashcard to start learning it again
 
 #### Filtering & Organization
 
@@ -97,6 +97,8 @@ TODO
 #### UIx
 
 TODO
+
+There is no built-in way to convert a `FormData` to a ClojureScript map 
 
 #### Compose backgrounds
 

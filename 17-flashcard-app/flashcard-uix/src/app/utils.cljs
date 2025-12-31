@@ -7,6 +7,11 @@
        (keep-indexed (fn [idx v] (when (pred v) idx)))
        first))
 
+(defn formdata->map
+  "Convers a `FormData` js object into a map. Keys are keywordized."
+  [^js form-data]
+  (into {} (for [[k v] (.entries form-data)] [(keyword k) v])))
+
 (defn pos
   "Returns num if num is greater than zero, else nil."
   [num]
