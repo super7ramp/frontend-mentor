@@ -1,7 +1,9 @@
 (ns app.components.edit.create-form
   (:require [uix.core :refer [$ defui]]))
 
-(defui create-form []
+(defui create-form
+  "A form allowing to create a new card."
+  []
   ($ :form#create-form.block {:action #(js/console.log "Submitted!" %)}
 
      ($ :div.create-form__entry

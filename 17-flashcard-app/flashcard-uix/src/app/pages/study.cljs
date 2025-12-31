@@ -5,7 +5,9 @@
             [app.layout :refer [layout]]
             [uix.core :refer [$ defui]]))
 
-(defui study []
+(defui study
+  "The study page."
+  []
   ($ layout {:header ($ menu-bar)
              :main ($ deck)
              :aside ($ stats)}))

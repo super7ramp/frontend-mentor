@@ -11,6 +11,7 @@
         value " " ($ :span.select__option-label-complement complement))))
 
 (defui select
+  "A good-looking, multiple selection, non-native select element."
   [{:keys [id label options on-change]}]
   ($ :div.select
      ($ :button.select__button {:popover-target id} label)

@@ -18,7 +18,9 @@
         ($ :p.text-preset-1--mobile value))
      ($ :div {:class-name (str "stat__img stat__img--" (stat-name label))})))
 
-(defui stats []
+(defui stats
+  "Statistics about the study 📈"
+  []
   (let [[cards] (use-cards)]
     ($ :div.block.stats
        ($ :h1.text-preset-2 "Study Statistics")

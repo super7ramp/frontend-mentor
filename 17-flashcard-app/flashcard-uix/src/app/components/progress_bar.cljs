@@ -2,7 +2,9 @@
   (:require [app.components.badge :refer [badge]]
             [uix.core :refer [defui $]]))
 
-(defui progress-bar [{:keys [known-count]}]
+(defui progress-bar
+  "A learning progress bar, displaying progress between 0 and 5."
+  [{:keys [known-count]}]
   (let [progress-percent (* 100 (/ known-count 5))]
     ($ :div.progress-bar
        (if (< progress-percent 100)

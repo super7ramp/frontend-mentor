@@ -28,12 +28,14 @@
                                (> (count selected-categories) 1) (disj selected-categories category)
                                :else :all-categories)))})))
 
-(defui deck-transformer [{:keys [category-frequencies
-                                 selected-categories
-                                 set-selected-categories
-                                 shuffle
-                                 mastered-hidden
-                                 set-mastered-hidden]}]
+(defui deck-transformer
+  "A component allowing to filter and shuffle a deck of cards."
+  [{:keys [category-frequencies
+           selected-categories
+           set-selected-categories 
+           mastered-hidden
+           set-mastered-hidden
+           shuffle]}]
   ($ :div.deck-transformer
      ($ :div.deck-filter
         ($ select-categories {:category-frequencies category-frequencies

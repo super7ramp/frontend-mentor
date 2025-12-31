@@ -21,7 +21,9 @@
      ($ :p "Card " (inc current) " of " total)
      ($ :button.card-selector__next {:title "Next" :on-click select-next})))
 
-(defui deck []
+(defui deck
+  "A deck of flashcard to study 📚"
+  []
   (let [{:keys [cards update-card shuffle filters category-frequencies]} (use-deck)
         {:keys [selected-index select-previous select-next]} (use-selector {:items cards :key-extractor :id})
         [current-revealed set-current-revealed] (use-state false)]
