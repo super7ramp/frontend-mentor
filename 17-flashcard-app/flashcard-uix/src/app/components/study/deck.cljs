@@ -12,7 +12,7 @@
     ($ :div.card-interactor
        ($ card props)
        ($ :div.card-buttons
-          ($ :button.with-shadow.card-buttons__i-know-this {:on-click inc-known-count} "I Know This")
+          ($ :button.primary.with-shadow.card-buttons__i-know-this {:on-click inc-known-count} "I Know This")
           ($ :button.with-shadow.card-buttons__reset {:on-click reset-known-count} "Reset Progress")))))
 
 (defui card-selector [{:keys [current total select-previous select-next]}]

@@ -33,4 +33,4 @@
                                                      :required true})
           ($ :p.text-preset-5--regular.create-form__entry-error "Please enter a category."))
 
-       ($ :button.with-shadow.create-form__submit {:type "submit"} "Create Card"))))
+       ($ :button.primary.with-shadow.create-form__submit {:type "submit"} "Create Card"))))
