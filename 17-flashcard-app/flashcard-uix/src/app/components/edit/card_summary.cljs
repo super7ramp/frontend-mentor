@@ -1,11 +1,12 @@
 (ns app.components.edit.card-summary
   (:require [app.components.badge :refer [badge]]
+            [app.components.edit.edit-menu :refer [edit-menu]]
             [app.components.progress-bar :refer [progress-bar]]
             [uix.core :refer [$ defui]]))
 
 (defui card-summary
   "A card summary inside the deck explorer, with an access to the edit form."
-  [{:keys [question answer category knownCount]}]
+  [{:keys [id question answer category knownCount] :as card}]
   ($ :article.block.card-summary
      ($ :h2.text-preset-3 question)
      ($ :div.text-preset-5
@@ -16,5 +17,7 @@
            ($ badge {:class-name "card-summary__category"} category))
         ($ :div
            ($ progress-bar {:known-count knownCount}))
-        ($ :div
-           ($ :button.card-summary__menu-button)))))
+        (let [edit-menu-id (str "edit-menu-" id)]
+          ($ :div
+             ($ :button.card-summary__menu-button {:popover-target edit-menu-id})
+             ($ edit-menu {:id edit-menu-id :card card}))))))

@@ -31,6 +31,10 @@ button {
     box-shadow: 4px 4px 0 var(--blue-600);
 }
 
+.primary {
+    background-color: var(--yellow-500);
+}
+
 button::before {
     content: var(--icon-before);
     width: var(--icon-before-width, 1rem);

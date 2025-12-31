@@ -27,7 +27,6 @@
 
 .card-buttons__i-know-this {
     --icon-before: url("/assets/images/icon-circle-check.svg");
-    background-color: var(--yellow-500);
 }
 
 .card-buttons__reset {

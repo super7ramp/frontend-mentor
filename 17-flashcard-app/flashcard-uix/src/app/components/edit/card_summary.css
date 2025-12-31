@@ -36,9 +36,15 @@
 }
 
 .card-summary__menu-button {
-    --icon-before: url("/assets/images/icon-menu.svg") / "Menu";
-    --icon-before-width: 1.5rem;
-    --icon-before-height: 1.5rem;
-    border: none;
+    background: url("/assets/images/icon-menu.svg") center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-color: transparent;
     padding: 0;
+}
+
+.card-summary__menu-button:hover {
+    border-radius: var(--radius-4);
+    box-shadow: 2px 2px 0 var(--neutral-900);
+    border-color: var(--neutral-900);
 }

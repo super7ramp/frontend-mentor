@@ -14,7 +14,7 @@
                                       (or (= selected-categories :all-categories)
                                           (contains? selected-categories (:category %))))
                                 cards)]
-    {:cards filtered-cards 
+    {:cards filtered-cards
 
      :update-card (fn [{:keys [id] :as updated-card}]
                     (when-let [pos (find-first #(= id (:id %)) cards)]

@@ -1,0 +1,3 @@
+dialog::backdrop {
+    background-color: rgb(from var(--neutral-900) r g b / 70%);
+}

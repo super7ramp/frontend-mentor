@@ -28,7 +28,7 @@ Users should be able to:
 
 - [x] Create new flashcards with a question, answer, and category
 - [ ] Edit existing flashcards to update their details
-- [ ] Delete flashcards they no longer need
+- [x] Delete flashcards they no longer need
 - [x] See form validation messages when trying to submit a card without all fields completed
 - [x] View all their flashcards in a grid layout
 - [x] See flashcard details including question, answer, category, and mastery progress

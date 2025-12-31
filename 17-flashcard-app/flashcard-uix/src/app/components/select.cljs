@@ -1,8 +1,9 @@
 (ns app.components.select
-  (:require [uix.core :refer [$ defui]]))
+  (:require [app.components.dropdown :refer [dropdown]]
+            [uix.core :refer [$ defui]]))
 
 (defui option [{:keys [value complement selected on-change]}]
-  ($ :li.select__option
+  ($ :<>
      ($ :input {:type "checkbox"
                 :id value
                 :checked selected
@@ -15,7 +16,7 @@
   [{:keys [id label options on-change]}]
   ($ :div.select
      ($ :button.select__button {:popover-target id} label)
-     ($ :ul.select__list {:popover "" :id id}
+     ($ dropdown {:id id}
         (->> options
              (map (fn [{:keys [value] :as item}]
                     ($ option (assoc item

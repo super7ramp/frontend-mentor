@@ -2,26 +2,6 @@
     --icon-after: url("/assets/images/icon-chevron-down.svg");
 }
 
-.select__list {
-    position: absolute;
-    inset: auto;
-    margin-top: var(--spacing-100);
-    border: var(--border-solid);
-    border-radius: var(--radius-8);
-    background-color: var(--neutral-0);
-    box-shadow: 0 3px 8px rgb(from var(--neutral-900) r g b / 20%);
-}
-
-.select__option {
-    padding: var(--spacing-100) var(--spacing-200);
-    display: flex;
-    gap: var(--spacing-100);
-}
-
-.select__option + .select__option {
-    border-top: var(--border-solid);
-}
-
 .select__option-label-complement {
     color: var(--neutral-600);
 }

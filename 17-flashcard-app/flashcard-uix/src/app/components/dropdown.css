@@ -1,0 +1,19 @@
+.dropdown {
+    position: absolute;
+    inset: auto;
+    margin-top: var(--spacing-100);
+    border: var(--border-solid);
+    border-radius: var(--radius-8);
+    background-color: var(--neutral-0);
+    box-shadow: 0 3px 8px rgb(from var(--neutral-900) r g b / 20%);
+}
+
+.dropdown__entry {
+    padding: var(--spacing-100) var(--spacing-200);
+    display: flex;
+    gap: var(--spacing-100);
+}
+
+.dropdown__entry + .dropdown__entry {
+    border-top: var(--border-solid);
+}
