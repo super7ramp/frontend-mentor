@@ -35,7 +35,7 @@
        ($ card-interactor {:card-data (get cards selected-index)
                            :revealed current-revealed
                            :set-revealed set-current-revealed
-                           :set-known-count #(update-card (get cards selected-index))})
+                           :set-known-count #(update-card (assoc (get cards selected-index) :knownCount %))})
 
        ($ card-selector {:current selected-index
                          :total (count cards)
