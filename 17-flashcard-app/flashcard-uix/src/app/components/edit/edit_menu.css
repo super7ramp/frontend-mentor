@@ -30,3 +30,7 @@ dialog.delete-confirmation-dialog {
     justify-content: flex-end;
     gap: var(--spacing-125);
 }
+
+.edit-dialog__heading {
+    padding: var(--spacing-250) var(--spacing-250) 0 var(--spacing-250);
+}
