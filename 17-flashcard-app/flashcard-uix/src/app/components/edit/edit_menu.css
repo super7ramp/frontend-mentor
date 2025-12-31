@@ -31,6 +31,17 @@ dialog.delete-confirmation-dialog {
     gap: var(--spacing-125);
 }
 
+.edit-dialog__close {
+    position: absolute;
+    top: var(--spacing-100);
+    right: var(--spacing-100);
+    border: none;
+    background: url("/assets/images/icon-cross.svg") center no-repeat;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+}
+
 .edit-dialog__heading {
     padding: var(--spacing-250) var(--spacing-250) 0 var(--spacing-250);
 }
