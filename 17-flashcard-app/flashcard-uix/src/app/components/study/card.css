@@ -32,14 +32,6 @@
     gap: var(--spacing-200);
 }
 
-.card__category {
-    border: var(--border-solid);
-    border-radius: var(--radius-full);
-    background-color: var(--neutral-0);
-    padding: 6px 12px;
-    box-shadow: 1px 1px 0 var(--neutral-900);
-}
-
 .card__heading {
     opacity: 80%;
 }

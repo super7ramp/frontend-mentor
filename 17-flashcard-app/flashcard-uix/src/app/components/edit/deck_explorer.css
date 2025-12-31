@@ -1,0 +1,5 @@
+.deck-explorer__card-summaries {
+    list-style-type: none;
+    display: grid;
+    gap: var(--spacing-250);
+}

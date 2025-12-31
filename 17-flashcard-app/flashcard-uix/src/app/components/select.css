@@ -1,5 +1,5 @@
 .select__button {
-    --icon-after-button: url("/assets/images/icon-chevron-down.svg");
+    --icon-after: url("/assets/images/icon-chevron-down.svg");
 }
 
 .select__list {

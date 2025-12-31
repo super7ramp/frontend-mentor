@@ -18,3 +18,8 @@
    background-color: var(--neutral-900);
    border-radius: var(--radius-full);
 }
+
+.progress-bar__badge-mastered {
+   background-color: var(--teal-400);
+   --icon-before: url("/assets/images/icon-mastered.svg");
+}
