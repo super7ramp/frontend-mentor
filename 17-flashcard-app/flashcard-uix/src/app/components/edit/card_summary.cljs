@@ -19,5 +19,6 @@
            ($ progress-bar {:known-count knownCount}))
         (let [edit-menu-id (str "edit-menu-" id)]
           ($ :div
-             ($ :button.card-summary__menu-button {:popover-target edit-menu-id})
+             ($ :button.card-summary__menu-button {:title "Open Edit Menu"
+                                                   :popover-target edit-menu-id})
              ($ edit-menu {:id edit-menu-id :card card}))))))

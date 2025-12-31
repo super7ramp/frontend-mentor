@@ -6,10 +6,16 @@
 
 (defui edit-dialog [{:keys [ref card on-submit]}]
   ($ :dialog.block {:ref ref}
-     ($ :h2.text-preset-2.edit-dialog__heading "Edit your card")
-     ($ edit-form {:card card :on-submit on-submit})))
+     ($ :button.edit-dialog__close {:title "Close"
+                                    :on-click #(.close @ref)
+                                    :auto-focus ""})
+     ($ :h2.text-preset-2.edit-dialog__heading
+        "Edit your card")
+     ($ edit-form {:card card
+                   :on-submit #(do (on-submit %)
+                                   (.close @ref))})))
 
-(defui delete-dialog [{:keys [ref on-delete on-abort]}]
+(defui delete-dialog [{:keys [ref on-delete]}]
   ($ :dialog.block.delete-confirmation-dialog {:ref ref}
      ($ :div.delete-confirmation-dialog__message
         ($ :p.text-preset-2
@@ -17,7 +23,8 @@
         ($ :p.text-preset-4--regular
            "This action can't be undone."))
      ($ :footer.delete-confirmation-dialog__buttons
-        ($ :button {:auto-focus "" :on-click on-abort}
+        ($ :button {:auto-focus ""
+                    :on-click #(.close @ref)}
            "Cancel")
         ($ :button.primary.with-shadow {:on-click on-delete}
            "Delete Card"))))
@@ -34,8 +41,6 @@
              "Delete"))
        ($ edit-dialog {:ref edit-dialog-ref
                        :card card
-                       :on-submit #(do (update-card %)
-                                       (.close @edit-dialog-ref))})
+                       :on-submit update-card})
        ($ delete-dialog {:ref delete-dialog-ref
-                         :on-delete #(delete-card card)
-                         :on-abort #(.close @delete-dialog-ref)}))))
+                         :on-delete #(delete-card card)}))))
