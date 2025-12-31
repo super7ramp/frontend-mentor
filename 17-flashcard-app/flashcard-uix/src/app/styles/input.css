@@ -32,15 +32,15 @@ button {
 }
 
 button::before {
-    content: var(--icon-before-button);
-    width: 1rem;
-    height: 1rem;
+    content: var(--icon-before);
+    width: var(--icon-before-width, 1rem);
+    height: var(--icon-before-height, 1rem);
 }
 
 button::after {
-    content: var(--icon-after-button);
-    width: 1rem;
-    height: 1rem;
+    content: var(--icon-after);
+    width: var(--icon-after-width, 1rem);
+    height: var(--icon-after-height, 1rem);
 }
 
 input[type=checkbox] {

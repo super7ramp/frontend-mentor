@@ -27,7 +27,7 @@
 }
 
 .create-form__submit {
-    --icon-before-button: url("/assets/images/icon-circle-plus.svg") / "Submit";
+    --icon-before: url("/assets/images/icon-circle-plus.svg") / "Submit";
     background-color: var(--yellow-500);
     justify-self: flex-start;
 }

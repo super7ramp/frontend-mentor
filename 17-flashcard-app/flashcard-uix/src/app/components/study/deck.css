@@ -26,12 +26,12 @@
 }
 
 .card-buttons__i-know-this {
-    --icon-before-button: url("/assets/images/icon-circle-check.svg");
+    --icon-before: url("/assets/images/icon-circle-check.svg");
     background-color: var(--yellow-500);
 }
 
 .card-buttons__reset {
-    --icon-before-button: url("/assets/images/icon-reset.svg");
+    --icon-before: url("/assets/images/icon-reset.svg");
     background-color: var(--neutral-0);
 }
 

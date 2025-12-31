@@ -6,7 +6,7 @@
 }
 
 .deck-transformer__shuffle {
-    --icon-before-button: url("/assets/images/icon-shuffle.svg");
+    --icon-before: url("/assets/images/icon-shuffle.svg");
 }
 
 .deck-filter {

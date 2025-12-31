@@ -1,5 +1,5 @@
 (ns app.components.edit.create-form
-  (:require  [uix.core :refer [$ defui]]))
+  (:require [uix.core :refer [$ defui]]))
 
 (defui create-form []
   ($ :form#create-form.block {:action #(js/console.log "Submitted!" %)}
