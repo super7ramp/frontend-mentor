@@ -4,14 +4,19 @@
             [app.hooks.use-deck :refer [use-deck]]
             [uix.core :refer [$ defui use-state]]))
 
-(defui deck-explorer []
+(defui deck-explorer [{:keys [display-chunk-size] :or {display-chunk-size 7}}]
   (let [{:keys [cards shuffle category-frequencies filters]} (use-deck)
-        [more-to-load set-more-load] (use-state true)]
-    ($ :<>
+        [displayed-count set-displayed-count] (use-state display-chunk-size)
+        more-to-display (< displayed-count (count cards))]
+    ($ :div.deck-explorer
        ($ deck-transformer {:category-frequencies category-frequencies
                             :shuffle shuffle
                             :& filters})
        ($ :ul.deck-explorer__card-summaries
-          (map #($ :li {:key (:id %)} ($ card-summary %)) cards))
-       (when more-to-load
-         ($ :button.with-shadow {:on-click #(set-more-load not)}"Load more")))))
+          (->> cards
+               (take displayed-count)
+               (map #($ :li {:key (:id %)} ($ card-summary %)))))
+       (when more-to-display
+         ($ :button.with-shadow.deck-explorer__load-more
+            {:on-click #(set-displayed-count (+ displayed-count display-chunk-size))}
+            "Load more")))))
