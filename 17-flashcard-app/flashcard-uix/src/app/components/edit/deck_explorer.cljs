@@ -10,7 +10,7 @@
 
    Cards may be displayed progressively using the `display-chunk-size` parameter.
   "
-  [{:keys [display-chunk-size] :or {display-chunk-size 7}}]
+  [{:keys [display-chunk-size] :or {display-chunk-size 12}}]
   (let [{:keys [cards shuffle category-frequencies filters]} (use-deck)
         [displayed-count set-displayed-count] (use-state display-chunk-size)
         more-to-display (< displayed-count (count cards))]
