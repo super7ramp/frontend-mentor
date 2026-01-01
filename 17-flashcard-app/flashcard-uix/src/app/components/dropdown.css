@@ -1,11 +1,23 @@
 .dropdown {
     position: absolute;
     inset: auto;
+    /*
+      On Firefox without anchor positioning support, 'margin-top' miraculously suffices to place
+      the dropdown relatively to the previous element (despite popover supposed to be on top layer 🤷).
+      So positioning "works" on Firefox as long as the "anchor" is the previous element.
+    */
     margin-top: var(--spacing-100);
     border: var(--border-solid);
     border-radius: var(--radius-8);
     background-color: var(--neutral-0);
     box-shadow: 0 3px 8px rgb(from var(--neutral-900) r g b / 20%);
+}
+
+@supports (position-area: bottom) {
+    .dropdown {
+        position-area: bottom span-right;
+        position-try-fallbacks: flip-inline;
+    }
 }
 
 .dropdown__entry {

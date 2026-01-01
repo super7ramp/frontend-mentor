@@ -29,7 +29,8 @@
               :required true
               :value (:answer modified-card)
               :on-change #(set-modified-card-field :answer (.. % -target -value))})
-          ($ :p.text-preset-5--regular.form__entry-error "Please enter an answer."))
+          ($ :p.text-preset-5--regular.form__entry-error
+             "Please enter an answer."))
 
        ($ :div.form__entry
           ($ :label {:for "category"} "Category")
@@ -40,7 +41,8 @@
               :required true
               :value (:category modified-card)
               :on-change #(set-modified-card-field :category (.. % -target -value))})
-          ($ :p.text-preset-5--regular.form__entry-error "Please enter a category."))
+          ($ :p.text-preset-5--regular.form__entry-error
+             "Please enter a category."))
 
        ($ :button.primary.with-shadow.form__submit {:type "submit"}
           "Update Card"))))
