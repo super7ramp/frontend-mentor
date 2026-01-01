@@ -7,7 +7,12 @@
 .deck-explorer__card-summaries {
     list-style-type: none;
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
     gap: var(--spacing-250);
+}
+
+.deck-explorer__card-summaries > li > * {
+    height: 100%;
 }
 
 .deck-explorer__load-more {
