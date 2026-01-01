@@ -36,7 +36,3 @@
 .menu-bar__link--active {
     background-color: var(--yellow-500);
 }
-
-input[type="radio"] {
-    display: none;
-}
