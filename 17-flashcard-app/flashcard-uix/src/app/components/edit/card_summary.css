@@ -11,6 +11,10 @@
     border-top: var(--border-solid);
 }
 
+.card-summary__answer {
+    flex-grow: 1;
+}
+
 .card-summary__answer-heading {
     margin-bottom: var(--spacing-75);
     opacity: 60%;

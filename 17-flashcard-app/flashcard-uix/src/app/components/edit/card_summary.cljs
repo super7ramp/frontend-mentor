@@ -9,7 +9,7 @@
   [{:keys [id question answer category knownCount] :as card}]
   ($ :article.block.card-summary
      ($ :h2.text-preset-3 question)
-     ($ :div.text-preset-5
+     ($ :div.text-preset-5.card-summary__answer
         ($ :p.card-summary__answer-heading "Answer:")
         ($ :p answer))
      ($ :footer.card-summary__footer
