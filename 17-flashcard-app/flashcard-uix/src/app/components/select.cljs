@@ -1,5 +1,5 @@
 (ns app.components.select
-  (:require [app.components.dropdown :refer [dropdown]]
+  (:require [app.components.dropdown :refer [dropdown dropdown-entry]]
             [uix.core :refer [$ defui]]))
 
 (defui option [{:keys [value complement selected on-change]}]
@@ -18,7 +18,7 @@
      ($ :button.select__button {:popover-target id} label)
      ($ dropdown {:id id}
         (->> options
+             (map #(assoc % :on-change on-change))
              (map (fn [{:keys [value] :as item}]
-                    ($ option (assoc item
-                                     :key value
-                                     :on-change on-change))))))))
+                    ($ dropdown-entry {:key value}
+                       ($ option item))))))))

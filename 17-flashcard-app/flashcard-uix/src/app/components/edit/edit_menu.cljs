@@ -1,5 +1,5 @@
 (ns app.components.edit.edit-menu
-  (:require [app.components.dropdown :refer [dropdown]]
+  (:require [app.components.dropdown :refer [dropdown dropdown-entry]]
             [app.components.edit.edit-form :refer [edit-form]]
             [app.hooks.use-deck :refer [use-deck]]
             [uix.core :refer [$ defui use-ref]]))
@@ -35,10 +35,12 @@
         {:keys [update-card delete-card]} (use-deck)]
     ($ :<>
        ($ dropdown {:id id :class-name "edit-menu"}
-          ($ :button.edit-menu__edit {:on-click #(.showModal @edit-dialog-ref)}
-             "Edit")
-          ($ :button.edit-menu__delete {:on-click #(.showModal @delete-dialog-ref)}
-             "Delete"))
+          ($ dropdown-entry {:key "edit"}
+             ($ :button.edit-menu__edit {:on-click #(.showModal @edit-dialog-ref)}
+                "Edit"))
+          ($ dropdown-entry {:key "delete"}
+             ($ :button.edit-menu__delete {:on-click #(.showModal @delete-dialog-ref)}
+                "Delete")))
        ($ edit-dialog {:ref edit-dialog-ref
                        :card card
                        :on-submit update-card})
