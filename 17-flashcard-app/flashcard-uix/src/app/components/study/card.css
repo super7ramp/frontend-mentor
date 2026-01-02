@@ -12,15 +12,18 @@
     border-bottom-width: 3px;
     width: 100%;
     flex-basis: 20rem;
-    background:
+    text-wrap: wrap;
+}
+
+.card, .card:hover {
+     background:
         url("/assets/images/pattern-flashcard-bg.svg"),
         left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
         right 5% bottom 90% url("/assets/images/pattern-star-blue.svg") no-repeat,
         var(--pink-400);
-    text-wrap: wrap;
 }
 
-.card--verso {
+.card--verso, .card--verso:hover {
     background:
         url("/assets/images/pattern-flashcard-bg.svg"),
         left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,

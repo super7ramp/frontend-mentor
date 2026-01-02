@@ -1,3 +1,20 @@
+dialog {
+    width: 37.5rem;
+}
+
 dialog::backdrop {
     background-color: rgb(from var(--neutral-900) r g b / 70%);
+}
+
+dialog,
+[popover] {
+    transition-behavior: display allow-discrete, overlay allow-discrete;
+    transition-duration: var(--fade-duration);
+}
+
+dialog[open],
+[popover]:popover-open {
+    @starting-style {
+        opacity: 0;
+    }
 }

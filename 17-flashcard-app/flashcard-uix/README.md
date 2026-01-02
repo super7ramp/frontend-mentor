@@ -59,9 +59,9 @@ Users should be able to:
 - [x] Toggle between Study Mode and All Cards views
 - [x] Load more flashcards when viewing the full card list with more than 12 cards
 - [x] See a toast message when a card is created, updated, or deleted
-- [ ] View the optimal layout for the interface depending on their device's screen size
-- [ ] See hover and focus states for all interactive elements on the page
-- [ ] Navigate the entire app using only their keyboard
+- [x] View the optimal layout for the interface depending on their device's screen size
+- [x] See hover and focus states for all interactive elements on the page
+- [x] Navigate the entire app using only their keyboard
 
 ### Screenshot
 
@@ -179,7 +179,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 ### Useful resources
 
 - [Kevin Powell's video on anchor positioning](https://www.youtube.com/watch?v=DNXEORSk4GU) - Nice introduction to anchor positioning, also addresses compatibility (polyfills)
-- [Anchoreum](https://anchoreum.com/) - A playful introduction to anchor positioning, in the style of Flexbox Froggy and Grid Garden
+- [Anchoreum](https://anchoreum.com/) - A playful introduction to anchor positioning, in the style of Flexbox Froggy and Grid Garden7
+- [Animating dialog and popover elements with CSS `@starting-style`](https://blog.logrocket.com/animating-dialog-popover-elements-css-starting-style/) - Title says it all.
 - [MDN](https://developer.mozilla.org/fr/) - Always, consulted approximately a billion times.
 
 ## Author

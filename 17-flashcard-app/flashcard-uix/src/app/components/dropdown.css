@@ -26,6 +26,11 @@
     gap: var(--spacing-100);
 }
 
+.dropdown__entry:hover,
+.dropdown__entry:hover > * {
+    background-color: var(--neutral-100);
+}
+
 .dropdown__entry + .dropdown__entry {
     border-top: var(--border-solid);
 }
