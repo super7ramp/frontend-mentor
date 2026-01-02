@@ -8,4 +8,5 @@
      ($ :header header)
      ($ :div.content-wrapper
         ($ :main main)
-        ($ :aside aside))))
+        (when aside
+          ($ :aside aside)))))

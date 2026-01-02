@@ -9,5 +9,6 @@
   "The edit page."
   []
   ($ layout {:header ($ menu-bar)
-             :main ($ create-form)
-             :aside ($ deck-explorer)}))
+             :main ($ :<>
+                      ($ create-form)
+                      ($ deck-explorer))}))

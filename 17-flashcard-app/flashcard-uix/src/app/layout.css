@@ -13,6 +13,8 @@
 
 main {
     flex: 1 1 66%;
+    display: grid;
+    gap: var(--spacing-300);
 }
 
 aside {
