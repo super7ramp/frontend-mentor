@@ -4,3 +4,17 @@
     gap: var(--spacing-300);
     padding: var(--spacing-200);
 }
+
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-300);
+}
+
+main {
+    flex: 1 1 66%;
+}
+
+aside {
+    flex: 1 1 24.5rem;
+}
