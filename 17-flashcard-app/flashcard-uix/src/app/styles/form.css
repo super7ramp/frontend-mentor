@@ -5,6 +5,18 @@ form {
     gap: var(--spacing-200);
 }
 
+@media (min-width: 48rem) {
+    form {
+        padding: var(--spacing-300);
+    }
+}
+
+@media (min-width: 64rem) {
+    form {
+        padding: var(--spacing-400);
+    }
+}
+
 form button[type=submit] {
     justify-self: flex-start;
 }

@@ -73,7 +73,7 @@ input[type=checkbox]:not(:focus):hover {
 }
 
 input[type=text], textarea {
-    padding: var(--spacing-100);
+    padding: var(--spacing-200);
     border: var(--border-solid);
     border-radius: var(--radius-6);
     outline: none;

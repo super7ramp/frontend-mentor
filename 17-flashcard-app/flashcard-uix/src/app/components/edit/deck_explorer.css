@@ -1,7 +1,13 @@
 .deck-explorer {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-300);
+    gap: var(--spacing-250);
+}
+
+@media (min-width: 48rem) {
+    .deck-explorer {
+        gap: var(--spacing-300);
+    }
 }
 
 .deck-explorer__card-summaries {
@@ -11,7 +17,7 @@
     gap: var(--spacing-250);
 }
 
-.deck-explorer__card-summaries > li > * {
+.deck-explorer__card-summaries>li>* {
     height: 100%;
 }
 

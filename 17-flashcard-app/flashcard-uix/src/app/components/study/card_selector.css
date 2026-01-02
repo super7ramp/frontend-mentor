@@ -6,6 +6,12 @@
     padding: var(--spacing-200);
 }
 
+@media (min-width: 48rem) {
+    .card-selector {
+        padding: var(--spacing-250);
+    }
+}
+
 .card-selector-button {
     height: 2.5rem;
     width: 2.5rem;

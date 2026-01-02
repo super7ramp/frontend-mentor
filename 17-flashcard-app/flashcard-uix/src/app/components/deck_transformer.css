@@ -6,6 +6,12 @@
     padding: var(--spacing-150) var(--spacing-200);
 }
 
+@media (min-width: 48rem) {
+    .deck-transformer {
+        padding: var(--spacing-250);
+    }
+}
+
 .deck-transformer__shuffle {
     --icon-before: url("/assets/images/icon-shuffle.svg");
 }
