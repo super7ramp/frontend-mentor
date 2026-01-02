@@ -1,5 +1,6 @@
 (ns app.providers.cards
-  (:require [uix.core :refer [$ create-context defui use-effect use-state]]))
+  (:require [app.hooks.use-local-storage :refer [use-local-storage]]
+            [uix.core :refer [$ create-context defui use-callback use-effect use-state]]))
 
 (defn- fetch-data []
   (-> (js/fetch "data/data.json")
@@ -12,9 +13,15 @@
 
 (defui cards-provider
   "Provides cards retrieved from local storage or remote API, via the `*cards*` context."
-  ; TODO implement local storage
   [{:keys [children]}]
   (let [[cards set-cards] (use-state [])
-        _ (use-effect #(-> (fetch-data) (.then set-cards)) [])]
-    ($ *cards* {:value [cards set-cards]}
+        [get-stored-cards store-cards] (use-local-storage "cards")
+        set-and-store-cards (use-callback #(do (set-cards %)
+                                               (store-cards %))
+                                          [store-cards])
+        _ (use-effect #(if-let [saved-cards (get-stored-cards)]
+                         (set-cards saved-cards)
+                         (-> (fetch-data) (.then set-and-store-cards)))
+                      [get-stored-cards set-and-store-cards])]
+    ($ *cards* {:value [cards set-and-store-cards]}
        children)))
