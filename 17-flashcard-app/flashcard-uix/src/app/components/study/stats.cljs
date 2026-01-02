@@ -15,7 +15,7 @@
   ($ :article.stat
      ($ :div.stat__label-value
         ($ :h2.text-preset-4--medium label)
-        ($ :p.text-preset-1--mobile value))
+        ($ :p.text-preset-1 value))
      ($ :div {:class-name (str "stat__img stat__img--" (stat-name label))})))
 
 (defui stats

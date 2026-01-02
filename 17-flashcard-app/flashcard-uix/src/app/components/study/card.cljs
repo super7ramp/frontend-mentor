@@ -7,7 +7,7 @@
   ($ :button.card {:on-click #(set-revealed true)}
      ($ badge category)
      ($ :div.card__body
-        ($ :p.text-preset-1--mobile question)
+        ($ :p.text-preset-1 question)
         ($ :p.card__heading.text-preset-4--medium "Click to reveal answer"))
      ($ progress-bar {:known-count knownCount})))
 
@@ -16,7 +16,7 @@
      ($ badge category)
      ($ :div.card__body
         ($ :p.card__heading.text-preset-4--medium "Answer:")
-        ($ :p.text-preset-1--mobile answer))
+        ($ :p.text-preset-1 answer))
      ($ progress-bar {:known-count knownCount})))
 
 (defui card

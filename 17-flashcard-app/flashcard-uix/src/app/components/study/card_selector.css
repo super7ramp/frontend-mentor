@@ -1,0 +1,35 @@
+.card-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--spacing-200);
+}
+
+.card-selector-button {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.card-selector-button__text {
+    display: none;
+}
+
+@media (min-width: 48rem) {
+    .card-selector-button {
+        height: auto;
+        width: auto;
+    }
+
+    .card-selector-button__text {
+        display: inline;
+    }
+}
+
+.card-selector__previous {
+    --icon-before: url("/assets/images/icon-chevron-left.svg");
+}
+
+.card-selector__next {
+    --icon-after: url("/assets/images/icon-chevron-right.svg");
+}

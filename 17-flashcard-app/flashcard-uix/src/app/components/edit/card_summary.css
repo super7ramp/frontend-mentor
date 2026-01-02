@@ -45,6 +45,7 @@
     height: 1.5rem;
     border-color: transparent;
     padding: 0;
+    align-self: center;
 }
 
 .card-summary__menu-button:hover {
