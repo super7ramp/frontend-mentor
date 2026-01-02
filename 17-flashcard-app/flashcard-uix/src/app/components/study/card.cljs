@@ -16,7 +16,7 @@
      ($ badge category)
      ($ :div.card__body
         ($ :p.card__heading.text-preset-4--medium "Answer:")
-        ($ :p.text-preset-1 answer))
+        ($ :p.text-preset-2 answer))
      ($ progress-bar {:known-count knownCount})))
 
 (defui card
