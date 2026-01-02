@@ -6,5 +6,6 @@
   [{:keys [header main aside]}]
   ($ :div.layout
      ($ :header header)
-     ($ :main main)
-     ($ :aside aside)))
+     ($ :div.content-wrapper
+        ($ :main main)
+        ($ :aside aside))))
