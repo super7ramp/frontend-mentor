@@ -9,6 +9,12 @@
     gap: var(--spacing-200);
 }
 
+@media (min-width: 48rem) {
+    .stat-list {
+        gap: var(--spacing-250);
+    }
+}
+
 .stat {
     height: 7.5rem;
     flex: 1 1 21.5rem;

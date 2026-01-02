@@ -16,6 +16,12 @@
     gap: var(--spacing-250);
 }
 
+@media (min-width: 48rem) {
+    .card-interactor {
+        padding: var(--spacing-250);
+    }
+}
+
 .card-buttons {
     display: flex;
     flex-wrap: wrap;
