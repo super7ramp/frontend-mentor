@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Poppins";
-    src: 
+    src:
         local("Poppins"),
         url("/assets/fonts/Poppins/Poppins-Medium.ttf") format("truetype"),
         url("/assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype"),
@@ -15,18 +15,21 @@
 }
 
 .text-preset-1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.text-preset-1--tablet {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.text-preset-1--mobile {
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+@media (min-width: 48rem) {
+    .text-preset-1 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 64rem) {
+    .text-preset-1 {
+        font-size: 2.5rem;
+    }
 }
 
 .text-preset-2 {

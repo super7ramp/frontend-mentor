@@ -5,6 +5,18 @@
     padding: var(--spacing-200);
 }
 
+@media (min-width: 48rem) {
+    .layout {
+        padding: var(--spacing-300);
+    }
+}
+
+@media (min-width: 64rem) {
+    .layout {
+        padding: var(--spacing-300) var(--spacing-1200);
+    }
+}
+
 .content-wrapper {
     display: flex;
     flex-wrap: wrap;

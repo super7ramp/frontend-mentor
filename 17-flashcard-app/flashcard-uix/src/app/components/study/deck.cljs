@@ -1,6 +1,7 @@
 (ns app.components.study.deck
-  (:require [app.components.study.card :refer [card]]
-            [app.components.deck-transformer :refer [deck-transformer]]
+  (:require [app.components.deck-transformer :refer [deck-transformer]]
+            [app.components.study.card :refer [card]]
+            [app.components.study.card-selector :refer [card-selector]]
             [app.hooks.use-deck :refer [use-deck]]
             [app.hooks.use-selector :refer [use-selector]]
             [uix.core :refer [$ defui use-state]]))
@@ -15,12 +16,6 @@
           ($ :button.primary.with-shadow.card-buttons__i-know-this {:on-click inc-known-count} "I Know This")
           ($ :button.with-shadow.card-buttons__reset {:on-click reset-known-count} "Reset Progress")))))
 
-(defui card-selector [{:keys [current total select-previous select-next]}]
-  ($ :div.card-selector
-     ($ :button.card-selector__previous {:title "Previous" :on-click select-previous})
-     ($ :p "Card " (inc current) " of " total)
-     ($ :button.card-selector__next {:title "Next" :on-click select-next})))
-
 (defui deck
   "A deck of flashcard to study 📚"
   []
@@ -30,7 +25,7 @@
 
     ($ :div.block.deck
 
-       ($ deck-transformer {:category-frequencies category-frequencies 
+       ($ deck-transformer {:category-frequencies category-frequencies
                             :shuffle shuffle
                             :& filters})
 

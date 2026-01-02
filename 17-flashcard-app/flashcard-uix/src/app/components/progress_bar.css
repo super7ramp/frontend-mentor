@@ -9,6 +9,7 @@
    background-color: var(--neutral-0);
    border: var(--border-solid);
    border-radius: var(--radius-full);
+   margin: var(--spacing-150) 0;
 }
 
 .progress-bar__bar-inside {

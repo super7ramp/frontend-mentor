@@ -1,7 +1,6 @@
 .deck {
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 .deck > * + * {
@@ -34,25 +33,4 @@
 .card-buttons__reset {
     --icon-before: url("/assets/images/icon-reset.svg");
     background-color: var(--neutral-0);
-}
-
-.card-selector {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: var(--spacing-200);
-}
-
-.card-selector button {
-    height: 40px;
-    width: 40px;
-}
-
-.card-selector__previous {
-    background: url("/assets/images/icon-chevron-left.svg") center no-repeat;
-}
-
-.card-selector__next {
-    background: url("/assets/images/icon-chevron-right.svg") center no-repeat;
 }

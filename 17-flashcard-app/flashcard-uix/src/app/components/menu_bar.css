@@ -2,11 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.menu-bar__logo {
-    height: 40px;
-    width: 40px;
+    gap: var(--spacing-1200);
 }
 
 .menu-bar__nav {
@@ -26,6 +22,7 @@
     border-radius: var(--radius-full);
     padding: 12px var(--spacing-100);
     text-decoration: none;
+    text-wrap: nowrap;
 }
 
 .menu-bar__link:hover,
