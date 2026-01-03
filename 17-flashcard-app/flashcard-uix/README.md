@@ -67,8 +67,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/tree/main/17-flashcard-app/flashcard-uix)
+- Live Site URL: [Netlify](https://fastidious-fox-6df87e.netlify.app/)
 
 ## My process
 
@@ -365,6 +365,19 @@ my-block {
 ###### Mixins
 
 Not available yet in any browser. It's a shame, I really like composing SCSS mixins in CSS classes, instead of composing utility classes inside the HTML.
+
+#### Deployment on Netlify
+
+Netlify supports ClojureScript: Its build image includes Node, Java, and Clojure. But both Clojure and Java version are seriously outdated: Clojure 1.10.1 and Java 8.
+
+So, it doesn't work out-of-the box with the latest shadow-cljs:
+
+- It has weird issues with this old Clojure, probably related to `tools.deps` (failure to resolve dependencies correctly, the hint was `WARNING: Specified aliases are undeclared: [:-A]`). A workaround is to perform a `clj -A:dev` before running shadow-cljs so that clj self-updates to the version specified in the project. 
+- ClojureScript requires Java 21: `java.lang.UnsupportedClassVersionError: com/google/javascript/jscomp/CompilerOptions has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 52.0` (that's actually a class from Google Closure Compile used by ClojureScript).
+
+Thanksfully, Netlify [allows to install additional dependencies with brew](https://answers.netlify.com/t/java-11-support/67078/17).
+
+Thus the Netlify build command for this project is `brew install openjdk && clj -A:dev --help && npm run release`.
 
 ### Continued development
 
