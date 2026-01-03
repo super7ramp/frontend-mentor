@@ -1,8 +1,8 @@
 {
   "name": "flashcard-uix",
   "scripts": {
-    "dev": "shadow-cljs --aliases :dev watch app & npm run styles-dev",
-    "release": "shadow-cljs --aliases :dev release app && npm run styles-release",
+    "dev": "shadow-cljs --aliases ':dev' watch app & npm run styles-dev",
+    "release": "shadow-cljs --aliases ':dev' release app && npm run styles-release",
     "styles-dev": "shopt -s globstar && onchange -o '> public/main.css && lightningcss --bundle public/main.css -o public/main.css' -i src/**/*.css -- cat src/**/*.css",
     "styles-release": "shopt -s globstar && cat src/**/*.css > public/main.css && lightningcss --minify --bundle public/main.css -o public/main.css"
   },
