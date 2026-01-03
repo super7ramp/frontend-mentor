@@ -27,7 +27,7 @@
 .card--verso, .card--verso:hover {
     background:
         url("/assets/images/pattern-flashcard-bg.svg"),
-        left 10% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
+        left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
         right 5% bottom 90% url("/assets/images/pattern-star-pink.svg") no-repeat,
         var(--blue-400);
 }
