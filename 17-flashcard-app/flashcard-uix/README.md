@@ -16,8 +16,6 @@ This is a solution to the [Flashcard app challenge on Frontend Mentor](https://w
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -65,15 +63,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Screenshot](screenshot.png)
 
 ### Links
 
@@ -92,29 +82,222 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 #### ClojureScript
 
-TODO
+[Clojure](https://clojure.org) is a language from the Lisp family that runs on the JVM. It is dynamic, functional-oriented and stable. [ClojureScript](https://clojurescript.org/) is a Clojure that transpiles to JavaScript.
+
+Both are nice!
+
+I have been playing with Clojure for a few months, this challenge is my first experience with ClojureScript.
+
+##### Calling js code
+
+js core functions can be used directly, just prefix them with js/.
+
+Then use the [dot notation](https://cljs.github.io/api/syntax/dot) to access js object functions/fields.
+
+Note also the `cljs.core` [`js->clj`](https://cljs.github.io/api/cljs.core/js-GTclj) and [`clj->js`](https://cljs.github.io/api/cljs.core/clj-GTjs) functions that allows to convert from/to javascript data structures.
+
+
+```cljs
+(defn- fetch-data []
+  (-> (js/fetch "data/data.json")
+      (.then #(.json %))
+      (.then #(js->clj % :keywordize-keys true))
+      (.then #(:flashcards %))
+      (.catch #(js/console.log %))))
+```
+
+##### Importing js code
+
+Requiring it like a namespace, but between quotes:
+
+```cljs
+(ns app.core
+  (:require [app.pages.edit :refer [edit]]
+            [app.pages.study :refer [study]]
+            ["react-router" :refer [BrowserRouter Routes Route]]))
+
+(defui app []
+  ($ BrowserRouter
+    ($ Routes
+      ($ Route {:path "/" :element ($ study)})
+      ($ Route {:path "/edit" :element ($ edit)})))))
+
+```
+
+It looks there is a way to do this without quotes but I don't understand if it's usable yet: https://clojurescript.org/reference/javascript-module-support.
+
+##### Clojure(Script) goodness
+
+Counting how many times each category appears in the flashcard deck:
+
+```cljs
+(->> cards           ; the variables holding the array of cards. A card contains the field ':category'.
+     (map :category) ; map cards to a sequence of card categories
+     frequencies     ; count the occurrences of each category and put them into a map (key = category, value = count) 
+     sort)           ; sort them by key
+```
+
+(The `->>` is a [threading macro](https://clojure.org/guides/threading_macros), it passes the result of an expression as the last argument of the next expression.)
+
+It wouldn't be much more complicated to do in js, but still, Clojure(Script) offers the `frequencies` function for free, I find this nice to write and read.
+
+##### (My?) Limitations
+
+I didn't find a way to import assets in cljs like in js. So I put them in the `public` folder.
+
+Same for CSS imports. The UIx starter project uses lightning-css to bundle all CSS files so that's ok. I wonder how to setup CSS modules still.
+
+Also: ~~PropTypes~~ [Specs](https://github.com/pitch-io/uix/blob/master/docs/props-validation.md). Despite the docs, I haven't found a way to work with them efficiently yet, so I ditched them for this first experiment.
 
 #### UIx
 
-TODO
+[UIx](https://uix-cljs.dev/) is a React wrapper for ClojureScript. It has been a pleasure to use:
 
-#### Compose backgrounds
+- It's really close to React on js/ts, all the hooks seem to be there (`use-state`, `use-effect`, `use-callback`, ...)
+- It works well (no bug encountered, just a few issues with the starter project's npm scripts which were not Windows-proof)
+- It's well documented: I could find what I wanted to read, when I wanted to read it, it was very satisfying.
 
-TODO
+To get started, I used the starter (Java/Clojure already installed):
 
-#### Limitations of `data-*` attributes
+```sh
+npx create-uix-app@latest flashcard-uix
+```
 
-When implementing progress bar. TODO.
+An example of component (it's the grid of cards below the create form, in the edit page):
 
-#### Implementing my own select
+```cljs
+(ns app.components.edit.deck-explorer
+  (:require [app.components.deck-transformer :refer [deck-transformer]]
+            [app.components.edit.card-summary :refer [card-summary]]
+            [app.hooks.use-deck :refer [use-deck]]
+            [uix.core :refer [$ defui use-state]]))
 
-Because native select is hard to style. TODO.
+(defui deck-explorer
+  "
+   A component allowing to explore the deck of cards.
 
-#### Anchor Positioning
+   Cards may be displayed progressively using the `display-chunk-size` parameter.
+  "
+  [{:keys [display-chunk-size] :or {display-chunk-size 12}}]
+  (let [{:keys [cards shuffle category-frequencies filters]} (use-deck)
+        [displayed-count set-displayed-count] (use-state display-chunk-size)
+        more-to-display (< displayed-count (count cards))]
+    ($ :div.deck-explorer
+       ($ deck-transformer {:category-frequencies category-frequencies
+                            :shuffle shuffle
+                            :& filters})
+       ($ :ul.deck-explorer__card-summaries
+          (->> cards
+               (take displayed-count)
+               (map #($ :li {:key (:id %)} ($ card-summary %)))))
+       (when more-to-display
+         ($ :button.with-shadow.deck-explorer__load-more
+            {:on-click #(set-displayed-count (+ displayed-count display-chunk-size))}
+            "Load more")))))
+```
 
-TODO.
+- `defui` to define a (UIx) component (it's quite like `defn` for creating functions)
+- `$` to create a React component (kind of like where the html starts)
+- Props are passed as ClojureScript maps
+- A peculiar syntax for element/classes but I find it intuitive enough. Also classes can be passed as `class-name` prop, it will be merged with classes declared on element.
 
-#### Customizing checkboxes
+#### CSS
+
+##### Compose backgrounds
+
+For the card:
+
+```css
+.card {
+     background:
+        url("/assets/images/pattern-flashcard-bg.svg"),
+        left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
+        right 5% bottom 90% url("/assets/images/pattern-star-blue.svg") no-repeat,
+        var(--pink-400);
+}
+```
+
+##### Limitations of `data-*` attributes
+
+When implementing progress bar, I thought I could control the progress bar with a data attribute, something like:
+
+
+```css
+.progress-bar__bar-inside[data-progress] {
+   height: 0.5rem;
+   width: attr(data-progress);
+   background-color: var(--neutral-900);
+   border-radius: var(--radius-full);
+}
+```
+
+```cljs
+(defui progress-bar
+  "A learning progress bar, displaying progress between 0 and 5."
+  [{:keys [known-count]}]
+  (let [progress-percent (* 100 (/ known-count 5))]
+    ; ...
+    ($ :div.progress-bar__bar-inside {:data-progress (str progress-percent "%")}))
+    ; ...
+    )
+```
+
+But it didn't work. As far as I understand, the `attr()` CSS function has some limitations. Ended up doing a CSS variable instead:
+
+```css
+.progress-bar__bar-inside {
+   --progress: 0%;
+   height: 0.5rem;
+   width: var(--progress);
+   background-color: var(--neutral-900);
+   border-radius: var(--radius-full);
+}
+```
+
+```cljs
+(defui progress-bar
+  "A learning progress bar, displaying progress between 0 and 5."
+  [{:keys [known-count]}]
+  (let [progress-percent (* 100 (/ known-count 5))]
+    ; ...
+    ($ :div.progress-bar__bar-inside {:style {:--progress (str progress-percent "%")}}))
+    ; ...
+    )
+```
+
+##### Implementing my own select
+
+Because native select is hard to style. Used the popover API for the dropdown.
+
+##### Anchor Positioning
+
+For the dropdown of the category selection and the edit menu:
+
+```css
+.dropdown {
+    position: absolute;
+    inset: auto;
+    /*
+      On Firefox without anchor positioning support, 'margin-top' miraculously suffices to place
+      the dropdown relatively to the previous element (despite popover supposed to be on top layer 🤷).
+      So positioning "works" on Firefox as long as the "anchor" is the previous element.
+    */
+    margin-top: var(--spacing-100);
+    border: var(--border-solid);
+    border-radius: var(--radius-8);
+    background-color: var(--neutral-0);
+    box-shadow: 0 3px 8px rgb(from var(--neutral-900) r g b / 20%);
+}
+
+@supports (position-area: bottom) {
+    .dropdown {
+        position-area: bottom span-right;
+        position-try-fallbacks: flip-inline;
+    }
+}
+```
+
+##### Customizing checkboxes
 
 Checkboxes are not the easiest things to style but with `appareance: none` and a background image for the tick, it's ok:
 
@@ -140,11 +323,24 @@ input[type=checkbox]:not(:focus):hover {
 }
 ```
 
-#### CSS without SCSS is not as nice
+##### Transitions
+
+Used the `transition` property to animate on CSS property changes, e.g. for card background:
+
+```css
+.card {
+    /* ... */
+    transition: background var(--fade-duration-slow);
+}
+```
+
+Couldn't find a way to do the text card animation with it though: Tried to animate on the `order` property but it didn't work, didn't spend more time on it.
+
+##### CSS without SCSS is not as nice
 
 I went full CSS because the UIx template didn't setup SCSS and I didn't want to spend more time on tool setup. I took that like an opportunity to try again a "vanilla CSS" approach and see what can be done with modern CSS.
 
-##### Nesting
+###### Nesting
 
 CSS has now `&` but it is not as nice as in SCSS when using BEM, e.g. one can't write in CSS:
 
@@ -166,18 +362,20 @@ my-block {
 }
 ```
 
-##### Mixins
+###### Mixins
 
 Not available yet in any browser. It's a shame, I really like composing SCSS mixins in CSS classes, instead of composing utility classes inside the HTML.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Things I'd like to continue working on, on this challenge or a next one with ClojureScript/UIx:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- Props validation.
+- Tests.
 
 ### Useful resources
 
+- [UIx documentation](https://github.com/pitch-io/uix?tab=readme-ov-file#docs).
 - [Kevin Powell's video on anchor positioning](https://www.youtube.com/watch?v=DNXEORSk4GU) - Nice introduction to anchor positioning, also addresses compatibility (polyfills)
 - [Anchoreum](https://anchoreum.com/) - A playful introduction to anchor positioning, in the style of Flexbox Froggy and Grid Garden7
 - [Animating dialog and popover elements with CSS `@starting-style`](https://blog.logrocket.com/animating-dialog-popover-elements-css-starting-style/) - Title says it all.
