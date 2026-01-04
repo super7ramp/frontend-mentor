@@ -1,15 +1,17 @@
 (ns app.components.select
   (:require [app.components.dropdown :refer [dropdown dropdown-entry]]
+            [clojure.string :as str]
             [uix.core :refer [$ defui]]))
 
 (defui option [{:keys [value complement selected on-change]}]
-  ($ :<>
-     ($ :input {:type "checkbox"
-                :id value
-                :checked selected
-                :on-change #(on-change value (not selected))})
-     ($ :label.text-preset-5 {:for value}
-        value " " ($ :span.select__option-label-complement complement))))
+  (let [input-id (str/replace value " " "-")]
+    ($ :<>
+       ($ :input {:type "checkbox"
+                  :id input-id
+                  :checked selected
+                  :on-change #(on-change value (not selected))})
+       ($ :label.text-preset-5 {:for input-id}
+          value " " ($ :span.select__option-label-complement complement)))))
 
 (defui select
   "A good-looking, multiple selection, non-native select element."
