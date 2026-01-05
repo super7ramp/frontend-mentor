@@ -16,7 +16,7 @@
               :placeholder "e.g., What is the capital of France?"
               :required true
               :value (:question modified-card)
-              :on-change #(set-modified-card-field :answer (.. % -target -value))})
+              :on-change #(set-modified-card-field :question (.. % -target -value))})
           ($ :p.text-preset-5--regular.form__entry-error
              "Please enter a question."))
 
