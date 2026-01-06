@@ -143,11 +143,11 @@ It wouldn't be much more complicated to do in js, but still, Clojure(Script) off
 
 ##### Specs (props validation)
 
-There is a library in Clojure(Script) called `clojure.spec` which allows to defined the "shape" of data. A bit like PropTypes.
+There is a library called `clojure.spec` (or `cljs.spec` for cljs) which allows to defined the "shape" of data. A bit like PropTypes.
 
 ```cljs
 (ns app.models.card
-  (:require [clojure.spec.alpha :as s]))
+  (:require [cljs.spec.alpha :as s]))
 
 (s/def ::id string?)
 (s/def ::category string?)
@@ -170,7 +170,7 @@ I've used the spec on the "boundary", when reading/saving cards from/to local st
 (ns app.providers.cards
   (:require [app.hooks.use-local-storage :refer [use-local-storage]]
             [app.models.card :as model]
-            [clojure.spec.alpha :as s]
+            [cljs.spec.alpha :as s]
             [uix.core :refer [$ create-context defui use-callback use-effect use-state]]))
 ; ...
 (defui cards-provider
@@ -184,7 +184,7 @@ I've used the spec on the "boundary", when reading/saving cards from/to local st
 
 ```cljs
 (ns app.hooks.use-local-storage
-  (:require [clojure.spec.alpha :as s]
+  (:require [cljs.spec.alpha :as s]
             [uix.core :refer [defhook use-callback]]))
 
 (defhook use-local-storage [key spec]

@@ -1,5 +1,5 @@
 (ns app.models.card
-  (:require [clojure.spec.alpha :as s]))
+  (:require [cljs.spec.alpha :as s]))
 
 (s/def ::id string?)
 (s/def ::category string?)

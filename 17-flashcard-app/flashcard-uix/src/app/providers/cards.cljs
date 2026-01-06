@@ -1,7 +1,7 @@
 (ns app.providers.cards
   (:require [app.hooks.use-local-storage :refer [use-local-storage]]
             [app.models.card :as model]
-            [clojure.spec.alpha :as s]
+            [cljs.spec.alpha :as s]
             [uix.core :refer [$ create-context defui use-callback use-effect use-state]]))
 
 (defn- fetch-data []

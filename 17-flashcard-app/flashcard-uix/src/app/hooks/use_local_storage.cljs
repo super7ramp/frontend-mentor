@@ -1,5 +1,5 @@
 (ns app.hooks.use-local-storage
-  (:require [clojure.spec.alpha :as s]
+  (:require [cljs.spec.alpha :as s]
             [uix.core :refer [defhook use-callback]]))
 
 (defhook use-local-storage [key spec]
