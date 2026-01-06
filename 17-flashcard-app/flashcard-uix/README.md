@@ -159,7 +159,6 @@ There is a library called `clojure.spec` (or `cljs.spec` for cljs) which allows 
                                ::answer
                                ::category
                                ::knownCount]))
-(s/def ::cards (s/coll-of ::card))
 ```
 
 Note : req = required and un = unqualified, i.e. input key is required but can be e.g. `:id` instead of `::app.models.card/id`.
@@ -173,11 +172,14 @@ I've used the spec on the "boundary", when reading/saving cards from/to local st
             [cljs.spec.alpha :as s]
             [uix.core :refer [$ create-context defui use-callback use-effect use-state]]))
 ; ...
+
+(s/def ::stored-cards (s/nilable (s/coll-of ::model/card)))
+
 (defui cards-provider
   "Provides, via the `*cards*` context, the cards retrieved from local storage or remote API."
   [{:keys [children]}]
   (let [[cards set-cards] (use-state [])
-        [get-stored-cards store-cards] (use-local-storage "cards" (s/nilable ::model/cards))
+        [get-stored-cards store-cards] (use-local-storage "cards" ::stored-cards)
         ;...
   ]))
 ```

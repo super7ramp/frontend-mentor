@@ -11,7 +11,6 @@
                                ::answer
                                ::category
                                ::knownCount]))
-(s/def ::cards (s/coll-of ::card))
 
 (defn mastered?
   "Returns `true` iff given card is mastered."
