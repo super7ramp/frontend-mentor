@@ -141,13 +141,77 @@ Counting how many times each category appears in the flashcard deck:
 
 It wouldn't be much more complicated to do in js, but still, Clojure(Script) offers the `frequencies` function for free, I find this nice to write and read.
 
+##### Specs (props validation)
+
+There is a library in Clojure(Script) called `clojure.spec` which allows to defined the "shape" of data. A bit like PropTypes.
+
+```cljs
+(ns app.models.card
+  (:require [clojure.spec.alpha :as s]))
+
+(s/def ::id string?)
+(s/def ::category string?)
+(s/def ::question string?)
+(s/def ::answer string?)
+(s/def ::knownCount (s/int-in 0 6))
+(s/def ::card (s/keys :req-un [::id
+                               ::question
+                               ::answer
+                               ::category
+                               ::knownCount]))
+(s/def ::cards (s/coll-of ::card))
+```
+
+Note : req = required and un = unqualified, i.e. input key is required but can be e.g. `:id` instead of `::app.models.card/id`.
+
+I've used the spec on the "boundary", when reading/saving cards from/to local storage, as pre/post conditions:
+
+```cljs
+(ns app.providers.cards
+  (:require [app.hooks.use-local-storage :refer [use-local-storage]]
+            [app.models.card :as model]
+            [clojure.spec.alpha :as s]
+            [uix.core :refer [$ create-context defui use-callback use-effect use-state]]))
+; ...
+(defui cards-provider
+  "Provides, via the `*cards*` context, the cards retrieved from local storage or remote API."
+  [{:keys [children]}]
+  (let [[cards set-cards] (use-state [])
+        [get-stored-cards store-cards] (use-local-storage "cards" (s/nilable ::model/cards))
+        ;...
+  ]))
+```
+
+```cljs
+(ns app.hooks.use-local-storage
+  (:require [clojure.spec.alpha :as s]
+            [uix.core :refer [defhook use-callback]]))
+
+(defhook use-local-storage [key spec]
+  "Hook that provides read/write access to local storage."
+  {:pre [(some? key) (s/spec? spec)]}
+  (let [get-item (use-callback (fn []
+                                 {:post [(s/valid? spec %)]}
+                                 (-> (.getItem js/localStorage key)
+                                     js/JSON.parse
+                                     (js->clj :keywordize-keys true)))
+                               [key spec])
+        set-item (use-callback (fn [item]
+                                 {:pre [(s/valid? spec item)]}
+                                 (->> (clj->js item)
+                                      js/JSON.stringify
+                                      (.setItem js/localStorage key)))
+                               [key spec])]
+    [get-item set-item]))
+```
+
+I find the syntax a bit verbose but at least it works: It allowed me to spot an issue where I stored flashcard ids as UUID objects instead of strings, which "worked" in practice but wasn't what I intended.
+
 ##### (My?) Limitations
 
 I didn't find a way to import assets in cljs like in js. So I put them in the `public` folder.
 
 Same for CSS imports. The UIx starter project uses lightning-css to bundle all CSS files so that's ok. I wonder how to setup CSS modules still.
-
-Also: ~~PropTypes~~ [Specs](https://github.com/pitch-io/uix/blob/master/docs/props-validation.md). Despite the docs, I haven't found a way to work with them efficiently yet, so I ditched them for this first experiment.
 
 #### UIx
 
@@ -383,7 +447,6 @@ Thus the Netlify build command for this project is `brew install openjdk && clj 
 
 Things I'd like to continue working on, on this challenge or a next one with ClojureScript/UIx:
 
-- Props validation.
 - Tests.
 
 ### Useful resources

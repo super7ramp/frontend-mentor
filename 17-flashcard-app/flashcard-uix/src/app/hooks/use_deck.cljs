@@ -1,6 +1,7 @@
 (ns app.hooks.use-deck
-  (:require  [app.hooks.use-cards :refer [use-cards]] 
-             [app.utils :refer [find-first mastered?]]
+  (:require  [app.hooks.use-cards :refer [use-cards]]
+             [app.models.card :refer [mastered?]]
+             [app.utils :refer [find-first]]
              [uix.core :refer [defhook use-state]]))
 
 (defhook use-deck
@@ -17,16 +18,16 @@
     {:cards filtered-cards
 
      :update-card (fn [{:keys [id] :as updated-card}]
-                    (when-let [pos (find-first #(= id (:id %)) cards)]
-                      (set-cards (assoc cards pos updated-card))))
+                    (when-let [index (find-first #(= id (:id %)) cards)]
+                      (set-cards (assoc cards index updated-card))))
 
      :add-card (fn [new-card]
-                 (let [new-card-with-id (assoc new-card :id (random-uuid) :knownCount 0)]
+                 (let [new-card-with-id (assoc new-card :id (str (random-uuid)) :knownCount 0)]
                    (set-cards (conj cards new-card-with-id))))
 
      :delete-card (fn [{:keys [id]}]
-                    (when-let [pos (find-first #(= id (:id %)) cards)]
-                      (set-cards (into (subvec cards 0 pos) (subvec cards (inc pos))))))
+                    (when-let [index (find-first #(= id (:id %)) cards)]
+                      (set-cards (into (subvec cards 0 index) (subvec cards (inc index))))))
      
      :shuffle #(set-cards (shuffle cards))
 

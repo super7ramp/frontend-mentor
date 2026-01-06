@@ -1,5 +1,7 @@
 (ns app.providers.cards
   (:require [app.hooks.use-local-storage :refer [use-local-storage]]
+            [app.models.card :as model]
+            [clojure.spec.alpha :as s]
             [uix.core :refer [$ create-context defui use-callback use-effect use-state]]))
 
 (defn- fetch-data []
@@ -9,13 +11,13 @@
       (.then #(:flashcards %))
       (.catch #(js/console.log %))))
 
-(def ^:dynamic *cards* (create-context []))
+(def ^:dynamic *cards-context* (create-context []))
 
 (defui cards-provider
-  "Provides cards retrieved from local storage or remote API, via the `*cards*` context."
+  "Provides, via the `*cards*` context, the cards retrieved from local storage or remote API."
   [{:keys [children]}]
   (let [[cards set-cards] (use-state [])
-        [get-stored-cards store-cards] (use-local-storage "cards")
+        [get-stored-cards store-cards] (use-local-storage "cards" (s/nilable ::model/cards))
         set-and-store-cards (use-callback #(do (set-cards %)
                                                (store-cards %))
                                           [store-cards])
@@ -23,5 +25,5 @@
                          (set-cards saved-cards)
                          (-> (fetch-data) (.then set-and-store-cards)))
                       [get-stored-cards set-and-store-cards])]
-    ($ *cards* {:value [cards set-and-store-cards]}
+    ($ *cards-context* {:value [cards set-and-store-cards]}
        children)))
