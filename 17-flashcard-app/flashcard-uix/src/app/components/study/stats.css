@@ -42,7 +42,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: var(--spacing-250) var(--spacing-200);
+    padding: var(--spacing-200) var(--spacing-250);
+}
+
+@media (min-width: 48rem) {
+    .stat__label-value {
+        padding: var(--spacing-250);
+    }
 }
 
 .stat__img {
