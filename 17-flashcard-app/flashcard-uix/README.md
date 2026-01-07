@@ -75,7 +75,7 @@ Users should be able to:
 ### Built with
 
 - Mobile-first workflow
-- [ClojureSript](https://clojurescript.org/)
+- [ClojureScript](https://clojurescript.org/)
 - [UIx](https://uix-cljs.dev/) (ClojureScript wrapper over [React](https://reactjs.org/))
 
 ### What I learned
@@ -90,13 +90,6 @@ I have been playing with Clojure for a few months, this challenge is my first ex
 
 ##### Calling js code
 
-js core functions can be used directly, just prefix them with js/.
-
-Then use the [dot notation](https://cljs.github.io/api/syntax/dot) to access js object functions/fields.
-
-Note also the `cljs.core` [`js->clj`](https://cljs.github.io/api/cljs.core/js-GTclj) and [`clj->js`](https://cljs.github.io/api/cljs.core/clj-GTjs) functions that allows to convert from/to javascript data structures.
-
-
 ```cljs
 (defn- fetch-data []
   (-> (js/fetch "data/data.json")
@@ -105,6 +98,12 @@ Note also the `cljs.core` [`js->clj`](https://cljs.github.io/api/cljs.core/js-GT
       (.then #(:flashcards %))
       (.catch #(js/console.log %))))
 ```
+
+js core functions can be used directly, just prefix them with `js/`.
+
+Then use the [dot notation](https://cljs.github.io/api/syntax/dot) to access js object functions/fields.
+
+Note also the `cljs.core` [`js->clj`](https://cljs.github.io/api/cljs.core/js-GTclj) and [`clj->js`](https://cljs.github.io/api/cljs.core/clj-GTjs) functions that allows to convert ClojureScript data structures from/to JavaScript data structures.
 
 ##### Importing js code
 
@@ -123,8 +122,6 @@ Requiring it like a namespace, but between quotes:
       ($ Route {:path "/edit" :element ($ edit)})))))
 
 ```
-
-It looks there is a way to do this without quotes but I don't understand if it's usable yet: https://clojurescript.org/reference/javascript-module-support.
 
 ##### Clojure(Script) goodness
 
@@ -161,7 +158,7 @@ There is a library called `clojure.spec` (or `cljs.spec` for cljs) which allows 
                                ::knownCount]))
 ```
 
-Note : req = required and un = unqualified, i.e. input key is required but can be e.g. `:id` instead of `::app.models.card/id`.
+Note : req = required and un = unqualified, i.e. input key is required but can be e.g. `:id` instead of `:app.models.card/id`.
 
 I've used the spec on the "boundary", when reading/saving cards from/to local storage, as pre/post conditions:
 
@@ -220,7 +217,7 @@ Same for CSS imports. The UIx starter project uses lightning-css to bundle all C
 [UIx](https://uix-cljs.dev/) is a React wrapper for ClojureScript. It has been a pleasure to use:
 
 - It's really close to React on js/ts, all the hooks seem to be there (`use-state`, `use-effect`, `use-callback`, ...)
-- It works well (no bug encountered, just a few issues with the starter project's npm scripts which were not Windows-proof)
+- It works well: No bug encountered, just a few issues with the starter project's npm scripts which were not Windows-proof.
 - It's well documented: I could find what I wanted to read, when I wanted to read it, it was very satisfying.
 
 To get started, I used the starter (Java/Clojure already installed):
@@ -262,8 +259,8 @@ An example of component (it's the grid of cards below the create form, in the ed
             "Load more")))))
 ```
 
-- `defui` to define a (UIx) component (it's quite like `defn` for creating functions)
-- `$` to create a React component (kind of like where the html starts)
+- `defui` to define a (UIx) component, very similar to `defn` for creating functions
+- `$` to create a React component
 - Props are passed as ClojureScript maps
 - A peculiar syntax for element/classes but I find it intuitive enough. Also classes can be passed as `class-name` prop, it will be merged with classes declared on element.
 
@@ -434,12 +431,12 @@ Not available yet in any browser. It's a shame, I really like composing SCSS mix
 
 #### Deployment on Netlify
 
-Netlify supports ClojureScript: Its build image includes Node, Java, and Clojure. But both Clojure and Java version are seriously outdated: Clojure 1.10.1 and Java 8.
+Netlify supports ClojureScript: Its build image includes Java and Clojure. But both Java and Clojure versions are seriously outdated: Java 8 and Clojure 1.10.1.
 
 So, it doesn't work out-of-the box with the latest shadow-cljs:
 
 - It has weird issues with this old Clojure, probably related to `tools.deps` (failure to resolve dependencies correctly, the hint was `WARNING: Specified aliases are undeclared: [:-A]`). A workaround is to perform a `clj -A:dev` before running shadow-cljs so that clj self-updates to the version specified in the project. 
-- ClojureScript requires Java 21: `java.lang.UnsupportedClassVersionError: com/google/javascript/jscomp/CompilerOptions has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 52.0` (that's actually a class from Google Closure Compile used by ClojureScript).
+- ClojureScript requires Java 21: `java.lang.UnsupportedClassVersionError: com/google/javascript/jscomp/CompilerOptions has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 52.0` (that's actually a class from Google Closure Compiler used by ClojureScript).
 
 Thanksfully, Netlify [allows to install additional dependencies with brew](https://answers.netlify.com/t/java-11-support/67078/17).
 
@@ -455,7 +452,7 @@ Things I'd like to continue working on, on this challenge or a next one with Clo
 
 - [UIx documentation](https://github.com/pitch-io/uix?tab=readme-ov-file#docs).
 - [Kevin Powell's video on anchor positioning](https://www.youtube.com/watch?v=DNXEORSk4GU) - Nice introduction to anchor positioning, also addresses compatibility (polyfills)
-- [Anchoreum](https://anchoreum.com/) - A playful introduction to anchor positioning, in the style of Flexbox Froggy and Grid Garden7
+- [Anchoreum](https://anchoreum.com/) - A playful introduction to anchor positioning, in the style of Flexbox Froggy and Grid Garden
 - [Animating dialog and popover elements with CSS `@starting-style`](https://blog.logrocket.com/animating-dialog-popover-elements-css-starting-style/) - Title says it all.
 - [MDN](https://developer.mozilla.org/fr/) - Always, consulted approximately a billion times.
 
