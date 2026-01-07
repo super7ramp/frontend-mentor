@@ -20,7 +20,7 @@
 (defn in-progress?
   "Returns `true` iff given card learning is in progress."
   [{:keys [knownCount]}]
-  (and (pos? knownCount) (< knownCount 5)))
+  (<= 1 knownCount 4))
 
 (defn not-started?
   "Returns `true` iff given card learning is not started."
