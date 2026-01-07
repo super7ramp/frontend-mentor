@@ -17,8 +17,8 @@ form {
     }
 }
 
-form button[type=submit] {
-    justify-self: flex-start;
+button[type=submit] {
+    justify-self: flex-end;
 }
 
 .form__entry {

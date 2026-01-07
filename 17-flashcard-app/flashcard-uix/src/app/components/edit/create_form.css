@@ -1,3 +1,4 @@
-.create-form__submit {
+button[type=submit].create-form__submit {
     --icon-before: url("/assets/images/icon-circle-plus.svg") / "Submit";
+    justify-self: flex-start;
 }
