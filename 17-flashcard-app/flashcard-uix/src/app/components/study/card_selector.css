@@ -12,6 +12,10 @@
     }
 }
 
+.card-selector__text {
+    color: var(--neutral-600);
+}
+
 .card-selector-button {
     height: 2.5rem;
     width: 2.5rem;

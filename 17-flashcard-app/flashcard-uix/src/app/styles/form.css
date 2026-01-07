@@ -41,3 +41,7 @@ form button[type=submit] {
     align-items: center;
     gap: 0.375rem;
 }
+
+label {
+    font-weight: 500;
+}

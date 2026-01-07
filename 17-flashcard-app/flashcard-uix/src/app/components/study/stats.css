@@ -2,6 +2,12 @@
     padding: var(--spacing-250) var(--spacing-200);
 }
 
+@media (min-width: 64rem) {
+    .stats {
+        padding: var(--spacing-300);
+    }
+}
+
 .stat-list {
     margin-top: var(--spacing-200);
     display: flex;
@@ -12,6 +18,12 @@
 @media (min-width: 48rem) {
     .stat-list {
         gap: var(--spacing-250);
+    }
+}
+
+@media (min-width: 64rem) {
+    .stat-list {
+        gap: var(--spacing-300);
     }
 }
 
