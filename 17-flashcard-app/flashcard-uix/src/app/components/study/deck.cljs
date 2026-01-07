@@ -13,8 +13,11 @@
     ($ :div.card-interactor
        ($ card props)
        ($ :div.card-buttons
-          ($ :button.primary.with-shadow.card-buttons__i-know-this {:on-click inc-known-count} "I Know This")
-          ($ :button.with-shadow.card-buttons__reset {:on-click reset-known-count} "Reset Progress")))))
+          ($ :button.primary.with-shadow.card-buttons__i-know-this {:on-click inc-known-count
+                                                                    :disabled (= known-count 5)} 
+             "I Know This")
+          ($ :button.with-shadow.card-buttons__reset {:on-click reset-known-count} 
+             "Reset Progress")))))
 
 (defui deck
   "A deck of flashcard to study 📚"

@@ -26,6 +26,11 @@ button:hover {
     background-color: var(--neutral-100);
 }
 
+button:disabled {
+    opacity: 50%;
+    cursor: not-allowed; 
+}
+
 .with-shadow,
 .with-shadow:hover {
     background-color: var(--neutral-0);
