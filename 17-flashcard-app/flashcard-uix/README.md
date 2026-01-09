@@ -419,7 +419,7 @@ One has to write:
 
 ```scss
 my-block {
-    & my-block__my-element {
+    my-block__my-element {
         /* something */
     }
 }
