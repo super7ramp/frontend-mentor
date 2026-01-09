@@ -4,7 +4,7 @@
    gap: var(--spacing-100);
 }
 
-.progress-bar__bar-outside {
+.progress-bar .progress-bar__bar-outside {
    width: 3.75rem;
    background-color: var(--neutral-0);
    border: var(--border-solid);
@@ -12,7 +12,7 @@
    margin: var(--spacing-150) 0;
 }
 
-.progress-bar__bar-inside {
+.progress-bar .progress-bar__bar-inside {
    --progress: 0%;
    height: 0.5rem;
    width: var(--progress);
@@ -20,7 +20,7 @@
    border-radius: var(--radius-full);
 }
 
-.progress-bar__badge-mastered {
+.progress-bar .progress-bar__badge-mastered {
    background-color: var(--teal-400);
    --icon-before: url("/assets/images/icon-mastered.svg");
 }
