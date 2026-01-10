@@ -1,14 +1,16 @@
 (ns app.components.edit.edit-menu
-  (:require [app.components.dropdown :refer [dropdown dropdown-entry]]
+  (:require [app.components.button-close :refer [button-close]]
+            [app.components.dropdown :refer [dropdown dropdown-entry]]
             [app.components.edit.edit-form :refer [edit-form]]
             [app.hooks.use-deck :refer [use-deck]]
+            [app.hooks.use-notify :refer [use-notify]]
             [uix.core :refer [$ defui use-ref]]))
 
 (defui edit-dialog [{:keys [ref card on-submit]}]
   ($ :dialog.block {:ref ref}
-     ($ :button.edit-dialog__close {:title "Close"
-                                    :on-click #(.close @ref)
-                                    :auto-focus ""})
+     ($ button-close {:class-name "edit-dialog__close"
+                      :on-click #(.close @ref)
+                      :auto-focus ""})
      ($ :h2.text-preset-2.edit-dialog__heading
         "Edit your card")
      ($ edit-form {:card card
@@ -23,8 +25,7 @@
         ($ :p.text-preset-4--regular
            "This action can't be undone."))
      ($ :footer.delete-confirmation-dialog__buttons
-        ($ :button {:auto-focus ""
-                    :on-click #(.close @ref)}
+        ($ :button {:auto-focus "" :on-click #(.close @ref)}
            "Cancel")
         ($ :button.primary.with-shadow {:on-click on-delete}
            "Delete Card"))))
@@ -32,6 +33,7 @@
 (defui edit-menu [{:keys [id card]}]
   (let [edit-dialog-ref (use-ref)
         delete-dialog-ref (use-ref)
+        notify (use-notify)
         {:keys [update-card delete-card]} (use-deck)]
     ($ :<>
        ($ dropdown {:id id :class-name "edit-menu"}
@@ -43,6 +45,10 @@
                 "Delete")))
        ($ edit-dialog {:ref edit-dialog-ref
                        :card card
-                       :on-submit update-card})
+                       :on-submit (fn [updated-card]
+                                    (update-card updated-card)
+                                    (notify "Card updated successfully."))})
        ($ delete-dialog {:ref delete-dialog-ref
-                         :on-delete #(delete-card card)}))))
+                         :on-delete (fn []
+                                      (delete-card card)
+                                      (notify "Card deleted."))}))))

@@ -1,0 +1,13 @@
+.toast {
+    border: var(--border-solid);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-125) var(--spacing-200);
+    width: 18.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--neutral-0);
+    box-shadow: 
+        0 3px 8px rgb(from var(--neutral-900) r g b / 20%),
+        2px 2px 0 var(--neutral-900);
+}

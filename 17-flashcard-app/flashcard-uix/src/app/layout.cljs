@@ -1,5 +1,6 @@
 (ns app.layout
-  (:require [uix.core :refer [defui $]]))
+  (:require ["sonner" :refer [Toaster]]
+            [uix.core :refer [defui $]]))
 
 (defui layout
   "A generic layout for the app pages."
@@ -9,4 +10,5 @@
      ($ :div.content-wrapper
         ($ :main main)
         (when aside
-          ($ :aside aside)))))
+          ($ :aside aside)))
+     ($ Toaster)))

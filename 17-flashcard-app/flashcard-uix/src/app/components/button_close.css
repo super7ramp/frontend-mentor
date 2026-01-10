@@ -1,0 +1,7 @@
+.button-close {
+    border: none;
+    background: url("/assets/images/icon-cross.svg") center no-repeat;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+}
