@@ -56,7 +56,7 @@ Users should be able to:
 
 - [x] Toggle between Study Mode and All Cards views
 - [x] Load more flashcards when viewing the full card list with more than 12 cards
-- [x] See a toast message when a card is created, updated, or deleted
+- [ ] See a toast message when a card is created, updated, or deleted
 - [x] View the optimal layout for the interface depending on their device's screen size
 - [x] See hover and focus states for all interactive elements on the page
 - [x] Navigate the entire app using only their keyboard
@@ -103,7 +103,7 @@ js core functions can be used directly, just prefix them with `js/`.
 
 Then use the [dot notation](https://cljs.github.io/api/syntax/dot) to access js object functions/fields.
 
-Note also the `cljs.core` [`js->clj`](https://cljs.github.io/api/cljs.core/js-GTclj) and [`clj->js`](https://cljs.github.io/api/cljs.core/clj-GTjs) functions that allows to convert ClojureScript data structures from/to JavaScript data structures.
+Note also the `cljs.core` [`js->clj`](https://cljs.github.io/api/cljs.core/js-GTclj) and [`clj->js`](https://cljs.github.io/api/cljs.core/clj-GTjs) functions that allow to convert ClojureScript data structures from/to JavaScript data structures.
 
 ##### Importing js code
 
@@ -140,7 +140,7 @@ It wouldn't be much more complicated to do in js, but still, Clojure(Script) off
 
 ##### Specs (props validation)
 
-There is a library called `clojure.spec` (or `cljs.spec` for cljs) which allows to defined the "shape" of data. A bit like PropTypes.
+There is a library called `clojure.spec` (or `cljs.spec` for cljs) which allows to define the "shape" of data. A bit like PropTypes.
 
 ```cljs
 (ns app.models.card
@@ -358,6 +358,26 @@ For the dropdown of the category selection and the edit menu:
         position-try-fallbacks: flip-inline;
     }
 }
+```
+
+Anchor is defined in cljs:
+
+```cljs
+(ns app.components.dropdown
+  (:require [uix.core :refer [$ defui]]))
+
+; ...
+
+(defui dropdown
+  "A dropdown. Children should be dropdown entries or at least have a key."
+  [{:keys [id class-name children]}]
+  (let [anchor-name (str "dropdown-anchor-" id)]
+    ($ :div {:style {:anchor-name anchor-name}}
+       ($ :ul.dropdown {:id id
+                        :class-name class-name
+                        :popover ""
+                        :style {:position-anchor anchor-name}}
+          children))))
 ```
 
 ##### Customizing checkboxes

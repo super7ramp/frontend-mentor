@@ -8,7 +8,7 @@
 (defui dropdown
   "A dropdown. Children should be dropdown entries or at least have a key."
   [{:keys [id class-name children]}]
-  (let [anchor-name (str "--dropdown-anchor-" id)]
+  (let [anchor-name (str "dropdown-anchor-" id)]
     ($ :div {:style {:anchor-name anchor-name}}
        ($ :ul.dropdown {:id id
                         :class-name class-name
