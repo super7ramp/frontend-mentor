@@ -1,0 +1,21 @@
+.edit-dialog__close {
+    position: absolute;
+    top: var(--spacing-100);
+    right: var(--spacing-100);
+}
+
+.edit-dialog__heading {
+    padding: var(--spacing-250) var(--spacing-250) 0 var(--spacing-250);
+}
+
+@media (min-width: 48rem) {
+    .edit-dialog__heading {
+        padding: var(--spacing-300) var(--spacing-300) 0 var(--spacing-300);
+    }
+}
+
+@media (min-width: 64rem) {
+    .edit-dialog__heading {
+        padding: var(--spacing-400) var(--spacing-400) 0 var(--spacing-400);
+    }
+}

@@ -1,0 +1,19 @@
+dialog.delete-dialog {
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+}
+
+.delete-dialog__message {
+    padding: var(--spacing-300);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+}
+
+.delete-dialog__buttons {
+    padding: var(--spacing-150) var(--spacing-300) var(--spacing-100) var(--spacing-300);
+    border-top: var(--border-solid);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-125);
+}
