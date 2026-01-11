@@ -1,4 +1,4 @@
-(ns app.providers.cards
+(ns app.contexts.cards
   (:require [app.hooks.use-local-storage :refer [use-local-storage]]
             [app.models.card :as model]
             [cljs.spec.alpha :as s]

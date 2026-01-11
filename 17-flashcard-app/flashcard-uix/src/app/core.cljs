@@ -1,5 +1,5 @@
 (ns app.core
-  (:require [app.providers.cards :refer [cards-provider]]
+  (:require [app.contexts.cards :refer [cards-provider]]
             [app.pages.edit :refer [edit]]
             [app.pages.study :refer [study]]
             ["react-router" :refer [BrowserRouter Routes Route]]

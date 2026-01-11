@@ -1,5 +1,5 @@
 (ns app.hooks.use-cards
-  (:require [app.providers.cards :refer [*cards-context*]]
+  (:require [app.contexts.cards :refer [*cards-context*]]
             [uix.core :refer [defhook use-context]]))
 
 (defhook use-cards 
