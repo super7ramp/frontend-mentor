@@ -2,7 +2,7 @@
   (:require [app.components.dropdown :refer [dropdown dropdown-entry]]
             [app.components.edit.edit-dialog :refer [edit-dialog]]
             [app.components.edit.delete-dialog :refer [delete-dialog]]
-            [app.hooks.use-deck :refer [use-deck]]
+            [app.hooks.use-cards :refer [use-cards]]
             [app.hooks.use-notify :refer [use-notify]]
             [uix.core :refer [$ defui use-ref]]))
 
@@ -12,7 +12,7 @@
   (let [edit-dialog-ref (use-ref)
         delete-dialog-ref (use-ref)
         notify (use-notify)
-        {:keys [update-card delete-card]} (use-deck)]
+        {:keys [update-card delete-card]} (use-cards)]
     ($ :<>
        ($ dropdown {:id id :class-name "edit-menu"}
           ($ dropdown-entry {:key "edit"}

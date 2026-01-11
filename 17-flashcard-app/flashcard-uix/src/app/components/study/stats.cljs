@@ -21,7 +21,7 @@
 (defui stats
   "Statistics about the study 📈"
   []
-  (let [[cards] (use-cards)]
+  (let [{:keys [cards]} (use-cards)]
     ($ :div.block.stats
        ($ :h1.text-preset-2 "Study Statistics")
        ($ :div.stat-list

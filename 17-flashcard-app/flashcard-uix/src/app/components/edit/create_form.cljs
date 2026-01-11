@@ -1,5 +1,5 @@
 (ns app.components.edit.create-form
-  (:require [app.hooks.use-deck :refer [use-deck]]
+  (:require [app.hooks.use-cards :refer [use-cards]]
             [app.hooks.use-notify :refer [use-notify]]
             [app.utils :refer [formdata->map]]
             [uix.core :refer [$ defui]]))
@@ -7,7 +7,7 @@
 (defui create-form
   "A form allowing to create a new card."
   []
-  (let [{:keys [add-card]} (use-deck), notify (use-notify)]
+  (let [{:keys [add-card]} (use-cards), notify (use-notify)]
     ($ :form.block {:action #(do (add-card (formdata->map %))
                                  (notify "Card created successfully."))}
 

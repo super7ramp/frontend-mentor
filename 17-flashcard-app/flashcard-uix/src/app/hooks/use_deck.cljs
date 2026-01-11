@@ -1,13 +1,12 @@
 (ns app.hooks.use-deck
   (:require  [app.hooks.use-cards :refer [use-cards]]
              [app.models.card :refer [mastered?]]
-             [app.utils :refer [find-first]]
              [uix.core :refer [defhook use-state]]))
 
 (defhook use-deck
-  "Hook to manages a deck of cards."
+  "Hook to manage a deck of cards."
   []
-  (let [[cards set-cards] (use-cards)
+  (let [{:keys [cards update-card add-card delete-card shuffle]} (use-cards)
         [selected-categories set-selected-categories] (use-state :all-categories)
         [mastered-hidden set-mastered-hidden] (use-state false)
         filtered-cards (filterv #(and (or (not mastered-hidden)
@@ -16,23 +15,11 @@
                                           (contains? selected-categories (:category %))))
                                 cards)]
     {:cards filtered-cards
-
-     :update-card (fn [{:keys [id] :as updated-card}]
-                    (when-let [index (find-first #(= id (:id %)) cards)]
-                      (set-cards (assoc cards index updated-card))))
-
-     :add-card (fn [new-card]
-                 (let [new-card-with-id (assoc new-card :id (str (random-uuid)) :knownCount 0)]
-                   (set-cards (conj cards new-card-with-id))))
-
-     :delete-card (fn [{:keys [id]}]
-                    (when-let [index (find-first #(= id (:id %)) cards)]
-                      (set-cards (into (subvec cards 0 index) (subvec cards (inc index))))))
-     
-     :shuffle #(set-cards (shuffle cards))
-
+     :update-card update-card
+     :add-card add-card
+     :delete-card delete-card 
+     :shuffle shuffle
      :category-frequencies (->> cards (map :category) frequencies sort)
-
      :filters {:selected-categories selected-categories
                :set-selected-categories set-selected-categories
                :mastered-hidden mastered-hidden
