@@ -1,12 +1,13 @@
 (ns app.layout
-  (:require ["sonner" :refer [Toaster]]
+  (:require [app.components.menu-bar :refer [menu-bar]]
+            ["sonner" :refer [Toaster]]
             [uix.core :refer [defui $]]))
 
 (defui layout
   "A generic layout for the app pages."
-  [{:keys [header main aside]}]
+  [{:keys [main aside]}]
   ($ :div.layout
-     ($ :header header)
+     ($ :header ($ menu-bar))
      ($ :div.content-wrapper
         ($ :main main)
         (when aside
