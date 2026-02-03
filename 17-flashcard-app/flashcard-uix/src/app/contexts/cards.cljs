@@ -3,7 +3,7 @@
             [app.models.card :as model]
             [app.utils :refer [find-first]]
             [cljs.spec.alpha :as s]
-            [uix.core :refer [$ create-context defui use-callback use-effect use-memo use-state]]))
+            [uix.core :refer [$ defcontext defui use-callback use-effect use-memo use-state]]))
 
 (defn- fetch-data []
   (-> (js/fetch "data/data.json")
@@ -12,7 +12,7 @@
       (.then #(:flashcards %))
       (.catch #(js/console.log %))))
 
-(def ^:dynamic *cards-context* (create-context []))
+(defcontext *cards-context* [])
 
 (s/def ::stored-cards (s/nilable (s/coll-of ::model/card)))
 
