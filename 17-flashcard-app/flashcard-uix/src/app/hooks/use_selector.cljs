@@ -1,38 +1,26 @@
 (ns app.hooks.use-selector
-  (:require [app.utils :refer [find-first pos]]
-            [uix.core :refer [defhook use-effect use-state]]))
+  (:require [uix.core :refer [defhook use-state]]))
 
-(defn- previous-key [items current-index key-extractor]
-  (when-let [total (pos (count items))]
-    (let [previous-index (mod (dec current-index) total)
-          previous-item (get items previous-index)]
-      (key-extractor previous-item))))
+(defn- previous-index [item-count current-index]
+  (if (pos? item-count)
+    (mod (dec current-index) item-count)
+    current-index))
 
-(defn- next-key [items current-index key-extractor]
-  (when-let [total (pos (count items))]
-    (let [next-index (mod (inc current-index) total)
-          next-item (get items next-index)]
-      (key-extractor next-item))))
+(defn- next-index [item-count current-index]
+  (if (pos? item-count)
+    (mod (inc current-index) item-count)
+    current-index))
 
 (defhook use-selector
-  "
-   A hook that manages the selection of a single item among the given items.
-   It ensures that despite given items changes, there always is a single selected item,
-   unless given collection is empty in which case selection is nil.
-   
-   Optionally takes a `key-extractor` to keep track of the selected item upon changes.
-   If not provided, defaults to `identity`, which works fine unless the selected item
-   mutates.
-   "
-  [{:keys [items key-extractor] :or {key-extractor identity}}]
-  {:pre [(indexed? items)]}
-  (let [[current-key set-current-key] (use-state (key-extractor (first items)))
-        current-index (-> (find-first #(= (key-extractor %) current-key) items)
-                          (or -1))
-        _ (use-effect #(when (and (neg? current-index)
-                                  (not (empty? items)))
-                         (set-current-key (key-extractor (first items))))
-                      [current-index items key-extractor])]
-    {:selected-index current-index
-     :select-previous #(set-current-key (previous-key items current-index key-extractor))
-     :select-next #(set-current-key (next-key items current-index key-extractor))}))
+  "A hook that manages the index of a single selected item among the given item count.
+   It ensures that despite given item count growing and decreasing, there always is a
+   single selected item, unless item count is zero in which case selected index is -1."
+  [item-count]
+  (let [[selected-index set-selected-index] (use-state (min 0 (dec item-count)))]
+    (when (< selected-index 0 item-count)
+      (set-selected-index 0))
+    (when (>= selected-index item-count)
+      (set-selected-index (dec item-count)))
+    {:selected-index selected-index
+     :select-previous #(set-selected-index (partial previous-index item-count))
+     :select-next #(set-selected-index (partial next-index item-count))}))

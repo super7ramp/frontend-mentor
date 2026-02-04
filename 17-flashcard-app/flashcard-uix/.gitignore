@@ -21,3 +21,4 @@ node_modules/
 /public/main.css
 .idea
 *.iml
+out

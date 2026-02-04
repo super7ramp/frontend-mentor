@@ -23,7 +23,7 @@
   "A deck of flashcard to study 📚"
   []
   (let [{:keys [cards update-card shuffle filters category-frequencies]} (use-deck)
-        {:keys [selected-index select-previous select-next]} (use-selector {:items cards :key-extractor :id})
+        {:keys [selected-index select-previous select-next]} (use-selector (count cards))
         [current-revealed set-current-revealed] (use-state false)]
 
     ($ :div.block.deck
