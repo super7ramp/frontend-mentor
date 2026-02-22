@@ -1,6 +1,6 @@
 (ns app.components.study.stats
   (:require [app.hooks.use-cards :refer [use-cards]]
-            [app.models.card :refer [in-progress? mastered? not-started?]]
+            [app.models.card :refer [progress]]
             [clojure.string :as str]
             [uix.core :refer [defui $]]))
 
@@ -21,11 +21,12 @@
 (defui stats
   "Statistics about the study 📈"
   []
-  (let [{:keys [cards]} (use-cards)]
+  (let [{:keys [cards]} (use-cards)
+        count-by-progress (frequencies (map progress cards))]
     ($ :div.block.stats
        ($ :h1.text-preset-2 "Study Statistics")
        ($ :div.stat-list
           ($ stat {:label "Total cards" :value (count cards)})
-          ($ stat {:label "Mastered" :value (count (filter mastered? cards))})
-          ($ stat {:label "In Progress" :value (count (filter in-progress? cards))})
-          ($ stat {:label "Not Started" :value (count (filter not-started? cards))})))))
+          ($ stat {:label "Mastered" :value (:mastered count-by-progress)})
+          ($ stat {:label "In Progress" :value (:in-progress count-by-progress)})
+          ($ stat {:label "Not Started" :value (:not-started count-by-progress)})))))

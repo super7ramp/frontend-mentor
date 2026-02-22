@@ -12,17 +12,13 @@
                                ::category
                                ::knownCount]))
 
+(defn progress [{:keys [knownCount]}]
+  (case knownCount
+    0 :not-started
+    (1 2 3 4) :in-progress
+    5 :mastered))
+
 (defn mastered?
   "Returns `true` iff given card is mastered."
-  [{:keys [knownCount]}]
-  (= knownCount 5))
-
-(defn in-progress?
-  "Returns `true` iff given card learning is in progress."
-  [{:keys [knownCount]}]
-  (<= 1 knownCount 4))
-
-(defn not-started?
-  "Returns `true` iff given card learning is not started."
-  [{:keys [knownCount]}]
-  (zero? knownCount))
+  [card]
+  (= :mastered (progress card)))
