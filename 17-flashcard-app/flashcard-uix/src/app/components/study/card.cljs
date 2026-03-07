@@ -3,25 +3,24 @@
             [app.components.progress-bar :refer [progress-bar]]
             [uix.core :as uix :refer [defui $]]))
 
-(defui card-body-recto [{:keys [question]}]
-  ($ :<>
-     ($ :p.text-preset-1 question)
-     ($ :p.card__secondary-text.text-preset-4--medium "Click to reveal answer")))
-
-(defui card-body-verso [{:keys [answer]}]
-  ($ :<>
-     ($ :p.card__secondary-text.text-preset-4--medium "Answer:")
-     ($ :p.text-preset-2 answer)))
+(defui card-body [{:keys [card-data revealed]}]
+  ($ :div.card__body
+     ($ :div {:aria-hidden revealed}
+        ($ :p.card__question.text-preset-1
+           (:question card-data))
+        ($ :p.card__click.text-preset-4--medium
+           "Click to reveal answer"))
+     ($ :div {:aria-hidden (not revealed)}
+        ($ :p.card__answer-header.text-preset-4--medium
+           "Answer:")
+        ($ :p.card__answer.text-preset-2
+           (:answer card-data)))))
 
 (defui card
   "A flashcard ⚡ Two sides: recto contains the question, verso contains the answer."
-  [{:keys [card-data revealed set-revealed]}]
-  (let [{:keys [category question answer knownCount]} card-data]
-    ($ :button.card {:on-click #(set-revealed (not revealed)) 
-                     :class-name (when revealed "card--verso")}
-       ($ badge category)
-       ($ :div.card__body
-          (if-not revealed
-            ($ card-body-recto {:question question})
-            ($ card-body-verso {:answer answer})))
-       ($ progress-bar {:known-count knownCount}))))
+  [{:keys [card-data revealed set-revealed] :as card-props}]
+  ($ :button.card {:on-click #(set-revealed (not revealed))
+                   :class-name (when revealed "card--verso")}
+     ($ badge (:category card-data))
+     ($ card-body card-props)
+     ($ progress-bar {:known-count (:knownCount card-data)})))

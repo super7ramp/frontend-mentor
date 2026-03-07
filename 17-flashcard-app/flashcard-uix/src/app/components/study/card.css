@@ -16,28 +16,73 @@
     transition: background var(--fade-duration-slow);
 }
 
-.card, .card:hover {
-     background:
+.card,
+.card:hover {
+    background:
         url("/assets/images/pattern-flashcard-bg.svg"),
         left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
         right 5% bottom 90% url("/assets/images/pattern-star-blue.svg") no-repeat,
         var(--pink-400);
 }
 
-.card--verso, .card--verso:hover {
+.card--verso,
+.card--verso:hover {
     background:
         url("/assets/images/pattern-flashcard-bg.svg"),
-        left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
+        left 10% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
         right 5% bottom 90% url("/assets/images/pattern-star-pink.svg") no-repeat,
         var(--blue-400);
 }
 
 .card__body {
+    display: grid;
+    align-items: center;
+}
+
+.card__body>* {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-200);
+    /* bodies of both sides are stacked on the same grid location */
+    grid-area: 1 / 1 / 2 / 2;
 }
 
-.card__secondary-text {
-    opacity: 80%;
+.card__question,
+.card__answer {
+    --opacity-when-visible: 1;
+}
+
+.card__click,
+.card__answer-header {
+    --opacity-when-visible: 0.8;
+}
+
+.card__question,
+.card__click,
+.card--verso .card__answer-header,
+.card--verso .card__answer {
+    transform: none;
+    opacity: var(--opacity-when-visible);
+}
+
+.card__answer-header,
+.card--verso .card__question {
+    /* Moved down and transparent so that it appears "moving up" when switching card side */
+    transform: translateY(1lh);
+    opacity: 0;
+}
+
+.card--verso .card__click,
+.card__answer {
+    /* Moved up and transparent so that it appears "moving down" when switching card side */
+    transform: translateY(-1lh);
+    opacity: 0;
+}
+
+.card__question,
+.card__click,
+.card__answer-header,
+.card__answer {
+    transition-property: transform, opacity;
+    transition-duration: var(--fade-duration);
 }
