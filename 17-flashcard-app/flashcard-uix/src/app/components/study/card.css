@@ -13,15 +13,16 @@
     width: 100%;
     flex-basis: 20rem;
     text-wrap: wrap;
-    transition: background var(--fade-duration-slow);
+    transition-property: background-color, background-position;
+    transition-duration: var(--fade-duration-slow);
 }
 
 .card,
 .card:hover {
     background:
         url("/assets/images/pattern-flashcard-bg.svg"),
-        left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
-        right 5% bottom 90% url("/assets/images/pattern-star-blue.svg") no-repeat,
+        left 5% bottom 10% url("/assets/images/pattern-star-yellow.svg") no-repeat,
+        right 5% top 10% url("/assets/images/pattern-star-blue.svg") no-repeat,
         var(--pink-400);
 }
 
@@ -29,8 +30,8 @@
 .card--verso:hover {
     background:
         url("/assets/images/pattern-flashcard-bg.svg"),
-        left 10% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
-        right 5% bottom 90% url("/assets/images/pattern-star-pink.svg") no-repeat,
+        left 10% bottom 10% url("/assets/images/pattern-star-yellow.svg") no-repeat,
+        right 5% top 10% url("/assets/images/pattern-star-pink.svg") no-repeat,
         var(--blue-400);
 }
 
