@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: var(--spacing-600);
+    gap: var(--spacing-150);
     padding: var(--spacing-150) var(--spacing-200);
 }
 
