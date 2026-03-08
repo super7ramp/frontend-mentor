@@ -8,7 +8,7 @@
      ($ :div {:aria-hidden revealed}
         ($ :p.card__question.text-preset-1
            (:question card-data))
-        ($ :p.card__click.text-preset-4--medium
+        ($ :p.card__click-to-reveal.text-preset-4--medium
            "Click to reveal answer"))
      ($ :div {:aria-hidden (not revealed)}
         ($ :p.card__answer-header.text-preset-4--medium

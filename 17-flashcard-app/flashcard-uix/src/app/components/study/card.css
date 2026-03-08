@@ -52,35 +52,42 @@
     --opacity-when-visible: 1;
 }
 
-.card__click,
+.card__click-to-reveal,
 .card__answer-header {
     --opacity-when-visible: 0.8;
 }
 
 .card__question,
-.card__click,
+.card__answer-header {
+    /* Moved down and transparent so that it appears "moving up" when switching card side */
+    --vertical-translation-when-masked: 1lh;
+}
+
+.card__click-to-reveal,
+.card__answer {
+    /* Moved up and transparent so that it appears "moving down" when switching card side */
+    --vertical-translation-when-masked: -1lh;
+}
+
+.card__question,
+.card__click-to-reveal,
 .card--verso .card__answer-header,
 .card--verso .card__answer {
     transform: none;
     opacity: var(--opacity-when-visible);
 }
 
-.card__answer-header,
-.card--verso .card__question {
-    /* Moved down and transparent so that it appears "moving up" when switching card side */
-    transform: translateY(1lh);
-    opacity: 0;
-}
 
-.card--verso .card__click,
+.card--verso .card__question,
+.card--verso .card__click-to-reveal,
+.card__answer-header,
 .card__answer {
-    /* Moved up and transparent so that it appears "moving down" when switching card side */
-    transform: translateY(-1lh);
+    transform: translateY(var(--vertical-translation-when-masked));
     opacity: 0;
 }
 
 .card__question,
-.card__click,
+.card__click-to-reveal,
 .card__answer-header,
 .card__answer {
     transition-property: transform, opacity;
