@@ -12,4 +12,6 @@
 
 .badge::before {
     content: var(--icon-before);
+    width: 1rem;
+    height: 1rem;
 }

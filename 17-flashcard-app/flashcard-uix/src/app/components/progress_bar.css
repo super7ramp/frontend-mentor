@@ -2,19 +2,20 @@
    display: flex;
    align-items: center;
    gap: var(--spacing-100);
+   min-height: 1.85rem;
 }
 
 .progress-bar .progress-bar__bar-outside {
    width: 3.75rem;
+   height: 0.5rem;
    background-color: var(--neutral-0);
    border: var(--border-solid);
    border-radius: var(--radius-full);
-   margin: var(--spacing-150) 0;
 }
 
 .progress-bar .progress-bar__bar-inside {
    --progress: 0%;
-   height: 0.5rem;
+   height: 100%;
    width: var(--progress);
    background-color: var(--neutral-900);
    border-radius: var(--radius-full);
@@ -24,4 +25,8 @@
 .progress-bar .progress-bar__badge-mastered {
    background-color: var(--teal-400);
    --icon-before: url("/assets/images/icon-mastered.svg");
+}
+
+.progress-bar p {
+   width: 3ch;
 }
