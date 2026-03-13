@@ -60,13 +60,13 @@
 
 .card__question,
 .card__answer-header {
-    /* Moved down and transparent so that it appears "moving up" when switching card side */
+    /* Moved down so that it appears "moving up" when revealing */
     --vertical-translation-when-masked: 1lh;
 }
 
 .card__click-to-reveal,
 .card__answer {
-    /* Moved up and transparent so that it appears "moving down" when switching card side */
+    /* Moved up so that it appears "moving down" when revealing */
     --vertical-translation-when-masked: -1lh;
 }
 
