@@ -272,10 +272,10 @@ For the card:
 
 ```css
 .card {
-     background:
+    background:
+        left 5% bottom 10% url("/assets/images/pattern-star-yellow.svg") no-repeat,
+        right 5% top 10% url("/assets/images/pattern-star-blue.svg") no-repeat,
         url("/assets/images/pattern-flashcard-bg.svg"),
-        left 5% top 90% url("/assets/images/pattern-star-yellow.svg") no-repeat,
-        right 5% bottom 90% url("/assets/images/pattern-star-blue.svg") no-repeat,
         var(--pink-400);
 }
 ```
@@ -413,11 +413,57 @@ Used the `transition` property to animate on CSS property changes, e.g. for card
 ```css
 .card {
     /* ... */
-    transition: background var(--fade-duration-slow);
+    transition-property: background-color, background-position;
+    transition-duration: var(--fade-duration-slow);
 }
 ```
 
-Couldn't find a way to do the text card animation with it though: Tried to animate on the `order` property but it didn't work, didn't spend more time on it.
+For the card text animation, I went this way:
+
+1. Stack both card sides using grid and positioning both sets of elements on the same grid location.
+2. Make the other card side elements opaque (using `opacity`) and vertically translated (using `transform`) so they appear moving down or up when revealing.
+3. Add transition on both `opacity` and `transform` properties.
+
+```css
+.card__body {
+    display: grid;
+    align-items: center;
+}
+
+.card__body>* {
+    /* ... */
+    grid-area: 1 / 1 / 2 / 2; /* (1) */
+}
+
+.card--verso .card__question,
+.card--verso .card__click-to-reveal,
+.card__answer-header,
+.card__answer {
+    /* (2) */
+    transform: translateY(var(--vertical-translation-when-masked));
+    opacity: 0;
+}
+
+.card__question,
+.card__click-to-reveal,
+.card--verso .card__answer-header,
+.card--verso .card__answer {
+    /* (2) */
+    transform: none;
+    opacity: var(--opacity-when-visible);
+}
+
+.card__question,
+.card__click-to-reveal,
+.card__answer-header,
+.card__answer {
+    /* (3) */
+    transition-property: transform, opacity;
+    transition-duration: var(--fade-duration);
+}
+```
+
+It's not exactly the same animation as in the Figma prototype: I guess I should use the same set of elements for both sides and change their contents instead of having different elements for both sides 🤔 Also, the transition uses the standard ease function while design seems to use a spring animation.
 
 ##### CSS without SCSS is not as nice
 
