@@ -6,12 +6,14 @@
   "A learning progress bar, displaying progress between 0 and 5."
   [{:keys [known-count]}]
   (let [progress-percent (* 100 (/ known-count 5))]
-    ($ :div.progress-bar
+    ($ :div.progress-bar {:aria-atomic true
+                          :aria-label "Progress"}
        (if (< progress-percent 100)
          ($ :<>
             ($ :div.progress-bar__bar-outside
                ($ :div.progress-bar__bar-inside {:style {:--progress (str progress-percent "%")}}))
-            ($ :p.text-preset-6 known-count "/5"))
+            ($ :p.text-preset-6
+               known-count "/5"))
          ($ badge {:class-name "progress-bar__badge-mastered"}
             ($ :span "Mastered")
             ($ :span "5/5"))))))

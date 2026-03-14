@@ -12,7 +12,8 @@
       str/lower-case))
 
 (defui stat [{:keys [label value]}]
-  ($ :article.stat
+  ($ :article.stat {:aria-live "polite"
+                    :aria-atomic true}
      ($ :div.stat__label-value
         ($ :h2.text-preset-4--medium label)
         ($ :p.text-preset-1 value))

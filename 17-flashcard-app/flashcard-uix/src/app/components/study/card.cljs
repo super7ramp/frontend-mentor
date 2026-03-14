@@ -19,8 +19,11 @@
 (defui card
   "A flashcard ⚡ Two sides: recto contains the question, verso contains the answer."
   [{:keys [card-data revealed set-revealed] :as card-props}]
-  ($ :button.card {:on-click #(set-revealed (not revealed))
-                   :class-name (when revealed "card--verso")}
+  ($ :div.card {:on-click #(set-revealed (not revealed)) 
+                :class-name (when revealed "card--verso")
+                :aria-live "polite"
+                :aria-label "Current card"
+                :tab-index 0}
      ($ badge (:category card-data))
      ($ card-body card-props)
      ($ progress-bar {:known-count (:knownCount card-data)})))

@@ -4,7 +4,11 @@
 (defui card-selector [{:keys [current total select-previous select-next]}]
   ($ :div.card-selector
      ($ :button.card-selector-button.card-selector__previous {:title "Previous" :on-click select-previous}
-        ($ :span.card-selector-button__text "Previous"))
-     ($ :p.card-selector__text "Card " (inc current) " of " total)
+        ($ :span.card-selector-button__text 
+           "Previous"))
+     ($ :p.card-selector__text {:aria-live "polite"
+                                :aria-atomic true}
+        "Card " (inc current) " of " total)
      ($ :button.card-selector-button.card-selector__next {:title "Next" :on-click select-next}
-        ($ :span.card-selector-button__text "Next"))))
+        ($ :span.card-selector-button__text 
+           "Next"))))
