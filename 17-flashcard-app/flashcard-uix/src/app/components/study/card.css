@@ -20,18 +20,18 @@
 .card,
 .card:hover {
     background:
-        url("/assets/images/pattern-flashcard-bg.svg"),
         left 5% bottom 10% url("/assets/images/pattern-star-yellow.svg") no-repeat,
         right 5% top 10% url("/assets/images/pattern-star-blue.svg") no-repeat,
+        url("/assets/images/pattern-flashcard-bg.svg"),
         var(--pink-400);
 }
 
 .card--verso,
 .card--verso:hover {
     background:
-        url("/assets/images/pattern-flashcard-bg.svg"),
         left 10% bottom 10% url("/assets/images/pattern-star-yellow.svg") no-repeat,
         right 5% top 10% url("/assets/images/pattern-star-pink.svg") no-repeat,
+        url("/assets/images/pattern-flashcard-bg.svg"),
         var(--blue-400);
 }
 
