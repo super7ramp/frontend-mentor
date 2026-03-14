@@ -19,7 +19,12 @@
 (defui card
   "A flashcard ⚡ Two sides: recto contains the question, verso contains the answer."
   [{:keys [card-data revealed set-revealed] :as card-props}]
-  ($ :div.card {:on-click #(set-revealed (not revealed)) 
+  ($ :div.card {:on-click #(set-revealed (not revealed))
+                :on-key-down (fn [event]
+                               (when (or (= (.-key event) " ")
+                                         (= (.-key event) "Enter")) 
+                                 (set-revealed (not revealed))
+                                 (.preventDefault event)))
                 :class-name (when revealed "card--verso")
                 :aria-live "polite"
                 :aria-label "Current card"
