@@ -1,5 +1,6 @@
 @media (prefers-reduced-motion: no-preference) {
     :root {
+        --fade-duration-fast: 50ms;
         --fade-duration: 200ms;
         --fade-duration-slow: 300ms;
     }

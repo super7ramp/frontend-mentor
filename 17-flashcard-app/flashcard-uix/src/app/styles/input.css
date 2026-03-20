@@ -6,8 +6,9 @@ input[type=checkbox] {
 
 button,
 input[type=checkbox] {
-    transition: box-shadow var(--fade-duration);
-}
+    transition-duration: var(--fade-duration-fast);
+    transition-property: transform, box-shadow;
+    transition-timing-function: ease-out;}
 
 button {
     border: var(--border-solid);
@@ -20,6 +21,11 @@ button {
     font-size: 1rem;
     font-weight: 500;
     text-wrap: nowrap;
+}
+
+button:active:not(.with-shadow),
+input[type=checkbox]:active {
+    transform: scale(0.97);
 }
 
 button:hover {
@@ -46,8 +52,9 @@ button:disabled {
     box-shadow: 4px 4px 0 var(--neutral-900);
 }
 
-.with-shadow:hover:focus {
-    box-shadow: 4px 4px 0 var(--blue-600);
+.with-shadow:active:not(:disabled) {
+    box-shadow: none;
+    transform: translate(3px, 3px);
 }
 
 .primary,

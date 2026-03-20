@@ -74,8 +74,9 @@
 .card__click-to-reveal,
 .card--verso .card__answer-header,
 .card--verso .card__answer {
-    transform: none;
+    filter: none;
     opacity: var(--opacity-when-visible);
+    transform: none;
 }
 
 
@@ -83,14 +84,16 @@
 .card--verso .card__click-to-reveal,
 .card__answer-header,
 .card__answer {
-    transform: translateY(var(--vertical-translation-when-masked));
+    filter: blur(2px);
     opacity: 0;
+    transform: translateY(var(--vertical-translation-when-masked));
 }
 
 .card__question,
 .card__click-to-reveal,
 .card__answer-header,
 .card__answer {
-    transition-property: transform, opacity;
+    transition-property: filter, opacity, transform;
     transition-duration: var(--fade-duration);
+    transition-timing-function: ease-out;
 }

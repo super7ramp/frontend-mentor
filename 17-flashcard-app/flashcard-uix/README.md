@@ -421,27 +421,19 @@ Used the `transition` property to animate on CSS property changes, e.g. for card
 For the card text animation, I went this way:
 
 1. Stack both card sides using grid and positioning both sets of elements on the same grid location.
-2. Make the other card side elements opaque (using `opacity`) and vertically translated (using `transform`) so they appear moving down or up when revealing.
+2. Make the other card side elements opaque (using `opacity`), with a slight blur and vertically translated (using `transform`) so they appear moving down or up when revealing.
 3. Add transition on both `opacity` and `transform` properties.
 
 ```css
 .card__body {
+    /* (1) */
     display: grid;
     align-items: center;
 }
 
 .card__body>* {
-    /* ... */
-    grid-area: 1 / 1 / 2 / 2; /* (1) */
-}
-
-.card--verso .card__question,
-.card--verso .card__click-to-reveal,
-.card__answer-header,
-.card__answer {
-    /* (2) */
-    transform: translateY(var(--vertical-translation-when-masked));
-    opacity: 0;
+    /* (1) */
+    grid-area: 1 / 1 / 2 / 2;
 }
 
 .card__question,
@@ -449,8 +441,19 @@ For the card text animation, I went this way:
 .card--verso .card__answer-header,
 .card--verso .card__answer {
     /* (2) */
-    transform: none;
+    filter: none;
     opacity: var(--opacity-when-visible);
+    transform: none;
+}
+
+.card--verso .card__question,
+.card--verso .card__click-to-reveal,
+.card__answer-header,
+.card__answer {
+    /* (2) */
+    filter: blur(2px);
+    opacity: 0;
+    transform: translateY(var(--vertical-translation-when-masked));
 }
 
 .card__question,
@@ -458,8 +461,9 @@ For the card text animation, I went this way:
 .card__answer-header,
 .card__answer {
     /* (3) */
-    transition-property: transform, opacity;
+    transition-property: filter, opacity, transform;
     transition-duration: var(--fade-duration);
+    transition-timing-function: ease-out;
 }
 ```
 
