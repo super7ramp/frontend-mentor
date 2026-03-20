@@ -16,7 +16,8 @@
           ($ :button.primary.with-shadow.card-buttons__i-know-this {:on-click inc-known-count
                                                                     :disabled (= known-count 5)} 
              "I Know This")
-          ($ :button.with-shadow.card-buttons__reset {:on-click reset-known-count} 
+          ($ :button.with-shadow.card-buttons__reset {:on-click reset-known-count
+                                                      :disabled (= known-count 0)} 
              "Reset Progress")))))
 
 (defui deck
