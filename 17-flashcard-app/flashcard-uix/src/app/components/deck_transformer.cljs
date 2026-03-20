@@ -4,11 +4,12 @@
 
 (defn- select-categories-button-label [options]
   (let [option-count (count options)
-        selected-count (count (filter :selected options))]
-    (cond
-      (= selected-count option-count) "All Categories"
-      (= 1 selected-count) "One Category"
-      :else (str selected-count " Categories"))))
+        selected-categories (filter :selected options)
+        selected-count (count selected-categories)]
+    (condp = selected-count
+      option-count "All Categories"
+      1 (:value (first selected-categories))
+      (str selected-count " Categories"))))
 
 (defui select-categories [{:keys [category-frequencies selected-categories set-selected-categories]}]
   (let [options (->> category-frequencies
@@ -32,7 +33,7 @@
   "A component allowing to filter and shuffle a deck of cards."
   [{:keys [category-frequencies
            selected-categories
-           set-selected-categories 
+           set-selected-categories
            mastered-hidden
            set-mastered-hidden
            shuffle]}]
