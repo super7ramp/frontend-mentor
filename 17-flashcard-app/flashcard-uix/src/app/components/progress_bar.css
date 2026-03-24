@@ -15,11 +15,12 @@
 
 .progress-bar .progress-bar__bar-inside {
    --progress: 0%;
+   width: 100%;
    height: 100%;
-   width: var(--progress);
+   clip-path: inset(0 calc(100% - var(--progress)) 0 0 round var(--radius-full));
    background-color: var(--neutral-900);
    border-radius: var(--radius-full);
-   transition: width var(--fade-duration);
+   transition: clip-path var(--fade-duration);
 }
 
 .progress-bar .progress-bar__badge-mastered {
