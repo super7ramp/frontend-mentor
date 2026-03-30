@@ -1,32 +1,62 @@
 @use "../styles/design-system" as *;
 
+@property --progress {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 0;
+}
+
 .timer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 0 1 18.75rem;
-    height: 18.7rem;
+    @include stack;
+
+    align-self: center;
+    flex: 0 1 25rem;
+    aspect-ratio: 1 / 1;
     color: $blue-100;
-    padding: 20px;
+    padding: 1.375rem;
     background:
         linear-gradient($blue-850) content-box,
         linear-gradient(to left, $gradient-1-start, $gradient-1-end) padding-box;
     border-radius: 50%;
 
+    &:active {
+        scale: 0.97;
+    }
+
+    &__arc {
+        --_thickness: 0.85rem;
+        --_progress: calc(360deg * var(--progress));
+        --_edge: / var(--_thickness) var(--_thickness) no-repeat radial-gradient(50% 50%, #000 97%, #0000);
+        padding: var(--_thickness);
+        margin: var(--_thickness);
+        border-radius: 50%;
+        background: var(--color, $red-400);
+        mask:
+            top var(--_edge),
+            calc(50% + 50%*sin(var(--_progress))) calc(50% - 50%*cos(var(--_progress))) var(--_edge),
+            linear-gradient(#0000 0 0) content-box intersect,
+            conic-gradient(#000 var(--_progress), #0000 0);
+        transition: --progress 0.5s;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem;
+
+        @media (min-width: $bp-tablet) {
+            gap: $spacing-100;
+        }
+    }
+
     &__remaining {
         @include text-preset-1-font-1;
     }
 
-    &__button {
-        border: none;
-        background: none;
-        color: inherit;
+    &__button-text {
         text-transform: uppercase;
-        padding: 0;
         @include text-preset-2-font-1;
-    }
-
-    &:has(&__button:active) {
-        scale: 0.97;
     }
 }
