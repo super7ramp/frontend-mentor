@@ -9,6 +9,7 @@ type TimerProps = {
 
 const Timer = ({ duration }: TimerProps) => {
     const { remaining, paused, setPaused, finished, reset } = useTimer(duration);
+    const progress = (duration - remaining) / duration
 
     let buttonText;
     if (finished) {
@@ -19,19 +20,31 @@ const Timer = ({ duration }: TimerProps) => {
         buttonText = "Pause";
     }
 
+    const handleClick = () => {
+        if (finished) {
+            reset();
+            setPaused(false)
+        } else {
+            setPaused(!paused)
+        }
+    }
+
     return (
-        <div className="timer" >
-            <time className="timer__remaining">{remaining}</time>
-            <button className="timer__button" onClick={() => {
-                if (finished) {
-                    reset();
-                    setPaused(false)
-                } else {
-                    setPaused(!paused)
+        <div
+            className="timer"
+            tabIndex={0}
+            onClick={handleClick}
+            onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    handleClick();
+                    event.preventDefault()
                 }
             }}>
-                {buttonText}
-            </button>
+            <div className="timer__arc" style={{ '--progress': progress }}></div>
+            <div className="timer__content">
+                <time className="timer__remaining">{remaining}</time>
+                <p className="timer__button-text">{buttonText}</p>
+            </div>
         </div>
     )
 }
