@@ -1,15 +1,21 @@
-import './App.css'
+import Logo from './components/Logo'
+import Tabs from './components/Tabs'
+import Timer from './components/Timer'
+
+import './App.scss'
 
 function App() {
   return (
     <>
       <header>
-        {/* TODO Logo + tabs */}
+        <Logo/>
+        <Tabs/>
       </header>
       <main>
+        <Timer duration={5}/>
         {/* TODO
         Timer
-        Settings */}
+        Settings button */}
       </main>
     </>
   )

@@ -1,0 +1,24 @@
+@use "../styles/design-system" as *;
+
+.tabs {
+    background-color: $blue-900;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: $spacing-100;
+    border-radius: $radius-full;
+
+    .tab {
+        color: $blue-100;
+        opacity: 0.4;
+        padding: $spacing-200;
+        text-align: center;
+
+        &--active {
+            color: $blue-900;
+            background-color: $red-400;
+            border-radius: $radius-full;
+            opacity: 1;
+        }
+    }
+}

@@ -5,7 +5,7 @@
     font-weight: normal bold;
     src:
         local("Kumbh Sans"),
-        url("src/assets/fonts/KumbhSans/KumbhSans-VariableFont_YOPQ,wght.ttf") format("truetype");
+        url("../assets/fonts/KumbhSans/KumbhSans-VariableFont_YOPQ,wght.ttf") format("truetype");
 }
 
 @font-face {
@@ -13,7 +13,7 @@
     font-weight: normal;
     src:
         local("Roboto Slab Regular"),
-        url("src/assets/fonts/Roboto_Slab/RobotoSlab-Regular.ttf") format("truetype");
+        url("../assets/fonts/Roboto_Slab/RobotoSlab-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -21,7 +21,7 @@
     font-weight: bold;
     src:
         local("Roboto Slab Bold"),
-        url("src/assets/fonts/Roboto_Slab/RobotoSlab-Bold.ttf") format("truetype");
+        url("../assets/fonts/Roboto_Slab/RobotoSlab-Bold.ttf") format("truetype");
 }
 
 @font-face {
@@ -29,7 +29,7 @@
     font-weight: normal;
     src:
         local("Space Mono Regular"),
-        url("src/assets/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
+        url("../assets/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -37,7 +37,7 @@
     font-weight: bold;
     src:
         local("Space Mono Bold"),
-        url("src/assets/fonts/Space_Mono/SpaceMono-Bold.ttf") format("truetype");
+        url("../assets/fonts/Space_Mono/SpaceMono-Bold.ttf") format("truetype");
 }
 
 $font-1: "Kumbh Sans";
