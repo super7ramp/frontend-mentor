@@ -1,4 +1,5 @@
 import Logo from './components/Logo'
+import SettingsButton from './components/SettingsButton'
 import Tabs from './components/Tabs'
 import Timer from './components/Timer'
 
@@ -13,9 +14,7 @@ function App() {
       </header>
       <main>
         <Timer duration={5}/>
-        {/* TODO
-        Timer
-        Settings button */}
+        <SettingsButton/>
       </main>
     </>
   )

@@ -14,4 +14,5 @@ header {
 main {
     display: flex;
     flex-direction: column;
+    gap: $spacing-300;
 }
