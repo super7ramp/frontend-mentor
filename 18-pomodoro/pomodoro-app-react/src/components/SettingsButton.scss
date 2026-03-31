@@ -4,6 +4,6 @@
     transition: transform 100ms ease-out;
 
     &:active {
-        transform: rotate(30deg) scale(0.97);
+        transform: rotate(30deg);
     }
 }
