@@ -42,11 +42,19 @@ const Timer = ({ duration }: TimerProps) => {
             }}>
             <div className="timer__arc" style={{ '--progress': progress }}></div>
             <div className="timer__content">
-                <time className="timer__remaining">{remaining}</time>
+                <time className="timer__remaining">{formatDuration(remaining)}</time>
                 <p className="timer__button-text">{buttonText}</p>
             </div>
         </div>
     )
+}
+
+const formatDuration = (duration: number) => {
+    const minutes = Math.floor(duration / 60);
+    const seconds = duration % 60;
+    const paddedMinutes = String(minutes).padStart(2, '0');
+    const paddedSeconds = String(seconds).padStart(2, '0');
+    return `${paddedMinutes}:${paddedSeconds}`;
 }
 
 export default Timer;
