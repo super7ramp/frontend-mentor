@@ -7,6 +7,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     padding: $spacing-100;
     border-radius: $radius-full;
+    z-index: 1;
 
     .tab {
         @include text-preset-3;

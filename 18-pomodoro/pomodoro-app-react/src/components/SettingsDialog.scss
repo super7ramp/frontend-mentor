@@ -6,6 +6,10 @@
     border-radius: $radius-8;
     padding: 0;
 
+    &::backdrop {
+        background-color: $blue-850;
+    }
+
     &__head {
         display: flex;
         justify-content: space-between;
@@ -124,13 +128,5 @@
         background: var(--accent-color);
         color: white;
         padding: $spacing-200 $spacing-600;
-
-        &:hover {
-            opacity: 80%;
-        }
-
-        &:active {
-            scale: 0.97;
-        }
     }
 }
