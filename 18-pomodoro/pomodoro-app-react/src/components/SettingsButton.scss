@@ -1,9 +1,9 @@
 .settings-button {
-    background: none;
-    border: none;
-    transition: transform 100ms ease-out;
+  background: none;
+  border: none;
+  transition: transform 100ms ease-out;
 
-    &:active {
-        transform: rotate(30deg);
-    }
+  &:active {
+    transform: rotate(30deg);
+  }
 }

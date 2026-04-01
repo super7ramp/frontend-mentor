@@ -1,30 +1,30 @@
 @use "../styles/design-system" as *;
 
 .tabs {
-    background-color: $blue-900;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: $spacing-100;
-    border-radius: $radius-full;
-    z-index: 1;
+  background-color: $blue-900;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: $spacing-100;
+  border-radius: $radius-full;
+  z-index: 1;
 
-    .tab {
-        @include text-preset-3;
+  .tab {
+    @include text-preset-3;
 
-        color: $blue-100;
-        opacity: 0.4;
-        padding: $spacing-200;
-        text-align: center;
-        border: none;
-        background: none;
-        width: 100%;
+    color: $blue-100;
+    opacity: 0.4;
+    padding: $spacing-200;
+    text-align: center;
+    border: none;
+    background: none;
+    width: 100%;
 
-        &--active {
-            color: $blue-900;
-            background-color: var(--accent-color);
-            border-radius: $radius-full;
-            opacity: 1;
-        }
+    &--active {
+      color: $blue-900;
+      background-color: var(--accent-color);
+      border-radius: $radius-full;
+      opacity: 1;
     }
+  }
 }

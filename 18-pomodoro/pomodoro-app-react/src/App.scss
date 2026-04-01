@@ -1,51 +1,51 @@
 @use "./styles/design-system" as *;
 
 .app {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-600;
-    margin: $spacing-400 $spacing-300;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-600;
+  margin: $spacing-400 $spacing-300;
 
-    &--color-1 {
-        --accent-color: #{$accent-color-1};
-    }
+  &--color-1 {
+    --accent-color: #{$accent-color-1};
+  }
 
-    &--color-2 {
-        --accent-color: #{$accent-color-2};
-    }
+  &--color-2 {
+    --accent-color: #{$accent-color-2};
+  }
 
-    &--color-3 {
-        --accent-color: #{$accent-color-3};
-    }
+  &--color-3 {
+    --accent-color: #{$accent-color-3};
+  }
 
-    &--font-1 {
-        --font: #{$font-1};
-    }
+  &--font-1 {
+    --font: #{$font-1};
+  }
 
-    &--font-2 {
-        --font: #{$font-2};
-    }
+  &--font-2 {
+    --font: #{$font-2};
+  }
 
-    &--font-3 {
-        --font: #{$font-3};
-    }
+  &--font-3 {
+    --font: #{$font-3};
+  }
 }
 
 body {
-    background-color: $blue-850;
+  background-color: $blue-850;
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $spacing-500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-500;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: $spacing-300;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-300;
 }

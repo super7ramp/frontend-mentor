@@ -1,17 +1,13 @@
-import { useState, type ReactNode } from "react"
+import { useState, type ReactNode } from "react";
 import { TabsContext } from "./TabsContext";
 
 type TabsContextProviderProps = {
-    children: ReactNode | ReactNode[]
-}
+  children: ReactNode | ReactNode[];
+};
 
 const TabsContextProvider = ({ children }: TabsContextProviderProps) => {
-    const tabsState = useState("pomodoro");
-    return (
-        <TabsContext value={tabsState}>
-            {children}
-        </TabsContext>
-    );
-}
+  const tabsState = useState("pomodoro");
+  return <TabsContext value={tabsState}>{children}</TabsContext>;
+};
 
 export default TabsContextProvider;

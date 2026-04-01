@@ -1,32 +1,31 @@
 @use "../styles/design-system.scss" as *;
 
 .font-radio-input {
-    @include stack;
-    place-items: center;
-    background-color: $blue-50;
-    border-radius: 50%;
+  @include stack;
+  place-items: center;
+  background-color: $blue-50;
+  border-radius: 50%;
 
-    &>input {
-        width: 2.5rem;
-        height: 2.5rem;
-        appearance: none;
-    }
+  & > input {
+    width: 2.5rem;
+    height: 2.5rem;
+    appearance: none;
+  }
 
-    &:has(input:checked) {
-        color: white;
-        background-color: $blue-850;
-    }
+  &:has(input:checked) {
+    color: white;
+    background-color: $blue-850;
+  }
 
-    &--font-1 {
-        @include text-preset-2-font-1--settings;
-    }
+  &--font-1 {
+    @include text-preset-2-font-1--settings;
+  }
 
+  &--font-2 {
+    @include text-preset-2-font-2--settings;
+  }
 
-    &--font-2 {
-        @include text-preset-2-font-2--settings;
-    }
-
-    &--font-3 {
-        @include text-preset-2-font-3--settings;
-    }
+  &--font-3 {
+    @include text-preset-2-font-3--settings;
+  }
 }
