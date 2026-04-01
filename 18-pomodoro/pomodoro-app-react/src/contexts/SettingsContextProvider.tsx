@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 import type { Settings } from "./SettingsContext";
 import { SettingsContext } from "./SettingsContext";
 
 type SettingsContextProviderProps = {
-    children: React.ReactNode[]
+    children: ReactNode | ReactNode[]
 }
 
 const SettingsContextProvider = ({ children }: SettingsContextProviderProps) => {

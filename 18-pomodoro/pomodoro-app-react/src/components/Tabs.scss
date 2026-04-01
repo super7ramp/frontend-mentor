@@ -16,6 +16,8 @@
         opacity: 0.4;
         padding: $spacing-200;
         text-align: center;
+        border: none;
+        background: none;
 
         &--active {
             color: $blue-900;

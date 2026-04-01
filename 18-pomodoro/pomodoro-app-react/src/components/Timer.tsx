@@ -4,12 +4,12 @@ import './Timer.scss'
 
 type TimerProps = {
     /** timer duration in seconds */
-    duration: number
+    durationInSeconds: number
 }
 
-const Timer = ({ duration }: TimerProps) => {
-    const { remaining, paused, setPaused, finished, reset } = useTimer(duration);
-    const progress = (duration - remaining) / duration
+const Timer = ({ durationInSeconds }: TimerProps) => {
+    const { remaining, paused, setPaused, finished, reset } = useTimer(durationInSeconds);
+    const progress = (durationInSeconds - remaining) / durationInSeconds
 
     let buttonText;
     if (finished) {
@@ -39,7 +39,8 @@ const Timer = ({ duration }: TimerProps) => {
                     handleClick();
                     event.preventDefault()
                 }
-            }}>
+            }}
+        >
             <div className="timer__arc" style={{ '--progress': progress } as React.CSSProperties}></div>
             <div className="timer__content">
                 <time className="timer__remaining">{formatDuration(remaining)}</time>
@@ -49,9 +50,9 @@ const Timer = ({ duration }: TimerProps) => {
     )
 }
 
-const formatDuration = (duration: number) => {
-    const minutes = Math.floor(duration / 60);
-    const seconds = duration % 60;
+const formatDuration = (durationInSeconds: number) => {
+    const minutes = Math.floor(durationInSeconds / 60);
+    const seconds = durationInSeconds % 60;
     const paddedMinutes = String(minutes).padStart(2, '0');
     const paddedSeconds = String(seconds).padStart(2, '0');
     return `${paddedMinutes}:${paddedSeconds}`;
