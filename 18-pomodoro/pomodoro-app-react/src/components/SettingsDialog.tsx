@@ -68,6 +68,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                                     <label htmlFor={timerInputId}>{timer}</label>
                                     <NumberInput
                                         id={timerInputId}
+                                        min={0}
                                         value={durationInSeconds / 60}
                                         onValueChange={(newValue) => updateTimer(index, newValue * 60)}
                                     />

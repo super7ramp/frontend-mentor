@@ -8,16 +8,22 @@ type NumberInputProps = {
     id: string,
     /** the current value */
     value: number,
+    /** the minimal allowed value */
+    min?: number,
+    /** the maximal allowed value */
+    max?: number,
     /** the callback on value change */
     onValueChange: (newValue: number) => void,
 }
 
-const NumberInput = ({ id, value, onValueChange }: NumberInputProps) => {
+const NumberInput = ({ id, value, min, max, onValueChange }: NumberInputProps) => {
     return (
         <div className='number-input'>
             <input
                 className='number-input__input'
                 id={id}
+                min={min}
+                max={max}
                 type="number"
                 value={value}
                 onChange={(e) => onValueChange(e.target.valueAsNumber)} />
