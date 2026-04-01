@@ -50,76 +50,78 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
 
   return (
     <dialog id={id} className="settings-dialog">
-      <div className="settings-dialog__head">
-        <h2>Settings</h2>
-        <button
-          autoFocus
-          className="settings-dialog__close-button"
-          command="close"
-          commandfor={id}
-          // reset dialog settings on close
-          onClick={() => setCurrentSettings(settings)}
-        >
-          <img src={iconCloseSvg} />
-        </button>
+      <div className="settings-dialog__inner">
+        <div className="settings-dialog__head">
+          <h2>Settings</h2>
+          <button
+            autoFocus
+            className="settings-dialog__close-button"
+            command="close"
+            commandfor={id}
+            // reset dialog settings on close
+            onClick={() => setCurrentSettings(settings)}
+          >
+            <img src={iconCloseSvg} />
+          </button>
+        </div>
+        <form method="dialog">
+          <fieldset>
+            <h3>Time (minutes)</h3>
+            <div className="settings-dialog__timers">
+              {currentSettings?.time.map(
+                ({ timer, durationInSeconds }, index) => {
+                  const timerInputId = timer.replaceAll(" ", "-");
+                  return (
+                    <div className="settings-dialog__timer" key={timer}>
+                      <label htmlFor={timerInputId}>{timer}</label>
+                      <NumberInput
+                        id={timerInputId}
+                        min={1}
+                        value={durationInSeconds / 60}
+                        onValueChange={(newValue) =>
+                          updateTimer(index, newValue * 60)
+                        }
+                      />
+                    </div>
+                  );
+                },
+              )}
+            </div>
+          </fieldset>
+          <fieldset>
+            <h3>Font</h3>
+            <div className="settings-dialog__fonts">
+              {currentSettings?.font.fonts.map((font) => (
+                <FontRadioInput
+                  key={font}
+                  font={font}
+                  checked={currentSettings?.font.selected === font}
+                  onClick={() => selectFont(font)}
+                />
+              ))}
+            </div>
+          </fieldset>
+          <fieldset>
+            <h3>Color</h3>
+            <div className="settings-dialog__colors">
+              {currentSettings?.color.colors.map((color) => (
+                <ColorRadioInput
+                  key={color}
+                  color={color}
+                  checked={currentSettings?.color.selected === color}
+                  onClick={() => selectColor(color)}
+                />
+              ))}
+            </div>
+          </fieldset>
+          <button
+            className="settings-dialog__apply-button"
+            onClick={() => applySettings(currentSettings)}
+          >
+            Apply
+          </button>
+        </form>
       </div>
-      <form method="dialog">
-        <fieldset>
-          <h3>Time (minutes)</h3>
-          <div className="settings-dialog__timers">
-            {currentSettings?.time.map(
-              ({ timer, durationInSeconds }, index) => {
-                const timerInputId = timer.replaceAll(" ", "-");
-                return (
-                  <div className="settings-dialog__timer" key={timer}>
-                    <label htmlFor={timerInputId}>{timer}</label>
-                    <NumberInput
-                      id={timerInputId}
-                      min={1}
-                      value={durationInSeconds / 60}
-                      onValueChange={(newValue) =>
-                        updateTimer(index, newValue * 60)
-                      }
-                    />
-                  </div>
-                );
-              },
-            )}
-          </div>
-        </fieldset>
-        <fieldset>
-          <h3>Font</h3>
-          <div className="settings-dialog__fonts">
-            {currentSettings?.font.fonts.map((font) => (
-              <FontRadioInput
-                key={font}
-                font={font}
-                checked={currentSettings?.font.selected === font}
-                onClick={() => selectFont(font)}
-              />
-            ))}
-          </div>
-        </fieldset>
-        <fieldset>
-          <h3>Color</h3>
-          <div className="settings-dialog__colors">
-            {currentSettings?.color.colors.map((color) => (
-              <ColorRadioInput
-                key={color}
-                color={color}
-                checked={currentSettings?.color.selected === color}
-                onClick={() => selectColor(color)}
-              />
-            ))}
-          </div>
-        </fieldset>
-        <button
-          className="settings-dialog__apply-button"
-          onClick={() => applySettings(currentSettings)}
-        >
-          Apply
-        </button>
-      </form>
     </dialog>
   );
 };

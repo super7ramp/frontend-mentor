@@ -18,3 +18,11 @@ $accent-color-3: $purple-400;
 :root {
   --accent-color: #{$accent-color-1};
 }
+
+* {
+  color: $blue-850;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $blue-900;
+}

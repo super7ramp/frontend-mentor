@@ -6,6 +6,10 @@
   background-color: $blue-50;
   border-radius: 50%;
 
+  & > * {
+    opacity: 0.73;
+  }
+
   & > input {
     width: 2.5rem;
     height: 2.5rem;
@@ -13,8 +17,12 @@
   }
 
   &:has(input:checked) {
-    color: white;
     background-color: $blue-850;
+ 
+    & > * {
+      color: white;
+      opacity: 1;
+    }
   }
 
   &--font-1 {
