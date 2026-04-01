@@ -1,12 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+
+import SettingsContextProvider from './contexts/SettingsContextProvider'
+import TabsContextProvider from './contexts/TabsContextProvider'
 import App from './App.tsx'
-import SettingsContextProvider from './contexts/SettingsContextProvider.tsx'
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <SettingsContextProvider>
-      <App />
+      <TabsContextProvider>
+        <App />
+      </TabsContextProvider>
     </SettingsContextProvider>
   </StrictMode>,
 )
