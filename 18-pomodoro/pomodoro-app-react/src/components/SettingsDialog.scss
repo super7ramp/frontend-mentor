@@ -50,29 +50,7 @@
         color: $blue-850;
 
         >label {
-            grid-row: 1;
             opacity: 40%;
-        }
-
-        >input {
-            grid-row: 1;
-            appearance: textfield;
-            background: $blue-50;
-            border: none;
-            border-radius: $radius-8;
-            padding: $spacing-150 $spacing-200;
-        }
-    }
-
-    &__timer-buttons {
-        grid-row: 1;
-        justify-self: flex-end;
-        display: grid;
-        margin-inline-end: $spacing-200;
-
-        >button {
-            border: none;
-            background: none;
         }
     }
 
