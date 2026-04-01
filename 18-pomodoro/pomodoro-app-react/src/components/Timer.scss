@@ -15,9 +15,13 @@
     color: $blue-100;
     padding: 1.375rem;
     background:
-        linear-gradient($blue-850) content-box,
+        linear-gradient($blue-900) content-box,
         linear-gradient(to left, $gradient-1-start, $gradient-1-end) padding-box;
     border-radius: 50%;
+    box-shadow:
+        -50px -50px 100px #272C5A,
+        50px 50px 100px #121530;
+    z-index: -1;
 
     &:active {
         scale: 0.97;
