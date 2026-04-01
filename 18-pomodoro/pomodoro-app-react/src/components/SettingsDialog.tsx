@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
-import iconArrowUp from '../assets/icons/icon-arrow-up.svg';
-import iconArrowDown from '../assets/icons/icon-arrow-down.svg';
 import iconCloseSvg from '../assets/icons/icon-close.svg';
 import useSettings from '../hooks/useSettings';
+import NumberInput from './NumberInput';
 
 import './SettingsDialog.scss';
 
@@ -67,25 +66,11 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                             return (
                                 <div className='settings-dialog__timer' key={timer}>
                                     <label htmlFor={timerInputId}>{timer}</label>
-                                    <input
+                                    <NumberInput
                                         id={timerInputId}
-                                        type="number"
                                         value={durationInSeconds / 60}
-                                        onChange={(e) => updateTimer(index, e.target.valueAsNumber * 60)} />
-                                    <div className='settings-dialog__timer-buttons'>
-                                        <button
-                                            type='button'
-                                            onClick={() => updateTimer(index, durationInSeconds + 60)}
-                                        >
-                                            <img src={iconArrowUp} />
-                                        </button>
-                                        <button
-                                            type='button'
-                                            onClick={() => updateTimer(index, durationInSeconds - 60)}
-                                        >
-                                            <img src={iconArrowDown} />
-                                        </button>
-                                    </div>
+                                        onValueChange={(newValue) => updateTimer(index, newValue * 60)}
+                                    />
                                 </div>
                             )
                         })}
