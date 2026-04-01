@@ -26,6 +26,24 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
         setCurrentSettings(updatedSettings)
     }
 
+    const selectFont = (font: string) => {
+        if (!currentSettings?.font) {
+            return;
+        }
+        const updatedFont = { ...currentSettings?.font, selected: font }
+        const updatedSettings = { ...currentSettings, font: updatedFont }
+        setCurrentSettings(updatedSettings);
+    }
+
+    const selectColor = (color: string) => {
+        if (!currentSettings?.color) {
+            return;
+        }
+        const updatedColor = { ...currentSettings?.color, selected: color }
+        const updatedSettings = { ...currentSettings, color: updatedColor }
+        setCurrentSettings(updatedSettings);
+    }
+
     return (
         <dialog id={id} className="settings-dialog">
             <div className="settings-dialog__head">
@@ -34,8 +52,10 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                     autoFocus
                     className="settings-dialog__close-button"
                     command="close"
-                    commandfor={id}>
-                    <img src={iconCloseSvg}></img>
+                    commandfor={id}
+                    onClick={() => setCurrentSettings(settings)}
+                >
+                    <img src={iconCloseSvg} />
                 </button>
             </div>
             <form method="dialog">
@@ -51,16 +71,18 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                                         id={timerInputId}
                                         type="number"
                                         value={durationInSeconds / 60}
-                                        onChange={(e) => updateTimer(index, e.target.valueAsNumber * 60)}>
-                                    </input>
+                                        onChange={(e) => updateTimer(index, e.target.valueAsNumber * 60)} />
                                     <div className='settings-dialog__timer-buttons'>
                                         <button
                                             type='button'
-                                            onClick={() => updateTimer(index, durationInSeconds + 60)}>
+                                            onClick={() => updateTimer(index, durationInSeconds + 60)}
+                                        >
                                             <img src={iconArrowUp} />
                                         </button>
-                                        <button type='button'
-                                            onClick={() => updateTimer(index, durationInSeconds - 60)}>
+                                        <button
+                                            type='button'
+                                            onClick={() => updateTimer(index, durationInSeconds - 60)}
+                                        >
                                             <img src={iconArrowDown} />
                                         </button>
                                     </div>
@@ -71,13 +93,36 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                 </fieldset>
                 <fieldset>
                     <h3>Font</h3>
+                    <div className='settings-dialog__fonts'>
+                        {currentSettings?.font.fonts.map((font) => (
+                            <div className={`settings-dialog__font settings-dialog__font--${font}`}>
+                                <div>Aa</div>
+                                <input
+                                    name='font'
+                                    type="radio"
+                                    checked={currentSettings?.font.selected === font}
+                                    onClick={() => selectFont(font)} />
+                            </div>
+                        ))}
+                    </div>
                 </fieldset>
                 <fieldset>
                     <h3>Color</h3>
+                    <div className='settings-dialog__colors'>
+                        {currentSettings?.color.colors.map((color) => (
+                            <input
+                                className={`settings-dialog__color settings-dialog__color--${color}`}
+                                name='color'
+                                type="radio"
+                                checked={currentSettings?.color.selected === color}
+                                onClick={() => selectColor(color)} />
+                        ))}
+                    </div>
                 </fieldset>
                 <button
                     className="settings-dialog__apply-button"
-                    onClick={() => applySettings(currentSettings)}>
+                    onClick={() => applySettings(currentSettings)}
+                >
                     Apply
                 </button>
             </form>

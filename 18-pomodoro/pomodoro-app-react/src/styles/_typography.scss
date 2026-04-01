@@ -44,6 +44,31 @@ $font-1: "Kumbh Sans";
 $font-2: "Roboto Slab";
 $font-3: "Space Mono";
 
+:root {
+    --font: $font-1;
+}
+
+@mixin text-preset-1 {
+    font-family: var(--font);
+    font-size: 6.25rem;
+    font-weight: bold;
+    line-height: 125%;
+}
+
+@mixin text-preset-2 {
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 125%;
+}
+
+@mixin text-preset-3 {
+    font-family: var(--font);
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 120%;
+}
+
 @mixin text-preset-1-font-1 {
     font-family: $font-1;
     font-size: 6.25rem;
@@ -70,6 +95,11 @@ $font-3: "Space Mono";
     }
 }
 
+@mixin text-preset-2-font-1--settings {
+    @include text-preset-2-font-1();
+    letter-spacing: 0;
+}
+
 @mixin text-preset-3-font-1 {
     font-family: $font-1;
     font-size: 0.875rem;
@@ -91,7 +121,7 @@ $font-3: "Space Mono";
     letter-spacing: 0;
 
     @media (max-width: $bp-tablet) {
-        font-size: 5rem;
+        font-size: 0.875rem;
         line-height: 133%;
     }
 }
@@ -104,9 +134,14 @@ $font-3: "Space Mono";
     letter-spacing: 15px;
 
     @media (max-width: $bp-tablet) {
-        font-size: 5rem;
+        font-size: 0.8755rem;
         line-height: 133%;
     }
+}
+
+@mixin text-preset-2-font-2--settings {
+    @include text-preset-2-font-2();
+    letter-spacing: 0;
 }
 
 @mixin text-preset-3-font-2 {
@@ -121,7 +156,6 @@ $font-3: "Space Mono";
         line-height: 133%;
     }
 }
-
 
 @mixin text-preset-1-font-3 {
     font-family: $font-3;
@@ -147,6 +181,11 @@ $font-3: "Space Mono";
         font-size: 0.875rem;
         letter-spacing: 0.8125rem;
     }
+}
+
+@mixin text-preset-2-font-3--settings {
+    @include text-preset-2-font-3();
+    letter-spacing: 0;
 }
 
 @mixin text-preset-3-font-3 {

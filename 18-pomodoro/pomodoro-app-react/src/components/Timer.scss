@@ -30,7 +30,7 @@
         padding: var(--_thickness);
         margin: var(--_thickness);
         border-radius: 50%;
-        background: var(--color, $red-400);
+        background: var(--accent-color);
         mask:
             top var(--_edge),
             calc(50% + 50%*sin(var(--_progress))) calc(50% - 50%*cos(var(--_progress))) var(--_edge),
@@ -52,11 +52,11 @@
     }
 
     &__remaining {
-        @include text-preset-1-font-1;
+        @include text-preset-1;
     }
 
     &__button-text {
         text-transform: uppercase;
-        @include text-preset-2-font-1;
+        @include text-preset-2;
     }
 }

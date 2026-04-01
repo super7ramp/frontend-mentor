@@ -1,5 +1,31 @@
 @use "./styles/design-system" as *;
 
+.app {
+    &--color-1 {
+        --accent-color: #{$accent-color-1};
+    }
+
+    &--color-2 {
+        --accent-color: #{$accent-color-2};
+    }
+
+    &--color-3 {
+        --accent-color: #{$accent-color-3};
+    }
+
+    &--font-1 {
+        --font: #{$font-1};
+    }
+
+    &--font-2 {
+        --font: #{$font-2};
+    }
+
+    &--font-3 {
+        --font: #{$font-3};
+    }
+}
+
 body {
     background-color: $blue-850;
 }

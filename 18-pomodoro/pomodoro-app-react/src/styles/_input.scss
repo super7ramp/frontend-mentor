@@ -1,3 +1,4 @@
-button:active {
+button:active,
+input[type=radio]:active {
     scale: 0.97;
 }
