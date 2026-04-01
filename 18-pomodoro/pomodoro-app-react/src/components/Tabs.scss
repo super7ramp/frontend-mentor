@@ -9,6 +9,8 @@
     border-radius: $radius-full;
 
     .tab {
+        @include text-preset-3;
+
         color: $blue-100;
         opacity: 0.4;
         padding: $spacing-200;
@@ -16,7 +18,7 @@
 
         &--active {
             color: $blue-900;
-            background-color: $red-400;
+            background-color: var(--accent-color);
             border-radius: $radius-full;
             opacity: 1;
         }

@@ -76,10 +76,74 @@
         }
     }
 
+    &__fonts,
+    &__colors {
+        display: flex;
+        gap: $spacing-200;
+        justify-content: center;
+    }
+
+    &__font,
+    &__color {
+        border-radius: 50%;
+    }
+
+    &__font>input,
+    &__color {
+        width: 2.5rem;
+        height: 2.5rem;
+        appearance: none;
+    }
+
+    &__font {
+        @include stack;
+        place-items: center;
+        background-color: $blue-50;
+
+        &:has(input:checked) {
+            color: white;
+            background-color: $blue-850;
+        }
+
+        &--font-1 {
+            @include text-preset-2-font-1--settings;
+        }
+
+
+        &--font-2 {
+            @include text-preset-2-font-2--settings;
+        }
+
+        &--font-3 {
+            @include text-preset-2-font-3--settings;
+        }
+
+    }
+
+    &__color {
+        &:checked {
+            background-image: url('data:image/svg+xml,<svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.707031 5.20709L4.65966 9.15972L13.1123 0.707092" stroke="%23161932" stroke-width="2"/></svg>');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        &--color-1 {
+            background-color: $accent-color-1;
+        }
+
+        &--color-2 {
+            background-color: $accent-color-2;
+        }
+
+        &--color-3 {
+            background-color: $accent-color-3;
+        }
+    }
+
     &__apply-button {
         border: none;
         border-radius: $radius-full;
-        background: $red-400;
+        background: var(--accent-color);
         color: white;
         padding: $spacing-200 $spacing-600;
 
