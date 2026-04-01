@@ -1,9 +1,17 @@
+@use "./color" as *;
+
 button:active,
 input[type="radio"]:active {
-  scale: 0.97;
+  transform: scale(0.97);
 }
 
 button:hover,
 input[type="radio"]:hover {
-  opacity: 80%;
+  filter: brightness(120%);
+}
+
+button:focus,
+input[type="radio"]:focus-visible {
+  outline-color: $blue-50;
+  outline-offset: 5px;
 }

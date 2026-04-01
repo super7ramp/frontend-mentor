@@ -13,12 +13,14 @@
 
   &__buttons {
     justify-self: flex-end;
+    align-self: center;
     display: grid;
     margin-inline-end: $spacing-200;
 
     > button {
       border: none;
       background: none;
+      transform-origin: 13.5px 9px;
     }
   }
 }
