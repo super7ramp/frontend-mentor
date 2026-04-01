@@ -1,20 +1,20 @@
-$blue-950: #14172E;
+$blue-950: #14172e;
 $blue-900: #161932;
-$blue-850: #1E213F;
-$blue-100: #D7E0FF;
-$blue-50: #EFF1FA;
-$grey-400: #BBBDCB;
-$grey-200: #E4E2E2;
-$cyan-300: #70F3F8;
-$red-400: #F87070;
-$purple-400: #D881F8;
-$gradient-1-start: #2E325A;
-$gradient-1-end: #0E112A;
+$blue-850: #1e213f;
+$blue-100: #d7e0ff;
+$blue-50: #eff1fa;
+$grey-400: #bbbdcb;
+$grey-200: #e4e2e2;
+$cyan-300: #70f3f8;
+$red-400: #f87070;
+$purple-400: #d881f8;
+$gradient-1-start: #2e325a;
+$gradient-1-end: #0e112a;
 
 $accent-color-1: $red-400;
 $accent-color-2: $cyan-300;
 $accent-color-3: $purple-400;
 
 :root {
-    --accent-color: #{$accent-color-1};
+  --accent-color: #{$accent-color-1};
 }
