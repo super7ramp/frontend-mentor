@@ -40,7 +40,7 @@ const Timer = ({ duration }: TimerProps) => {
                     event.preventDefault()
                 }
             }}>
-            <div className="timer__arc" style={{ '--progress': progress }}></div>
+            <div className="timer__arc" style={{ '--progress': progress } as React.CSSProperties}></div>
             <div className="timer__content">
                 <time className="timer__remaining">{formatDuration(remaining)}</time>
                 <p className="timer__button-text">{buttonText}</p>
