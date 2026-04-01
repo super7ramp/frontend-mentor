@@ -10,7 +10,7 @@ import './App.scss'
 function App() {
   const [settings] = useSettings()
   return (
-    <div className={`app--${settings?.color.selected} app--${settings?.font.selected}`}>
+    <div className={`app app--${settings?.color.selected} app--${settings?.font.selected}`}>
       <header>
         <Logo />
         <Tabs />
