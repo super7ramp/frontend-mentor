@@ -52,6 +52,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                     className="settings-dialog__close-button"
                     command="close"
                     commandfor={id}
+                    // reset dialog settings on close
                     onClick={() => setCurrentSettings(settings)}
                 >
                     <img src={iconCloseSvg} />
@@ -80,10 +81,11 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                 <fieldset>
                     <h3>Font</h3>
                     <div className='settings-dialog__fonts'>
-                        {currentSettings?.font.fonts.map((font) => (
-                            <div className={`settings-dialog__font settings-dialog__font--${font}`}>
-                                <div>Aa</div>
+                        {currentSettings?.font.fonts.map((font, index) => (
+                            <div className={`settings-dialog__font settings-dialog__font--${font}`} key={font}>
+                                <div aria-hidden={true}>Aa</div>
                                 <input
+                                    aria-label={`Font ${index + 1}`}
                                     name='font'
                                     type="radio"
                                     checked={currentSettings?.font.selected === font}
@@ -95,8 +97,9 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                 <fieldset>
                     <h3>Color</h3>
                     <div className='settings-dialog__colors'>
-                        {currentSettings?.color.colors.map((color) => (
+                        {currentSettings?.color.colors.map((color, index) => (
                             <input
+                                aria-label={`Color ${index + 1}`}
                                 className={`settings-dialog__color settings-dialog__color--${color}`}
                                 name='color'
                                 type="radio"
