@@ -5,11 +5,11 @@ type ColorRadioInputProps = {
   color: string;
   /** whether the input is checked */
   checked: boolean;
-  /** callback when input is clicked */
-  onClick: () => void;
+  /** callback when input is being checked */
+  onCheck: () => void;
 };
 
-const ColorRadioInput = ({ color, checked, onClick }: ColorRadioInputProps) => {
+const ColorRadioInput = ({ color, checked, onCheck }: ColorRadioInputProps) => {
   return (
     <input
       aria-label={color}
@@ -17,7 +17,7 @@ const ColorRadioInput = ({ color, checked, onClick }: ColorRadioInputProps) => {
       name="color"
       type="radio"
       checked={checked}
-      onClick={onClick}
+      onChange={onCheck}
     />
   );
 };
