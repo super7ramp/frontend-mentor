@@ -16,14 +16,19 @@ type SettingsDialogProps = {
 const SettingsDialog = ({ id }: SettingsDialogProps) => {
   const [settings, applySettings] = useSettings();
   const [currentSettings, setCurrentSettings] = useState(settings);
+  const {
+    time: timeSettings,
+    font: fontSettings,
+    color: colorSettings,
+  } = currentSettings;
 
   const updateTimer = (index: number, newDuration: number) => {
-    if (!currentSettings?.time[index]) {
+    if (!timeSettings[index]) {
       return;
     }
-    const updatedTimeSettings = currentSettings.time.slice();
+    const updatedTimeSettings = timeSettings.slice();
     updatedTimeSettings[index] = {
-      ...currentSettings.time[index],
+      ...timeSettings[index],
       durationInSeconds: newDuration,
     };
     const updatedSettings = { ...currentSettings, time: updatedTimeSettings };
@@ -31,20 +36,14 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
   };
 
   const selectFont = (font: string) => {
-    if (!currentSettings?.font) {
-      return;
-    }
-    const updatedFont = { ...currentSettings?.font, selected: font };
-    const updatedSettings = { ...currentSettings, font: updatedFont };
+    const updatedFontSettings = { ...fontSettings, selected: font };
+    const updatedSettings = { ...currentSettings, font: updatedFontSettings };
     setCurrentSettings(updatedSettings);
   };
 
   const selectColor = (color: string) => {
-    if (!currentSettings?.color) {
-      return;
-    }
-    const updatedColor = { ...currentSettings?.color, selected: color };
-    const updatedSettings = { ...currentSettings, color: updatedColor };
+    const updatedColorSettings = { ...colorSettings, selected: color };
+    const updatedSettings = { ...currentSettings, color: updatedColorSettings };
     setCurrentSettings(updatedSettings);
   };
 
@@ -68,34 +67,32 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
           <fieldset>
             <h3>Time (minutes)</h3>
             <div className="settings-dialog__timers">
-              {currentSettings?.time.map(
-                ({ timer, durationInSeconds }, index) => {
-                  const timerInputId = timer.replaceAll(" ", "-");
-                  return (
-                    <div className="settings-dialog__timer" key={timer}>
-                      <label htmlFor={timerInputId}>{timer}</label>
-                      <NumberInput
-                        id={timerInputId}
-                        min={1}
-                        value={durationInSeconds / 60}
-                        onValueChange={(newValue) =>
-                          updateTimer(index, newValue * 60)
-                        }
-                      />
-                    </div>
-                  );
-                },
-              )}
+              {timeSettings.map(({ timer, durationInSeconds }, index) => {
+                const timerInputId = timer.replaceAll(" ", "-");
+                return (
+                  <div className="settings-dialog__timer" key={timer}>
+                    <label htmlFor={timerInputId}>{timer}</label>
+                    <NumberInput
+                      id={timerInputId}
+                      min={1}
+                      value={durationInSeconds / 60}
+                      onValueChange={(newValue) =>
+                        updateTimer(index, newValue * 60)
+                      }
+                    />
+                  </div>
+                );
+              })}
             </div>
           </fieldset>
           <fieldset>
             <h3>Font</h3>
             <div className="settings-dialog__fonts">
-              {currentSettings?.font.fonts.map((font) => (
+              {fontSettings.fonts.map((font) => (
                 <FontRadioInput
                   key={font}
                   font={font}
-                  checked={currentSettings?.font.selected === font}
+                  checked={fontSettings.selected === font}
                   onCheck={() => selectFont(font)}
                 />
               ))}
@@ -104,11 +101,11 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
           <fieldset>
             <h3>Color</h3>
             <div className="settings-dialog__colors">
-              {currentSettings?.color.colors.map((color) => (
+              {colorSettings.colors.map((color) => (
                 <ColorRadioInput
                   key={color}
                   color={color}
-                  checked={currentSettings?.color.selected === color}
+                  checked={colorSettings.selected === color}
                   onCheck={() => selectColor(color)}
                 />
               ))}

@@ -11,7 +11,7 @@ import "./App.scss";
 function App() {
   const [settings] = useSettings();
   const [currentTab] = useTabs();
-  const currentTimer = settings?.time.find(({ timer }) => timer === currentTab);
+  const currentTimer = settings.time.find(({ timer }) => timer === currentTab);
 
   return (
     <div
