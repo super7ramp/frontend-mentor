@@ -67,4 +67,8 @@
     text-transform: uppercase;
     color: $blue-100;
   }
+
+  &:hover &__button-text {
+    color: var(--accent-color);
+  }
 }
