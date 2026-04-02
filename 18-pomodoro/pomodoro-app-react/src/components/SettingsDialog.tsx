@@ -96,7 +96,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                   key={font}
                   font={font}
                   checked={currentSettings?.font.selected === font}
-                  onClick={() => selectFont(font)}
+                  onCheck={() => selectFont(font)}
                 />
               ))}
             </div>
@@ -109,7 +109,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
                   key={color}
                   color={color}
                   checked={currentSettings?.color.selected === color}
-                  onClick={() => selectColor(color)}
+                  onCheck={() => selectColor(color)}
                 />
               ))}
             </div>

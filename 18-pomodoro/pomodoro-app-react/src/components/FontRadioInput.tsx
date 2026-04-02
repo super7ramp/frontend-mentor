@@ -5,11 +5,11 @@ type FontRadioInputProps = {
   font: string;
   /** whether the input is checked */
   checked: boolean;
-  /** callback when input is clicked */
-  onClick: () => void;
+  /** callback when input is being checked */
+  onCheck: () => void;
 };
 
-const FontRadioInput = ({ font, checked, onClick }: FontRadioInputProps) => {
+const FontRadioInput = ({ font, checked, onCheck }: FontRadioInputProps) => {
   return (
     <div className={`font-radio-input font-radio-input--${font}`}>
       <div aria-hidden={true}>Aa</div>
@@ -18,7 +18,7 @@ const FontRadioInput = ({ font, checked, onClick }: FontRadioInputProps) => {
         name="font"
         type="radio"
         checked={checked}
-        onClick={onClick}
+        onChange={onCheck}
       />
     </div>
   );
