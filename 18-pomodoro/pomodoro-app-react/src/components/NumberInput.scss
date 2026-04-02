@@ -4,11 +4,13 @@
   @include stack;
 
   &__input {
+    @include text-preset-3--settings;
     appearance: textfield;
     background: $blue-50;
     border: none;
     border-radius: $radius-8;
     padding: $spacing-150 $spacing-200;
+    min-width: 0;
   }
 
   &__buttons {

@@ -19,15 +19,15 @@
   }
 
   &--font-1 {
-    --font: #{$font-1};
+    @include use-font-1;
   }
 
   &--font-2 {
-    --font: #{$font-2};
+    @include use-font-2;
   }
 
   &--font-3 {
-    --font: #{$font-3};
+    @include use-font-3;
   }
 }
 
