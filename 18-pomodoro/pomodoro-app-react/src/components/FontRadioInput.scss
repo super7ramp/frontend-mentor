@@ -2,6 +2,9 @@
 
 .font-radio-input {
   @include stack;
+  @include text-preset-2;
+
+  letter-spacing: 0;
   place-items: center;
   background-color: $blue-50;
   border-radius: 50%;
@@ -18,7 +21,7 @@
 
   &:has(input:checked) {
     background-color: $blue-850;
- 
+
     & > * {
       color: white;
       opacity: 1;
@@ -26,14 +29,14 @@
   }
 
   &--font-1 {
-    @include text-preset-2-font-1--settings;
+    @include use-font-1;
   }
 
   &--font-2 {
-    @include text-preset-2-font-2--settings;
+    @include use-font-2;
   }
 
   &--font-3 {
-    @include text-preset-2-font-3--settings;
+    @include use-font-3;
   }
 }

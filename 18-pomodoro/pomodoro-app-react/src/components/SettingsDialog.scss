@@ -28,9 +28,17 @@
     margin-block-end: $spacing-200;
   }
 
+  h2 {
+    @include text-preset-1--settings;
+  }
+
   &__close-button {
     border: none;
     background: none;
+  }
+
+  h3 {
+    @include text-preset-3--settings;
   }
 
   form {
@@ -52,6 +60,10 @@
       text-align: center;
       margin-bottom: $spacing-200;
     }
+  }
+
+  label {
+    @include text-preset-4--settings;
   }
 
   &__timers {
@@ -79,6 +91,8 @@
   }
 
   &__apply-button {
+    @include text-preset-2--settings;
+
     border: none;
     border-radius: $radius-full;
     background: var(--accent-color);

@@ -45,159 +45,186 @@ $font-1: "Kumbh Sans";
 $font-2: "Roboto Slab";
 $font-3: "Space Mono";
 
-:root {
-  --font: $font-1;
+// font 1
+$text-preset-1-font-font-1: bold 6.25rem $font-1 ;
+$text-preset-1-font-font-1-mobile: bold 5rem $font-1;
+$text-preset-1-line-height-font-1: 125%;
+$text-preset-1-letter-spacing-font-1: -0.3125rem;
+
+$text-preset-2-font-font-1: bold 1rem $font-1;
+$text-preset-2-font-font-1-mobile: bold 0.875rem $font-1;
+$text-preset-2-line-height-font-1: 125%;
+$text-preset-2-line-height-font-1-mobile: 120%;
+$text-preset-2-letter-spacing-font-1: 0.9375rem;
+$text-preset-2-letter-spacing-font-1-mobile: 0.8125rem;
+
+$text-preset-3-font-font-1: bold 0.875rem $font-1;
+$text-preset-3-font-font-1-mobile: bold 0.75rem $font-1;
+$text-preset-3-line-height-font-1: 120%;
+$text-preset-3-line-height-font-1-mobile: 125%;
+$text-preset-3-letter-spacing-font-1: 0;
+
+// font 2
+$text-preset-1-font-font-2: bold 6.25rem $font-2;
+$text-preset-1-font-font-2-mobile: bold 5rem $font-2;
+$text-preset-1-line-height-font-2: 130%;
+$text-preset-1-line-height-font-2-mobile: 133%;
+$text-preset-1-letter-spacing-font-2: 0;
+
+$text-preset-2-font-font-2: bold 1rem $font-2;
+$text-preset-2-font-font-2-mobile: bold 0.875rem $font-2;
+$text-preset-2-line-height-font-2: 125%;
+$text-preset-2-line-height-font-2-mobile: 130%;
+$text-preset-2-letter-spacing-font-2: 0.9375rem;
+$text-preset-2-letter-spacing-font-2-mobile: 0.8125rem;
+
+$text-preset-3-font-font-2: bold 0.875rem $font-2;
+$text-preset-3-font-font-2-mobile: bold 0.75rem $font-2;
+$text-preset-3-line-height-font-2: 130%;
+$text-preset-3-line-height-font-2-mobile: 133%;
+$text-preset-3-letter-spacing-font-2: 0;
+
+// font 3
+$text-preset-1-font-font-3: normal 6.25rem $font-3;
+$text-preset-1-font-font-3-mobile: normal 5rem $font-3;
+$text-preset-1-line-height-font-3: 150%;
+$text-preset-1-line-height-font-3-mobile: 120%;
+$text-preset-1-letter-spacing-font-3: -0.625rem;
+
+$text-preset-2-font-font-3: bold 1rem $font-3;
+$text-preset-2-font-font-3-mobile: bold 0.875rem $font-3;
+$text-preset-2-line-height-font-3: 150%;
+$text-preset-2-line-height-font-3-mobile: 130%;
+$text-preset-2-letter-spacing-font-3: 0.9375rem;
+$text-preset-2-letter-spacing-font-3-mobile: 0.8125rem;
+
+$text-preset-3-font-font-3: bold 0.8125rem $font-3;
+$text-preset-3-font-font-3-mobile: bold 0.75rem $font-3;
+$text-preset-3-line-height-font-3: 145%;
+$text-preset-3-line-height-font-3-mobile: 150%;
+$text-preset-3-letter-spacing-font-3: 0;
+
+@mixin use-font-1 {
+  --text-preset-1-font: #{$text-preset-1-font-font-1};
+  --text-preset-1-font-mobile: #{$text-preset-1-font-font-1-mobile};
+  --text-preset-1-line-height: #{$text-preset-1-line-height-font-1};
+  --text-preset-1-letter-spacing: #{$text-preset-1-letter-spacing-font-1};
+
+  --text-preset-2-font: #{$text-preset-2-font-font-1};
+  --text-preset-2-font-mobile: #{$text-preset-2-font-font-1-mobile};
+  --text-preset-2-line-height: #{$text-preset-2-line-height-font-1};
+  --text-preset-2-line-height-mobile: #{$text-preset-2-line-height-font-1-mobile};
+  --text-preset-2-letter-spacing: #{$text-preset-2-letter-spacing-font-1};
+  --text-preset-2-letter-spacing-mobile: #{$text-preset-2-letter-spacing-font-1-mobile};
+
+  --text-preset-3-font: #{$text-preset-3-font-font-1};
+  --text-preset-3-font-mobile: #{$text-preset-3-font-font-1-mobile};
+  --text-preset-3-line-height: #{$text-preset-3-line-height-font-1};
+  --text-preset-3-line-height-mobile: #{$text-preset-3-line-height-font-1-mobile};
+  --text-preset-3-letter-spacing: #{$text-preset-3-letter-spacing-font-1};
+}
+
+@mixin use-font-2 {
+  --text-preset-1-font: #{$text-preset-1-font-font-2};
+  --text-preset-1-font-mobile: #{$text-preset-1-font-font-2-mobile};
+  --text-preset-1-line-height: #{$text-preset-1-line-height-font-2};
+  --text-preset-1-letter-spacing: #{$text-preset-1-letter-spacing-font-2};
+
+  --text-preset-2-font: #{$text-preset-2-font-font-2};
+  --text-preset-2-font-mobile: #{$text-preset-2-font-font-2-mobile};
+  --text-preset-2-line-height: #{$text-preset-2-line-height-font-2};
+  --text-preset-2-line-height-mobile: #{$text-preset-2-line-height-font-2-mobile};
+  --text-preset-2-letter-spacing: #{$text-preset-2-letter-spacing-font-2};
+  --text-preset-2-letter-spacing-mobile: #{$text-preset-2-letter-spacing-font-2-mobile};
+
+  --text-preset-3-font: #{$text-preset-3-font-font-2};
+  --text-preset-3-font-mobile: #{$text-preset-3-font-font-2-mobile};
+  --text-preset-3-line-height: #{$text-preset-3-line-height-font-2};
+  --text-preset-3-line-height-mobile: #{$text-preset-3-line-height-font-2-mobile};
+  --text-preset-3-letter-spacing: #{$text-preset-3-letter-spacing-font-2};
+}
+
+@mixin use-font-3 {
+  --text-preset-1-font: #{$text-preset-1-font-font-3};
+  --text-preset-1-font-mobile: #{$text-preset-1-font-font-3-mobile};
+  --text-preset-1-line-height: #{$text-preset-1-line-height-font-3};
+  --text-preset-1-letter-spacing: #{$text-preset-1-letter-spacing-font-3};
+
+  --text-preset-2-font: #{$text-preset-2-font-font-3};
+  --text-preset-2-font-mobile: #{$text-preset-2-font-font-3-mobile};
+  --text-preset-2-line-height: #{$text-preset-2-line-height-font-3};
+  --text-preset-2-line-height-mobile: #{$text-preset-2-line-height-font-3-mobile};
+  --text-preset-2-letter-spacing: #{$text-preset-2-letter-spacing-font-3};
+  --text-preset-2-letter-spacing-mobile: #{$text-preset-2-letter-spacing-font-3-mobile};
+
+  --text-preset-3-font: #{$text-preset-3-font-font-3};
+  --text-preset-3-font-mobile: #{$text-preset-3-font-font-3-mobile};
+  --text-preset-3-line-height: #{$text-preset-3-line-height-font-3};
+  --text-preset-3-line-height-mobile: #{$text-preset-3-line-height-font-3-mobile};
+  --text-preset-3-letter-spacing: #{$text-preset-3-letter-spacing-font-3};
 }
 
 @mixin text-preset-1 {
-  font-family: var(--font);
-  font-size: 6.25rem;
-  font-weight: bold;
+  font: var(--text-preset-1-font);
+  line-height: var(--text-preset-1-line-height);
+  letter-spacing: var(--text-preset-1-letter-spacing);
+
+  @media (max-width: $bp-tablet) {
+    font: var(--text-preset-1-font-mobile);
+    line-height: var(--text-preset-1-line-height-mobile);
+    letter-spacing: var(--text-preset-1-letter-spacing-mobile);
+  }
+}
+
+@mixin text-preset-1--settings {
+  font: bold 1.75rem $font-1;
   line-height: 125%;
+  letter-spacing: 0;
 }
 
 @mixin text-preset-2 {
-  font-family: var(--font);
-  font-size: 1rem;
-  font-weight: bold;
+  font: var(--text-preset-2-font);
+  line-height: var(--text-preset-2-line-height);
+  letter-spacing: var(--text-preset-2-letter-spacing);
+
+  @media (max-width: $bp-tablet) {
+    font: var(--text-preset-2-font-mobile);
+    line-height: var(--text-preset-2-line-height-mobile);
+    letter-spacing: var(--text-preset-2-letter-spacing-mobile);
+  }
+}
+
+@mixin text-preset-2--settings {
+  font: bold 0.8125rem $font-1;
   line-height: 125%;
+  letter-spacing: 0;
 }
 
 @mixin text-preset-3 {
-  font-family: var(--font);
-  font-size: 0.875rem;
-  font-weight: bold;
-  line-height: 120%;
+  font: var(--text-preset-3-font);
+  line-height: var(--text-preset-3-line-height);
+  letter-spacing: var(--text-preset-3-letter-spacing);
+
+  @media (max-width: $bp-tablet) {
+    font: var(--text-preset-3-font-mobile);
+    line-height: var(--text-preset-3-line-height-mobile);
+    letter-spacing: var(--text-preset-3-letter-spacing-mobile);
+  }
 }
 
-@mixin text-preset-1-font-1 {
-  font-family: $font-1;
-  font-size: 6.25rem;
-  font-weight: bold;
+@mixin text-preset-3--settings {
+  font: bold 0.8125rem $font-1;
   line-height: 125%;
-  letter-spacing: -5px;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 5rem;
-  }
+  letter-spacing: 0.3125rem;
 }
 
-@mixin text-preset-2-font-1 {
-  font-family: $font-1;
-  font-size: 1rem;
-  font-weight: bold;
+@mixin text-preset-4--settings {
+  font: bold 0.75rem $font-1;
   line-height: 125%;
-  letter-spacing: 15px;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 0.875rem;
-    line-height: 120%;
-    letter-spacing: 13px;
-  }
-}
-
-@mixin text-preset-2-font-1--settings {
-  @include text-preset-2-font-1();
   letter-spacing: 0;
 }
 
-@mixin text-preset-3-font-1 {
-  font-family: $font-1;
-  font-size: 0.875rem;
-  font-weight: bold;
-  line-height: 120%;
-  letter-spacing: 0;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 0.75rem;
-    line-height: 125%;
-  }
-}
-
-@mixin text-preset-1-font-2 {
-  font-family: $font-2;
-  font-weight: bold;
-  font-size: 6.25rem;
-  line-height: 130%;
-  letter-spacing: 0;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 0.875rem;
-    line-height: 133%;
-  }
-}
-
-@mixin text-preset-2-font-2 {
-  font-family: $font-2;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 125%;
-  letter-spacing: 15px;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 0.8755rem;
-    line-height: 133%;
-  }
-}
-
-@mixin text-preset-2-font-2--settings {
-  @include text-preset-2-font-2();
-  letter-spacing: 0;
-}
-
-@mixin text-preset-3-font-2 {
-  font-family: $font-2;
-  font-weight: bold;
-  font-size: 0.875rem;
-  line-height: 130%;
-  letter-spacing: 0;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 0.75rem;
-    line-height: 133%;
-  }
-}
-
-@mixin text-preset-1-font-3 {
-  font-family: $font-3;
-  font-weight: bold;
-  font-size: 6.25rem;
-  line-height: 150%;
-  letter-spacing: -10px;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 5rem;
-    line-height: 120%;
-  }
-}
-
-@mixin text-preset-2-font-3 {
-  font-family: $font-3;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 150%;
-  letter-spacing: 15px;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 0.875rem;
-    letter-spacing: 0.8125rem;
-  }
-}
-
-@mixin text-preset-2-font-3--settings {
-  @include text-preset-2-font-3();
-  letter-spacing: 0;
-}
-
-@mixin text-preset-3-font-3 {
-  font-family: $font-3;
-  font-weight: bold;
-  font-size: 0.8125rem;
-  line-height: 145%;
-  letter-spacing: 0;
-
-  @media (max-width: $bp-tablet) {
-    font-size: 0.75rem;
-    line-height: 150%;
-  }
+:root {
+  // Default is font 1
+  @include use-font-1;
 }
