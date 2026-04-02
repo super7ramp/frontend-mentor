@@ -21,9 +21,34 @@ export type Settings = {
   color: ColorSettings;
 };
 
-type SettingsContextT = [Settings | null, (settings: Settings | null) => void];
+type SettingsContextT = [Settings, (settings: Settings) => void];
+
+export const DEFAULT_SETTINGS = {
+  time: [
+    {
+      timer: "pomodoro",
+      durationInSeconds: 25 * 60,
+    },
+    {
+      timer: "short break",
+      durationInSeconds: 5 * 60,
+    },
+    {
+      timer: "long break",
+      durationInSeconds: 15 * 60,
+    },
+  ],
+  font: {
+    fonts: ["font-1", "font-2", "font-3"],
+    selected: "font-1",
+  },
+  color: {
+    colors: ["color-1", "color-2", "color-3"],
+    selected: "color-1",
+  },
+};
 
 export const SettingsContext = createContext<SettingsContextT>([
-  null,
+  DEFAULT_SETTINGS,
   () => {},
 ]);
