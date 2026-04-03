@@ -51,7 +51,7 @@ Users should be able to:
 #### Draw a circular progressbar in pure CSS
 
 ```scss
-// The custom property defintion is required for the animation
+// The custom property definition is required for the animation
 @property --progress {
   syntax: "<number>";
   inherits: false;
@@ -111,6 +111,19 @@ For the closing:
 >
   <img src={iconCloseSvg} />
 </button>
+```
+
+Note that TypeScript doesn't recognize these attributes yet. I had to extend type definition with a `global.d.ts` file to avoid build errors:
+
+```ts
+import "react";
+
+declare module "react" {
+  interface ButtonHTMLAttributes {
+    command?: string;
+    commandfor?: string;
+  }
+}
 ```
 
 #### Theming
