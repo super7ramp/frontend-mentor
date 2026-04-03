@@ -28,6 +28,7 @@ const NumberInput = ({
       <input
         className="number-input__input"
         id={id}
+        inputMode="numeric"
         min={min}
         max={max}
         type="number"
