@@ -36,10 +36,12 @@ const NumberInput = ({
       />
       <div className="number-input__buttons">
         <button type="button" onClick={() => onValueChange(value + 1)}>
-          <img src={iconArrowUp} />
+          <img src={iconArrowUp} alt="" />
+          <span className="visually-hidden">Increase</span>
         </button>
         <button type="button" onClick={() => onValueChange(value - 1)}>
-          <img src={iconArrowDown} />
+          <img src={iconArrowDown} alt="" />
+          <span className="visually-hidden">Decrease</span>
         </button>
       </div>
     </div>

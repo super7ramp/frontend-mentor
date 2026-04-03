@@ -11,6 +11,8 @@ const Timer = ({ durationInSeconds }: TimerProps) => {
   const { remaining, paused, setPaused, finished, reset } =
     useTimer(durationInSeconds);
   const progress = (durationInSeconds - remaining) / durationInSeconds;
+  const minutes = Math.floor(remaining / 60);
+  const seconds = remaining % 60;
 
   let buttonText;
   if (finished) {
@@ -47,19 +49,26 @@ const Timer = ({ durationInSeconds }: TimerProps) => {
         style={{ "--progress": progress } as React.CSSProperties}
       ></div>
       <div className="timer__content">
-        <time className="timer__remaining">{formatDuration(remaining)}</time>
+        <time
+          className="timer__remaining"
+          dateTime={formatDurationIso(minutes, seconds)}
+        >
+          {formatDuration(minutes, seconds)}
+        </time>
         <p className="timer__button-text">{buttonText}</p>
       </div>
     </div>
   );
 };
 
-const formatDuration = (durationInSeconds: number) => {
-  const minutes = Math.floor(durationInSeconds / 60);
-  const seconds = durationInSeconds % 60;
+const formatDuration = (minutes: number, seconds: number) => {
   const paddedMinutes = String(minutes).padStart(2, "0");
   const paddedSeconds = String(seconds).padStart(2, "0");
   return `${paddedMinutes}:${paddedSeconds}`;
+};
+
+const formatDurationIso = (minutes: number, seconds: number) => {
+  return `PT${minutes}M${seconds}S`;
 };
 
 export default Timer;
