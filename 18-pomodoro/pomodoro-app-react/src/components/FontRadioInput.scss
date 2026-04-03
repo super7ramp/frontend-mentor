@@ -17,6 +17,7 @@
     width: 2.5rem;
     height: 2.5rem;
     appearance: none;
+    border-radius: 50%;
   }
 
   &:has(input:checked) {
