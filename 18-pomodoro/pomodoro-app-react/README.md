@@ -85,11 +85,153 @@ Users should be able to:
 }
 ```
 
+### Open/close a modal with the invoker API
+
+Usually I show/close a `dialog` element [using its JavaScript API](https://github.com/super7ramp/frontend-mentor/tree/main/13-product-list-with-cart/product-list-with-cart-react#use-modal-with-react).
+
+Here I tried the relatively recent [Invoker Commands API](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) (baseline 2025), which allows to add the show/close behaviour to buttons via the `command` and `commandfor` HTML attributes, without JavaScript:
+
+For the opening:
+
+```tsx
+<SettingsButton command="show-modal" commandfor="settings-dialog" />
+<SettingsDialog id="settings-dialog" />
+```
+
+For the closing:
+
+```tsx
+<button
+  autoFocus
+  className="settings-dialog__close-button"
+  command="close"
+  commandfor={id}
+  // reset dialog settings on close
+  onClick={() => setCurrentSettings(settings)}
+>
+  <img src={iconCloseSvg} />
+</button>
+```
+
+### Theming
+
+Used a React context to store the settings:
+
+```ts
+import { createContext } from "react";
+
+type TimeSettings = {
+  timer: string;
+  durationInSeconds: number;
+};
+
+type FontSettings = {
+  fonts: string[];
+  selected: string;
+};
+
+type ColorSettings = {
+  colors: string[];
+  selected: string;
+};
+
+export type Settings = {
+  time: TimeSettings[];
+  font: FontSettings;
+  color: ColorSettings;
+};
+
+type SettingsContextT = [Settings, (settings: Settings) => void];
+
+export const DEFAULT_SETTINGS = {
+  time: [
+    {
+      timer: "pomodoro",
+      durationInSeconds: 25 * 60,
+    },
+    {
+      timer: "short break",
+      durationInSeconds: 5 * 60,
+    },
+    {
+      timer: "long break",
+      durationInSeconds: 15 * 60,
+    },
+  ],
+  font: {
+    fonts: ["font-1", "font-2", "font-3"],
+    selected: "font-1",
+  },
+  color: {
+    colors: ["color-1", "color-2", "color-3"],
+    selected: "color-1",
+  },
+};
+
+export const SettingsContext = createContext<SettingsContextT>([
+  DEFAULT_SETTINGS,
+  () => {},
+]);
+```
+
+Read it to dynamically set theme-related classes:
+
+```tsx
+function App() {
+  const [settings] = useSettings();
+  //...
+  return (
+    <div
+      className={`app app--${settings.color.selected} app--${settings.font.selected}`}
+    >
+      {/* ... */}
+    </div>
+  );
+}
+```
+
+Then it's just some repetitive CSS usage of CSS variable:
+
+```scss
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-600;
+  margin: $spacing-400 $spacing-300;
+
+  &--color-1 {
+    --accent-color: #{$accent-color-1};
+  }
+
+  &--color-2 {
+    --accent-color: #{$accent-color-2};
+  }
+
+  &--color-3 {
+    --accent-color: #{$accent-color-3};
+  }
+
+  &--font-1 {
+    @include use-font-1;
+  }
+
+  &--font-2 {
+    @include use-font-2;
+  }
+
+  &--font-3 {
+    @include use-font-3;
+  }
+}
+```
+
+Fonts were a bit tedious to write, see [`_typography.scss`](./src/styles/_typography.scss). For each combination of (font, preset, preset level, mobile or not), there are several CSS properties to set (`font`, `letter-spacing` and `line-height`). Maybe there is a smarter way to do it.
+
 ### Continued development
 
 Things I'd like to improve:
 
-- Accessibility: There are things to do add to make the timers accessible.
+- Accessibility: There are some aria attributes to add to make the timer accessible.
 - Animation: On tab switching, on timer end.
 
 ### Useful resources
