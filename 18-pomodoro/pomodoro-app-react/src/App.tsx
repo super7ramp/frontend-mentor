@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div
-      className={`app app--${settings?.color.selected} app--${settings?.font.selected}`}
+      className={`app app--${settings.color.selected} app--${settings.font.selected}`}
     >
       <header>
         <Logo />
