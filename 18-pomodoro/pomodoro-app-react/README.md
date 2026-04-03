@@ -48,7 +48,7 @@ Users should be able to:
 
 ### What I learned
 
-#### Drawing a circular progressbar in pure CSS
+#### Draw a circular progressbar in pure CSS
 
 ```scss
 // The custom property defintion is required for the animation
@@ -85,7 +85,7 @@ Users should be able to:
 }
 ```
 
-### Open/close a modal with the invoker API
+#### Open/close a modal with the invoker API
 
 Usually I show/close a `dialog` element [using its JavaScript API](https://github.com/super7ramp/frontend-mentor/tree/main/13-product-list-with-cart/product-list-with-cart-react#use-modal-with-react).
 
@@ -113,7 +113,7 @@ For the closing:
 </button>
 ```
 
-### Theming
+#### Theming
 
 Used a React context to store the settings:
 
