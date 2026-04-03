@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/super7ramp/frontend-mentor/tree/main/18-pomodoro/pomodoro-app-react)
+- Live Site URL: [Netlify](https://timely-lolly-c338f0.netlify.app/)
 
 ## My process
 
