@@ -9,7 +9,7 @@ const SettingsButton = (
   >,
 ) => {
   return (
-    <button className={`settings-button ${props.className}`}>
+    <button {...props} className={`settings-button ${props.className ?? ""}`}>
       <img src={iconSettingsSvg} alt="" />
       <span className="visually-hidden">Open Settings</span>
     </button>

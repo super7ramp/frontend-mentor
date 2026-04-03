@@ -1,5 +1,12 @@
 @use "./styles/design-system" as *;
 
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: $blue-850;
+}
+
 .app {
   display: flex;
   flex-direction: column;
@@ -31,10 +38,6 @@
   }
 }
 
-body {
-  background-color: $blue-850;
-}
-
 header {
   display: flex;
   flex-direction: column;
@@ -47,5 +50,5 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: $spacing-300;
+  gap: $spacing-600;
 }
