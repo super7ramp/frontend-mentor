@@ -65,7 +65,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
         </div>
         <form method="dialog">
           <fieldset>
-            <h3>Time (minutes)</h3>
+            <h3 className="settings-dialog__timers-heading">Time (minutes)</h3>
             <div className="settings-dialog__timers">
               {timeSettings.map(({ timer, durationInSeconds }, index) => {
                 const timerInputId = timer.replaceAll(" ", "-");

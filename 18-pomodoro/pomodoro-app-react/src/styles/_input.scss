@@ -2,7 +2,7 @@
 
 button:active,
 input[type="radio"]:active {
-  transform: scale(0.97);
+  scale: 0.97;
 }
 
 button:hover,
@@ -10,8 +10,7 @@ input[type="radio"]:hover {
   filter: brightness(120%);
 }
 
-button:focus,
 input[type="radio"]:focus-visible {
-  outline-color: $blue-50;
+  outline: 1px solid $blue-50;
   outline-offset: 5px;
 }
