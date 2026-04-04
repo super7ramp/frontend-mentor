@@ -21,7 +21,7 @@
     -50px -50px 100px #272c5a,
     50px 50px 100px #121530;
 
-  &:active {
+  &:has(&__button:active) {
     scale: 0.97;
   }
 
@@ -49,6 +49,7 @@
     align-items: center;
     justify-content: center;
     margin: 2rem;
+    z-index: 1;
 
     @media (min-width: $bp-tablet) {
       gap: $spacing-100;
@@ -62,13 +63,21 @@
     color: $blue-100;
   }
 
-  &__button-text {
+  &__button {
     @include text-preset-2;
     text-transform: uppercase;
     color: $blue-100;
-  }
+    border: none;
+    background: none;
 
-  &:hover &__button-text {
-    color: var(--accent-color);
+    &:hover {
+      color: var(--accent-color);
+      filter: none;
+    }
+
+    &:active {
+      // don't scale down button, the whole timer is already scaled down
+      scale: 1;
+    }
   }
 }

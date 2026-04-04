@@ -14,13 +14,13 @@ const Timer = ({ durationInSeconds }: TimerProps) => {
   const minutes = Math.floor(remaining / 60);
   const seconds = remaining % 60;
 
-  let buttonText;
+  let buttonActionText;
   if (finished) {
-    buttonText = "Restart";
+    buttonActionText = "Restart";
   } else if (paused) {
-    buttonText = "Resume";
+    buttonActionText = "Resume";
   } else {
-    buttonText = "Pause";
+    buttonActionText = "Pause";
   }
 
   const handleClick = () => {
@@ -33,29 +33,28 @@ const Timer = ({ durationInSeconds }: TimerProps) => {
   };
 
   return (
-    <div
-      className="timer"
-      tabIndex={0}
-      onClick={handleClick}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          handleClick();
-          event.preventDefault();
-        }
-      }}
-    >
+    <div className="timer">
       <div
+        aria-describedby="timer-remaining"
+        aria-label="Timer progress"
+        // Announce update every 10 seconds instead of every second, to avoid spamming screen readers
+        aria-live={remaining % 10 === 0 ? "polite" : "off"}
+        aria-role="progressbar"
+        aria-valuenow={100 * progress}
         className="timer__arc"
         style={{ "--progress": progress } as React.CSSProperties}
       ></div>
       <div className="timer__content">
         <time
+          id="timer-remaining"
           className="timer__remaining"
           dateTime={formatDurationIso(minutes, seconds)}
         >
           {formatDuration(minutes, seconds)}
         </time>
-        <p className="timer__button-text">{buttonText}</p>
+        <button className="timer__button" onClick={handleClick}>
+          {buttonActionText}
+        </button>
       </div>
     </div>
   );
@@ -68,7 +67,7 @@ const formatDuration = (minutes: number, seconds: number) => {
 };
 
 const formatDurationIso = (minutes: number, seconds: number) => {
-  return `PT${minutes}M${seconds}S`;
+  return `PT0H${minutes}M${seconds}S`;
 };
 
 export default Timer;
