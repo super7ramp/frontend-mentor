@@ -18,6 +18,7 @@ const ColorRadioInput = ({ color, checked, onCheck }: ColorRadioInputProps) => {
       type="radio"
       checked={checked}
       onChange={onCheck}
+      value={color}
     />
   );
 };

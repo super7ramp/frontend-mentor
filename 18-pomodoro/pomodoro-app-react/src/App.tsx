@@ -30,7 +30,7 @@ function App() {
             durationInSeconds={currentTimer.durationInSeconds}
           />
         )}
-        <SettingsButton command="show-modal" commandfor="settings-dialog" />
+        <SettingsButton command="show-modal" commandfor="settings-dialog" type="button" />
         <SettingsDialog id="settings-dialog" />
       </main>
     </div>

@@ -19,6 +19,7 @@ const FontRadioInput = ({ font, checked, onCheck }: FontRadioInputProps) => {
         type="radio"
         checked={checked}
         onChange={onCheck}
+        value={font}
       />
     </div>
   );
