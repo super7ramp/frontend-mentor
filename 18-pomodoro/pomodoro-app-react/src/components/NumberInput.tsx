@@ -33,7 +33,11 @@ const NumberInput = ({
         max={max}
         type="number"
         value={value}
-        onChange={(e) => onValueChange(e.target.valueAsNumber)}
+        onChange={({ target: { valueAsNumber } }) => {
+          if (!Number.isNaN(valueAsNumber)) {
+            onValueChange(valueAsNumber);
+          }
+        }}
       />
       <div className="number-input__buttons">
         <button type="button" onClick={() => onValueChange(value + 1)}>

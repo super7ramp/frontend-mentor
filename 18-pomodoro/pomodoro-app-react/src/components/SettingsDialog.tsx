@@ -64,9 +64,11 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
             <span className="visually-hidden">Close</span>
           </button>
         </div>
-        <form method="dialog">
+        <form method="dialog" onSubmit={() => applySettings(currentSettings)}>
           <fieldset>
-            <legend className="settings-dialog__timers-heading">Time (minutes)</legend>
+            <legend className="settings-dialog__timers-heading">
+              Time (minutes)
+            </legend>
             <div className="settings-dialog__timers">
               {timeSettings.map(({ timer, durationInSeconds }, index) => {
                 const timerInputId = timer.replaceAll(" ", "-");
@@ -112,11 +114,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
               ))}
             </div>
           </fieldset>
-          <button
-            className="settings-dialog__apply-button"
-            onClick={() => applySettings(currentSettings)}
-            type="submit"
-          >
+          <button className="settings-dialog__apply-button" type="submit">
             Apply
           </button>
         </form>

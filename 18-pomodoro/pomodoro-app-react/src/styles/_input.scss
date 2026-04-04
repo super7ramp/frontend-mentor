@@ -10,7 +10,14 @@ input[type="radio"]:hover {
   filter: brightness(120%);
 }
 
-input[type="radio"]:focus-visible {
+input[type="radio"]:focus {
   outline: 1px solid $blue-50;
   outline-offset: 5px;
+}
+
+input:user-invalid {
+  border: 1px solid $red-400;
+  &:focus {
+    outline: 1px solid $red-400;
+  }
 }
