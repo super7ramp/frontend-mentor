@@ -172,12 +172,12 @@ export const DEFAULT_SETTINGS = {
     },
   ],
   font: {
-    fonts: ["font-1", "font-2", "font-3"],
-    selected: "font-1",
+    fonts: ["sans", "serif", "mono"],
+    selected: "sans",
   },
   color: {
-    colors: ["color-1", "color-2", "color-3"],
-    selected: "color-1",
+    colors: ["red", "cyan", "purple"],
+    selected: "red",
   },
 };
 
@@ -195,7 +195,7 @@ function App() {
   //...
   return (
     <div
-      className={`app app--${settings.color.selected} app--${settings.font.selected}`}
+      className={`app app--color-${settings.color.selected} app--font-${settings.font.selected}`}
     >
       {/* ... */}
     </div>
@@ -212,28 +212,28 @@ Then it's just some repetitive CSS usage of CSS variable:
   gap: $spacing-600;
   margin: $spacing-400 $spacing-300;
 
-  &--color-1 {
-    --accent-color: #{$accent-color-1};
+  &--color-red {
+    --accent-color: #{$red-400};
   }
 
-  &--color-2 {
-    --accent-color: #{$accent-color-2};
+  &--color-cyan {
+    --accent-color: #{$cyan-300};
   }
 
-  &--color-3 {
-    --accent-color: #{$accent-color-3};
+  &--color-purple {
+    --accent-color: #{$purple-400};
   }
 
-  &--font-1 {
-    @include use-font-1;
+  &--font-sans {
+    @include use-font-sans;
   }
 
-  &--font-2 {
-    @include use-font-2;
+  &--font-serif {
+    @include use-font-serif;
   }
 
-  &--font-3 {
-    @include use-font-3;
+  &--font-mono {
+    @include use-font-mono;
   }
 }
 ```
@@ -244,8 +244,9 @@ Fonts were a bit tedious to write, see [`_typography.scss`](./src/styles/_typogr
 
 Things I'd like to improve:
 
-- Accessibility: There are some aria attributes to add to make the timer accessible.
-- Animation: On tab switching, on timer end.
+- [x] Accessibility: There are some aria attributes to add to make the timer accessible.
+- [ ] Animation: On tab switching, on timer end.
+- [ ] Notification: Play a sound when timer is up.
 
 ### Useful resources
 
