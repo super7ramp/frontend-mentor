@@ -54,7 +54,7 @@ const Timer = ({ durationInSeconds }: TimerProps) => {
         >
           {formatDuration(minutes, seconds)}
         </time>
-        <button className="timer__button" onClick={handleClick}>
+        <button className="timer__button" onClick={handleClick} type="button">
           {buttonActionText}
         </button>
       </div>
