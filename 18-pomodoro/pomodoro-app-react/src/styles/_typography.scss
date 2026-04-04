@@ -107,16 +107,29 @@ $mono: "Space Mono";
   --text-preset-3-letter-spacing: 0;
 }
 
-@mixin text-preset-1 {
-  font: var(--text-preset-1-font);
-  line-height: var(--text-preset-1-line-height);
-  letter-spacing: var(--text-preset-1-letter-spacing);
+@mixin text-preset($number) {
+  font: var(--text-preset-#{$number}-font);
+  line-height: var(--text-preset-#{$number}-line-height);
+  letter-spacing: var(--text-preset-#{$number}-letter-spacing);
 
   @media (max-width: $bp-tablet) {
-    font: var(--text-preset-1-font-mobile);
-    line-height: var(--text-preset-1-line-height-mobile);
-    letter-spacing: var(--text-preset-1-letter-spacing-mobile);
+    font: var(
+      --text-preset-#{$number}-font-mobile,
+      var(--text-preset-#{$number}-font)
+    );
+    line-height: var(
+      --text-preset-#{$number}-line-height-mobile,
+      var(--text-preset-#{$number}-line-height)
+    );
+    letter-spacing: var(
+      --text-preset-#{$number}-letter-spacing-mobile,
+      var(--text-preset-#{$number}-letter-spacing)
+    );
   }
+}
+
+@mixin text-preset-1 {
+  @include text-preset(1);
 }
 
 @mixin text-preset-1--settings {
@@ -126,15 +139,7 @@ $mono: "Space Mono";
 }
 
 @mixin text-preset-2 {
-  font: var(--text-preset-2-font);
-  line-height: var(--text-preset-2-line-height);
-  letter-spacing: var(--text-preset-2-letter-spacing);
-
-  @media (max-width: $bp-tablet) {
-    font: var(--text-preset-2-font-mobile);
-    line-height: var(--text-preset-2-line-height-mobile);
-    letter-spacing: var(--text-preset-2-letter-spacing-mobile);
-  }
+  @include text-preset(2);
 }
 
 @mixin text-preset-2--settings {
@@ -144,15 +149,7 @@ $mono: "Space Mono";
 }
 
 @mixin text-preset-3 {
-  font: var(--text-preset-3-font);
-  line-height: var(--text-preset-3-line-height);
-  letter-spacing: var(--text-preset-3-letter-spacing);
-
-  @media (max-width: $bp-tablet) {
-    font: var(--text-preset-3-font-mobile);
-    line-height: var(--text-preset-3-line-height-mobile);
-    letter-spacing: var(--text-preset-3-letter-spacing-mobile);
-  }
+  @include text-preset(3);
 }
 
 @mixin text-preset-3--settings {
