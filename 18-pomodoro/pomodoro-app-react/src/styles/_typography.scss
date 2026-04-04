@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Kumbh Sans";
-  font-weight: normal bold;
+  font-weight: 400 700;
   src:
     local("Kumbh Sans"),
     url("../assets/fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ,wght.ttf")
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "Roboto Slab";
-  font-weight: normal;
+  font-weight: 400;
   src:
     local("Roboto Slab Regular"),
     url("../assets/fonts/Roboto_Slab/RobotoSlab-Regular.ttf") format("truetype");
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "Roboto Slab";
-  font-weight: bold;
+  font-weight: 700;
   src:
     local("Roboto Slab Bold"),
     url("../assets/fonts/Roboto_Slab/RobotoSlab-Bold.ttf") format("truetype");
@@ -27,7 +27,7 @@
 
 @font-face {
   font-family: "Space Mono";
-  font-weight: normal;
+  font-weight: 400;
   src:
     local("Space Mono Regular"),
     url("../assets/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
@@ -35,7 +35,7 @@
 
 @font-face {
   font-family: "Space Mono";
-  font-weight: bold;
+  font-weight: 700;
   src:
     local("Space Mono Bold"),
     url("../assets/fonts/Space_Mono/SpaceMono-Bold.ttf") format("truetype");

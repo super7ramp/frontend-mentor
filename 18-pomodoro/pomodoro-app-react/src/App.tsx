@@ -19,7 +19,9 @@ function App() {
     >
       <header>
         <Logo />
-        <Tabs />
+        <nav>
+          <Tabs />
+        </nav>
       </header>
       <main>
         {currentTimer && (

@@ -45,6 +45,10 @@ header {
   gap: $spacing-500;
 }
 
+nav {
+  z-index: 1;
+}
+
 main {
   display: flex;
   flex-direction: column;

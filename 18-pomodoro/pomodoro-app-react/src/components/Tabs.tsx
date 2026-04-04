@@ -12,6 +12,7 @@ const Tabs = () => {
           <button
             className={`tab ${currentTab === timer ? "tab--active" : ""}`}
             onClick={() => setCurrentTab(timer)}
+            type="button"
           >
             {timer}
           </button>

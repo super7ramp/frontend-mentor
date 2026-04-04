@@ -66,7 +66,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
         </div>
         <form method="dialog">
           <fieldset>
-            <h3 className="settings-dialog__timers-heading">Time (minutes)</h3>
+            <legend className="settings-dialog__timers-heading">Time (minutes)</legend>
             <div className="settings-dialog__timers">
               {timeSettings.map(({ timer, durationInSeconds }, index) => {
                 const timerInputId = timer.replaceAll(" ", "-");
@@ -87,7 +87,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
             </div>
           </fieldset>
           <fieldset>
-            <h3>Font</h3>
+            <legend>Font</legend>
             <div className="settings-dialog__fonts">
               {fontSettings.fonts.map((font) => (
                 <FontRadioInput
@@ -100,7 +100,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
             </div>
           </fieldset>
           <fieldset>
-            <h3>Color</h3>
+            <legend>Color</legend>
             <div className="settings-dialog__colors">
               {colorSettings.colors.map((color) => (
                 <ColorRadioInput
@@ -115,6 +115,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
           <button
             className="settings-dialog__apply-button"
             onClick={() => applySettings(currentSettings)}
+            type="submit"
           >
             Apply
           </button>

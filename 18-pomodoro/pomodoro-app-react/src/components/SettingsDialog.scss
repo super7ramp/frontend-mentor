@@ -46,8 +46,10 @@
     background: none;
   }
 
-  h3 {
+  legend {
     @include text-preset-3--settings;
+    float: inline-start;
+    text-transform: uppercase;
   }
 
   form {
@@ -70,10 +72,6 @@
     & + fieldset {
       border-top: solid 1px $grey-200;
       padding-block-start: $spacing-300;
-    }
-
-    & > h3 {
-      text-transform: uppercase;
     }
   }
 
@@ -100,7 +98,6 @@
   &__timer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column: 1 span 2;
     align-items: center;
     gap: $spacing-100;
 
@@ -111,7 +108,6 @@
     @media (min-width: $bp-tablet) {
       grid-template-columns: 1fr;
       grid-template-rows: auto 1fr;
-      grid-row: 1 span 2;
     }
   }
 
