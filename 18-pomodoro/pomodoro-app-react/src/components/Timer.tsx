@@ -37,11 +37,13 @@ const Timer = ({ durationInSeconds }: TimerProps) => {
       <div
         aria-describedby="timer-remaining"
         aria-label="Timer progress"
-        // Announce update every 10 seconds instead of every second, to avoid spamming screen readers
-        aria-live={remaining % 10 === 0 ? "polite" : "off"}
-        aria-role="progressbar"
-        aria-valuenow={100 * progress}
+        // Announce update every quarter instead of every second, to avoid spamming screen readers
+        aria-live={remaining % (durationInSeconds / 4) === 0 ? "polite" : "off"}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.floor(100 * progress)}
         className="timer__arc"
+        role="progressbar"
         style={{ "--progress": progress } as React.CSSProperties}
       ></div>
       <div className="timer__content">
