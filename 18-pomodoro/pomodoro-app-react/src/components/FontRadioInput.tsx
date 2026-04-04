@@ -11,7 +11,7 @@ type FontRadioInputProps = {
 
 const FontRadioInput = ({ font, checked, onCheck }: FontRadioInputProps) => {
   return (
-    <div className={`font-radio-input font-radio-input--${font}`}>
+    <div className={`font-radio-input font-radio-input--font-${font}`}>
       <div aria-hidden={true}>Aa</div>
       <input
         aria-label={font}

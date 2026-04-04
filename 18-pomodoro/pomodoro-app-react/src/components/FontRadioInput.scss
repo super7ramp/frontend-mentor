@@ -29,15 +29,15 @@
     }
   }
 
-  &--font-1 {
-    @include use-font-1;
+  &--font-sans {
+    @include use-font-sans;
   }
 
-  &--font-2 {
-    @include use-font-2;
+  &--font-serif {
+    @include use-font-serif;
   }
 
-  &--font-3 {
-    @include use-font-3;
+  &--font-mono {
+    @include use-font-mono;
   }
 }

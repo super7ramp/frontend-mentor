@@ -11,12 +11,8 @@ $purple-400: #d881f8;
 $gradient-1-start: #2e325a;
 $gradient-1-end: #0e112a;
 
-$accent-color-1: $red-400;
-$accent-color-2: $cyan-300;
-$accent-color-3: $purple-400;
-
 :root {
-  --accent-color: #{$accent-color-1};
+  --accent-color: #{$red-400};
 }
 
 * {

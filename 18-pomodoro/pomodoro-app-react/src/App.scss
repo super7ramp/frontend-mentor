@@ -13,28 +13,28 @@ body {
   gap: $spacing-600;
   margin: $spacing-400 $spacing-300;
 
-  &--color-1 {
-    --accent-color: #{$accent-color-1};
+  &--color-red {
+    --accent-color: #{$red-400};
   }
 
-  &--color-2 {
-    --accent-color: #{$accent-color-2};
+  &--color-cyan {
+    --accent-color: #{$cyan-300};
   }
 
-  &--color-3 {
-    --accent-color: #{$accent-color-3};
+  &--color-purple {
+    --accent-color: #{$purple-400};
   }
 
-  &--font-1 {
-    @include use-font-1;
+  &--font-sans {
+    @include use-font-sans;
   }
 
-  &--font-2 {
-    @include use-font-2;
+  &--font-serif {
+    @include use-font-serif;
   }
 
-  &--font-3 {
-    @include use-font-3;
+  &--font-mono {
+    @include use-font-mono;
   }
 }
 

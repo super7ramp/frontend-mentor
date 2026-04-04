@@ -39,12 +39,12 @@ export const DEFAULT_SETTINGS = {
     },
   ],
   font: {
-    fonts: ["font-1", "font-2", "font-3"],
-    selected: "font-1",
+    fonts: ["sans", "serif", "mono"],
+    selected: "sans",
   },
   color: {
-    colors: ["color-1", "color-2", "color-3"],
-    selected: "color-1",
+    colors: ["red", "cyan", "purple"],
+    selected: "red",
   },
 };
 
