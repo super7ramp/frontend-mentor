@@ -37,8 +37,6 @@ const Timer = ({ durationInSeconds }: TimerProps) => {
       <div
         aria-describedby="timer-remaining"
         aria-label="Timer progress"
-        // Announce update every quarter instead of every second, to avoid spamming screen readers
-        aria-live={remaining % (durationInSeconds / 4) === 0 ? "polite" : "off"}
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.floor(100 * progress)}
@@ -48,6 +46,10 @@ const Timer = ({ durationInSeconds }: TimerProps) => {
       ></div>
       <div className="timer__content">
         <time
+          // Announce update every quarter instead of every second, to avoid spamming screen readers
+          aria-live={
+            remaining % (durationInSeconds / 4) === 0 ? "polite" : "off"
+          }
           id="timer-remaining"
           className="timer__remaining"
           dateTime={formatDurationIso(minutes, seconds)}
