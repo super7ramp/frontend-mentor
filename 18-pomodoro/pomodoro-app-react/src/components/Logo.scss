@@ -1,0 +1,10 @@
+@use "../styles/design-system.scss" as *;
+
+h1 {
+  font: bold 1.5rem $sans;
+  color: $blue-100;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 2rem;
+  }
+}

@@ -1,7 +1,7 @@
-import logoSvg from "../assets/logo.svg";
+import "./Logo.scss";
 
 const Logo = () => {
-  return <img src={logoSvg} alt="Pomodoro" />;
+  return <h1>pomodoro</h1>;
 };
 
 export default Logo;
