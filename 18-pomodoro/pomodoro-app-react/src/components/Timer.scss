@@ -22,7 +22,7 @@
     50px 50px 100px #121530;
 
   &:has(&__button:active) {
-    scale: 0.97;
+    scale: $button-active-scale;
   }
 
   &__arc {

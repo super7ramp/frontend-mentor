@@ -29,15 +29,19 @@
     }
   }
 
-  &--font-sans {
+  &:has(input[value="sans"]) {
     @include use-font-sans;
   }
 
-  &--font-serif {
+  &:has(input[value="serif"]) {
     @include use-font-serif;
   }
 
-  &--font-mono {
+  &:has(input[value="mono"]) {
     @include use-font-mono;
+  }
+
+  &:has(input:active) {
+    scale: $button-active-scale;
   }
 }

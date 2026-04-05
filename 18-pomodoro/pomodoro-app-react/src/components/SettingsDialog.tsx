@@ -59,6 +59,7 @@ const SettingsDialog = ({ id }: SettingsDialogProps) => {
             commandfor={id}
             // reset dialog settings on close
             onClick={() => setCurrentSettings(settings)}
+            type="button"
           >
             <img src={iconCloseSvg} alt="" />
             <span className="visually-hidden">Close</span>

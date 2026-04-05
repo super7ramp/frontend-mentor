@@ -13,7 +13,7 @@ const ColorRadioInput = ({ color, checked, onCheck }: ColorRadioInputProps) => {
   return (
     <input
       aria-label={color}
-      className={`color-radio-input color-radio-input--color-${color}`}
+      className="color-radio-input"
       name="color"
       type="radio"
       checked={checked}

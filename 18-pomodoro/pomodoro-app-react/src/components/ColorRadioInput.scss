@@ -12,15 +12,15 @@
     background-repeat: no-repeat;
   }
 
-  &--color-red {
+  &[value="red"] {
     background-color: $red-400;
   }
 
-  &--color-cyan {
+  &[value="cyan"] {
     background-color: $cyan-300;
   }
 
-  &--color-purple {
+  &[value="purple"] {
     background-color: $purple-400;
   }
 }

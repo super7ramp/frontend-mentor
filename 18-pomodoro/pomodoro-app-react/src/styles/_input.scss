@@ -1,8 +1,10 @@
 @use "./color" as *;
 
+$button-active-scale: 0.97;
+
 button:active,
 input[type="radio"]:active {
-  scale: 0.97;
+  scale: $button-active-scale;
 }
 
 button:hover,
