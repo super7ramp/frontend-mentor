@@ -10,9 +10,9 @@ type SettingsContextProviderProps = {
 const SettingsContextProvider = ({
   children,
 }: SettingsContextProviderProps) => {
-  const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
+  const context = useState<Settings>(DEFAULT_SETTINGS);
   return (
-    <SettingsContext value={[settings, setSettings]}>
+    <SettingsContext value={context}>
       {children}
     </SettingsContext>
   );
