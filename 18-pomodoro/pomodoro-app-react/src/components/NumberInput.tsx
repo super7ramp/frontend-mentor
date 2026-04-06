@@ -40,11 +40,19 @@ const NumberInput = ({
         }}
       />
       <div className="number-input__buttons">
-        <button type="button" onClick={() => onValueChange(value + 1)}>
+        <button
+          type="button"
+          disabled={value >= (max ?? Number.MAX_VALUE)}
+          onClick={() => onValueChange(value + 1)}
+        >
           <img src={iconArrowUp} alt="" />
           <span className="visually-hidden">Increase</span>
         </button>
-        <button type="button" onClick={() => onValueChange(value - 1)}>
+        <button
+          type="button"
+          disabled={value <= (min ?? Number.MIN_VALUE)}
+          onClick={() => onValueChange(value - 1)}
+        >
           <img src={iconArrowDown} alt="" />
           <span className="visually-hidden">Decrease</span>
         </button>
