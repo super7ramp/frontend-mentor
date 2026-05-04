@@ -81,7 +81,7 @@
 .card__answer {
     filter: blur(2px);
     opacity: 0;
-    transform: translateY(var(--vertical-translation-when-masked));
+    transform: translateY(var(--vertical-translation-when-masked)) scale(66%);
 }
 
 .card__question,

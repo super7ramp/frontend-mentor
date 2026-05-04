@@ -408,7 +408,7 @@ input[type=checkbox]:not(:focus):hover {
 
 ##### Transitions
 
-Used the `transition` property to animate on CSS property changes, e.g. for card background:
+Used the `transition-*` properties to animate on CSS property changes, e.g. for card background:
 
 ```css
 .card {
@@ -421,8 +421,8 @@ Used the `transition` property to animate on CSS property changes, e.g. for card
 For the card text animation, I went this way:
 
 1. Stack both card sides using grid and positioning both sets of elements on the same grid location.
-2. Make the other card side elements opaque (using `opacity`), with a slight blur and vertically translated (using `transform`) so they appear moving down or up when revealing.
-3. Add transition on both `opacity` and `transform` properties.
+2. Make the other card side elements opaque (using `opacity`), with a slight blur (using `filter`), scaled down and vertically translated (using `transform`) so they appear moving down or up when revealing.
+3. Add transition on `filter`, `opacity` and `transform` properties.
 
 ```css
 .card__body {
@@ -453,7 +453,7 @@ For the card text animation, I went this way:
     /* (2) */
     filter: blur(2px);
     opacity: 0;
-    transform: translateY(var(--vertical-translation-when-masked));
+    transform: translateY(var(--vertical-translation-when-masked)) scale(66%);
 }
 
 .card__question,
