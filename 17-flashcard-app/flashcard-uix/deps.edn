@@ -1,8 +1,8 @@
-{:deps {org.clojure/clojure {:mvn/version "1.12.1"}
-        org.clojure/clojurescript {:mvn/version "1.12.134"}
+{:deps {org.clojure/clojure {:mvn/version "1.13.0-alpha3"}
+        org.clojure/clojurescript {:mvn/version "1.12.145"}
         com.pitch/uix.core {:mvn/version "1.4.9"}
         com.pitch/uix.dom {:mvn/version "1.4.9"}}
  :paths ["src"]
- :aliases {:dev {:extra-deps {thheller/shadow-cljs {:mvn/version "3.3.5"}
+ :aliases {:dev {:extra-deps {thheller/shadow-cljs {:mvn/version "3.4.11"}
                               binaryage/devtools {:mvn/version "1.0.7"}}}
            :test {:extra-paths ["test"]}}}
